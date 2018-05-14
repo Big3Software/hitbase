@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="btnexgenipl.xsl"?>
+
+<!DOCTYPE btdoc SYSTEM "btdoc.dtd">
+
+<btdoc>
+	<classsynopsis language="c++">
+		<ooclass>
+			<classname>BTIColorManagementSystem</classname>
+		</ooclass>
+		
+		<methodsynopsis>
+			<modifier>public static</modifier>
+			<type>bool</type>
+			<methodname>Initialize</methodname>
+			<void/>
+			<desc>Initializes the color management system.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public static</modifier>
+			<type>bool</type>
+			<methodname>IsInitialized</methodname>
+			<void/>
+			<desc>Check whether the color management system is initialized.</desc>
+			<retvaldesc>true if initialized; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public static</modifier>
+			<type>void</type>
+			<methodname>Terminate</methodname>
+			<void/>
+			<desc>Terminate the color management system.</desc>
+			<retvaldesc>None.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public static</modifier>
+			<type>BTIColorManagementSystem*</type>
+			<methodname>GetColorManagementSystem</methodname>
+			<void/>
+			<desc>Returns a pointer to the global color management system object.</desc>
+			<retvaldesc>The pointer to the global color management system object; otherwise, NULL.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>LinkColorSpace</methodname>
+			<methodparam>
+				<type>BTIColorSpace*</type>
+				<parameter>pIColorSpace</parameter>
+				<desc>A pointer to the color space object that should be linked to the color management system.</desc>
+			</methodparam>
+			<desc>Link a color space to the color management system. Whether the linked color space is supported by default from the library, the existing implementation will be overwritten with the linked one.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>UnlinkColorSpace</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTColorSpace</type>
+				<parameter>cs</parameter>
+				<desc>The identifier of the color space to unlink from the color management system.</desc>
+			</methodparam>
+			<desc>Unlinks a color space from the color management system. Whether the unlinked color space is a default color space from the library, then it will be replaced with the libraries default implementation.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+	</classsynopsis>
+</btdoc>

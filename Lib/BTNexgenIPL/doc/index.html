@@ -1,0 +1,182 @@
+<html>
+<head>
+<title>Binary Technologies - NexgenIPL API Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="basic.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#666666" vlink="#990000">
+<p class="Title1">BTCImageObject Class</p>
+<p class="Title2">File access</p>
+<ul>
+  <li class="List"><a href="btcimageobject.html#Load">Load</a></li>
+  <li class="List"><a href="btcimageobject.html#Save">Save</a></li>
+</ul>
+<p class="Title2">Codec</p>
+<ul>
+  <li class="List"><a href="btcimageobject.html#AddCodec">AddCodec</a></li>
+  <li class="List"><a href="btcimageobject.html#RemoveCodec">RemoveCodec</a></li>
+  <li class="List"><a href="btcimageobject.html#GetCodecs">GetCodecs</a></li>
+</ul>
+<p class="Title2">Image data access</p>
+<ul>
+  <li class="List"><a href="btcimageobject.html#GetObjectData">GetObjectData</a></li>
+  <li class="List"><a href="btcimageobject.html#GetObjectDataPtr">GetObjectDataPtr</a></li>
+  <li class="List"><a href="btcimageobject.html#Attach">Attach</a></li>
+</ul>
+<p class="Title2">Misc</p>
+<ul>
+  <li class="List"><a href="btcimageobject.html#GetFileType">GetFileType</a></li>
+  <li class="List"><a href="btcimageobject.html#SetProgressNotification">SetProgressNotification</a></li>
+</ul>
+<p class="Title1">BTCImageData Class</p>
+<p class="Title2">Initialisation</p>
+<ul>
+  <li class="List"><a href="btcimagedata.html#Create">Create</a></li>
+  <li class="List"><a href="btcimagedata.html#DeleteObject">DeleteObject</a></li>
+  <li class="List"><a href="btcimagedata.html#IsLoaded">IsLoaded</a></li>
+</ul>
+<p class="Title2">Information</p>
+<ul>
+  <li class="List"><a href="btcimagedata.html#GetPlanes">GetPlanes</a></li>
+  <li class="List"><a href="btcimagedata.html#GetDepth">GetDepth</a></li>
+  <li class="List"><a href="btcimagedata.html#GetBitsPerPixel">GetBitsPerPixel</a></li>
+  <li class="List"><a href="btcimagedata.html#GetBytesPerPixel">GetBytesPerPixel</a></li>
+  <li class="List"><a href="btcimagedata.html#GetBytesPerLine">GetBytesPerLine</a></li>
+  <li class="List"><a href="btcimagedata.html#GetImageSize">GetImageSize</a></li>
+  <li class="List"><a href="btcimagedata.html#GetWidth">GetWidth</a></li>
+  <li class="List"><a href="btcimagedata.html#GetHeight">GetHeight</a></li>
+  <li class="List"><a href="btcimagedata.html#GetResolution">GetResolution</a></li>
+  <li class="List"><a href="btcimagedata.html#GetBitmapInfo">GetBitmapInfo</a></li>
+  <li class="List"><a href="btcimagedata.html#GetBitmapInfoHeader">GetBitmapInfoHeader</a></li>
+  <li class="List"><a href="btcimagedata.html#GetBits">GetBits</a></li>
+</ul>
+<p class="Title2">Color</p>
+<ul>
+  <li class="List"><a href="btcimagedata.html#GetIndexFromColor">GetIndexFromColor</a></li>
+  <li class="List"><a href="btcimagedata.html#GetIndexFromPixel">GetIndexFromPixel</a></li>
+  <li class="List"><a href="btcimagedata.html#GetColorFromIndex">GetColorFromIndex</a></li>
+  <li class="List"><a href="btcimagedata.html#GetColorFromPixel">GetColorFromPixel</a></li>
+  <li class="List"><a href="btcimagedata.html#SetColorForIndex">SetColorForIndex</a></li>
+  <li class="List"><a href="btcimagedata.html#SetColorForPixel">SetColorForPixel</a></li>
+  <li class="List"><a href="btcimagedata.html#SetColorForColor">SetColorForColor</a></li>
+  <li class="List"><a href="btcimagedata.html#IsColorInColorTable">IsColorInColorTable</a></li>
+  <li class="List"><a href="btcimagedata.html#FindNearestPaletteColor">FindNearestPaletteColor</a></li>
+  <li class="List"><a href="btcimagedata.html#GetColorTable">GetColorTable</a></li>
+  <li class="List"><a href="btcimagedata.html#GetColorTableSize">GetColorTableSize</a></li>
+  <li class="List"><a href="btcimagedata.html#GetNumColorEntries">GetNumColorEntries</a></li>
+  <li class="List"><a href="btcimagedata.html#FillColorTable">FillColorTable</a></li>
+  <li class="List"><a href="btcimagedata.html#GetPalette">GetPalette</a></li>
+  <li class="List"><a href="btcimagedata.html#SetPalette">SetPalette</a></li>
+</ul>
+<p class="Title2">Edit</p>
+<ul>
+  <li class="List"><a href="btcimagedata.html#Resize">Resize</a></li>
+  <li class="List"><a href="btcimagedata.html#Crop">Crop</a></li>
+  <li class="List"><a href="btcimagedata.html#Copy">Copy</a></li>
+  <li class="List"><a href="btcimagedata.html#Fill">Fill</a></li>
+  <li class="List"><a href="btcimagedata.html#Combine">Combine</a></li>
+  <li class="List"><a href="btcimagedata.html#Blend">Blend</a></li>
+</ul>
+<p class="Title2">Channel</p>
+<ul>
+  <li class="List"><a href="btcimagedata.html#GetChannel">GetChannel</a></li>
+  <li class="List"><a href="btcimagedata.html#SplitChannels">SplitChannels</a></li>
+  <li class="List"><a href="btcimagedata.html#CombineChannels">CombineChannels</a></li>
+</ul>
+<p class="Title2">Conversion</p>
+<ul>
+  <li class="List"><a href="btcimagedata.html#ConvertTo24BPP">ConvertTo24BPP</a></li>
+  <li class="List"><a href="btcimagedata.html#ConvertTo32BPP">ConvertTo32BPP</a></li>
+  <li class="List"><a href="btcimagedata.html#Quantize">Quantize</a></li>
+</ul>
+<p class="Title2">Filter</p>
+<ul>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Blur">Blur</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Grayscale">Grayscale</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Negate">Negate</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Flip">Flip</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Mirror">Mirror</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Rotate90">Rotate90</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Smooth">Smooth</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Normalize">Normalize</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Posterize">Posterize</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Threshold">Threshold</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Emboss">Emboss</a></span></li>
+  <li class="List"><a href="btcimagedata.html#Detail">Detail</a></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#EdgeEnhance">EdgeEnhance</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#EdgeEnhance">EdgeEnhanceMore</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Median">Median</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Dilate">Dilate</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Erode">Erode</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#FindEdge">FindEdge</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Sharpen">Sharpen</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Solarize">Solarize</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Antialias">Antialias</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#DeInterlace">DeInterlace</a></span></li>
+  <li class="List"><span class="List"><a href="btcimagedata.html#Convolve">Convolve</a></span></li>
+  <li><span class="List"><a href="btcimagedata.html#Noise">Noise</a></span></li>
+</ul>
+<p class="Title2">Adjustment</p>
+<ul>
+  <li class="List"><a href="btcimagedata.html#AdjustBrightness">AdjustBrightness</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustContrast">AdjustContrast</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustHighlight">AdjustHighlight</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustMidtone">AdjustMidtone</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustShadow">AdjustShadow</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustGamma">AdjustGamma</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustHue">AdjustHue</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustLightness">AdjustLightness</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustSaturation">AdjustSaturation</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustHLS">AdjustHLS</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustRed">AdjustRed</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustGreen">AdjustGreen</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustBlue">AdjustBlue</a></li>
+  <li class="List"><a href="btcimagedata.html#AdjustRGB">AdjustRGB</a></li>
+</ul>
+<p class="Title2">Draw</p>
+<ul>
+  <li class="List"><a href="btcimagedata.html#Stretch">Stretch</a></li>
+  <li class="List"><a href="btcimagedata.html#Draw">Draw</a></li>
+  <li class="List"><a href="btcimagedata.html#DrawDithered">DrawDithered</a></li>
+  <li class="List"><a href="btcimagedata.html#DrawTransparent">DrawTransparent</a></li>
+  <li class="List"><a href="btcimagedata.html#DrawSemiTransparent">DrawSemiTransparent</a></li>
+</ul>
+<p class="Title2">Win32API</p>
+<ul>
+  <li class="List"><a href="btcimagedata.html#FromDC">FromDC</a></li>
+  <li class="List"><a href="btcimagedata.html#FromHandle">FromHandle</a></li>
+  <li class="List"><a href="btcimagedata.html#FromDIB">FromDIB</a></li>
+  <li class="List"><a href="btcimagedata.html#GetDIB">GetDIB</a></li>
+  <li class="List"><a href="btcimagedata.html#GetBitmap">GetBitmap</a></li>
+</ul>
+<p class="Title2">Misc</p>
+<ul>
+  <li class="List"><a href="btcimagedata.html#Compare">Compare</a></li>
+  <li class="List"><a href="btcimagedata.html#GetHistogram">GetHistogram</a></li>
+</ul>
+<p class="Title1">BTIColorManagementSystem Class</p>
+<p class="Title2">Initialisation</p>
+<ul>
+  <li class="List"><span class="List"><a href="bticolormanagementsystem.html#Initialize">Initialize</a></span></li>
+  <li class="List"><span class="List"><a href="bticolormanagementsystem.html#IsInitialized">IsInitialized</a></span></li>
+  <li class="List"><span class="List"><a href="bticolormanagementsystem.html#Terminate">Terminate</a></span></li>
+  <li class="List"><span class="List"><a href="bticolormanagementsystem.html#GetColorManagementSystem">GetColorManagementSystem</a></span></li>
+</ul>
+<p class="Title2">Misc</p>
+<ul>
+  <li class="List"><span class="List"><a href="bticolormanagementsystem.html#LinkColorSpace">LinkColorSpace</a></span></li>
+  <li class="List"><span class="List"><a href="bticolormanagementsystem.html#UnlinkColorSpace">UnlinkColorSpace</a></span></li>
+</ul>
+<p class="Title1">BTIColorSpace Class</p>
+<ul>
+  <li class="List"><span class="List"><a href="bticolorspace.html#GetColorSpace">GetColorSpace</a></span></li>
+  <li class="List"><span class="List"><a href="bticolorspace.html#getNumComponents">GetNumComponents</a></span></li>
+  <li class="List"><span class="List"><a href="bticolorspace.html#GetType">GetType</a></span></li>
+  <li class="List"><span class="List"><a href="bticolorspace.html#FromCIEXYZ">FromCIEXYZ</a></span></li>
+  <li class="List"><span class="List"><a href="bticolorspace.html#FromRGB">FromRGB</a></span></li>
+  <li class="List"><span class="List"><a href="bticolorspace.html#ToCIEXYZ">ToCIEXYZ</a></span></li>
+  <li class="List"><span class="List"><a href="bticolorspace.html#ToRGB">ToRGB</a></span></li>
+</ul>
+<p>&nbsp;</p></body>
+</html>

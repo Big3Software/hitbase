@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="Big3.Hitbase.MainControls.StatisticsOverviewUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+             xmlns:local="clr-namespace:Big3.Hitbase.MainControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <local:ShowDetailsToVisibilityConverter x:Key="showDetailsToVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid Name="DataGridStatistics" Margin="10,15,10,15" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" RowHeaderWidth="0" HeadersVisibility="Column" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{sr:Loc Statistic}" Width="250" Binding="{Binding Name}" />
+                <!--<DataGridTextColumn Header="{sr:Loc Value}" Width="150" Binding="{Binding Value}" />-->
+                <DataGridTemplateColumn Header="{sr:Loc Value}" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Value}"  VerticalAlignment="Center" />
+                                <Button VerticalAlignment="Center" Visibility="{Binding ShowDetails, Converter={StaticResource showDetailsToVisibilityConverter}}" ToolTip="{sr:Loc ShowDetails}" Name="ButtonShowDetails" Click="ButtonShowDetails_Click">
+                                    <Image Stretch="None" Source="/Big3.Hitbase.SharedResources;component/Images/Search2.png" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

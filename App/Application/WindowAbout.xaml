@@ -1,0 +1,29 @@
+﻿<Window x:Class="Big3.Hitbase.Application.WindowAbout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Über Hitbase" Height="394" Width="607" WindowStartupLocation="CenterOwner" TextOptions.TextFormattingMode="Display" ResizeMode="NoResize">
+    <Grid Margin="10">
+        <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" FontSize="48"
+                   Text="Hitbase 2012" VerticalAlignment="Top" />
+
+        <TextBlock HorizontalAlignment="Left" Margin="0,60,0,0" FontSize="24" Name="textBlockVersion"
+                   Text="Version 13.0.1" VerticalAlignment="Top" />
+
+        <TextBlock HorizontalAlignment="Left" Margin="0,100,0,0" FontSize="24" Name="textBlockLicense1"
+                   Text="" VerticalAlignment="Top" />
+        <TextBlock HorizontalAlignment="Left" Margin="0,130,0,0" FontSize="20" Name="textBlockLicense2"
+                   Text="" VerticalAlignment="Top" />
+
+        <Button Content="OK" Height="23" HorizontalAlignment="Right" Margin="0,0,0,0" Name="buttonClose" VerticalAlignment="Bottom" Width="75" Click="buttonClose_Click" IsDefault="True" IsCancel="True" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,0,0,120" Name="textBlock1" 
+                   Text="Copyright (c) 1993-2011 by Big 3 Software, Gebr. Schmitz GbR. Alle Rechte vorbehalten." VerticalAlignment="Bottom" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,0,0,100" Name="textBlock2" 
+                   Text="&quot;Hitbase&quot; ist ein eingetragenes Warenzeichen der Firma Big 3 Software, Gebr. Schmitz GbR." VerticalAlignment="Bottom" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,0,0,80" Name="textBlock3" 
+                   Text="Entwickelt von: Jürgen, Dieter und Günter Schmitz" VerticalAlignment="Bottom" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,0,0,60" Name="textBlock4" 
+                   Text="Grafik: Nicole Schmitz" VerticalAlignment="Bottom" />
+        <TextBlock Height="41" HorizontalAlignment="Left" Margin="0,0,0,22" Name="textBlock5" VerticalAlignment="Bottom">Benutzt TagLib#, eine Bibliothek zum Lesen und Schreiben von Metadaten. <LineBreak/>Copyright (C) 2006-2007 Brian Nickel</TextBlock>
+        <Image Height="128" HorizontalAlignment="Right" Margin="0,0,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="128" Source="Images/HitbaseLarge.png" />
+    </Grid>
+</Window>

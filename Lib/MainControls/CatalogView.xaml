@@ -1,0 +1,190 @@
+﻿<UserControl x:Class="Big3.Hitbase.MainControls.CatalogView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:controls="clr-namespace:Big3.Hitbase.Controls;assembly=Controls"
+    xmlns:trans="clr-namespace:Transitionals;assembly=Transitionals"
+    xmlns:transc="clr-namespace:Transitionals.Controls;assembly=Transitionals"
+    xmlns:transt="clr-namespace:Transitionals.Transitions;assembly=Transitionals"
+    xmlns:local="clr-namespace:Big3.Hitbase.MainControls"
+    xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+    mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Controls;component/SplitButtonStyle.xaml" ></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
+            </Style>
+
+            <!--<Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource {x:Static ToolBar.ToggleButtonStyleKey}}" >
+            </Style>-->
+            <Style TargetType="{x:Type ToggleButton}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Grid x:Name="mainGrid" Margin="1,1,1,1">
+                                <Grid x:Name="uncheckedState">
+                                    <Border Margin="0,0,0,0" BorderBrush="BlanchedAlmond" BorderThickness="2,2,2,2" CornerRadius="4,4,4,4">
+                                        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center"></ContentControl>
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.567"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                                <Grid x:Name="checkedState" Visibility="Collapsed" >
+                                    <Border Margin="0,0,0,0" BorderBrush="BlanchedAlmond" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                                        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center"></ContentControl>
+                                        <!--ContentControl HorizontalAlignment="Center" VerticalAlignment="Center">Sampler √</ContentControl-->
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                                                <GradientStop Color="#FFFFC934" Offset="0"/>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.567"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="checkedState" Property="Visibility" Value="Visible" />
+                                    <Setter TargetName="uncheckedState" Property="Visibility" Value="Collapsed" />
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect ShadowDepth="0" Color="Orange" BlurRadius="10" />
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <!--Setter TargetName="mainGrid" Property="Margin" Value="2,2,0,0"/-->
+                                    <!--Setter TargetName="checkedState" Property="Background" Value="Blue" /-->
+                                    <!--Setter TargetName="uncheckedState" Property="Background" Value="Red" /-->
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.InputBindings>
+        <KeyBinding Command="sr:HitbaseCommands.DeleteAlbum" Key="Delete" />
+        <KeyBinding Command="sr:HitbaseCommands.Search" Key="F3" />
+        <KeyBinding Command="sr:HitbaseCommands.Search" Key="F" Modifiers="Control" />
+        <KeyBinding Command="sr:HitbaseCommands.Refresh" Key="F5"/>
+    </UserControl.InputBindings>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="sr:HitbaseCommands.OpenTrack" Executed="CommandBindingOpenTrack_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.DeleteAlbum" Executed="CommandBindingDelete_Executed" CanExecute="CommandBindingDelete_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.Refresh" Executed="CommandBindingRefresh_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.EditSort" Executed="CommandBindingEditSort_Executed" CanExecute="CommandBindingEditSort_CanExecute" />
+        <CommandBinding Command="local:CatalogViewCommands.ChangeView" Executed="CommandChangeView_Executed" />
+        <CommandBinding Command="local:ConditionCommands.SaveCondition" Executed="CommandBindingSaveCondition_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.Search" Executed="CommandBindingSearch_Executed" />
+    </UserControl.CommandBindings>
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <!-- Die Toolbar und der Bereich für die erweiterte Suche -->
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Background="{DynamicResource ToolbarBackground}">
+                <controls:SplitButton Style="{StaticResource ToolBarSplitButtonStyle}" HorizontalAlignment="Left" Name="splitButtonView" VerticalAlignment="Center" Height="22"
+                                      Image="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/View.png" Click="splitButtonView_Click">
+                    <controls:SplitButton.DropDownContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Albumansicht" Name="MenuItemAlbumView" Click="MenuItemExtendedView_Click">
+                                <MenuItem.Icon>
+                                    <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/ViewDetails.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Albumansicht" Name="MenuItemCoverView" Click="MenuItemCoverView_Click">
+                                <MenuItem.Icon>
+                                    <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/ViewImages.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Tabelle" Name="MenuItemDetails" Click="MenuItemDetails_Click">
+                                <MenuItem.Icon>
+                                    <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/ViewTable.png" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </controls:SplitButton.DropDownContextMenu>
+                </controls:SplitButton>
+
+                <Button HorizontalAlignment="Left" Margin="40,0,0,0" Command="sr:HitbaseCommands.EditSort" ToolTip="{sr:Loc Sort}">
+                    <Image Source="/Big3.Hitbase.SharedResources;component/Images/Sort.png" Width="16" Height="16" Margin="0,0,3,0" >
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Style.Triggers>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" Value="0.4" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </Button>
+
+                <Button HorizontalAlignment="Left" Margin="65,0,0,0" Command="sr:HitbaseCommands.Refresh">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Big3.Hitbase.SharedResources;component/Images/Refresh.png" Width="16" Height="16" Margin="0,0,3,0" />
+                        <TextBlock Text="{sr:Loc Refresh}" />
+                    </StackPanel>
+                </Button>
+                <Button HorizontalAlignment="Left" Margin="170,0,0,0" Command="local:ConditionCommands.SaveCondition" Name="ButtonSaveCondition"  Visibility="Collapsed">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Big3.Hitbase.SharedResources;component/Images/Save.png" Width="16" Height="16" Margin="0,0,3,0" />
+                        <TextBlock Text="{sr:Loc SaveSearch}" />
+                    </StackPanel>
+                </Button>
+                <ToggleButton HorizontalAlignment="Right" Margin="0,0,205,0" Name="ExtendedSearchToggleButton" Click="ButtonExtendedSearch_Click" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="5,2,5,2">
+                        <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/ExtendedSearch.png" Stretch="None" Margin="0,0,3,0" />
+                        <TextBlock Text="{sr:Loc ExtendedSearch}" />
+                    </StackPanel>
+                </ToggleButton>
+                <controls:SearchTextBox Search="SearchTextBox_Search" Name="SearchTextBox" HorizontalAlignment="Right" LabelText="Suchen" VerticalAlignment="Center" Width="200" Margin="2"></controls:SearchTextBox>
+            </Grid>
+            <local:ExtendedSearchUserControl x:Name="ExtendedSearchUserControl" Grid.Row="1" Visibility="Collapsed">
+            </local:ExtendedSearchUserControl>
+        </Grid>
+
+        <controls:WaitProgress Grid.Row="1" Name="WaitProgress" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" WaitProgressColor="Black">
+            
+        </controls:WaitProgress>    
+        
+        <transc:TransitionElement x:Name="AlbumViewTransitionBox" Grid.Row="1">
+            <transc:TransitionElement.Transition>
+                <transt:FadeAndBlurTransition/>
+            </transc:TransitionElement.Transition>
+        </transc:TransitionElement>
+        
+        <Grid Grid.Row="2">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStopCollection>
+                        <GradientStop Offset="0" Color="#90ffffff" />
+                        <GradientStop Offset="1" Color="#40ffffff" />
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <TextBlock Foreground="#77000000" Margin="2" Name="TextBlockNumberOfItems"></TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>

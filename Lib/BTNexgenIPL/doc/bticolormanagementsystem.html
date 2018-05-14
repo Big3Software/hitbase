@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>BTIColorManagementSystem</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="basic.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<p class="Title1" align="left">BTIColorManagementSystem Class</p>
+<p class="Title2"><Load>Initialize<a name="Initialize"></a></load></p>
+<p class="Method">static bool Initialize()</p>
+<p class="Text"> Initializes the color management system.</p>
+<p class="Title3">Return Value</p>
+<p><span class="Text">true if successful; otherwise, false.</span></p>
+<hr size="1" align="center" noshade>
+<p class="Title2">IsInitialized<a name="IsInitialized"></a></p>
+<p class="Method">static bool IsInitialized()</p>
+<p class="Text">Check whether the color management system is initialized.</p>
+<p class="Title3"><span class="Title3">Return Value</span></p>
+<p><span class="Text">true if initialized; otherwise, false.</span></p>
+<hr size="1" noshade align="center">
+<p class="Title2">Terminate<a name="Terminate"></a></p>
+<p class="Method">static void Terminate()</p>
+<p class="Text"> Terminate the color management system.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">None.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetColorManagementSystem<a name="GetColorManagementSystem"></a></p>
+<p class="Method">static BTIColorManagementSystem *GetColorManagementSystem()</p>
+<p class="Text"> Return a pointer to the global color management system object.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">The pointer to the global color management system object; otherwise, 
+  NULL.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">LinkColorSpace<a name="LinkColorSpace"></a></p>
+<p class="Method"> bool LinkColorSpace(BTIColorSpace* pIColorSpace)</p>
+<p class="Text"> Link a color space to the color management system. Whether the 
+  linked color space is supported by default from the library, the existing implementation 
+  will be overwritten with the linked one.</p>
+<p class="Title3"> Parameters</p>
+<p class="Parameter">pIColorSpace</p>
+<blockquote> 
+  <p class="Text">A pointer to the color space object to link to the color management 
+    system.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text"><span class="Text">true if successful; otherwise, false.</span></p>
+<hr size="1" noshade align="center">
+<p class="Title2">UnlinkColorSpace<a name="UnlinkColorSpace"></a></p>
+<p class="Method"> bool UnlinkColorSpace(const enum BTColorSpace cs)</p>
+<p class="Text"> Unlinks a color space from the color management system. Whether 
+  the unlinked color space is a default color space from the library, then it 
+  will be replaced with the libraries default implementation.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<p>&nbsp;</p>
+</body>
+</html>

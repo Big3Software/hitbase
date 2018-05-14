@@ -1,0 +1,9 @@
+﻿<Window x:Class="Big3.Hitbase.Controls.WaitProgressWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Big3.Hitbase.Controls" Style="{DynamicResource MyWindowStyle}" 
+        Title="Bitte warten..." Height="200" Width="450" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <local:WaitProgressUserControl x:Name="progressControl" x:FieldModifier="public" />
+    </Grid>
+</Window>

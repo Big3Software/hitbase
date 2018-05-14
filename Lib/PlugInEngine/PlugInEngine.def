@@ -1,0 +1,7 @@
+; PlugInEngine.def : Declares the module parameters for the DLL.
+
+LIBRARY      "PlugInEngine"
+DESCRIPTION  'PlugInEngine Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here

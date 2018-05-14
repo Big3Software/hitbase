@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CDTreeDataSet" targetNamespace="http://tempuri.org/CDTreeDataSet.xsd" xmlns:mstns="http://tempuri.org/CDTreeDataSet.xsd" xmlns="http://tempuri.org/CDTreeDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="templateConnectionString3" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="templateConnectionString3 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Big3.Hitbase.DataBaseEngine.Properties.Settings.GlobalReference.Default.templateConnectionString3" Provider="Microsoft.SqlServerCe.Client.3.5" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TreeDataTableAdapter" GeneratorDataComponentClassName="TreeDataTableAdapter" Name="TreeData" UserDataComponentName="TreeDataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="templateConnectionString3 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        PersonGroup_CD.Name, PersonGroup_CD.SaveAs, CD.Title, PersonGroup_CD.Type, PersonGroup_CD.Sex, Track.Title AS TrackTitle, Track.SoundFile, 
+                         Track.TrackNumber, CD.NumberOfTracks, CD.Length, CD.IsSampler, Track.Length AS TrackLength, CD.MediumID, CD.Type AS CDType, [Set].Name AS SetName, 
+                         PersonGroup.Name AS PersonGroupTrackName, CD.CDID
+FROM            PersonGroup RIGHT OUTER JOIN
+                         Track INNER JOIN
+                         CD ON Track.CDID = CD.CDID ON PersonGroup.PersonGroupID = Track.ArtistID LEFT OUTER JOIN
+                         PersonGroup AS PersonGroup_CD ON CD.ArtistID = PersonGroup_CD.PersonGroupID LEFT OUTER JOIN
+                         [Set] ON CD.SetID = [Set].SetID
+ORDER BY PersonGroup_CD.SaveAs, CD.Title, CD.CDID, Track.TrackNumber</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="SaveAs" DataSetColumn="SaveAs" />
+              <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+              <Mapping SourceColumn="Sex" DataSetColumn="Sex" />
+              <Mapping SourceColumn="SoundFile" DataSetColumn="SoundFile" />
+              <Mapping SourceColumn="TrackNumber" DataSetColumn="TrackNumber" />
+              <Mapping SourceColumn="NumberOfTracks" DataSetColumn="NumberOfTracks" />
+              <Mapping SourceColumn="Length" DataSetColumn="Length" />
+              <Mapping SourceColumn="IsSampler" DataSetColumn="IsSampler" />
+              <Mapping SourceColumn="MediumID" DataSetColumn="MediumID" />
+              <Mapping SourceColumn="TrackTitle" DataSetColumn="TrackTitle" />
+              <Mapping SourceColumn="TrackLength" DataSetColumn="TrackLength" />
+              <Mapping SourceColumn="CDType" DataSetColumn="CDType" />
+              <Mapping SourceColumn="SetName" DataSetColumn="SetName" />
+              <Mapping SourceColumn="PersonGroupTrackName" DataSetColumn="PersonGroupTrackName" />
+              <Mapping SourceColumn="CDID" DataSetColumn="CDID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CDTreeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="CDTreeDataSet" msprop:Generator_UserDSName="CDTreeDataSet" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TreeData" msprop:Generator_UserTableName="TreeData" msprop:Generator_RowDeletedName="TreeDataRowDeleted" msprop:Generator_TableClassName="TreeDataDataTable" msprop:Generator_RowChangedName="TreeDataRowChanged" msprop:Generator_RowClassName="TreeDataRow" msprop:Generator_RowChangingName="TreeDataRowChanging" msprop:Generator_RowEvArgName="TreeDataRowChangeEvent" msprop:Generator_RowEvHandlerName="TreeDataRowChangeEventHandler" msprop:Generator_TablePropName="TreeData" msprop:Generator_TableVarName="tableTreeData" msprop:Generator_RowDeletingName="TreeDataRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SaveAs" msdata:ReadOnly="true" msprop:Generator_UserColumnName="SaveAs" msprop:Generator_ColumnPropNameInRow="SaveAs" msprop:Generator_ColumnVarNameInTable="columnSaveAs" msprop:Generator_ColumnPropNameInTable="SaveAsColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Title" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Title" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInTable="TitleColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Type" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInTable="TypeColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Sex" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Sex" msprop:Generator_ColumnPropNameInRow="Sex" msprop:Generator_ColumnVarNameInTable="columnSex" msprop:Generator_ColumnPropNameInTable="SexColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="SoundFile" msdata:ReadOnly="true" msprop:Generator_UserColumnName="SoundFile" msprop:Generator_ColumnPropNameInRow="SoundFile" msprop:Generator_ColumnVarNameInTable="columnSoundFile" msprop:Generator_ColumnPropNameInTable="SoundFileColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TrackNumber" msdata:ReadOnly="true" msprop:Generator_UserColumnName="TrackNumber" msprop:Generator_ColumnPropNameInRow="TrackNumber" msprop:Generator_ColumnVarNameInTable="columnTrackNumber" msprop:Generator_ColumnPropNameInTable="TrackNumberColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="NumberOfTracks" msdata:ReadOnly="true" msprop:Generator_UserColumnName="NumberOfTracks" msprop:Generator_ColumnPropNameInRow="NumberOfTracks" msprop:Generator_ColumnVarNameInTable="columnNumberOfTracks" msprop:Generator_ColumnPropNameInTable="NumberOfTracksColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Length" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Length" msprop:Generator_ColumnPropNameInRow="Length" msprop:Generator_ColumnVarNameInTable="columnLength" msprop:Generator_ColumnPropNameInTable="LengthColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="IsSampler" msdata:ReadOnly="true" msprop:Generator_UserColumnName="IsSampler" msprop:Generator_ColumnPropNameInRow="IsSampler" msprop:Generator_ColumnVarNameInTable="columnIsSampler" msprop:Generator_ColumnPropNameInTable="IsSamplerColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="MediumID" msdata:ReadOnly="true" msprop:Generator_UserColumnName="MediumID" msprop:Generator_ColumnPropNameInRow="MediumID" msprop:Generator_ColumnVarNameInTable="columnMediumID" msprop:Generator_ColumnPropNameInTable="MediumIDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="TrackTitle" msdata:ReadOnly="true" msprop:Generator_UserColumnName="TrackTitle" msprop:Generator_ColumnPropNameInRow="TrackTitle" msprop:Generator_ColumnVarNameInTable="columnTrackTitle" msprop:Generator_ColumnPropNameInTable="TrackTitleColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TrackLength" msdata:ReadOnly="true" msprop:Generator_UserColumnName="TrackLength" msprop:Generator_ColumnPropNameInRow="TrackLength" msprop:Generator_ColumnVarNameInTable="columnTrackLength" msprop:Generator_ColumnPropNameInTable="TrackLengthColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="CDType" msdata:ReadOnly="true" msprop:Generator_UserColumnName="CDType" msprop:Generator_ColumnPropNameInRow="CDType" msprop:Generator_ColumnVarNameInTable="columnCDType" msprop:Generator_ColumnPropNameInTable="CDTypeColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="SetName" msdata:ReadOnly="true" msprop:Generator_UserColumnName="SetName" msprop:Generator_ColumnPropNameInRow="SetName" msprop:Generator_ColumnVarNameInTable="columnSetName" msprop:Generator_ColumnPropNameInTable="SetNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PersonGroupTrackName" msdata:ReadOnly="true" msprop:Generator_UserColumnName="PersonGroupTrackName" msprop:Generator_ColumnPropNameInRow="PersonGroupTrackName" msprop:Generator_ColumnVarNameInTable="columnPersonGroupTrackName" msprop:Generator_ColumnPropNameInTable="PersonGroupTrackNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CDID" msdata:ReadOnly="true" msprop:Generator_UserColumnName="CDID" msprop:Generator_ColumnPropNameInRow="CDID" msprop:Generator_ColumnVarNameInTable="columnCDID" msprop:Generator_ColumnPropNameInTable="CDIDColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

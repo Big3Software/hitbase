@@ -1,0 +1,386 @@
+Binary Technologies
+http://www.binary-technologies.com | http://www.binary-technologies.de
+info@binary-technologies.com
+
+
+    NexgenIPL - Image Processing Library FAQ
+   ------------------------------------------
+
+ 1. I got linker errors.
+ 2. I can not load any bitmaps with Adobe Photoshop.
+ 3. In which order is the color information stored in memory?
+ 4. How to load/save images?
+ 5. How do i implement my own input/output stream?
+ 6. How do i use my own input/output stream?
+ 7. How do i use my own filters?
+ 8. How do i rotate an image?
+ 9. How do i resize an image?
+10. Why are some member variables in BITMAPINFOHEADER set to zero?
+11. How do i implement my own decoder/encoder?
+12. How do i add my own decoder/encoder?
+13. How do i replace an excisting internal encoder/decoder?
+14. How to receive an image from the clipboard?
+15. How do i load an image from resource?
+16. How do i use the color management system?
+17. How do i activate using embedded profiles in TIF/JPEF images?
+18. I can not set some options.
+19. How do i split/combine channels.
+20. How to extract EXIF data from an image.
+
+------------------------------------------------------------------------------------------------
+
+1. If you got linker errors using NexgenIPL library (this happens when you
+   are using the library in a Win32 application compiling under MS VC++ 5.0),
+   try the following:
+
+   !!! Add this into your stdafx.h file before including all needed headers. It is
+   important that this will be added before including 'windows.h' !!!
+
+	#ifndef NO_STRICT
+	#ifndef STRICT
+	#define STRICT 1
+	#endif
+	#endif /* NO_STRICT */
+
+------------------------------------------------------------------------------------------------
+
+2. It seems that Adobe Photoshop can not load 32 bit windows bitmaps. So it's no fault from
+   NexgenIPL. To load bitmaps in Adobe Photoshop saved/created with NexgenIPL you have to
+   convert the images to 24 bits per pixel with BTCImageData::ConvertTo24BPP() before saving.
+
+------------------------------------------------------------------------------------------------
+
+3. The color information is stored as following:
+
+   1  bit: No Colortable needed
+   4  bit: Index of color in color table
+   8  bit: Index of color in color table
+   16 bit: BGR  (5/5/5)
+   24 bit: BGR  (8/8/8)
+   32 bit: BGRA (8/8/8/8)
+
+   This information is only necessary if you are accessing the image bits directly.
+
+------------------------------------------------------------------------------------------------
+
+4. To load or save a image use this code:
+
+   BTCImageObject Object;
+
+   // Try to load the image. If 'lCodecId' = -1 something went wrong, otherwise
+   // 'lCodecId' is the id of the codec used to decode the image.
+   long lCodecId = Object.Load( _BTTEXT("c:\\test.jp2"));
+
+   // Now save the image as jpeg. To do that we have to get the id of the 'jpeg' codec.
+   // Please notice that the internal id's for decoders and encoders are different. This means
+   // that's not possible to use the id returned from 'Load(...)' to save a image using
+   // 'Save(...)'. In some cases the codecs might have the same id's for decoding and encoding,
+   // but this can change when adding/removing codecs.
+   // There are two ways to get the id of the requested codec:
+   lCodecId = -1;
+
+   // 1. You can get it by using the name of the codec. A list of the
+   //    internal codecs can be found in BTDefines.h.
+   lCodecId = Object.GetCodecIdFromFormat( _BTTEXT("JPEG"), BTCODECTYPE_ENCODER);
+
+   // 2. Another way is to retrieve it throught the file extension used by the codec.
+   lCodecId = Object.GetCodecIdFromExtension( _BTTEXT("jpg"), BTCODECTYPE_ENCODER);
+
+   // Now save the image. If 'hr' = BT_S_FALSE, something went wrong.
+   BTRESULT hr = Object.Save( _BTTEXT("c:\\test.jpg"), lCodecId);
+
+------------------------------------------------------------------------------------------------
+
+5. You have to create a class derived from BTCIOStream. See BTCOFStream.h and BTCOFStream.cpp
+   for example. Notice that you have to implement your own Open(...) method. This hasn't been
+   added as a virtual method to BTCIOStream because the parameters depends on your
+   implementation/type of stream.
+
+------------------------------------------------------------------------------------------------
+
+6. This shows you how to load/save images using your own data sources/sinks.
+   The sources for the BTCIFStream/BTCOFStream classes are in the /Example
+   directory.
+
+   BTCImageObject Object;
+
+   BTCIFStream MyInputStream;
+   BTCOFStream MyOutputStream;
+
+   // Open input stream.
+   MyInputStream.Open( "c:\\test\\test.bmp");
+
+   // Load any image.
+   Object.Load( &MyInputStream);
+
+   // Open output stream.
+   MyOutputStream.Open( "c:\\test\\test2.jpg");
+
+   // Get the id of the codec you want to use as encoder. There are two
+   // ways to do that:
+   long lCodecId = -1;
+
+   // 1. You can get it by using the name of the codec. A list of the
+   //    internal codecs can be found in BTDefines.h.
+   lCodecId = Object.GetCodecIdFromFormat( _BTTEXT("JPEG"), BTCODECTYPE_ENCODER);
+
+   // 2. Another way is to retrieve it throught the file extension used by the codec.
+   lCodecId = Object.GetCodecIdFromExtension( _BTTEXT("tiff"), BTCODECTYPE_ENCODER);
+
+   // Call save method with your output stream.
+   BTRESULT hr = Object.Save( &MyOutputStream, lCodecId);
+
+------------------------------------------------------------------------------------------------
+
+7. This shows you how to use your own filters.
+
+   double Kernel[3 *3] = { -1, -2, -1,
+                           -2, -2, -2,
+                           -1, -2, -1 };
+
+   Convolve( (double*)&Kernel, 3, 1, 0);
+
+   You have to use the bias if you want to shift the value of each pixel by a fixed amount
+   (e.g. 128):
+
+   Convolve( (double*)&Kernel, 3, 1, 128);
+
+------------------------------------------------------------------------------------------------
+
+8. To rotate an image 90 degrees:
+
+   Image.Rotate90(BTCImageData::BTDirection::Left)  - Rotate to left.
+   Image.Rotate90(BTCImageData::BTDirection::Right) - Rotate to right.
+
+   To rotate an image 180 degrees:
+
+   Image.Flip();
+
+   To rotate an image 270 degrees to left or right you can use the
+   BTCImageData::Rotate90(...) and the BTCImageData::Flip() methods.
+
+   To rotate a image x degrees:
+
+   double dblAngle = 120.0;
+   BTCCOLORREF colBackgroundColor = BTRGB( 255, 0, 255);
+   Image.Rotate( dblAngle, BTCImageData::BTDirection::Left, colBackgroundColor);
+
+------------------------------------------------------------------------------------------------
+
+9. To resize an image you have to use this:
+
+   Image.Resize( nNewWidth, nNewHeight, BTCImageData::BTResizeFilter::Bilinear);
+
+   The following filters are available:
+
+   - Box
+   - Bilinear
+   - Gaussian
+   - Hamming
+   - Blackman
+   - Triangle
+   - Bell
+   - BSpline
+   - Sinc
+   - Lanczos3
+   - Mitchell
+   - Quadratic
+   - Hermite
+   - Hanning
+   - Catrom
+   - Cubic
+   - Hann4
+
+------------------------------------------------------------------------------------------------
+
+10. The following BITMAPINFOHEADER member variables are set to zero.
+
+   - biSizeImage    : This may be set to 0 for BI_RGB bitmaps (More informations in MSDN).
+   - biXPelsPerMeter: Currently not needed.
+   - biYPelsPerMeter: Currently not needed.
+   - biClrImportant : This value is zero because all colors are important (More informations in MSDN).
+
+------------------------------------------------------------------------------------------------
+
+11. To implement a decoder/encoder you have to derive your class from BTCDecoder/BTCEncoder.
+    In the following the implementation of a decoder is described.
+
+    To implement your own decoder you have to add the follwing virtual methods to your derived
+    class:
+
+    - virtual const bt_char *GetFormat() = 0;
+    - virtual const bt_char *GetDescription() = 0;
+    - virtual const bt_char *GetExtension() = 0;
+
+    - virtual long IsValidType(BTCIStream* pIStream);
+    - virtual bool Load( BTCIStream* pIStream, BTCImageData* pImageData,
+                         BTIProgressNotification* pProgressNotification = NULL,
+                         void* pParam = NULL);
+
+    IsValidType(...) is called to check the type of the file/image. If it is the correct type
+    it must return BT_S_OK, otherwise BT_S_FALSE.
+
+    A sample implementation can look like this:
+
+    long BTCDecoderICO::IsValidType(BTCIStream* pIStream /* = NULL */)
+    {
+       if(!pIStream)
+          return BT_E_POINTER;
+
+       if( pIStream->Seek( 0L, BTCIOStream::Begin) == -1)
+          return BT_S_FALSE;
+
+       BTICONHEADER Header;
+
+       pIStream->Read( (void*)&Header, sizeof(BTICONHEADER));
+
+       if( Header.idType == 1 && Header.idReserved == 0)
+          return BT_S_OK;
+
+       return BT_S_FALSE;
+    }
+
+    Load(...) is called to decode the image data. Before loading the image data you have to create
+    the BTCImageData object. This can be done by calling BTCImageData::Create(int nWidth, int nHeight,
+    int nBitsPerPixel). If decoding is done and all work is fine return true, otherwise false. For
+    more details look into the sample implementation BTCDecoderICO in the 'Examples\Codecs' folder of
+    the NexgenIPL package.
+
+------------------------------------------------------------------------------------------------
+
+12. To add and use your decoder/encoder you have to register it to the BTCImageObject object.
+
+    BTCImageObject Object;
+    Object.AddCodec( new BTCDecoderICO);
+
+    That's all. The BTCDecoderICO object will be freed automatically.
+
+    If you want to remove your decoder use this code:
+
+    long lCodecId = Object.GetCodecIdFromFormat( _BTTEXT("ICO"), BTCODECTYPE_DECODER);
+    Object.RemoveCodec( lCodecId, BTCODECTYPE_DECODER);
+
+------------------------------------------------------------------------------------------------
+
+13. To replace an excisting (internal) decoder/encoder you have to register your codec with the
+    id of the codec you want to replace.
+
+    BTCImageObject Object;
+    Object.AddCodec( new MyBMPDecoder1);
+    Object.AddCodec( new MyBMPEncoder2);
+
+------------------------------------------------------------------------------------------------
+
+14. To receive an image from the clipboard use this code:
+
+    BTCImageData Image;
+
+    if( ::OpenClipboard())
+    {
+       HBITMAP handle = (HBITMAP)::GetClipboardData( CF_BITMAP);
+
+       if( handle)
+          Image.FromHandle( (HBITMAP)handle);
+    } 
+
+    ::CloseClipboard();
+
+------------------------------------------------------------------------------------------------
+
+15. To load an image from resource use this code. The ResourceView of your project should look
+    like this:
+
+    - YourProject resources
+      - "JPEG"
+        - IDR_JPEG1
+      - Accelerator
+      - Bitmap
+        - IDB_BITMAP1
+      - Dialog
+      - Icon
+      - ...
+
+    BTCImageData Image;
+
+    Image.Load( IDR_JPEG1, NULL, AfxGetResourceHandle(), "JPEG");
+    Image.Load( MAKEINTRESOURCE(IDR_JPEG1), NULL, AfxGetResourceHandle(), "JPEG");
+    Image.Load( IDB_BITMAP1, NULL, AfxGetResourceHandle());
+    Image.Load( MAKEINTRESOURCE(IDB_BITMAP1), NULL, AfxGetResourceHandle());
+
+------------------------------------------------------------------------------------------------
+
+16. To use the color management system you have to initialize it first. You have to call the
+    initialize method once somewhere in your application.
+
+    BTIColorManagementSystem::Initialize();
+
+    To terminate the color management system call the method
+
+    BTIColorManagementSystem::Terminate();
+
+    If you do not initialize the color management system some image file types couldn't be
+    processed (e.g. TIFF-Lab images).
+
+------------------------------------------------------------------------------------------------
+
+17. If you want to use the embedded profiles in TIF/JPEG images you have to do the following:
+
+    BTCImageObject  Object;
+    BTCDecoderOptionsTIFF OptionsTIFF;
+    BTCDecoderOptionsJPEG OptionsJPEG;
+
+    BTSETOPTION( &OptionsTIFF, BTCDecoderOptionsTIFF::BTDO_TIFF_USEEMBEDDEDPROFILE, true);
+    Object.Load( "test_cmyk_icc.tif", &OptionsTIFF);
+
+    OptionsJPEG.SetOption( BTCDecoderOptionsJPEG::BTDO_JPEG_USEEMBEDDEDPROFILE, true);
+    Object.Load( "test_cmyk_icc.jpg", &OptionsJPEG);
+
+    Whether there is no embedded profile available, the default color management system will
+    be used instead.
+
+------------------------------------------------------------------------------------------------
+
+18. Sometimes it seems that you can't set options. This can happen because of applying a
+    wrong data type as option parameter.
+
+    BTCEncoderOptionsTIFF Options;
+    Options.SetOption( BTCEncoderOptionsTIFF::BTEO_TIFF_CODEC, BTCEncoderOptionsTIFF::BTTIFFCODEC_DEFLATE);
+
+    This example doesn't work because the compiler calls the SetOption(const long lId, const int nValue)
+    method which isn't supported by the BTCEncoderOptionsTIFF class. To make it work you have to cast the
+    value parameter to long.
+
+    Options.SetOption( BTCEncoderOptionsTIFF::BTEO_TIFF_CODEC, (long&)BTCEncoderOptionsTIFF::BTTIFFCODEC_DEFLATE);
+
+------------------------------------------------------------------------------------------------
+
+19. To split an image into its individual channels and combine them to a new image use the following code:
+
+    BTCImageData Red, Green, Blue, NewImage;
+    BTCImageObject Image;
+
+    Image.Load( "c:\\test.bmp");
+    Image.GetImageDataPtr()->SplitChannels( &Red, &Green, &Blue, NULL);
+
+    NewImage.Create( x, y, 24);
+    NewImage.CombineChannels( &Red, NULL, &Blue, NULL); // Only combine the red and blue channels.
+
+------------------------------------------------------------------------------------------------
+
+20. To get the EXIF data from an image you have to use the option interface. The data will be
+    exchanged using streams.
+    
+    BTCOMemStream MemStream;
+    unsigned char *pEXIFData = NULL;
+    
+    MemStream.Open( &pEXIFData);
+    
+    BTCDecoderOptionsJPEG Options;
+    BTSETOPTION( &Options, BTCDecoderOptionsJPEG::BTDO_JPEG_EXIFDATA, &MemStream);
+    
+    BTCImageObject ImageObject;
+    long lCodecId = ImageObject.Load( _BTTEXT("c:\\test.jpeg", &Options);
+    
+    // Now 'pEXIFData' should contain the EXIF data whether it was possible to extract
+    // it from the image.
+    // You have to parse the EXIF data yourself.

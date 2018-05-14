@@ -1,0 +1,1536 @@
+<html>
+<head>
+<title>BTCImageData</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="basic.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<p class="Title1">BTCImageData Class</p>
+<p class="Title2">Create<a name="Create"></a></p>
+<p class="Method">bool Create(int nWidth, int nHeight, int nBitsPerPixel /* =8 
+  */)</p>
+<p class="Text">Initializes an bitmap and attaches it to a BTCImageData object.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nWidth</p>
+<blockquote>
+  <p class="Text">Specifies the width (in pixels) of the bitmap.</p>
+</blockquote>
+<p class="Parameter">nHeight</p>
+<blockquote>
+  <p class="Text">Specifies the height (in pixels) of the bitmap.</p>
+</blockquote>
+<p class="Parameter">nBitsPerPixel</p>
+<blockquote>
+  <p class="Text">Specifies the number of color bits per display pixel.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p><span class="Text">true if successful; otherwise, false.</span><br>
+</p>
+<hr size="1" noshade align="center">
+<p class="Title2">DeleteObject<a name="DeleteObject"></a></p>
+<p class="Method">void DeleteObject()</p>
+<p class="Text">Deletes the bitmap data by freeing attached memory. The object 
+  is not affected by this call.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">None</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">IsLoaded<a name="IsLoaded"></a></p>
+<p class="Method">bool BTCImageData::IsLoaded() const</p>
+<p class="Text">Check whether the bitmap is initialized successfully.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if the bitmap is initialized; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetPlanes<a name="GetPlanes"></a></p>
+<p class="Method">int GetPlanes() const</p>
+<p class="Text">Returns the number of channels in the image. By default, indexed-color 
+  images have one channel; RGB images (16bpp) have two, (24bpp) have three and 
+  RGBA (32bpp) images four channels.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">Number of planes; otherwise, -1.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetDepth<a name="GetDepth"></a></p>
+<p class="Method">int GetDepth() const</p>
+<p class="Text">Returns the image's resolution in bits per pixel per plane. For 
+  1bpp images this is 1, for 4bpp it is 4 and for 8, 16, 24 and 32bpp images this 
+  is 8.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">The bit depth per pixel; otherwise, -1.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetBitsPerPixel<a name="GetBitsPerPixel"></a></p>
+<p class="Method">int GetBitsPerPixel() const</p>
+<p class="Text">Returns the number of bits per pixel (1,4,8,16,24,32).</p>
+<p class="Title3">Return Value</p>
+<p class="Text">Number of bits per pixel; otherwise, -1.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetBytesPerPixel<a name="GetBytesPerPixel"></a></p>
+<p class="Method">int GetBytesPerPixel() const</p>
+<p class="Text">Returns the number of bytes used per pixel (1,2,3,4).</p>
+<p class="Title3">Return Value</p>
+<p class="Text">Number of bytes; otherwise, -1.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetBytesPerLine<a name="GetBytesPerLine"></a></p>
+<p class="Method">long GetBytesPerLine() const<br>
+  long GetBytesPerLine(int nWidth, int nBitsPerPixel)</p>
+<p class="Text">Returns the number of bytes per line.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nWidth</p>
+<blockquote> 
+  <p class="Text">Specifies the width (in pixels) of the bitmap.</p>
+</blockquote>
+<p class="Parameter">nBitsPerPixel</p>
+<blockquote> 
+  <p class="Text">Specifies the number of color bits per display pixel.</p>
+</blockquote>
+<p class="Title3"></p>
+<p class="Title3">Return Value</p>
+<p class="Text">Number of bytes per line; otherwise, -1.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetImageSize<a name="GetImageSize"></a></p>
+<p class="Method">long GetImageSize() const<br>
+  long GetImageSize(int nWidth, int nHeight, int nBitsPerPixel)</p>
+<p class="Text">Returns the number of bytes used to store the bitmap data.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nWidth</p>
+<blockquote> 
+  <p class="Text">Specifies the width (in pixels) of the bitmap.</p>
+</blockquote>
+<p class="Parameter">nHeight</p>
+<blockquote> 
+  <p class="Text">Specifies the height (in pixels) of the bitmap.</p>
+</blockquote>
+<p class="Parameter">nBitsPerPixel</p>
+<blockquote> 
+  <p class="Text">Specifies the number of color bits per display pixel.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">Number of bytes used to store the image, or -1 if there is an 
+  error.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetWidth<a name="GetWidth"></a></p>
+<p class="Method">long GetWidth() const</p>
+<p class="Text">Returns the bitmap width.</p>
+<p class="Title3">Return Value</p>
+<p><span class="Text">The bitmap width; otherwise, -1.</span><br>
+</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetHeight<a name="GetHeight"></a></p>
+<p class="Method">long GetHeight() const</p>
+<p class="Text">Returns the bitmap height.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">The bitmap height; otherwise, -1.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetResolution<a name="GetResolution"></a></p>
+<p class="Method">BTResolution GetResolution(const enum BTResolutionMetric&amp; 
+  Metric /* = BTMETRIC_METER */) const</p>
+<p class="Text">Returns the bitmap resolution.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">Metric</p>
+<blockquote>
+  <p class="Text">Specifies the resolution unit (meter, centimeter and inch).</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">The resolution if successful; otherwise, nResolutionUnit = BTRESUNIT_NONE.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetBitmapInfo<a name="GetBitmapInfo"></a></p>
+<p class="Method">LPBITMAPINFO GetBitmapInfo()</p>
+<p class="Text">Returns a pointer to the BITMAPINFO structure that defines the 
+  dimensions and color information of a bitmap. Look into MSDN for more detailed 
+  informations.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">The pointer to the structure; otherwise, NULL.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetBitmapInfoHeader<a name="GetBitmapInfoHeader"></a></p>
+<p class="Method">LPBITMAPINFOHEADER BTCImageData::GetBitmapInfoHeader()</p>
+<p class="Text">Returns a pointer to the BITMAPINFOHEADER structure that contains 
+  information about the dimensions and color format of a bitmap. Look into MSDN 
+  for more detailed informations.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">The pointer to the structure; otherwise, NULL.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetBits<a name="GetBits"></a></p>
+<p class="Method">unsigned char* GetBits() const</p>
+<p class="Text">Returns a pointer to the bitmap data at position (0,0).</p>
+<p class="Title3"><span class="Method">unsigned char* GetBits(int x, int y)</span></p>
+<p class="Text">Returns a pointer to the bitmap data at position (x,y).</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">x</p>
+<blockquote>
+  <p class="Text">Specifies the logical x-coordinate of the position.</p>
+</blockquote>
+<p class="Parameter">y</p>
+<blockquote>
+  <p class="Text">Specifies the logical y-coordinate of the position.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">The pointer to the data, otherwise, NULL. Please NOTICE that NexgenIPL 
+  uses a top-down DIB with its origin in the upper left corner.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">GetIndexFromColor<a name="GetIndexFromColor"></a> </p>
+<p class="Method">int GetIndexFromColor(BTCOLORREF col)</p>
+<p class="Text">Returns the index of a given color in the color table.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">col</p>
+<blockquote>
+  <p class="Text">Specifies the color.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">The index of the color in the color table; otherwise -1 (e.g. 
+  color depth &gt; 8).</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetIndexFromPixel<a name="GetIndexFromPixel"></a> </p>
+<p class="Method">int GetIndexFromPixel(int x, int y)</p>
+<p class="Text">Returns the index of a color at (x,y).</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">x</p>
+<blockquote>
+  <p class="Text">Specifies the logical x-coordinate of the position.</p>
+</blockquote>
+<p class="Parameter">y</p>
+<blockquote>
+  <p class="Text">Specifies the logical y-coordinate of the position.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">The index of the color at position (x,y); otherwise -1 (e.g. color 
+  depth &gt; 8).</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetColorFromIndex<a name="GetColorFromIndex"></a> </p>
+<p class="Method">BTCOLORREF GetColorFromIndex(int nIndex)</p>
+<p class="Text">Returns the color from an index of a given color in the color 
+  table.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nIndex</p>
+<blockquote>
+  <p class="Text">The index of a color in the color table.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">The color; otherwise -1 (e.g. color depth &gt; 8, index &gt; Number 
+  of colors in the color table).</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetColorFromPixel<a name="GetColorFromPixel"></a> </p>
+<p class="Method">BTCOLORREF GetColorFromPixel(int x, int y)</p>
+<p class="Text">Returns the color at position (x,y).</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">x</p>
+<blockquote>
+  <p class="Text">Specifies the logical x-coordinate of the position.</p>
+</blockquote>
+<p class="Parameter">y</p>
+<blockquote>
+  <p class="Text">Specifies the logical y-coordinate of the position.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">The color at position (x,y); otherwise, -1;</p>
+<hr size="1" noshade align="center">
+<p class="Title2">SetColorForIndex<a name="SetColorForIndex"></a> </p>
+<p class="Method">bool SetColorForIndex(int nIndex, BTCOLORREF col)</p>
+<p class="Text">Sets the color for a specific palette index.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nIndex</p>
+<blockquote>
+  <p class="Text">The color table index of the color to be modified.</p>
+</blockquote>
+<p class="Parameter">col</p>
+<blockquote>
+  <p class="Text">Specifies the color to be inserted.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false (e.g. color depth &gt; 8, 
+  index &gt; Number of colors in the color table).</p>
+<hr size="1" noshade align="center">
+<p class="Title2">SetColorForPixel<a name="SetColorForPixel"></a></p>
+<p class="Method">bool SetColorForPixel(int x, int y, int nIndex)</p>
+<p class="Text">Sets the index to a color in the color table for the pixel at 
+  position (x,y).</p>
+<p class="Method">bool SetColorForPixel(int x, int y, BTCOLORREF col)</p>
+<p class="Text">Sets the color for the pixel at position (x,y).</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">x</p>
+<blockquote>
+  <p class="Text">Specifies the logical x-coordinate of the position.</p>
+</blockquote>
+<p class="Parameter">y</p>
+<blockquote>
+  <p class="Text">Specifies the logical y-coordinate of the position.</p>
+</blockquote>
+<p class="Parameter">nIndex</p>
+<blockquote>
+  <p class="Text">Specifies the color table index of the color.</p>
+</blockquote>
+<p class="Parameter">col</p>
+<blockquote>
+  <p class="Text">Specifies the color to be inserted.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false (e.g. color depth &gt; 8, 
+  index &gt; Number of colors in the color table).</p>
+<hr size="1" noshade align="center">
+<p class="Title2">SetColorForColor<a name="SetColorForColor"></a></p>
+<p class="Method">bool SetColorForColor(BTCOLORREF oldCol, BTCOLORREF newCol)</p>
+<p class="Text">Replaces a color with another one in the whole bitmap.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">oldCol</p>
+<blockquote>
+  <p class="Text">Specifies the color to be modified.</p>
+</blockquote>
+<p class="Parameter">newCol</p>
+<blockquote>
+  <p class="Text">Specifies the new color.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">IsColorInColorTable<a name="IsColorInColorTable"></a></p>
+<p class="Method">bool IsColorInColorTable(BTCOLORREF col)</p>
+<p class="Text">Checks whether the requested color is available in the bitmaps 
+  color table.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">col</p>
+<blockquote>
+  <p class="Text">Specifies the color to be found.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if the color is available; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">FindNearestPaletteColor<a name="FindNearestPaletteColor"></a></p>
+<p class="Method">int BTCImageData::FindNearestPaletteColor(BTCOLORREF col)</p>
+<p class="Text">Returns the color that best matches a specified color.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">col</p>
+<blockquote>
+  <p class="Text">Specifies the color to be matched.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">The index of the color if successful; otherwise, -1.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetColorTable<a name="GetColorTable"></a></p>
+<p class="Method">RGBQUAD* GetColorTable()</p>
+<p class="Text">Returns the pointer to the bitmap's color table.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">Pointer to the color table; otherwise, NULL (e.g. the bitmap doesn't 
+  have a palette, bitmap &gt; 8 bpp).</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetColorTableSize<a name="GetColorTableSize"></a></p>
+<p class="Method">int GetColorTableSize() const<br>
+  int GetColorTableSize(int nNumColorEntries)</p>
+<p class="Text">Returns the color table size.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nNumColorEntries</p>
+<blockquote>
+  <p class="Text">Number of colors in the color table.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">The size of the color table, or 0 if there is an error.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetNumColorEntries<a name="GetNumColorEntries"></a></p>
+<p class="Method">int GetNumColorEntries() const<br>
+  int GetNumColorEntries(int nBitsPerPixel)</p>
+<p class="Text">Returns the number of colortable entries from this bitmap.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nBitsPerPixel</p>
+<blockquote> 
+  <p class="Text">Specifies the number of color bits per display pixel.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">The number of colours used in this bitmap, or -1 if there is an 
+  error.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">FillColorTable<a name="FillColorTable"></a></p>
+<p class="Method">bool FillColorTable(RGBQUAD* pPalette, int iEntries)</p>
+<p class="Text">Fills the color table.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pPalette</p>
+<blockquote>
+  <p class="Text">Pointer to an array of colors.</p>
+</blockquote>
+<p class="Parameter">iEntries</p>
+<blockquote>
+  <p class="Text">Number of colors in the array.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false (e.g. color depth &gt; 8).</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetPalette<a name="GetPalette"></a></p>
+<p class="Method">HPALETTE GetPalette() const</p>
+<p class="Text">Returns the bitmap's palette. When you no longer need the palette, 
+  call the Win32API DeleteObject function to delete it.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">If the function succeeds, the return value is a handle to a logical 
+  palette. If the function fails, the return value is NULL (e.g. the bitmap doesn't 
+  have a palette).</p>
+<hr size="1" noshade align="center">
+<p class="Title2">SetPalette<a name="SetPalette"></a> </p>
+<p class="Method">bool SetPalette(HPALETTE hPal)</p>
+<p class="Text">Sets the palette for the bitmap.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">hPal</p>
+<blockquote>
+  <p class="Text">Handle to the new palette.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false (e.g. the bitmap doesn't 
+  have a palette).</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Resize<a name="Resize"></a></p>
+<p class="Method">bool Resize(int nWidth, int nHeight, const enum BTResizeFilter&amp; 
+  Filter /* = Bilinear */)<br>
+  bool Resize(BTCImageData&amp; DestImage, int nWidth, int nHeight, const enum 
+  BTResizeFilter&amp; Filter /* = Bilinear */)</p>
+<p class="Text">Resizes the bitmap using various filters.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">DestImage</p>
+<blockquote>
+  <p class="Text">Specifies the destination bitmap object.</p>
+</blockquote>
+<p class="Parameter">w</p>
+<blockquote>
+  <p class="Text">Specifies the new width (in pixels) of the bitmap.</p>
+</blockquote>
+<p class="Parameter">h</p>
+<blockquote>
+  <p class="Text">Specifies the new height (in pixels) of the bitmap.</p>
+</blockquote>
+<p class="Parameter">Filter</p>
+<blockquote> 
+  <p class="Text">Specifies the filter to resize bitmap. The following filters 
+    are available: (Box, Bilinear, Gaussian, Hamming, Blackman, Triangle, Bell, 
+    BSpline, Sinc, Lanczos3, Mitchell, Quadratic, Hermite, Hanning, Catrom, Cubic, 
+    Hann4).</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Crop<a name="Crop"></a></p>
+<p class="Method">bool Crop(RECT&amp; rect)<br>
+  bool Crop(int x, int y, int nWidth, int nHeight)</p>
+<p class="Text">Cropping eliminates areas of an image by removing them.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">rect</p>
+<blockquote>
+  <p class="Text">The area you want to keep.</p>
+</blockquote>
+<p class="Parameter">x</p>
+<blockquote>
+  <p class="Text">Specifies the logical x-coordinate of the upper-left corner 
+    from the area you want to keep.</p>
+</blockquote>
+<p class="Parameter">y</p>
+<blockquote>
+  <p class="Text">Specifies the logical y-coordinate of the upper-left corner 
+    from the area you want to keep.</p>
+</blockquote>
+<p class="Parameter">nWidth</p>
+<blockquote>
+  <p class="Text">Specifies the width of the area you want to keep.</p>
+</blockquote>
+<p class="Parameter">nHeight</p>
+<blockquote>
+  <p class="Text">Specifies the height of the area you want to keep.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Copy<a name="Copy"></a></p>
+<p class="Method">bool Copy(BTCImageData&amp; SrcImage, RECT&amp; rect)<br>
+  bool Copy(BTCImageData&amp; SrcImage, int x, int y, int nWidth, int nHeight)</p>
+<p class="Text">Copies the given rectangle from the given bitmap into this bitmap.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">SrcImage</p>
+<blockquote>
+  <p class="Text">The source bitmap.</p>
+</blockquote>
+<p class="Parameter">rect</p>
+<blockquote>
+  <p class="Text">The area you want to copy.</p>
+</blockquote>
+<p class="Parameter">x</p>
+<blockquote>
+  <p class="Text">Specifies the logical x-coordinate of the upper-left corner 
+    from the area you want to copy.</p>
+</blockquote>
+<p class="Parameter">y</p>
+<blockquote>
+  <p class="Text">Specifies the logical y-coordinate of the upper-left corner 
+    from the area you want to copy.</p>
+</blockquote>
+<p class="Parameter">nWidth</p>
+<blockquote>
+  <p class="Text">Specifies the width of the area you want to copy.</p>
+</blockquote>
+<p class="Parameter">nHeight</p>
+<blockquote>
+  <p class="Text">Specifies the height of the area you want to copy.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Fill<a name="Fill"></a></p>
+<p class="Method">bool Fill(RECT&amp; rect, BTCOLORREF col)<br>
+  bool Fill(int x, int y, int w, int h, BTCOLORREF col)</p>
+<p class="Text">Fills the specified rectangle with a specified color.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">rect</p>
+<blockquote>
+  <p class="Text">Specifies the rectangle.</p>
+</blockquote>
+<p class="Parameter">x</p>
+<blockquote>
+  <p class="Text">Specifies the logical x-coordinate of the upper-left corner 
+    of the rectangle.</p>
+</blockquote>
+<p class="Parameter">y</p>
+<blockquote>
+  <p class="Text">Specifies the logical y-coordinate of the upper-left corner 
+    of the rectangle.</p>
+</blockquote>
+<p class="Parameter">w</p>
+<blockquote>
+  <p class="Text">Specifies the width of the rectangle.</p>
+</blockquote>
+<p class="Parameter">h</p>
+<blockquote>
+  <p class="Text">Specifies the height of the rectangle.</p>
+</blockquote>
+<p class="Parameter">col</p>
+<blockquote>
+  <p class="Text">Specifies the color to be used.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Combine<a name="Combine"></a></p>
+<p class="Method">bool BTCImageData::Combine(BTCImageData *pImage, enum BTCombineFunction 
+  cf, int x /* = 0 */, int y /* = 0 */, int nOpacity /* = 100 */, bool bClipValues 
+  /* = true */, int nDivisor /* = 1 */, int nBias /* = 0 */)</p>
+<p class="Text">Combines another image with this image at position (x,y). For 
+  color depths &lt;= 8 bpp the resulting colors are mapped to the origin color 
+  table.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pImage</p>
+<blockquote> 
+  <p class="Text">The image to be combined.</p>
+</blockquote>
+<p class="Parameter">cf</p>
+<blockquote> 
+  <p class="Text">Sets the method for combining the images. The color data from 
+    the two images is combined on a pixel-by-pixel basis according to the function. 
+    The following functions are available:</p>
+  <ul>
+    <li class="List"><span class="Text">Normal</span></li>
+    <li class="List"><span class="Text">Add</span></li>
+    <li class="List"><span class="Text">Subtract</span></li>
+    <li class="List"><span class="Text">Multiply</span></li>
+    <li class="List"><span class="Text">Divide</span></li>
+    <li class="List"><span class="Text">Difference</span></li>
+    <li class="List"><span class="Text">Lightest</span></li>
+    <li class="List"><span class="Text">Darkest</span></li>
+    <li class="List"><span class="Text">Average</span></li>
+    <li class="List"><span class="Text">Or</span></li>
+    <li class="List"><span class="Text">And</span></li>
+    <li class="List"><span class="Text">Screen</span></li>
+    <li class="List"><span class="Text">Overlay</span></li>
+  </ul>
+</blockquote>
+<p class="Parameter">x</p>
+<blockquote> 
+  <p class="Text">Specifies the logical x-coordinate of the position.</p>
+</blockquote>
+<p class="Parameter">y</p>
+<blockquote> 
+  <p class="Text">Specifies the logical y-coordinate of the position.</p>
+</blockquote>
+<p class="Parameter">nOpacity</p>
+<blockquote> 
+  <p class="Text">At 0% opacity, the combined image is completely transparent; 
+    at 100% opacity, the comined image is completely opaque.</p>
+</blockquote>
+<p class="Parameter">bClipValues</p>
+<blockquote> 
+  <p class="Text">Determines how to handle final color values greater than 255 
+    and less than 0.</p>
+  <table width="75%" border="1">
+    <tr> 
+      <td width="33%" class="Text">bClipValues</td>
+      <td width="33%" class="Text">Value &lt; 0</td>
+      <td width="33%" class="Text">Value &gt; 255</td>
+    </tr>
+    <tr> 
+      <td width="33%" class="Text">true</td>
+      <td width="33%" class="Text">Value = 0</td>
+      <td width="33%" class="Text">Value = 255</td>
+    </tr>
+    <tr> 
+      <td width="33%" class="Text">false</td>
+      <td width="33%" class="Text">Value = 256 + Value</td>
+      <td width="33%" class="Text">Value = Value - 256</td>
+    </tr>
+  </table>
+</blockquote>
+<p class="Parameter">nDivisor</p>
+<blockquote> 
+  <p class="Text">The divisor [0..255] is applied to the color values produced 
+    by the formula/function. It is used to divide the color values. It can reduce 
+    the effects of the other parameters.</p>
+</blockquote>
+<p class="Parameter">nBias</p>
+<blockquote> 
+  <p class="Text">The bias [-255..255] is applied to the color values produced 
+    by the formula/function. It shifts each color value by a fixed amount. The 
+    number is added to the color value produced by the formula/function and divisor.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p><span class="Title2">Blend</span><a name="Blend"></a> <br>
+</p>
+<p class="Method">bool Blend(BTCImageData&amp; ImageData, int x, int y, int a, 
+  BTCOLORREF colProtect /* =0x01000000 */)</p>
+<p class="Text">For color depths &lt;= 8 bpp the resulting colors are mapped to 
+  the origin color table. The image object must be created before using this method.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">ImageData</p>
+<blockquote> 
+  <p class="Text">The image to be used to alphablend.</p>
+</blockquote>
+<p class="Parameter">x</p>
+<blockquote> 
+  <p class="Text">Specifies the logical x-coordinate of the position.</p>
+</blockquote>
+<p class="Parameter">y</p>
+<blockquote> 
+  <p class="Text">Specifies the logical y-coordinate of the position.</p>
+</blockquote>
+<p class="Parameter">a</p>
+<blockquote>
+  <p class="Text">Specifies an alpha transparency value [0..255] to be used [0 
+    = Transparent, 255 = Opaque].</p>
+</blockquote>
+<p class="Parameter">colProtect</p>
+<blockquote>
+  <p class="Text">Specifies a color that is protected from blending.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetChannel<a name="GetChannel"></a></p>
+<p class="Method">bool GetChannel(BTCImageData* pImage, const enum BTChannel&amp; 
+  Channel)</p>
+<p class="Text">Returns the requested channel.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pImage</p>
+<blockquote>
+  <p class="Text">Specifies the object to receive the channel. The object will 
+    be initialized/created automatically.</p>
+</blockquote>
+<p class="Parameter">Channel</p>
+<blockquote>
+  <p class="Text">Specifies the channel (Red, Green, Blue, Alpha).</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">SplitChannels<a name="SplitChannels"></a></p>
+<p class="Method">bool SplitChannels(BTCImageData* pRed, BTCImageData* pGreen, 
+  BTCImageData* pBlue, BTCImageData* pAlpha)</p>
+<p class="Text">Extracts the red, blue, green and alpha channels. To get only 
+  specific channels set the not needed channels to NULL.<br>
+  The object's to receive the channel's must be created with the same width and 
+  height as the source image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pRed</p>
+<blockquote>
+  <p class="Text">Specifies the object to receive the red channel.</p>
+</blockquote>
+<p class="Parameter">pGreen</p>
+<blockquote>
+  <p class="Text">Specifies the object to receive the green channel.</p>
+</blockquote>
+<p class="Parameter">pBlue</p>
+<blockquote>
+  <p class="Text">Specifies the object to receive the blue channel.</p>
+</blockquote>
+<p class="Parameter">pAlpha</p>
+<blockquote>
+  <p class="Text">Specifies the object to receive the alpha channel.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">CombineChannels<a name="CombineChannels"></a> </p>
+<p class="Method">bool CombineChannels(BTCImageData* pRed, BTCImageData* pGreen, 
+  BTCImageData* pBlue, BTCImageData* pAlpha)</p>
+<p class="Text">Combines the red, blue, green and alpha channels to a new image. 
+  Before using this method the destination image has to be created using Create(). 
+  If there is added an alpha channel the object it must be created as 32bpp image, 
+  otherwise 24bpp. To combine only specific channels set the not needed channels 
+  to NULL.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pRed</p>
+<blockquote>
+  <p class="Text">Specifies the red channel.</p>
+</blockquote>
+<p class="Parameter">pGreen</p>
+<blockquote>
+  <p class="Text">Specifies the green channel.</p>
+</blockquote>
+<p class="Parameter">pBlue</p>
+<blockquote>
+  <p class="Text">Specifies the blue channel.</p>
+</blockquote>
+<p class="Parameter">pAlpha</p>
+<blockquote>
+  <p class="Text">Specifies the alpha channel.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">ConvertTo24BPP<a name="ConvertTo24BPP"></a></p>
+<p class="Method">bool ConvertTo24BPP()</p>
+<p class="Text">Converts the given image to 24 bits.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">ConvertTo32BPP<a name="ConvertTo32BPP"></a></p>
+<p class="Method">bool ConvertTo32BPP()</p>
+<p class="Text">Converts the given image to 32 bits.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Quantize<a name="Quantize"></a></p>
+<p class="Method">bool Quantize(int nBitsPerPixel /* = 8 */)</p>
+<p class="Text">Quantizes a image &gt; 8bpp to an n bpp image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nBitsPerPixel</p>
+<blockquote>
+  <p class="Text">Number of bits per pixel (1,4,8).</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Blur<a name="Blur"></a></p>
+<p class="Method">bool Blur()</p>
+<p class="Text">Blur softens the image. Notice, this method is available only 
+  for 32 bpp images.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Grayscale<a name="Grayscale"></a></p>
+<p class="Method">bool Grayscale()</p>
+<p class="Text">Removes the colors from an image and replaces each color with 
+  a grey matching its luminance value.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Negate<a name="Negate"></a></p>
+<p class="Method">bool Negate()</p>
+<p class="Text">Replaces each pixel color with its opposite on the color space.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Flip<a name="Flip"></a></p>
+<p class="Method">bool Flip()</p>
+<p class="Text">Reverses an image along it's vertical axis.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Mirror<a name="Mirror"></a></p>
+<p class="Method">bool Mirror()</p>
+<p class="Text">Reverses the image along it's horizontal axis.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Rotate90<a name="Rotate90"></a></p>
+<p class="Method">bool Rotate90(const enum BTDirection&amp; Direction /* = BTRotation::Right 
+  */)</p>
+<p class="Text">Rotates the image 90 degrees to the left or right.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">Direction</p>
+<blockquote>
+  <p class="Text">Rotation direction.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Smooth<a name="Smooth"></a></p>
+<p class="Method">bool Smooth(int nKernelSize /* = 3 */)</p>
+<p class="Text">Smoothes the image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nKernelSize</p>
+<blockquote>
+  <p class="Text">Size of the N x N kernel.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Normalize<a name="Normalize"></a></p>
+<p class="Method">bool Normalize()</p>
+<p class="Text">Normalizes the pixel values to span the full range of color values.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Posterize<a name="Posterize"></a></p>
+<p class="Method">bool Posterize(int nLevels /* = 7 */)</p>
+<p class="Text">Posterize decreases the number of used colors and levels of lightness 
+  in the image. The result is a flatter-looking image with bands of color rather 
+  than smooth gradients.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nLevels</p>
+<blockquote>
+  <p class="Text">Number of levels to use [2..255].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Threshold<a name="Threshold"></a></p>
+<p class="Method">bool Threshold(int nThreshold /* = 166 */)</p>
+<p class="Text">Threshold turns the image into a black-and-white image. All pixels 
+  whose brightness values are below the threshold level become black and all pixels 
+  whose brightness values are equal to or greater than the threshold level become 
+  white.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nThreshold</p>
+<blockquote>
+  <p class="Text">Threshold level to use [1..255].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Emboss<a name="Emboss"></a></p>
+<p class="Method">bool Emboss()</p>
+<p class="Text">Highlights the areas of contrast with black or white pixels and 
+  colors the low contrast areas a medium grey. Colors appear when there is a large 
+  difference in the contrast.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Detail<a name="Detail"></a></p>
+<p class="Method">bool Detail()</p>
+<p class="Text">Increases the details of an image.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">EdgeEnhance<a name="EdgeEnhance"></a></p>
+<p class="Method">bool EdgeEnhance()<br>
+  bool EdgeEnhanceMore()</p>
+<p class="Text">Increases the contrast along the edges in the image.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Median<a name="Median"></a></p>
+<p class="Method">bool Median(int nAperature /* = 1 */)</p>
+<p class="Text">The Median filter adjusts the intensity of each pixel to the median 
+  value of its surrounding N x N pixel neighborhood. Notice, you can apply this 
+  effect only to 24 and 32-bit images. </p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nAperature</p>
+<blockquote> 
+  <p class="Text">Indicates the number of pixels around each pixel that are used 
+    to determine the median that replaces the pixel [1..30]. For example: nAperature 
+    = 1 -&gt; 3 x 3 Kernel, nAperature = 2 -&gt; 5 x 5 Kernel.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Dilate<a name="Dilate"></a></p>
+<p class="Method">bool Dilate(int nAperature /* = 1 */)</p>
+<p class="Text">The Dilate filter is a variation of a standard N x N pixel medium 
+  filter. It adjusts the intensity of each pixel to the maximum value of its surrounding 
+  N x N pixel neighborhood. Notice, you can apply this effect only to 24 and 32-bit 
+  images. </p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nAperature</p>
+<blockquote> 
+  <p class="Text">Indicates the number of pixels around each pixel that are used 
+    to determine the median that replaces the pixel [1..30]. For example: nAperature 
+    = 1 -&gt; 3 x 3 Kernel, nAperature = 2 -&gt; 5 x 5 Kernel.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Erode<a name="Erode"></a></p>
+<p class="Method">bool Erode(int nAperature /* = 1 */)</p>
+<p class="Text">The Erode filter is a variation of a standard N x N pixel medium 
+  filter. It adjusts the intensity of each pixel to the minimum value of its surrounding 
+  N x N pixel neighborhood. Notice, you can apply this effect only to 24 and 32-bit 
+  images. </p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nAperature</p>
+<blockquote> 
+  <p class="Text">Indicates the number of pixels around each pixel that are used 
+    to determine the median that replaces the pixel [1..30]. For example: nAperature 
+    = 1 -&gt; 3 x 3 Kernel, nAperature = 2 -&gt; 5 x 5 Kernel.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<p></p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">FindEdge<a name="FindEdge"></a></p>
+<p class="Method">bool FindEdge(double dFactor /* = 60.0 */)</p>
+<p class="Text">Enhances the contrasts between light and dark in the image by 
+  darkening the image and then highlighting the edges (Laplacian Filter).</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">dFactor</p>
+<blockquote>
+  <p class="Text">Factor of edge highlighting [0..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Sharpen<a name="Sharpen"></a></p>
+<p class="Method">bool Sharpen()</p>
+<p class="Text">Sharpens the bitmap.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Solarize<a name="Solarize"></a></p>
+<p class="Method">bool Solarize(double dFactor /* = 0.0 */)</p>
+<p class="Text">Produces a 'solarization' effect seen when exposing a photographic 
+  film to light during the development process.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">dFactor</p>
+<blockquote>
+  <p class="Text">Factor of solarization [0..99.9%].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Antialias<a name="Antialias"></a></p>
+<p class="Method">bool Antialias(double dWeight /* = 1.0 / 3.0 */, int nSameThreshold 
+  /* = 25 */, int nDiffTreshold /* = 25 */)</p>
+<p class="Text">Antialias the image. Notice, you can apply this effect only to 
+  24 and 32-bit images.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">dWeight</p>
+<blockquote>
+  <p class="Text">[0...1].</p>
+</blockquote>
+<p class="Parameter">nSameThreshold</p>
+<blockquote>
+  <p class="Text">How close two colors have to be to be the 'same' [0,255].</p>
+</blockquote>
+<p class="Parameter">nDiffTreshold</p>
+<blockquote>
+  <p class="Text">How close two colors have to be to be 'different' [0,255].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">DeInterlace<a name="DeInterlace"></a></p>
+<p class="Method">bool DeInterlace(bool bRetainOdd /* = true */, const enum BTDeInterlaceType&amp; 
+  Type /* = Interpolate */)</p>
+<p class="Text">Removes missing or mis-aligned scan lines from a video image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">bRetainOdd</p>
+<blockquote>
+  <p class="Text">Retain or remove odd lines.</p>
+</blockquote>
+<p class="Parameter">Type</p>
+<blockquote>
+  <p class="Text">Method to replace missing lines. The following methods are available: 
+    Interpolate, Duplicate.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">Noise<a name="Noise"></a></p>
+<p class="Method">bool Noise(BTNoiseType Type)</p>
+<p class="Text"> The noise filter adds random pixels to an image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">Type</p>
+<blockquote> 
+  <p class="Text"><span class="Text">The filter to use. The following filters 
+    are available:</span></p>
+</blockquote>
+<ul>
+  <li><span class="Text">UniformNoise</span></li>
+  <li><span class="Text">LaplacianNoise</span></li>
+  <li><span class="Text">PoissonNoise</span></li>
+  <li><span class="Text">GaussianNoise</span></li>
+  <li><span class="Text">MultiplicativeGaussianNoise</span></li>
+  <li><span class="Text">ImpulseNoise</span></li>
+</ul>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2"></p>
+<p class="Title2">Convolve<a name="Convolve"></a></p>
+<p class="Method">bool Convolve(double* pKernel, int nKernelSize, int nDivisor 
+  /* = 1 */, int nBias /* = 0 */, bool bAbs /* = false */)</p>
+<p class="Text">Manipulates the image by using the specified N x N kernel.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pKernel</p>
+<blockquote> 
+  <p class="Text">Pointer to the kernel.</p>
+</blockquote>
+<p class="Parameter">nKernelSize</p>
+<blockquote> 
+  <p class="Text">Specifies the size of the kernel.</p>
+</blockquote>
+<p class="Parameter">nDivisor</p>
+<blockquote> 
+  <p class="Text">Each coefficient in the filter kernel is divided by the division 
+    factor before being applied to a pixel.</p>
+</blockquote>
+<p class="Parameter">nBias</p>
+<blockquote> 
+  <p class="Text">The bias is added to the product of the kernel calculation and 
+    the division factor.</p>
+</blockquote>
+<p class="Parameter">bAbs</p>
+<blockquote>
+  <p class="Text">Specifies that only absolute color values should be used for 
+    calculations.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p></p>
+<p class="Title2">AdjustBrightness<a name="AdjustBrightness"></a></p>
+<p class="Method">bool AdjustBrightness(int nPercentage)</p>
+<p class="Text">Adjust the brightness of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote>
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustContrast<a name="AdjustContrast"></a></p>
+<p class="Method">bool AdjustContrast(int nPercentage)</p>
+<p class="Text">Adjust the contrast of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustHighlight<a name="AdjustHighlight"></a></p>
+<p class="Method">bool AdjustHighlight(int nPercentage)</p>
+<p class="Text">Adjust the highlight of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [0..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustMidtone<a name="AdjustMidtone"></a></p>
+<p class="Method">bool AdjustMidtone(int nPercentage)</p>
+<p class="Text">Adjust the midtone of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [0..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustShadow<a name="AdjustShadow"></a></p>
+<p class="Method">bool AdjustShadow(int nPercentage)</p>
+<p class="Text">Adjust the shadow of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [0..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustGamma<a name="AdjustGamma"></a></p>
+<p class="Method">bool AdjustGamma(double dRedValue /* = 1.0 */, double dGreenValue 
+  /* = 1.0 */, double dBlueValue /* = 1.0 */)</p>
+<p class="Text">Adjust the midtones and color balance of an image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">dRedValue</p>
+<blockquote> 
+  <p class="Text">Red value [0.2...5.0].</p>
+</blockquote>
+<p class="Parameter">dGreenValue</p>
+<blockquote> 
+  <p class="Text">Green value [0.2...5.0].</p>
+</blockquote>
+<p class="Parameter">dBlueValue</p>
+<blockquote> 
+  <p class="Text">Blue value [0.2...5.0].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustHue<a name="AdjustHue"></a></p>
+<p class="Method">bool AdjustHue(int nDegrees)</p>
+<p class="Text">Adjust the hue values of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-180..180].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustLightness<a name="AdjustLightness"></a></p>
+<p class="Method">bool AdjustLightness(int nPercentage)</p>
+<p class="Text">Adjust the lightness values of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustSaturation<a name="AdjustSaturation"></a></p>
+<p class="Method">bool AdjustSaturation(int nPercentage)</p>
+<p class="Text">Adjust the saturation values of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustHLS<a name="AdjustHLS"></a></p>
+<p class="Method">bool AdjustHLS(int nHueDegrees /* = 0 */, int nLightnessPercentage 
+  /* = 0 */, int nSaturationPercentage /* = 0 */)</p>
+<p class="Text">Adjust the hue, lightness and saturation values of the entire 
+  image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nHueDegrees</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-180..180].</p>
+</blockquote>
+<p class="Parameter">nLightnessPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Parameter">nSaturationPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustRed<a name="AdjustRed"></a></p>
+<p class="Method">bool AdjustRed(int nPercentage)</p>
+<p class="Text">Adjust the red values of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustGreen<a name="AdjustGreen"></a></p>
+<p class="Method">bool AdjustGreen(int nPercentage)</p>
+<p class="Text">Adjust the green values of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustBlue<a name="AdjustBlue"></a></p>
+<p class="Method">bool AdjustBlue(int nPercentage)</p>
+<p class="Text">Adjust the blue values of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AdjustRGB<a name="AdjustRGB"></a> </p>
+<p class="Method">bool AdjustRGB(int nRedPercentage /* = 0 */, int nGreenPercentage 
+  /* = 0 */, int nBluePercentage /* = 0 */)</p>
+<p class="Text">Adjust the red, green and blue values of the entire image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nRedPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Parameter">nGreenPercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Parameter">nBluePercentage</p>
+<blockquote> 
+  <p class="Text">Number of percent to change [-100..100].</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Stretch<a name="Stretch"></a></p>
+<p class="Method">int Stretch(HDC hdc, int xDest, int yDest, int nDestWidth, int 
+  nDestHeight, int xSrc, int ySrc, int nSrcWidth, int nSrcHeight, int iMode /* 
+  = COLORONCOLOR */, unsigned long dwRop /* = SRCCOPY */)</p>
+<p class="Text">The function copies a bitmap from a source rectangle into a destination 
+  rectangle, stretching or compressing the bitmapto fit the dimensions of the 
+  destination rectangle, if necessary. The system stretches or compresses the 
+  bitmap according to the stretching mode specified.</p>
+<p class="Title3"> Parameters</p>
+<p class="Parameter">hdc</p>
+<blockquote>
+  <p><span class="Text">Handle to the destination device context.</span></p>
+</blockquote>
+<p class="Parameter">xDest</p>
+<blockquote>
+  <p class="Text">Specifies the x-coordinate, in logical units, of the upper-left 
+    corner of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">yDest</p>
+<blockquote>
+  <p class="Text">Specifies the y-coordinate, in logical units, of the upper-left 
+    corner of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">nDestWidth</p>
+<blockquote>
+  <p class="Text">Specifies the width, in logical units, of the destination rectangle.</p>
+</blockquote>
+<p class="Text">nDestHeight</p>
+<blockquote>
+  <p class="Text">Specifies the height, in logical units, of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">xSrc</p>
+<blockquote>
+  <p class="Text">Specifies the x-coordinate, in logical units, of the upper-left 
+    corner of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">ySrc</p>
+<blockquote>
+  <p class="Text">Specifies the y-coordinate, in logical units, of the upper-left 
+    corner of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">nSrcWidth</p>
+<blockquote>
+  <p class="Text">Specifies the width, in logical units, of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">nSrcHeight</p>
+<blockquote>
+  <p class="Text">Specifies the height, in logical units, of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">iMode</p>
+<blockquote>
+  <p class="Text">Specifies the stretching mode. (See SetStretchBltMode [Win32API] 
+    in the MSDN for available modes).</p>
+</blockquote>
+<p class="Parameter">dwRop</p>
+<blockquote>
+  <p class="Text">Specifies the raster operation to be performed. (See BitBlt 
+    [Win32API] in the MSDN for a list of common raster operation codes)</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">Number of scanlines drawed; otherwise, -1.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Draw<a name="Draw"></a></p>
+<p class="Method">int Draw(HDC hdc, int xDest, int yDest, int nDestWidth, int 
+  nDestHeight, int xSrc, int ySrc, int iMode /* = COLORONCOLOR */, unsigned long 
+  dwRop /* = SRCCOPY */)</p>
+<p class="Text">The function draws the specified rectangle of pixels into the 
+  destination device context.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">hdc</p>
+<blockquote>
+  <p class="Text">Handle to the destination device context.</p>
+</blockquote>
+<p class="Parameter">xDest</p>
+<blockquote>
+  <p class="Text">Specifies the x-coordinate, in logical units, of the upper-left 
+    corner of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">yDest</p>
+<blockquote>
+  <p class="Text">Specifies the y-coordinate, in logical units, of the upper-left 
+    corner of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">nDestWidth</p>
+<blockquote>
+  <p class="Text">Specifies the width, in logical units, of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">nDestHeight</p>
+<blockquote>
+  <p class="Text">Specifies the height, in logical units, of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">xSrc</p>
+<blockquote>
+  <p class="Text">Specifies the x-coordinate, in logical units, of the upper-left 
+    corner of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">ySrc</p>
+<blockquote>
+  <p class="Text">Specifies the y-coordinate, in logical units, of the upper-left 
+    corner of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">iMode</p>
+<blockquote>
+  <p class="Text">Specifies the stretching mode. (See SetStretchBltMode [Win32API] 
+    in the MSDN for available modes).</p>
+</blockquote>
+<p class="Parameter">dwRop</p>
+<blockquote>
+  <p class="Text">Specifies the raster operation to be performed. (See BitBlt 
+    [Win32API] in the MSDN for a list of common raster operation codes)</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">Number of scanlines drawed; otherwise, -1.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">DrawDithered<a name="DrawDithered"></a></p>
+<p class="Method">int DrawDithered(HDC hdc, int xDest, int yDest, int nDestWidth, 
+  int nDestHeight, int xSrc, int ySrc)</p>
+<p class="Text">Calls Draw() with iMode = HALFTONE. See Draw() for more details.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">Number of scanlines drawed; otherwise, -1.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">DrawTransparent<a name="DrawTransparent"></a></p>
+<p class="Method">bool DrawTransparent(HDC hdc, int xDest, int yDest, int nDestWidth, 
+  int nDestHeight, int xSrc, int ySrc, BTCOLORREF crColor)</p>
+<p class="Text">The function draws the specified rectangle of pixels into the 
+  destination device context. The image parts specified by the color <i>crColor</i> 
+  will be drawn transparent.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">hdc</p>
+<blockquote> 
+  <p class="Text">Handle to the destination device context.</p>
+</blockquote>
+<p class="Parameter">xDest</p>
+<blockquote> 
+  <p class="Text">Specifies the x-coordinate, in logical units, of the upper-left 
+    corner of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">yDest</p>
+<blockquote> 
+  <p class="Text">Specifies the y-coordinate, in logical units, of the upper-left 
+    corner of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">nDestWidth</p>
+<blockquote> 
+  <p class="Text">Specifies the width, in logical units, of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">nDestHeight</p>
+<blockquote> 
+  <p class="Text">Specifies the height, in logical units, of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">xSrc</p>
+<blockquote> 
+  <p class="Text">Specifies the x-coordinate, in logical units, of the upper-left 
+    corner of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">ySrc</p>
+<blockquote> 
+  <p class="Text">Specifies the y-coordinate, in logical units, of the upper-left 
+    corner of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">crColor</p>
+<blockquote> 
+  <p class="Text">The transparent color.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">DrawSemiTransparent<a name="DrawSemiTransparent"></a></p>
+<p class="Method">bool DrawSemiTransparent(HDC hdc, int xDest, int yDest, int 
+  nDestWidth, int nDestHeight, int xSrc, int ySrc, BTCOLORREF crColor)</p>
+<p class="Text">The function draws the specified rectangle of pixels semi transparent 
+  into the destination device context. Notice, this function is only available 
+  for &lt;= 8 bpp images.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">hdc</p>
+<blockquote> 
+  <p class="Text">Handle to the destination device context.</p>
+</blockquote>
+<p class="Parameter">xDest</p>
+<blockquote> 
+  <p class="Text">Specifies the x-coordinate, in logical units, of the upper-left 
+    corner of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">yDest</p>
+<blockquote> 
+  <p class="Text">Specifies the y-coordinate, in logical units, of the upper-left 
+    corner of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">nDestWidth</p>
+<blockquote> 
+  <p class="Text">Specifies the width, in logical units, of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">nDestHeight</p>
+<blockquote> 
+  <p class="Text">Specifies the height, in logical units, of the destination rectangle.</p>
+</blockquote>
+<p class="Parameter">xSrc</p>
+<blockquote> 
+  <p class="Text">Specifies the x-coordinate, in logical units, of the upper-left 
+    corner of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">ySrc</p>
+<blockquote> 
+  <p class="Text">Specifies the y-coordinate, in logical units, of the upper-left 
+    corner of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">crColor</p>
+<blockquote> 
+  <p class="Text">The transparent color.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">FromDC<a name="FromDC"></a></p>
+<p class="Method">bool FromDC(HDC hdc, int nDestWidth, int nDestHeight, int xSrc, 
+  int ySrc, int nSrcWidth, int nSrcHeight, unsigned long dwRop /* = SRCCOPY */)</p>
+<p class="Text"><span class="Text">Creates a bitmap that is compatible with the 
+  device specified by hdc. The bitmap has the same number of color planes or the 
+  same bits-per-pixel format as the specified Windows device context. If the size 
+  of the source rectangle is not equal to the size of the image to create the 
+  source rectangle will be resized to the destination size.</span></p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">hdc</p>
+<blockquote> 
+  <p class="Text">Handle to the source device context.</p>
+</blockquote>
+<p class="Parameter">nDestWidth</p>
+<blockquote> 
+  <p class="Text">Specifies the width, in logical units, of the image to create.</p>
+</blockquote>
+<p class="Parameter">nDestHeight</p>
+<blockquote> 
+  <p class="Text">Specifies the height, in logical units, of the image to create.</p>
+</blockquote>
+<p class="Parameter">xSrc</p>
+<blockquote> 
+  <p class="Text">Specifies the x-coordinate, in logical units, of the upper-left 
+    corner of the source rectangle.</p>
+</blockquote>
+<p class="Parameter">ySrc</p>
+<blockquote> 
+  <p class="Text">Specifies the y-coordinate, in logical units, of the upper-left 
+    corner of the source rectangle.</p>
+</blockquote>
+<p class="Parameter"> nSrcWidth</p>
+<blockquote> 
+  <p><span class="Text">Specifies the width, in logical units, of the source rectangle.</span></p>
+</blockquote>
+<p class="Parameter">nSrcHeight</p>
+<blockquote> 
+  <p><span class="Text">Specifies the height, in logical units, of the source 
+    rectangle.</span></p>
+</blockquote>
+<p class="Parameter">dwRop</p>
+<blockquote> 
+  <p class="Text">Specifies the raster operation to be performed (See BitBlt [Win32API] 
+    in the MSDN for a list of common raster operation codes).</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">FromHandle<a name="FromHandle"></a></p>
+<p class="Method">bool FromHandle(HBITMAP hBitmap)</p>
+<p class="Text">Creates a bitmap from a Windows GDI bitmap.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">hBitmap</p>
+<blockquote>
+  <p class="Text">Specifies a Windows GDI bitmap.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">FromDIB<a name="FromDIB"></a></p>
+<p class="Method">bool FromDIB(HANDLE hDib)</p>
+<p class="Text">Creates a bitmap from a device-independent bitmap (DIB).</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">hDib</p>
+<blockquote>
+  <p class="Text">Specifies a device-independent bitmap.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetDIB<a name="GetDIB"></a></p>
+<p class="Method">HANDLE GetDIB()</p>
+<p class="Text">Returns a device-independed bitmap (DIB) from the bitmap. When 
+  you no longer need the bitmap, call the Win32-API ::GlobalFree function to delete 
+  it.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">The handle to the bitmap if successful; otherwise, NULL.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetBitmap<a name="GetBitmap"></a></p>
+<p class="Method">HBITMAP GetBitmap()</p>
+<p class="Text">Returns a device-dependent bitmap (DDB) from the bitmap. When 
+  you no longer need the bitmap, call the Win32-API ::DeleteObject function to 
+  delete it.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">The handle to the bitmap if successful; otherwise, NULL.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Compare<a name="Compare"></a></p>
+<p class="Method">int Compare(BTCImageData* pImageData)</p>
+<p class="Text">Compares the image with another one.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pImageData</p>
+<blockquote>
+  <p class="Text">Pointer to image to compare with.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">&gt;= 0 if successful; otherwise, -1.</p>
+<p class="Text"><font face="Courier New, Courier, mono">BTCMP_IMAGE</font> = Images 
+  are different.<br>
+  <font face="Courier New, Courier, mono">BTCMP_NUMCOLORS</font> = Number of colours 
+  in palette differ.<br>
+  <font face="Courier New, Courier, mono">BTCMP_COLOR</font> = Image colours differ.<br>
+  <font face="Courier New, Courier, mono">BTCMP_SIZE_X</font> = Image width differs.<br>
+  <font face="Courier New, Courier, mono">BTCMP_SIZE_Y</font> = Image heights 
+  differ.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetHistogram<a name="GetHistogram"></a> </p>
+<p class="Method">bool GetHistogram(BTCHistogram* pHistogram)</p>
+<p class="Text">Retrieves the histogram of the image.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pHistogram</p>
+<blockquote>
+  <p class="Text">Pointer to a BTCHistogram object.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">The Histogram of the image; otherwise, NULL.</p>
+<p>&nbsp;</p>
+</body>
+</html>

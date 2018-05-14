@@ -1,0 +1,2538 @@
+<?xml version="1.0" encoding="utf-16"?>
+<HitbaseDialogData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Properties>
+    <Property>
+      <Name>Version</Name>
+      <Value xsi:type="xsd:int">1</Value>
+    </Property>
+  </Properties>
+  <Controls>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>MainWindowCDUserControl</ControlName>
+      <Properties>
+        <Property>
+          <Name>ClientWidth</Name>
+          <Value xsi:type="xsd:int">971</Value>
+        </Property>
+        <Property>
+          <Name>ClientHeight</Name>
+          <Value xsi:type="xsd:int">537</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseParticipants</ControlName>
+      <Properties>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">502</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">269</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">456</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">263</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">11</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">None</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">4</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseSeperator</ControlName>
+      <Properties>
+        <Property>
+          <Name>Direction</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">483</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">2</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">490</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">260</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">None</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">6</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTrackList</ControlName>
+      <Properties>
+        <Property>
+          <Name>TrackListColumns</Name>
+          <Value xsi:type="ArrayOfAnyType">
+            <anyType xsi:type="TrackListColumn">
+              <TrackField>TrackNumber</TrackField>
+              <Width>37</Width>
+            </anyType>
+            <anyType xsi:type="TrackListColumn">
+              <TrackField>ArtistTrackName</TrackField>
+              <Width>136</Width>
+            </anyType>
+            <anyType xsi:type="TrackListColumn">
+              <TrackField>ComposerTrackName</TrackField>
+              <Width>134</Width>
+            </anyType>
+            <anyType xsi:type="TrackListColumn">
+              <TrackField>TrackTitle</TrackField>
+              <Width>127</Width>
+            </anyType>
+            <anyType xsi:type="TrackListColumn">
+              <TrackField>TrackLength</TrackField>
+              <Width>100</Width>
+            </anyType>
+            <anyType xsi:type="TrackListColumn">
+              <TrackField>TrackYearRecorded</TrackField>
+              <Width>100</Width>
+            </anyType>
+            <anyType xsi:type="TrackListColumn">
+              <TrackField>TrackCategory</TrackField>
+              <Width>116</Width>
+            </anyType>
+          </Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">245</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">463</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">287</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">15</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">None</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">8</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">501</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">233</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">69</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Preis:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Price</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">10</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseSeperator</ControlName>
+      <Properties>
+        <Property>
+          <Name>Direction</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">491</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">2</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">238</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">None</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">12</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Price</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">600</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">230</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">116</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">14</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseButton</ControlName>
+      <Properties>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">None</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">339</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">211</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">138</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">24</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Weitere Felder...</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseButton</ControlName>
+      <Properties>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Homepage</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">302</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">211</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">25</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">23</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">18</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Homepage</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">89</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">211</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">211</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">20</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">213</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">74</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">20</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">5</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Homepage:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Homepage</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">22</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Location</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">600</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">200</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">185</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">24</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">501</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">203</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">70</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Standort:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Location</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">26</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseButton</ControlName>
+      <Properties>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">ArchiveNumber</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">787</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">169</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">25</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">23</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">28</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">ArchiveNumber</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">600</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">170</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">185</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">30</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">501</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">173</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">96</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Archivnummer:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">ArchiveNumber</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">32</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">163</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">72</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">20</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">5</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Kommentar:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Comment</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">36</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseCover</ControlName>
+      <Properties>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">CDCoverBack</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">838</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">152</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">120</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">94</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Klicken Sie hier, um ein Back-Cover hinzuzufügen.</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">38</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">UPC</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">600</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">140</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">185</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">40</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">501</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">143</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">70</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">UPC/EAN:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">UPC</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">42</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseComboBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>DropDownStyle</Name>
+          <Value xsi:type="xsd:int">1</Value>
+        </Property>
+        <Property>
+          <Name>ListValuesPropertyName</Name>
+          <Value xsi:type="xsd:string">AvailableLabels</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">321</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">129</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">155</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Label</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">44</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">237</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">133</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">53</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Label:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Label</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">46</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Copyright</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">89</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">130</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">126</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">48</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">133</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">67</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">5</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Copyright:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Copyright</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">50</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseSeperator</ControlName>
+      <Properties>
+        <Property>
+          <Name>Direction</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">335</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">2</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">491</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">125</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">None</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">52</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseCheckBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">731</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">101</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">83</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">18</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Original-CD</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">OriginalCD</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">54</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">YearRecorded</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">600</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">100</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">116</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">56</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">501</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">103</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">96</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Aufnahmejahr:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">YearRecorded</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">58</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseComboBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>DropDownStyle</Name>
+          <Value xsi:type="xsd:int">1</Value>
+        </Property>
+        <Property>
+          <Name>ListValuesPropertyName</Name>
+          <Value xsi:type="xsd:string">AvailableLanguages</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">322</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">100</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">154</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Language</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">60</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">237</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">103</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">63</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Sprache:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Language</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">62</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseButton</ControlName>
+      <Properties>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Category</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">185</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">99</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">30</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">23</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">...</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">64</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseComboBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>DropDownStyle</Name>
+          <Value xsi:type="xsd:int">2</Value>
+        </Property>
+        <Property>
+          <Name>ListValuesPropertyName</Name>
+          <Value xsi:type="xsd:string">AvailableCategories</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">89</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">100</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">91</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Category</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">66</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">103</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">66</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">20</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">5</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Kategorie:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Category</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">68</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">501</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">73</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">65</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Datum:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Date</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">70</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">237</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">73</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">84</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Kennzeichen:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Codes</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">72</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">73</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">72</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">5</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Komponist:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">ComposerCDName</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">74</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Date</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">600</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">70</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">116</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">76</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseButton</ControlName>
+      <Properties>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Codes</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">447</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">70</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">30</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">23</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">...</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">78</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Codes</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">321</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">70</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">123</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">80</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseButton</ControlName>
+      <Properties>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">ComposerCDName</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">185</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">69</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">30</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">23</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">...</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">82</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">ComposerCDName</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">89</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">70</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">91</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">84</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseButton</ControlName>
+      <Properties>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Medium</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">787</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">40</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">30</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">23</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">...</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">86</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseComboBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>DropDownStyle</Name>
+          <Value xsi:type="xsd:int">2</Value>
+        </Property>
+        <Property>
+          <Name>ListValuesPropertyName</Name>
+          <Value xsi:type="xsd:string">AvailableMediums</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">600</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">40</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">185</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Medium</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">88</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">501</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">43</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">70</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Medium:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Medium</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">90</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Title</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">89</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">40</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">387</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">92</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">43</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">53</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">5</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Titel:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Title</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">94</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseCover</ControlName>
+      <Properties>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">CDCoverFront</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">838</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">12</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">120</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">120</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Klicken Sie hier, um ein Front-Cover hinzuzufügen.</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">96</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseRating</ControlName>
+      <Properties>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">600</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">12</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">100</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">20</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Rating</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">98</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">501</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">75</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">20</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Bewertung:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Rating</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">100</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseCheckBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">391</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">12</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">79</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">18</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Sampler</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Sampler</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">102</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseButton</ControlName>
+      <Properties>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">ArtistCDName</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">332</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">30</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">23</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">...</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">104</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">ArtistCDName</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">89</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">10</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">240</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">21</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">106</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseLabel</ControlName>
+      <Properties>
+        <Property>
+          <Name>ShowValue</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">66</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">16</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">5</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string">Interpret:</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">ArtistCDName</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">108</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseSeperator</ControlName>
+      <Properties>
+        <Property>
+          <Name>Direction</Name>
+          <Value xsi:type="xsd:int">1</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">2</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">263</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">824</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">-4</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">9</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">None</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">110</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseSeperator</ControlName>
+      <Properties>
+        <Property>
+          <Name>Direction</Name>
+          <Value xsi:type="xsd:int">1</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">2</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">536</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">490</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">-4</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">11</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">None</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">112</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseSeperator</ControlName>
+      <Properties>
+        <Property>
+          <Name>Direction</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">974</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">2</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>Text</Name>
+          <Value xsi:type="xsd:string" />
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">None</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">114</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+    <anyType xsi:type="HitbaseControlData">
+      <ControlName>HitbaseTextBox</ControlName>
+      <Properties>
+        <Property>
+          <Name>Multiline</Name>
+          <Value xsi:type="xsd:boolean">true</Value>
+        </Property>
+        <Property>
+          <Name>Field</Name>
+          <Value xsi:type="Field">Comment</Value>
+        </Property>
+        <Property>
+          <Name>Left</Name>
+          <Value xsi:type="xsd:int">89</Value>
+        </Property>
+        <Property>
+          <Name>Top</Name>
+          <Value xsi:type="xsd:int">160</Value>
+        </Property>
+        <Property>
+          <Name>Width</Name>
+          <Value xsi:type="xsd:int">387</Value>
+        </Property>
+        <Property>
+          <Name>Height</Name>
+          <Value xsi:type="xsd:int">44</Value>
+        </Property>
+        <Property>
+          <Name>Dock</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+        <Property>
+          <Name>Anchor</Name>
+          <Value xsi:type="xsd:int">13</Value>
+        </Property>
+        <Property>
+          <Name>TabIndex</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </Property>
+      </Properties>
+      <Controls />
+    </anyType>
+  </Controls>
+</HitbaseDialogData>

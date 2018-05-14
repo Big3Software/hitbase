@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="btnexgenipl.xsl"?>
+
+<!DOCTYPE btdoc SYSTEM "btdoc.dtd">
+
+<btdoc>
+	<classsynopsis language="c++">
+		<ooclass>
+			<classname>BTCImageObject</classname>
+		</ooclass>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetFileType</methodname>
+			<methodparam>
+				<type>unsigned int</type>
+				<parameter>nResource</parameter>
+				<desc>Id of the resource.</desc>
+			</methodparam>
+			<methodparam>
+				<type>HANDLE</type>
+				<parameter>hModule</parameter>
+				<initializer>NULL</initializer>
+				<desc>Handle to the module whose executable file contains the resource. Only needed if you want to get the image type from a resource.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>bt_char*</type>
+				<parameter>lpType</parameter>
+				<initializer>RT_BITMAP</initializer>
+				<desc>Pointer to the resource type. For more information search for FindResource in MSDN. Only needed if you want to get the image type from a resource.</desc>
+			</methodparam>
+			<desc>Returns the image type from a resource. If you want to get the image type from a resource you have to set the current process instance to the hModule parameter.</desc>
+			<retvaldesc>The id of the codec that will be used to decode the image; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetFileType</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>bt_char*</type>
+				<parameter>lpszResource</parameter>
+				<desc>Pointer to the name of the resource/filename.</desc>
+			</methodparam>
+			<methodparam>
+				<type>HANDLE</type>
+				<parameter>hModule</parameter>
+				<initializer>NULL</initializer>
+				<desc>Handle to the module whose executable file contains the resource. Only needed if you want to get the image type from a resource.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>bt_char*</type>
+				<parameter>lpType</parameter>
+				<initializer>RT_BITMAP</initializer>
+				<desc>Pointer to the resource type. For more information search for FindResource in MSDN. Only needed if you want to get the image type from a resource.</desc>
+			</methodparam>
+			<desc>Returns the image type from a resource or file. If you want to get the image type from a resource you have to set the current process instance to the hModule parameter.</desc>
+			<retvaldesc>The id of the codec that will be used to decode the image; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetFileType</methodname>
+			<methodparam>
+				<type>unsigned char*</type>
+				<parameter>pData</parameter>
+				<desc>Pointer to the memory buffer.</desc>
+			</methodparam>
+			<methodparam>
+				<type>long</type>
+				<parameter>lSize</parameter>
+				<desc>Size of the memory buffer.</desc>
+			</methodparam>
+			<desc> Returns the image type from a memory buffer.</desc>
+			<retvaldesc>The id of the codec that will be used to decode the image; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetFileType</methodname>
+			<methodparam>
+				<type>BTCIStream*</type>
+				<parameter>pIStream</parameter>
+				<desc>Pointer to the input stream.</desc>
+			</methodparam>
+			<desc>Returns the image type from a stream.</desc>
+			<retvaldesc>The id of the codec that will be used to decode the image; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>Load</methodname>
+			<methodparam>
+				<type>unsigned int</type>
+				<parameter>nResource</parameter>
+				<desc>Id of the resource to analyse.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCDecoderOptions*</type>
+				<parameter>pOptions</parameter>
+				<initializer>NULL</initializer>
+				<desc>Pointer to the options class. For more details see BTCOptions.h.</desc>
+			</methodparam>
+			<methodparam>
+				<type>HANDLE</type>
+				<parameter>hModule</parameter>
+				<initializer>NULL</initializer>
+				<desc>Handle to the module whose executable file contains the resource. Only needed if you want to load from resource.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>bt_char*</type>
+				<parameter>lpType</parameter>
+				<initializer>RT_BITMAP</initializer>
+				<desc>Pointer to the resource type. For more information search for FindResource in MSDN. Only needed if you want to load from resource.</desc>
+			</methodparam>
+			<desc>Loads an image from resource. If you want to load an image from resource you have to set the current process instance to the hModule parameter.</desc>
+			<retvaldesc>The id of the used codec; otherwise, -1. Please notice that this id is different to the id of the encoder codec for the same image type.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>Load</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>bt_char*</type>
+				<parameter>lpszResource</parameter>
+				<desc>Pointer to the name of the resource/filename.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCDecoderOptions*</type>
+				<parameter>pOptions</parameter>
+				<initializer>NULL</initializer>
+				<desc>Pointer to the options class. For more details see BTCOptions.h.</desc>
+			</methodparam>
+			<methodparam>
+				<type>HANDLE</type>
+				<parameter>hModule</parameter>
+				<initializer>NULL</initializer>
+				<desc>Handle to the module whose executable file contains the resource. Only needed if you want to load from resource.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>bt_char*</type>
+				<parameter>lpType</parameter>
+				<initializer>RT_BITMAP</initializer>
+				<desc>Pointer to the resource type. For more information search for FindResource in MSDN. Only needed if you want to load from resource.</desc>
+			</methodparam>
+			<desc>Loads an image from resource/file. If you want to load an image from resource you have to set the current process instance to the hModule parameter.</desc>
+			<retvaldesc>The id of the used codec; otherwise, -1. Please notice that this id is different to the id of the encoder codec for the same image type.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>Load</methodname>
+			<methodparam>
+				<type>unsigned char*</type>
+				<parameter>pData</parameter>
+				<desc>Pointer to the memory buffer.</desc>
+			</methodparam>
+			<methodparam>
+				<type>long</type>
+				<parameter>lSize</parameter>
+				<desc>Size of the memory buffer.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCDecoderOptions*</type>
+				<parameter>pOptions</parameter>
+				<initializer>NULL</initializer>
+				<desc>Pointer to the options class. For more details see BTCOptions.h.</desc>
+			</methodparam>
+			<desc>Loads an image from memory.</desc>
+			<retvaldesc>The id of the used codec; otherwise, -1. Please notice that this id is different to the id of the encoder codec for the same image type.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>Load</methodname>
+			<methodparam>
+				<type>BTCIStream*</type>
+				<parameter>pIStream</parameter>
+				<desc>Pointer to the input stream.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCDecoderOptions*</type>
+				<parameter>pOptions</parameter>
+				<initializer>NULL</initializer>
+				<desc>Pointer to the options class. For more details see BTCOptions.h.</desc>
+			</methodparam>
+			<desc>Loads an image from an input stream.</desc>
+			<retvaldesc>The id of the used codec; otherwise, -1. Please notice that this id is different to the id of the encoder codec for the same image type.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>BTRESULT</type>
+			<methodname>Save</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>BTCString</type>
+				<parameter>strFileName</parameter>
+				<desc>Pointer to the name of the filename.</desc>
+			</methodparam>
+			<methodparam>
+				<type>long</type>
+				<parameter>lCodecId</parameter>
+				<desc>Id of the codec to encode the image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCEncoderOptions*</type>
+				<parameter>pOptions</parameter>
+				<initializer>NULL</initializer>
+				<desc>Pointer to the options class. For more details see BTCOptions.h.</desc>
+			</methodparam>
+			<desc>Saves an image to a file.</desc>
+			<retvaldesc>BT_S_OK if successful; otherwise, BT_S_FALSE.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>BTRESULT</type>
+			<methodname>Save</methodname>
+			<methodparam>
+				<type>BTCOStream*</type>
+				<parameter>pOStream</parameter>
+				<desc>Pointer to the output stream.</desc>
+			</methodparam>
+			<methodparam>
+				<type>long</type>
+				<parameter>lCodecId</parameter>
+				<desc>Id of the codec to encode the image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCEncoderOptions*</type>
+				<parameter>pOptions</parameter>
+				<initializer>NULL</initializer>
+				<desc>Pointer to the options class. For more details see BTCOptions.h.</desc>
+			</methodparam>
+			<desc>Saves an image to an output stream.</desc>
+			<retvaldesc>BT_S_OK if successful; otherwise, BT_S_FALSE.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>BTRESULT</type>
+			<methodname>AddCodec</methodname>
+			<methodparam>
+				<type>BTICodec*</type>
+				<parameter>pCodec</parameter>
+				<desc>Pointer to the codec object.</desc>
+			</methodparam>
+			<desc>Adds an codec (Decoder/Encoder) to the object.</desc>
+			<retvaldesc>BT_S_OK if successful; otherwise, BT_S_FALSE.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>BTRESULT</type>
+			<methodname>RemoveCodec</methodname>
+			<methodparam>
+				<type>long</type>
+				<parameter>lId</parameter>
+				<desc>The id of the codec to remove.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTCodecType&amp;</type>
+				<parameter>CodecType</parameter>
+				<enumlist>
+					<enum>BTCODECTYPE_DECODER</enum>
+					<enum>BTCODECTYPE_ENCODER</enum>
+				</enumlist>
+				<desc>Type of codec:</desc>
+			</methodparam>
+			<desc>Removes an codec (Decoder/Encoder) from the object.</desc>
+			<retvaldesc>BT_S_OK if successful; otherwise, BT_S_FALSE.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetCodecIdFromFormat</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>BTCString</type>
+				<parameter>strFormat</parameter>
+				<desc>The format name of the codec (e.g. BMP, TGA, ...). Also see list of internal codecs in BTDefines.h.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTCodecType&amp;</type>
+				<parameter>CodecType</parameter>
+				<enumlist>
+					<enum>BTCODECTYPE_DECODER</enum>
+					<enum>BTCODECTYPE_ENCODER</enum>
+				</enumlist>
+				<desc>Type of codec:</desc>
+			</methodparam>
+			<desc>Retrieves the id of the requested codec. Please notice that for each image type the id's are different for the decoder and encoder.</desc>
+			<retvaldesc>The id of the requested codec; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetCodecIdFromExtension</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>BTCString</type>
+				<parameter>strExtension</parameter>
+				<desc>The file extension used from the codec (e.g. tiff, tif, jpeg, jpg, bmp, ...). Also see list of internal codecs in BTDefines.h.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTCodecType&amp;</type>
+				<parameter>CodecType</parameter>
+				<enumlist>
+					<enum>BTCODECTYPE_DECODER</enum>
+					<enum>BTCODECTYPE_ENCODER</enum>
+				</enumlist>
+				<desc>Type of codec:</desc>
+			</methodparam>
+			<desc>Retrieves the id of the requested codec. Please notice that for each image type the id's are different for the decoder and encoder.</desc>
+			<retvaldesc>The id of the requested codec; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>BTICodecList*</type>
+			<methodname>GetCodecs</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTCodecType&amp;</type>
+				<parameter>CodecType</parameter>
+				<enumlist>
+					<enum>BTCODECTYPE_DECODER</enum>
+					<enum>BTCODECTYPE_ENCODER</enum>
+				</enumlist>
+				<desc>Type of codec:</desc>
+			</methodparam>
+			<desc>Return the list of available codecs from the requested type.</desc>
+			<retvaldesc>If successful, a pointer to a BTICodecList containing the list of available codecs; otherwise, NULL;</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>BTCImageData</type>
+			<methodname>GetObjectData</methodname>
+			<modifier>const</modifier>
+			<void/>
+			<desc>Returns a copy of the objects BTCImageData object.</desc>
+			<retvaldesc>The BTCImageData object.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>BTCImageData*</type>
+			<methodname>GetObjectDataPtr</methodname>
+			<void/>
+			<desc>Returns a pointer to the objects BTCImageData object.</desc>
+			<retvaldesc>A pointer to the objects BTCImageData object; otherwise, NULL.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Attach</methodname>
+			<methodparam>
+				<type>BTCImageData&amp;</type>
+				<parameter>ImageData</parameter>
+				<desc>The BTCImageData object to attach.</desc>
+			</methodparam>
+			<desc>Attachs a BTCImageData object.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>void</type>
+			<methodname>SetProgressNotification</methodname>
+			<methodparam>
+				<type>BTIProgressNotification*</type>
+				<parameter>pProgressNotification</parameter>
+				<desc>Pointer to the class that is derived from BTIProgressNotification.</desc>
+			</methodparam>
+			<desc>Sets the progress notification callback.</desc>
+			<retvaldesc>None.</retvaldesc>
+		</methodsynopsis>
+	</classsynopsis>
+</btdoc>

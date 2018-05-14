@@ -1,0 +1,6 @@
+; HitDB.def : Declares the module parameters for the DLL.
+
+LIBRARY      "HitDBd"
+
+EXPORTS
+    ; Explicit exports can go here

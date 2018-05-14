@@ -1,0 +1,41 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	x:Class="Big3.Hitbase.Controls.WaitProgress" IsVisibleChanged="UserControl_IsVisibleChanged">
+    <UserControl.Resources>
+
+        <ResourceDictionary>
+            <Storyboard x:Key="IndicatorStoryboard" BeginTime="0">
+                <DoubleAnimation Storyboard.TargetName="ContentContainer"
+                                 Storyboard.TargetProperty="(Canvas.RenderTransform).(RotateTransform.Angle)"
+                                    From="0" RepeatBehavior="Forever"
+                                    To="360"
+                                    Duration="00:00:01"/>
+            </Storyboard>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical">
+        <Canvas x:Name="LayoutRoot" Width="30" Height="30" ClipToBounds="True">
+            <Canvas x:Name="ContentContainer">
+                <Canvas.RenderTransform>
+                    <RotateTransform Angle="0"
+                             CenterX="15"
+                             CenterY="15" />
+                </Canvas.RenderTransform>
+                <Ellipse Name="Ellipse1" Fill="White" Opacity="0.0" Canvas.Left="0" Canvas.Top="11" Height="8" Width="8"/>
+                <Ellipse Name="Ellipse2" Fill="White" Opacity="0.05" Canvas.Left="3" Canvas.Top="3" Height="8" Width="8"/>
+                <Ellipse Name="Ellipse3" Fill="White" Opacity="0.1" Canvas.Left="11" Canvas.Top="0" Height="8" Width="8"/>
+                <Ellipse Name="Ellipse4" Fill="White" Opacity="0.2" Canvas.Left="19" Canvas.Top="3" Height="8" Width="8"/>
+                <Ellipse Name="Ellipse5" Fill="White" Opacity="0.3" Canvas.Left="22" Canvas.Top="11" Height="8" Width="8"/>
+                <Ellipse Name="Ellipse6" Fill="White" Opacity="0.4" Canvas.Left="19" Canvas.Top="19" Height="8" Width="8"/>
+                <Ellipse Name="Ellipse7" Fill="White" Opacity="0.6" Canvas.Left="11" Canvas.Top="22" Height="8" Width="8"/>
+                <Ellipse Name="Ellipse8" Fill="White" Opacity="0.8" Canvas.Left="3" Canvas.Top="19" Height="8" Width="8"/>
+            </Canvas>
+        </Canvas>
+        <TextBlock x:Name="WaitTextBlock" Visibility="Collapsed" Margin="0,5,0,0">
+        
+        </TextBlock>
+    </StackPanel>
+</UserControl>

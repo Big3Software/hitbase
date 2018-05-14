@@ -1,0 +1,59 @@
+
+===============================================================================
+                        REVISION HISTORY : FMOD Designer
+             Copyright (c) Firelight Technologies, Pty, Ltd, 2004-2005
+                              http://www.fmod.org
+===============================================================================
+	      + Added feature or noticable improvement
+	      - Bug fix or something removed
+	      * Changed or Information
+===============================================================================
+
+09/06/05 1.0.5 alpha
+---------------------
+
++ Added output and buffersize settings in preferences dialog
++ Improved error handling
++ Added platform toolbar (still only supports cross-platform atm)
++ Added new build dialog
+- Fixed focus issues
+- Fixed various bugs
+* Revised menus
+
+
+31/05/05 1.0.4 alpha
+---------------------
+
++ Can now create sound definitions in sound definition screen by multiple-selecting wavs
++ Sound definition preview is now affected by volume and pitch
++ Added "Close" project menu option
++ Cleaned up interface
++ Added driver setting in sound preferences
+- Added "Fix absolute paths" in Special menu
+- Fixed bug that allowed multiple sound definitions with the same name or null name
+- Fixed ruler min/max issues
+- Fixed problem when enabling autopitch
+- Fixed crash on save
+* All new sounds are now added with path relative to their project file
+
+
+??/??/05 1.0.2 alpha
+---------------------
+
++ Added an installer
+
+
+03/04/05 1.0.1 alpha
+---------------------
+
++ Added help text in middle of event editor screen if no event selected
+- Fixed debug dll dependency
+- Fixed problems when no event is selected
+- Fixed window maximise on startup
+* Better variable names in simple_event example
+
+
+01/04/05 1.0.0 alpha
+---------------------
+
+* Initial release

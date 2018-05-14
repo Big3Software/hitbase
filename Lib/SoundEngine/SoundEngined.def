@@ -1,0 +1,6 @@
+; SoundEngine.def : Declares the module parameters for the DLL.
+
+LIBRARY      "SoundEngined"
+
+EXPORTS
+    ; Explicit exports can go here

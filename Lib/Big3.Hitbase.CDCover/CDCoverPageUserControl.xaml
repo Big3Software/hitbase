@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="Big3.Hitbase.CDCover.CDCoverPageUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Big3.Hitbase.CDCover"
+             xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+             mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="800" Loaded="UserControl_Loaded" PreviewMouseWheel="UserControl_PreviewMouseWheel">
+    <UserControl.Resources>
+        <local:ShowBorderConverter x:Key="showBorderConverter" />
+        <local:FontDecorationWeightConverter x:Key="fontDecorationWeightConverter" />
+        <local:FontDecorationItalicConverter x:Key="fontDecorationItalicConverter" />
+        <local:FontDecorationUnderlineConverter x:Key="fontDecorationUnderlineConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <AdornerDecorator>
+            <ContentPresenter />
+        </AdornerDecorator>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid x:Name="GridPage">
+                <Grid.LayoutTransform>
+                    <ScaleTransform x:Name="scaleTransform" />
+                </Grid.LayoutTransform>
+                <Viewbox Stretch="Uniform">
+                    <Border BorderThickness="0.5" BorderBrush="Black" Margin="2">
+                        <Canvas Width="210" Height="297" Background="White" MouseDown="Cover_MouseDown">
+                            
+                            <!-- BackCover -->
+                            <Border local:CoverElementExtensions.IsSelectable="True" x:Name="BackCover" Canvas.Left="10" Canvas.Top="30"  Background="Transparent">
+                                <Border.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Hintergrund">
+                                            <MenuItem Header="Farbe..."/>
+                                            <MenuItem Header="Grafik..."/>
+                                            <MenuItem Header="Aus CD"/>
+                                        </MenuItem>
+                                        <MenuItem Header="Schriftart..." Command="sr:HitbaseCommands.ChooseFont" />
+                                    </ContextMenu>
+                                </Border.ContextMenu>
+                                <DockPanel Width="{Binding Model.BackCoverWidth}" Height="{Binding Model.BackCoverHeight}" >
+                                    <!-- Linker Bereich des Backcovers -->
+                                    <Border Width="10" DockPanel.Dock="Left" local:CoverElementExtensions.IsSelectable="True" 
+                                            local:CoverElementExtensions.CoverElement="BackCoverLeftSide" 
+                                            BorderThickness="{Binding ShowBordersThickness}" BorderBrush="{Binding ShowBorders, Converter={StaticResource showBorderConverter}}" >
+                                        <Grid Width="10" Height="{Binding Model.BackCoverHeight}" >
+                                            <TextBlock x:Name="TextBoxBackCoverLeft" Text="{Binding TextBackCoverLeft}" Margin="0,0,0,4" VerticalAlignment="Bottom"
+                                                        FontSize="{Binding Model.BackCoverLeftSideFontModel.Size}" 
+                                                        FontFamily="{Binding Model.BackCoverLeftSideFontModel.FontFamily}"
+                                                        FontWeight="{Binding Model.BackCoverLeftSideFontModel.FontDecoration, Converter={StaticResource fontDecorationWeightConverter}}"
+                                                        FontStyle="{Binding Model.BackCoverLeftSideFontModel.FontDecoration, Converter={StaticResource fontDecorationItalicConverter}}"
+                                                        TextDecorations="{Binding Model.BackCoverLeftSideFontModel.FontDecoration, Converter={StaticResource fontDecorationUnderlineConverter}}"
+                                                        HorizontalAlignment="Center">
+                                                <TextBlock.LayoutTransform>
+                                                    <RotateTransform Angle="-90" />
+                                                </TextBlock.LayoutTransform>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Border>
+
+                                    <!-- Rechter Bereicht des Backcovers -->
+                                    <Border Width="10" DockPanel.Dock="Right" local:CoverElementExtensions.IsSelectable="True" local:CoverElementExtensions.CoverElement="BackCoverRightSide" BorderThickness="{Binding ShowBordersThickness}" BorderBrush="{Binding ShowBorders, Converter={StaticResource showBorderConverter}}">
+                                        <Grid Width="10" Height="{Binding Model.BackCoverHeight}">
+                                            <TextBlock x:Name="TextBoxBackCoverRight" Text="{Binding TextBackCoverRight}" Margin="0,4,0,0" VerticalAlignment="Top"
+                                                        FontFamily="{Binding Model.BackCoverRightSideFontModel.FontFamily}"
+                                                        FontSize="{Binding Model.BackCoverRightSideFontModel.Size}"
+                                                        FontWeight="{Binding Model.BackCoverRightSideFontModel.FontDecoration, Converter={StaticResource fontDecorationWeightConverter}}"
+                                                        FontStyle="{Binding Model.BackCoverRightSideFontModel.FontDecoration, Converter={StaticResource fontDecorationItalicConverter}}"
+                                                        TextDecorations="{Binding Model.BackCoverRightSideFontModel.FontDecoration, Converter={StaticResource fontDecorationUnderlineConverter}}"
+                                                        HorizontalAlignment="Center" >
+                                                <TextBlock.LayoutTransform>
+                                                    <RotateTransform Angle="90" />
+                                                </TextBlock.LayoutTransform>
+                                            </TextBlock>
+                                        </Grid>
+                                    </Border>
+
+                                    <!-- Innenteil des Backcovers -->
+                                    <Border local:CoverElementExtensions.IsSelectable="True" local:CoverElementExtensions.CoverElement="BackCoverTracklist" BorderThickness="{Binding ShowBordersThickness}" BorderBrush="{Binding ShowBorders, Converter={StaticResource showBorderConverter}}">
+                                        <ItemsControl x:Name="ItemsControlTracks" TextElement.FontSize="{Binding Model.BackCoverFontModel.Size}" Padding="5" ItemsSource="{Binding CD.Tracks}" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
+                                        </ItemsControl>
+                                    </Border>
+                                </DockPanel>
+                            </Border>
+                            
+                            <!-- FrontCover -->
+                            <Border local:CoverElementExtensions.IsSelectable="True" BorderThickness="{Binding ShowBordersThickness}" BorderBrush="{Binding ShowBorders, Converter={StaticResource showBorderConverter}}"
+                                    x:Name="FrontCover" Canvas.Left="10" Canvas.Top="150" Width="{Binding Model.FrontCoverWidth}" Height="{Binding Model.FrontCoverHeight}">
+                                <Grid>
+                                    <TextBlock local:CoverElementExtensions.IsSelectable="True" local:CoverElementExtensions.CoverElement="FrontCoverTitle1"
+                                                x:Name="FrontCoverTitle1" Text="{Binding CD.Artist}" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" TextTrimming="CharacterEllipsis" 
+                                                FontSize="{Binding Model.FrontCoverFontTitle1.Size}"
+                                                        FontWeight="{Binding Model.FrontCoverFontTitle1.FontDecoration, Converter={StaticResource fontDecorationWeightConverter}}"
+                                                        FontStyle="{Binding Model.FrontCoverFontTitle1.FontDecoration, Converter={StaticResource fontDecorationItalicConverter}}"
+                                                        TextDecorations="{Binding Model.FrontCoverFontTitle1.FontDecoration, Converter={StaticResource fontDecorationUnderlineConverter}}"
+                                                FontFamily="{Binding Model.FrontCoverFontTitle1.FontFamily}" />
+                                    <TextBlock local:CoverElementExtensions.IsSelectable="True" local:CoverElementExtensions.CoverElement="FrontCoverTitle2"
+                                                x:Name="FrontCoverTitle2" Text="{Binding CD.Title}" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" TextTrimming="CharacterEllipsis" 
+                                                FontSize="{Binding Model.FrontCoverFontTitle2.Size}" 
+                                                        FontWeight="{Binding Model.FrontCoverFontTitle2.FontDecoration, Converter={StaticResource fontDecorationWeightConverter}}"
+                                                        FontStyle="{Binding Model.FrontCoverFontTitle2.FontDecoration, Converter={StaticResource fontDecorationItalicConverter}}"
+                                                        TextDecorations="{Binding Model.FrontCoverFontTitle2.FontDecoration, Converter={StaticResource fontDecorationUnderlineConverter}}"
+                                                FontFamily="{Binding Model.FrontCoverFontTitle2.FontFamily}" />
+                                </Grid>
+                            </Border>
+                        </Canvas>
+                    </Border>
+                </Viewbox>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

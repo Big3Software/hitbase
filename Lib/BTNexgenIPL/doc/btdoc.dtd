@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- DTD for Binary Technologies API documentation.
+
+     This DTD is made as simple as possible. It contains only the
+     information needed to generate the API documentation.
+-->
+
+<!ELEMENT apidoc (classsynopsis*)>
+
+<!ELEMENT classsynopsis ((ooclass+, methodsynopsis)*)>
+<!ATTLIST classsynopsis language CDATA             #IMPLIED
+                        class	 (class|interface) "class">
+	
+<!ELEMENT ooclass (modifier*, classname)>
+<!ELEMENT classname (#PCDATA)>
+
+<!ELEMENT methodsynopsis (modifier*, (type|void)?, methodname, (methodparam+|void), modifier*, desc, retvaldesc)>
+<!ELEMENT methodname (#PCDATA)>
+
+<!ELEMENT methodparam (modifier*, type?, (parameter,initializer?), modifier*, desc, enumlist?)>
+<!ELEMENT parameter (#PCDATA)>
+<!ELEMENT initializer (#PCDATA)>
+<!ELEMENT enumlist (enum+)>
+<!ELEMENT enum (#PCDATA)>
+
+<!ELEMENT modifier (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT desc (#PCDATA)>
+<!ELEMENT retvaldesc (#PCDATA)>
+<!ELEMENT void EMPTY>

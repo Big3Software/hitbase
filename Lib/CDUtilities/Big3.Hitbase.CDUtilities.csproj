@@ -1,0 +1,972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3B274BAC-60C6-4DEF-9B1A-A658F863921C}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Big3.Hitbase.CDUtilities</RootNamespace>
+    <AssemblyName>CDUtilities</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BaseAddress>807403520</BaseAddress>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BaseAddress>807403520</BaseAddress>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nur .Net|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Nur .Net\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="cdsearch">
+      <HintPath>..\..\App\Application\bin\Debug\cdsearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\..\ThirdParty\Windows API Code Pack\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AmazonProgressControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AmazonProgressControl.Designer.cs">
+      <DependentUpon>AmazonProgressControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Amazon\AmazonHeader.cs" />
+    <Compile Include="Amazon\AmazonSigningBehaviorExtensionElement.cs" />
+    <Compile Include="Amazon\AmazonSigningEndpointBehavior.cs" />
+    <Compile Include="Amazon\AmazonSigningMessageInspector.cs" />
+    <Compile Include="BurnMedium.xaml.cs">
+      <DependentUpon>BurnMedium.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BurnMisc\BurnData.cs" />
+    <Compile Include="BurnMisc\BurnMisc.cs" />
+    <Compile Include="BurnMisc\Imapi2Interop.cs" />
+    <Compile Include="CDListBoxWithCover.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CDListBoxWithCover.Designer.cs">
+      <DependentUpon>CDListBoxWithCover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArtistListBoxWithImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ArtistListBoxWithImage.Designer.cs">
+      <DependentUpon>ArtistListBoxWithImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CDUserControl.xaml.cs">
+      <DependentUpon>CDUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseColumnFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChooseColumnFieldControl.Designer.cs">
+      <DependentUpon>ChooseColumnFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChooseFieldControl.Designer.cs">
+      <DependentUpon>ChooseFieldControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigureMusicLibraryUserControl.xaml.cs">
+      <DependentUpon>ConfigureMusicLibraryUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IMAPI2Missing.xaml.cs">
+      <DependentUpon>IMAPI2Missing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonGroupHelper.cs" />
+    <Compile Include="Service References\AmazonServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="WindowUpdateCatalog.xaml.cs">
+      <DependentUpon>WindowUpdateCatalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormChooseColumnFields.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseColumnFields.Designer.cs">
+      <DependentUpon>FormChooseColumnFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCalcBPM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCalcBPM.Designer.cs">
+      <DependentUpon>FormCalcBPM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChangeCodes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChangeCodes.Designer.cs">
+      <DependentUpon>FormChangeCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChooseCodes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseCodes.Designer.cs">
+      <DependentUpon>FormChooseCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCodes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCodes.Designer.cs">
+      <DependentUpon>FormCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDataBaseFields.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDataBaseFields.Designer.cs">
+      <DependentUpon>FormDataBaseFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteMedium.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteMedium.Designer.cs">
+      <DependentUpon>FormDeleteMedium.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExtendedSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExtendedSearch.Designer.cs">
+      <DependentUpon>FormExtendedSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoanManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoanManager.Designer.cs">
+      <DependentUpon>FormLoanManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLyrics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLyrics.Designer.cs">
+      <DependentUpon>FormLyrics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMediums.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMediums.Designer.cs">
+      <DependentUpon>FormMediums.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCategories.Designer.cs">
+      <DependentUpon>FormCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCDSetProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCDSetProperties.Designer.cs">
+      <DependentUpon>FormCDSetProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChooseFields.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseFields.Designer.cs">
+      <DependentUpon>FormChooseFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCopyToClipboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCopyToClipboard.Designer.cs">
+      <DependentUpon>FormCopyToClipboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteCategory.Designer.cs">
+      <DependentUpon>FormDeleteCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditCDSets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditCDSets.Designer.cs">
+      <DependentUpon>FormEditCDSets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditParticipant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditParticipant.Designer.cs">
+      <DependentUpon>FormEditParticipant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGeneralTextEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGeneralTextEdit.Designer.cs">
+      <DependentUpon>FormGeneralTextEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormArtistProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormArtistProperties.Designer.cs">
+      <DependentUpon>FormArtistProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCDDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCDDetails.Designer.cs">
+      <DependentUpon>FormCDDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCopyProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCopyProgress.Designer.cs">
+      <DependentUpon>FormCopyProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCopyTracksToExternalMedium.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCopyTracksToExternalMedium.Designer.cs">
+      <DependentUpon>FormCopyTracksToExternalMedium.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteExistingArtist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteExistingArtist.Designer.cs">
+      <DependentUpon>FormDeleteExistingArtist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditArtists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditArtists.Designer.cs">
+      <DependentUpon>FormEditArtists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditRoles.Designer.cs">
+      <DependentUpon>FormEditRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoanProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoanProperties.Designer.cs">
+      <DependentUpon>FormLoanProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormName.Designer.cs">
+      <DependentUpon>FormName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrintCatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrintCatalog.designer.cs">
+      <DependentUpon>FormPrintCatalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrintOptionsLongList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrintOptionsLongList.designer.cs">
+      <DependentUpon>FormPrintOptionsLongList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearch.Designer.cs">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchCodes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchCodes.Designer.cs">
+      <DependentUpon>FormSearchCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchString.Designer.cs">
+      <DependentUpon>FormSearchString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchAmazon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchAmazon.Designer.cs">
+      <DependentUpon>FormSearchAmazon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchAndReplace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchAndReplace.Designer.cs">
+      <DependentUpon>FormSearchAndReplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSort.Designer.cs">
+      <DependentUpon>FormSort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSql.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSql.Designer.cs">
+      <DependentUpon>FormSql.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTransferFields.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTransferFields.Designer.cs">
+      <DependentUpon>FormTransferFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWishlist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWishlist.Designer.cs">
+      <DependentUpon>FormWishlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWishlistItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWishlistItem.Designer.cs">
+      <DependentUpon>FormWishlistItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWishlistReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWishlistReminder.Designer.cs">
+      <DependentUpon>FormWishlistReminder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Icons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Icons.resx</DependentUpon>
+    </Compile>
+    <Compile Include="LyricsSearch.cs" />
+    <Compile Include="MultiTagEditWarningUserControl.xaml.cs">
+      <DependentUpon>MultiTagEditWarningUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ParticipantsUserControl.xaml.cs">
+      <DependentUpon>ParticipantsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonGroupProperties.xaml.cs">
+      <DependentUpon>PersonGroupProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonGroupWindow.xaml.cs">
+      <DependentUpon>PersonGroupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LyricWikiService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SortUserControl.xaml.cs">
+      <DependentUpon>SortUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tools.cs" />
+    <Compile Include="UploadCatalogWindow.xaml.cs">
+      <DependentUpon>UploadCatalogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserFieldsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserFieldsControl.Designer.cs">
+      <DependentUpon>UserFieldsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFieldsUserControl.xaml.cs">
+      <DependentUpon>UserFieldsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowAlbum.xaml.cs">
+      <DependentUpon>WindowAlbum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowBrowseCDArchive.xaml.cs">
+      <DependentUpon>WindowBrowseCDArchive.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowLinkCD.xaml.cs">
+      <DependentUpon>WindowLinkCD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowMissingCatalog.xaml.cs">
+      <DependentUpon>WindowMissingCatalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowMultiline.xaml.cs">
+      <DependentUpon>WindowMultiline.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowParticipant.xaml.cs">
+      <DependentUpon>WindowParticipant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wishlist.cs" />
+    <Compile Include="XPTableHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AmazonProgressControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AmazonProgressControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CDListBoxWithCover.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CDListBoxWithCover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArtistListBoxWithImage.resx">
+      <DependentUpon>ArtistListBoxWithImage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseColumnFieldControl.resx">
+      <DependentUpon>ChooseColumnFieldControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseFieldControl.resx">
+      <DependentUpon>ChooseFieldControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseColumnFields.resx">
+      <DependentUpon>FormChooseColumnFields.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCalcBPM.resx">
+      <DependentUpon>FormCalcBPM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChangeCodes.resx">
+      <DependentUpon>FormChangeCodes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseCodes.resx">
+      <DependentUpon>FormChooseCodes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCodes.resx">
+      <DependentUpon>FormCodes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDataBaseFields.resx">
+      <DependentUpon>FormDataBaseFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteMedium.resx">
+      <DependentUpon>FormDeleteMedium.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExtendedSearch.resx">
+      <DependentUpon>FormExtendedSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoanManager.resx">
+      <DependentUpon>FormLoanManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLyrics.resx">
+      <DependentUpon>FormLyrics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMediums.resx">
+      <DependentUpon>FormMediums.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCategories.resx">
+      <DependentUpon>FormCategories.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCDSetProperties.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCDSetProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseFields.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormChooseFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCopyToClipboard.resx">
+      <DependentUpon>FormCopyToClipboard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteCategory.resx">
+      <DependentUpon>FormDeleteCategory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditCDSets.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEditCDSets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditParticipant.resx">
+      <DependentUpon>FormEditParticipant.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGeneralTextEdit.resx">
+      <DependentUpon>FormGeneralTextEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormArtistProperties.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormArtistProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCopyProgress.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCopyProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCopyTracksToExternalMedium.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCopyTracksToExternalMedium.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteExistingArtist.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormDeleteExistingArtist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditArtists.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEditArtists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditRoles.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEditRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoanProperties.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormLoanProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormName.resx">
+      <DependentUpon>FormName.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrintCatalog.resx">
+      <DependentUpon>FormPrintCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrintOptionsLongList.resx">
+      <DependentUpon>FormPrintOptionsLongList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearch.resx">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchCodes.resx">
+      <DependentUpon>FormSearchCodes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchString.resx">
+      <DependentUpon>FormSearchString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchAmazon.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormSearchAmazon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchAndReplace.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormSearchAndReplace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSort.resx">
+      <DependentUpon>FormSort.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSql.resx">
+      <DependentUpon>FormSql.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTransferFields.resx">
+      <DependentUpon>FormTransferFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWishlist.resx">
+      <DependentUpon>FormWishlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWishlistItem.resx">
+      <DependentUpon>FormWishlistItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWishlistReminder.resx">
+      <DependentUpon>FormWishlistReminder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Icons.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFieldsControl.resx">
+      <DependentUpon>UserFieldsControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AmazonLogo1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoImage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bmp00013.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\starhalf.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Big3.Hitbase.SharedResources\Big3.Hitbase.SharedResources.csproj">
+      <Project>{F6825A2F-F2B6-465E-8A7F-9B380BD65CB2}</Project>
+      <Name>Big3.Hitbase.SharedResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Configuration\Big3.Hitbase.Configuration.csproj">
+      <Project>{0D1AE543-68CA-4DC8-826B-38987B119B4A}</Project>
+      <Name>Big3.Hitbase.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\Big3.Hitbase.Controls.csproj">
+      <Project>{2A54BD22-56F5-4926-A3D8-D06354A1A360}</Project>
+      <Name>Big3.Hitbase.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataBaseEngine\DataBaseEngine.csproj">
+      <Project>{A1F74ECE-CEF8-4A0F-9DFD-75820D8F5F77}</Project>
+      <Name>DataBaseEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Misc\Big3.Hitbase.Miscellaneous.csproj">
+      <Project>{1B40397C-387B-4145-9EDD-77414FB90F6E}</Project>
+      <Name>Big3.Hitbase.Miscellaneous</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundEngineNET\Big3.Hitbase.SoundEngine.csproj">
+      <Project>{9F1B6B6E-1EB8-40A7-A135-F341574C552B}</Project>
+      <Name>Big3.Hitbase.SoundEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XPTable\XPTable.csproj">
+      <Project>{1ADD2ECB-2B24-4162-8965-3EFAA9BB041E}</Project>
+      <Name>XPTable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Internet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RefreshDocView.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Table.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArtistThumbView.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrintPreview.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PageSetup.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mp3device.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MusicFile.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddToWishlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico00014.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Wishlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MissingPersonImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MissingPersonImageWatermark.png" />
+    <None Include="Service References\AmazonServiceReference\AWSECommerceService.wsdl" />
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.CDUtilities.AmazonServiceReference.BrowseNodeLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.CDUtilities.AmazonServiceReference.CartAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.CDUtilities.AmazonServiceReference.CartClearResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.CDUtilities.AmazonServiceReference.CartCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.CDUtilities.AmazonServiceReference.CartGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.CDUtilities.AmazonServiceReference.CartModifyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.CDUtilities.AmazonServiceReference.ItemLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.CDUtilities.AmazonServiceReference.ItemSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.CDUtilities.AmazonServiceReference.SimilarityLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LyricWikiService\server.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AmazonServiceReference\" />
+    <WCFMetadataStorage Include="Service References\LyricWikiService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LyricWikiService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LyricWikiService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LyricWikiService\Big3.Hitbase.CDUtilities.LyricWikiService.LyricsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LyricWikiService\Big3.Hitbase.CDUtilities.LyricWikiService.SongResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LyricWikiService\Big3.Hitbase.CDUtilities.LyricWikiService.SOTDResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LyricWikiService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="BurnMedium.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CDUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfigureMusicLibraryUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IMAPI2Missing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowUpdateCatalog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MultiTagEditWarningUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ParticipantsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonGroupProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonGroupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SortUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UploadCatalogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserFieldsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowAlbum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowBrowseCDArchive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowLinkCD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowMissingCatalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowMultiline.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowParticipant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MissingCover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FourPages.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OnePage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PageDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PageUpHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrintSetup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TwoPages.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AmazonServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AmazonServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AmazonServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

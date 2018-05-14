@@ -1,0 +1,276 @@
+<html>
+<head>
+<title>BTCImageObject</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="basic.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<p class="Title1" align="left">BTCImageObject Class</p>
+<p class="Title2"><Load>Load<a name="Load"></a></load></p>
+<p class="Method">bool Load(unsigned int nResource, BTCDecoderOptions* pOptions = NULL, HANDLE 
+  hModule = NULL, const bt_char *lpType = RT_BITMAP)</p>
+<p class="Text"> Loads an image from resource. If you want to load an image from 
+  resource you have to set the current process instance to the hModule parameter.</p>
+<p><span class="Title3">Parameters</span></p>
+<p> <span class="Parameter">nResource</span></p>
+<blockquote>
+  <p class="Text">Id of the resource to analyse.</p>
+</blockquote>
+<p class="Parameter">pOptions</p>
+<blockquote> 
+  <p class="Text">Pointer to the options class. For more details see BTCOptions.h.</p>
+</blockquote>
+<p class="Parameter">hModule</p>
+<blockquote> 
+  <p class="Text">Handle to the module whose executable file contains the resource. 
+    Only needed if you want to load from resource. </p>
+</blockquote>
+<p class="Parameter">lpType</p>
+<blockquote> 
+  <p class="Text">Pointer to the resource type. For more information search for 
+    FindResource in MSDN. Only needed if you want to load from resource.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p><span class="Text">true if successful; otherwise, false;</span></p>
+<p class="Method">bool Load(const bt_char *lpszResource, BTCDecoderOptions* pOptions = NULL, 
+  HANDLE hModule = NULL, const bt_char *lpType = RT_BITMAP)</p>
+<p class="Text">Loads an image from resource/file. If you want to load an image 
+  from resource you have to set the current process instance to the hModule parameter.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">lpszResource</p>
+<blockquote>
+  <p><span class="Text">Pointer to the name of the resource/filename.</span></p>
+</blockquote>
+<p class="Parameter">pOptions</p>
+<blockquote> 
+  <p class="Text">Pointer to the options class. For more details see BTCOptions.h.</p>
+</blockquote>
+<p class="Parameter">hModule</p>
+<blockquote> 
+  <p class="Text">Handle to the module whose executable file contains the resource. 
+    Only needed if you want to load from resource. </p>
+</blockquote>
+<p class="Parameter"> lpType</p>
+<blockquote> 
+  <p class="Text">Pointer to the resource type. For more information search for 
+    FindResource in MSDN. Only needed if you want to load from resource.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p><span class="Text">true if successful; otherwise, false;</span><br>
+</p>
+<p class="Method">bool Load(unsigned char* pData, long lSize, BTCDecoderOptions* 
+  pOptions = NULL)</p>
+<p class="Text"> Loads an image from memory.</p>
+<p class="Title3"> Parameters</p>
+<p class="Parameter">pData</p>
+<blockquote>
+  <p class="Text">Pointer to the memory buffer.</p>
+</blockquote>
+<p class="Parameter"> lSize</p>
+<blockquote>
+  <p class="Text">Size of the memory buffer.</p>
+</blockquote>
+<p class="Parameter"> pOptions</p>
+<blockquote> 
+  <p class="Text">Pointer to the options class. For more details see BTCOptions.h.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p><span class="Text">true if successful; otherwise, false;</span><br>
+</p>
+<p class="Method">bool Load(BTCIStream* pIStream, BTCDecoderOptions* pOptions 
+  = NULL)</p>
+<p class="Text"> Loads an image from an input stream.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pIStream</p>
+<blockquote>
+  <p class="Text">Pointer to the input stream.</p>
+</blockquote>
+<p class="Parameter">pOptions</p>
+<blockquote> 
+  <p class="Text">Pointer to the options class. For more details see BTCOptions.h.</p>
+</blockquote>
+<p class="Title3"> Return Value</p>
+<p><span class="Text">true if successful; otherwise, false;</span><br>
+</p>
+<hr size="1" align="center" noshade>
+<p class="Title2">Save<a name="Save"></a></p>
+<p class="Method">bool Save(const bt_char *lpszFileName, long lType = BTFILETYPE_BMP, 
+  BTCEncoderOptions* pOptions = NULL)</p>
+<p class="Text">Saves an image to a file.</p>
+<p class="Title3">Parameters</p>
+<p><span class="Parameter">nResource</span><br>
+</p>
+<blockquote>
+  <p class="Text">Pointer to the name of the filename.</p>
+</blockquote>
+<p class="Parameter">pOptions</p>
+<blockquote> 
+  <p class="Text">Pointer to the options class. For more details see BTCOptions.h.</p>
+</blockquote>
+<p><span class="Title3">Return Value</span></p>
+<p><span class="Text">true if successful; otherwise, false;</span></p>
+<p class="Method">bool Save(BTCOStream* pOStream, long lType = BTFILETYPE_BMP, 
+  BTCEncoderOptions* pOptions = NULL)</p>
+<p class="Text">Saves an image to an output stream.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pIStream</p>
+<blockquote>
+  <p class="Text">Pointer to the output stream.</p>
+</blockquote>
+<p class="Parameter">pOptions</p>
+<blockquote> 
+  <p class="Text">Pointer to the options class. For more details see BTCOptions.h.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false;</p>
+<hr size="1" noshade align="center">
+<p class="Title2">AddCodec<a name="AddCodec"></a></p>
+<p class="Method">bool AddCodec(long lId, BTICodec* pCodec)</p>
+<p class="Text"> Adds an codec (Decoder/Encoder) to the object.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">lId</p>
+<blockquote>
+  <p class="Text">Id of the codec. For external codecs it must be greater then 
+    BTFILETYPE_EXTERN.</p>
+</blockquote>
+<p class="Parameter">pCodec</p>
+<blockquote>
+  <p class="Text">Pointer to the codec class.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false;</p>
+<hr size="1" noshade align="center">
+<p class="Title2">RemoveCodec<a name="RemoveCodec"></a></p>
+<p class="Method">void RemoveCodec(long lId, const enum BTCodecType&amp; CodecType)</p>
+<p class="Text"> Removes an codec (Decoder/Encoder) from the object.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">lId</p>
+<blockquote>
+  <p class="Text">The id of the codec to remove.</p>
+</blockquote>
+<p class="Parameter">CodecType</p>
+<blockquote>
+  <p class="Text">Type of codec (BTCODECTYPE_DECODER or BTCODECTYPE_ENCODER).</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false;</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetCodecs<a name="GetCodecs"></a></p>
+<p class="Method">BTICodecList *GetCodecs(const enum BTCodecType&amp; CodecType)</p>
+<p class="Text"> Return the list of available codecs from the requested type.</p>
+<p class="Title3"> Parameters</p>
+<p class="Parameter">CodecType</p>
+<blockquote> 
+  <p class="Text">Type of codec (BTCODECTYPE_DECODER or BTCODECTYPE_ENCODER).</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">If successful, a pointer to a BTICodecList containing the list 
+  of available codecs; otherwise, NULL;</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetObjectData<a name="GetObjectData"></a></p>
+<p class="Method">BTCImageData&amp; GetObjectData()</p>
+<p class="Text"> Returns a copy from the objects image data object.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">The BTCImageData object.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetObjectDataPtr<a name="GetObjectDataPtr"></a></p>
+<p class="Method">BTCImageData* GetObjectDataPtr()</p>
+<p class="Text"> Returns a pointer to the objects image data object.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">A pointer to the objects BTCImageData object.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">Attach<a name="Attach"></a></p>
+<p class="Method">bool Attach(BTCImageData&amp; ImageData)</p>
+<p class="Text">Attachs a image data object.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">ImageData</p>
+<blockquote>
+  <p class="Text">The image data object to attach.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false;</p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetFileType<a name="GetFileType"></a></p>
+<p class="Method">long GetFileType(unsigned int nResource, HANDLE hModule = NULL, 
+  const bt_char *lpType = RT_BITMAP)</p>
+<p class="Text">Returns the image type from a resource. If you want to get the 
+  image type from a resource you have to set the current process instance to the 
+  hModule parameter.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">nResource</p>
+<blockquote>
+  <p class="Text">Id of the resource.</p>
+</blockquote>
+<p class="Parameter">hModule</p>
+<blockquote> 
+  <p class="Text">Handle to the module whose executable file contains the resource. 
+    Only needed if you want to get the image type from a resource.</p>
+</blockquote>
+<p class="Parameter">lpType</p>
+<blockquote> 
+  <p class="Text">Pointer to the resource type. For more information search for 
+    FindResource in MSDN. Only needed if you want to get the image type from a 
+    resource.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false;</p>
+<p class="Method">long GetFileType(const bt_char *lpszResource, HANDLE hModule 
+  = NULL, const bt_char *lpType = RT_BITMAP)</p>
+<p class="Text"> Returns the image type from a resource or file. If you want to 
+  get the image type from a resource you have to set the current process instance 
+  to the hModule parameter.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">lpszResource</p>
+<blockquote>
+  <p class="Text">Pointer to the name of the resource/filename.</p>
+</blockquote>
+<p class="Parameter">hModule</p>
+<blockquote> 
+  <p class="Text">Handle to the module whose executable file contains the resource. 
+    Only needed if you want to get the image type from a resource.</p>
+</blockquote>
+<p class="Parameter">lpType</p>
+<blockquote> 
+  <p class="Text">Pointer to the resource type. For more information search for 
+    FindResource in MSDN. Only needed if you want to get the image type from a 
+    resource.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false;</p>
+<p class="Method">long GetFileType(unsigned char* pData, long lSize)</p>
+<p class="Text"> Returns the image type from a memory buffer.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pData</p>
+<blockquote>
+  <p class="Text">Pointer to the memory buffer.</p>
+</blockquote>
+<p class="Parameter">lSize</p>
+<blockquote>
+  <p class="Text">Size of the memory buffer.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false;</p>
+<p class="Method">long GetFileType(BTCIStream* pIStream)</p>
+<p class="Text"> Returns the image type from a stream.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pIStream</p>
+<blockquote>
+  <p class="Text">Pointer to the input stream.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false;</p>
+<hr size="1" noshade align="center">
+<p class="Title2">SetProgressNotification<a name="SetProgressNotification"></a></p>
+<p class="Method">void SetProgressNotification(BTIProgressNotification* pProgressNotification)</p>
+<p class="Text"> Sets the progress notification callback.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">pProgressNotification</p>
+<blockquote>
+  <p class="Text">Pointer to the class that is derived from BTIProgressNotification.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">None</p>
+<p>&nbsp;</p>
+</body>
+</html>

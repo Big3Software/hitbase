@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Big3.Hitbase.MainControls.LyricsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Name="lyricsUserControl"
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="lyricsUserControl_Loaded" Unloaded="lyricsUserControl_Unloaded">
+    <Grid>
+        <ScrollViewer Width="300" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" Name="LyricsScrollViewer" MouseEnter="LyricsScrollViewer_MouseEnter" MouseLeave="LyricsScrollViewer_MouseLeave">
+            <TextBlock Text="{Binding PlaylistItem.Info.Lyrics, ElementName=lyricsUserControl}" />
+        </ScrollViewer>
+    </Grid>
+</UserControl>

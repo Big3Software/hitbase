@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Align" xml:space="preserve">
+    <value>Ausrichten</value>
+  </data>
+  <data name="ArchiveNumberAlreadyExists" xml:space="preserve">
+    <value>Die angegebene Archivnummer ist bereits vorhanden.</value>
+  </data>
+  <data name="CanNotDeleteStandardDialog" xml:space="preserve">
+    <value>Der Standard-Dialog kann nicht gelöscht werden.</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
+  <data name="ChooseBackCover" xml:space="preserve">
+    <value>Klicken Sie hier, um ein Back-Cover hinzuzufügen.</value>
+  </data>
+  <data name="ChooseFrontCover" xml:space="preserve">
+    <value>Klicken Sie hier, um ein Front-Cover hinzuzufügen.</value>
+  </data>
+  <data name="ChooseLabelCover" xml:space="preserve">
+    <value>Klicken Sie hier, um ein CD-Label-Cover hinzuzufügen.</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="DesignModeInfo" xml:space="preserve">
+    <value>Sie haben den Designmodus aktiviert. In diesem Modus haben Sie die Möglichkeit, den Dialog (Hauptmaske) nach Ihren Wünschen individuell anzupassen.
+
+Sie können z.B. neue Felder hinzufügen, oder vorhandene Felder verschieben oder löschen. Um ein neues Feld hinzuzufügen, markieren Sie es in der Toolbox und klicken Sie dann auf die gewünschte Stelle im Hauptfenster. Um ein Feld zu verschieben oder zu löschen, klicken Sie mit der Maus auf das Steuerelement im Hauptfenster. 
+
+Um den Designmodus zu verlassen, wählen Sie erneut den Befehl "Dialog konfigurieren".</value>
+  </data>
+  <data name="DialogDefined" xml:space="preserve">
+    <value>Dialog definiert?</value>
+  </data>
+  <data name="DontShowAgain" xml:space="preserve">
+    <value>Diesen Hinweis nicht mehr zeigen</value>
+  </data>
+  <data name="EMail" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="ErrorDeleteDialog" xml:space="preserve">
+    <value>Der Dialog konnte nicht gelöscht werden.</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Datei</value>
+  </data>
+  <data name="FileFilterXML" xml:space="preserve">
+    <value>XML-Dateien (*.xml)|*.xml|Alle Dateien (*.*)|*.*||</value>
+  </data>
+  <data name="GoToHomepage" xml:space="preserve">
+    <value>Klicken Sie hier, um die angegebene Homepage zu öffnen.</value>
+  </data>
+  <data name="HitbaseDialogDataNotFound" xml:space="preserve">
+    <value>Der Knoten "HitbaseDialogData" wurde nicht gefunden.</value>
+  </data>
+  <data name="IllegalVersion" xml:space="preserve">
+    <value>Falsche Versionsnummer.</value>
+  </data>
+  <data name="MoreFields" xml:space="preserve">
+    <value>Weitere Felder...</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Verschieben</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Neu</value>
+  </data>
+  <data name="NextFreeArchiveNumber" xml:space="preserve">
+    <value>Klicken Sie hier, um die nächste freie Archivnummer zu ermitteln.</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="NoHitbaseDialog" xml:space="preserve">
+    <value>Beim Lesen des Dialogs trat ein Fehler auf. Möglicherweise ist es kein Hitbase-Dialog.
+
+Interne Fehlermeldung: {0}</value>
+  </data>
+  <data name="Paste" xml:space="preserve">
+    <value>Einfügen</value>
+  </data>
+  <data name="PropertyChanged" xml:space="preserve">
+    <value>Eigenschaft geändert</value>
+  </data>
+  <data name="QueryDeleteDialog" xml:space="preserve">
+    <value>Möchten Sie den Dialog für die Kategorie '{0}' löschen?
+
+ACHTUNG: Das Löschen kann nicht rückgängig gemacht werden.</value>
+  </data>
+  <data name="Resize" xml:space="preserve">
+    <value>Größe verändern</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rolle</value>
+  </data>
+  <data name="SearchStringNotFound" xml:space="preserve">
+    <value>Der Suchbegriff '{0}' wurde nicht gefunden.</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="TrackNumber" xml:space="preserve">
+    <value>Track</value>
+  </data>
+  <data name="XmlFileDialogFilter" xml:space="preserve">
+    <value>XML-Dateien (*.xml)|*.xml|Alle Dateien (*.*)|*.*||</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+</root>

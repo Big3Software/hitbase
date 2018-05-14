@@ -1,0 +1,655 @@
+﻿<UserControl x:Class="Big3.Hitbase.CDUtilities.CDUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:controls="clr-namespace:Big3.Hitbase.Controls;assembly=Controls"
+    xmlns:misc="clr-namespace:Big3.Hitbase.Miscellaneous;assembly=Misc"      
+    xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+    xmlns:database="clr-namespace:Big3.Hitbase.DataBaseEngine;assembly=DataBaseEngine"
+    xmlns:local="clr-namespace:Big3.Hitbase.CDUtilities"
+    xmlns:dd="clr-namespace:Big3.Hitbase.Controls.DragDrop;assembly=Controls"
+    mc:Ignorable="d" Name="cduserControl"
+    d:DesignHeight="526" d:DesignWidth="800" Background="Transparent" xmlns:my="clr-namespace:Big3.Hitbase.CDUtilities">
+    <UserControl.Resources>
+        <misc:LengthConverter x:Key="lengthConverter" />
+        <misc:PriceConverter x:Key="priceConverter" />
+        <misc:SingleLineConverter x:Key="singlelineConverter" />
+        <misc:StringToVisibilityConverter x:Key="stringToVisibilityConverter" />
+        <misc:IntHideZeroConverter x:Key="intHideZeroConverter" />
+        <local:ParticipantImageConverter x:Key="participantImageConverter" />
+        <database:DataBaseDateConverter x:Key="dataBaseDateConverter" />
+        <database:MaxLengthConverter x:Key="maxLengthConverter" />
+
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="border" BorderThickness="1" CornerRadius="2" Background="{DynamicResource TransparentBrush}" BorderBrush="{DynamicResource TransparentBrush}">
+                            <Border x:Name="border1" BorderBrush="{DynamicResource TransparentBrush}" BorderThickness="1" CornerRadius="2" Background="{DynamicResource TransparentBrush}">
+                                <Grid>
+                                    <Rectangle x:Name="rectangle" StrokeThickness="0" Visibility="Collapsed">
+                                        <Rectangle.Fill>
+                                            <RadialGradientBrush Center="0.503,1" GradientOrigin="0.503,1" RadiusY="0.202">
+                                                <GradientStop Color="#7FFFFFFF" Offset="0"/>
+                                                <GradientStop Offset="1"/>
+                                            </RadialGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <StackPanel x:Name="stackPanel" Orientation="Vertical" d:LayoutOverrides="Width, Height">
+                                        <ContentPresenter x:Name="ContentSite" HorizontalAlignment="Center" ContentSource="Header" Margin="12,2,12,2"/>
+                                        <Path Name="SelectedPath" Data="M 0 0 L 6 0 L 3 3 L 0 0" Stroke="Black" UseLayoutRounding="True" SnapsToDevicePixels="True" HorizontalAlignment="Center" Visibility="Collapsed" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                    <Condition Property="IsSelected" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="BorderBrush" TargetName="border1" Value="{DynamicResource ButtonHoverInnerBorderBrush}"/>
+                                <Setter Property="Background" TargetName="border1" Value="{DynamicResource ButtonHoverInnerBackgroundBrush}"/>
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource ButtonHoverOuterBackgroundBrush}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource ButtonHoverOuterBorderBrush}"/>
+                                <Setter Property="Visibility" TargetName="rectangle" Value="Visible"/>
+                                <Setter TargetName="SelectedPath" Property="Visibility" Value="Collapsed" />
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="False"/>
+                                    <Condition Property="IsSelected" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="border1" Property="Background" Value="Transparent" />
+                                <Setter TargetName="SelectedPath" Property="Visibility" Value="Collapsed" />
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource ButtonPressedOuterBorderBrush}"/>
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource ButtonPressedOuterBackgroundBrush}"/>
+                                <Setter Property="Background" TargetName="border1" Value="{DynamicResource ButtonPressedInnerBackgroundBrush}"/>
+                                <Setter Property="BorderBrush" TargetName="border1" Value="{DynamicResource ButtonPressedInnerBorderBrush}"/>
+                                <Setter TargetName="SelectedPath" Property="Visibility" Value="Visible" />
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="False"/>
+                                    <Condition Property="IsSelected" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource ButtonPressedOuterBorderBrush}"/>
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource ButtonPressedOuterBackgroundBrush}"/>
+                                <Setter Property="Background" TargetName="border1" Value="{DynamicResource ButtonPressedInnerBackgroundBrush}"/>
+                                <Setter Property="BorderBrush" TargetName="border1" Value="{DynamicResource ButtonPressedInnerBorderBrush}"/>
+                                <Setter TargetName="SelectedPath" Property="Visibility" Value="Visible" />
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="ParticipantDataTemplate">
+            <StackPanel Orientation="Vertical" Width="150" TextElement.Foreground="{DynamicResource DefaultForeground}">
+                <Image Width="80" Height="80" Stretch="Uniform" HorizontalAlignment="Center">
+                    <Image.Source>
+                        <MultiBinding Converter="{StaticResource participantImageConverter}" >
+                            <Binding Path="Name" />
+                            <Binding Path="DataBase" ElementName="cduserControl" />
+                        </MultiBinding>
+                    </Image.Source>
+                </Image>
+                <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" TextTrimming="CharacterEllipsis"/>
+                <TextBlock HorizontalAlignment="Center" Text="{Binding Role}" TextTrimming="CharacterEllipsis"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <Style x:Key="MultilineButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
+        </Style>
+
+
+        <DataTemplate x:Key="TrackNumberEditTemplate">
+            <Grid FocusManager.FocusedElement="{Binding ElementName=txt1}">
+                <TextBox Name="txt1" Padding="0" Margin="0" BorderThickness="0" Text="{Binding TrackNumber}" />
+            </Grid>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="TrackNumberTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="1" Text="{Binding TrackNumber}" MinWidth="15"/>
+                <Image Visibility="{Binding Soundfile, Converter={StaticResource stringToVisibilityConverter}}" VerticalAlignment="Center" Margin="3,0,0,0" Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/HardDrive.png">
+                    <Image.ToolTip>
+                        <StackPanel>
+                            <TextBlock Text="{sr:Loc TrackSavedOnHardDrive}"/>
+                            <TextBlock Margin="0,10,0,0" Text="{Binding Soundfile}" />
+                        </StackPanel>
+                    </Image.ToolTip>
+                </Image>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CommentTemplate">
+            <DockPanel MouseEnter="DockPanelMultiLineEdit_MouseEnter" MouseLeave="DockPanelMultiLineEdit_MouseLeave">
+                <Button Name="MultiLineEditButton" Visibility="Collapsed" DockPanel.Dock="Right" Click="ButtonMultiLineEdit_Click" Background="Transparent" Style="{StaticResource MultilineButtonStyle}" >
+                    <Image Height="11" Width="11" Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/edit.png"></Image>
+                </Button>
+                <TextBlock Margin="1" Text="{Binding Comment, Converter={StaticResource singlelineConverter}}" TextTrimming="CharacterEllipsis" />
+            </DockPanel>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="LyricsTemplate">
+            <DockPanel MouseEnter="DockPanelMultiLineEdit_MouseEnter" MouseLeave="DockPanelMultiLineEdit_MouseLeave">
+                <Button Name="MultiLineEditButton" Visibility="Collapsed" DockPanel.Dock="Right" Click="ButtonMultiLineEdit_Click" Background="Transparent" Style="{StaticResource MultilineButtonStyle}" >
+                    <Image Height="11" Width="11" Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/edit.png"></Image>
+                </Button>
+                <TextBlock Margin="1" Text="{Binding Lyrics, Converter={StaticResource singlelineConverter}}" TextTrimming="CharacterEllipsis" />
+            </DockPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="sr:HitbaseCommands.EditCategories" Executed="CommandBindingEditCategories_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.EditMediums" Executed="CommandBindingEditMediums_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.SelectCodes" Executed="CommandBindingSelectCodes_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.TrackInformation" Executed="CommandBindingTrackInformation_Executed" />
+
+        <CommandBinding Command="sr:HitbaseCommands.AddTracksToPlaylistNow" Executed="CommandBindingAddTracksToPlaylistNow_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddTracksToPlaylistNext" Executed="CommandBindingAddTracksToPlaylistNext_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddTracksToPlaylistLast" Executed="CommandBindingAddTracksToPlaylistLast_Executed" />
+
+    </UserControl.CommandBindings>
+        <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type ToggleButton}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Grid x:Name="mainGrid" Margin="1,1,1,1">
+                                <Grid x:Name="uncheckedState">
+                                    <Border Margin="0,0,0,0" BorderBrush="BlanchedAlmond" BorderThickness="2,2,2,2" CornerRadius="4,4,4,4">
+                                        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center"></ContentControl>
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.567"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                                <Grid x:Name="checkedState" Visibility="Collapsed" >
+                                    <Border Margin="0,0,0,0" BorderBrush="BlanchedAlmond" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                                        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center"></ContentControl>
+                                        <!--ContentControl HorizontalAlignment="Center" VerticalAlignment="Center">Sampler √</ContentControl-->
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                                                <GradientStop Color="#FFFFC934" Offset="0"/>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.567"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="checkedState" Property="Visibility" Value="Visible" />
+                                    <Setter TargetName="uncheckedState" Property="Visibility" Value="Collapsed" />
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect ShadowDepth="0" Color="Orange" BlurRadius="10" />
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <!--Setter TargetName="mainGrid" Property="Margin" Value="2,2,0,0"/-->
+                                    <!--Setter TargetName="checkedState" Property="Background" Value="Blue" /-->
+                                    <!--Setter TargetName="uncheckedState" Property="Background" Value="Red" /-->
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <TabControl Name="tabControl1" Background="Transparent" BorderThickness="0" SelectionChanged="tabControl_SelectionChanged" >
+            <TabItem Header="Allgemein" Name="tabItemGeneral" >
+                <Grid TextElement.Foreground="{DynamicResource DefaultForeground}" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="74"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="163"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <controls:TextBoxAutoComplete IsReadOnlyCaretVisible="True" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Name="textInterpret" Margin="5,5,35,5" Text="{misc:BindingDirect Artist}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=ArtistCDName}" AutoCompleteTextBoxType="PersonGroup" TextChanged="textInterpret_TextChanged" />
+                    <Button Content="..." Grid.Column="2" Height="23" HorizontalAlignment="Right" Margin="0,0,0,0" Name="buttonInterpret" VerticalAlignment="Center" Width="25" Click="buttonInterpret_Click" />
+                    <ToggleButton Grid.Row="0" Grid.Column="3" Width="90" Height="23" Content="Sampler" IsChecked="{Binding Sampler}" Name="buttonTogglebutton">
+                    </ToggleButton>
+                    <controls:TextBoxAutoComplete Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Name="textTitel" Margin="5,5,5,5" VerticalAlignment="Center" Text="{misc:BindingDirect Title}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=Title}" AutoCompleteTextBoxType="Title" TextChanged="textTitel_TextChanged" />
+                    <controls:TextBoxAutoComplete Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Name="textKomponist" Margin="5,5,39,5" VerticalAlignment="Center" Text="{misc:BindingDirect Composer}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=ComposerCDName}" AutoCompleteTextBoxType="PersonGroup"/>
+                    <Button Content="..." Grid.Column="3" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="70,0,0,0" Name="buttonComposer" VerticalAlignment="Center" Width="25" Click="buttonComposer_Click" />
+                    <ComboBox Grid.Row="3" Grid.Column="1" Height="23" Margin="5,0,39,1" Name="comboBoxCategory" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Category}"  Grid.ColumnSpan="3" VerticalAlignment="Center" />
+                    <Button Content="..." Grid.Column="3" Grid.Row="3" Height="23" Margin="70,0,5,0" Name="buttonKategorie" VerticalAlignment="Center" Width="25" HorizontalAlignment="Left" Command="sr:HitbaseCommands.EditCategories" />
+                    <TextBox Grid.Row="4" Grid.Column="1" Name="textArchivNr" VerticalAlignment="Center" Margin="5,5,35,5" Text="{misc:BindingDirect ArchiveNumber}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=ArchiveNumber}" PreviewLostKeyboardFocus="textArchivNr_PreviewLostKeyboardFocus"/>
+                    <Button Grid.Column="1" Grid.Row="4" Height="23" Margin="0,0,5,0" Name="buttonArchivNr" VerticalAlignment="Center" HorizontalAlignment="Right" Width="25" Click="buttonArchivNr_Click" ToolTip="{sr:Loc NextFreeArchiveNumber}">
+                        <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/NextArchiveNumber.png"></Image>
+                    </Button>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Interpret:" HorizontalAlignment="Left" Margin="5,0,0,0" Name="TextBlockInterpret" VerticalAlignment="Center" Width="75" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Titel:" HorizontalAlignment="Left" Margin="5,0,0,0" Name="TextBlockTitel" VerticalAlignment="Center" Width="75" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Komponist:" HorizontalAlignment="Left" Margin="5,0,0,0" Name="TextBlockKomponist" VerticalAlignment="Center" Width="75" />                    
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Genre:" HorizontalAlignment="Left" Margin="5,0,0,0" Name="TextBlockKategorie" VerticalAlignment="Center" Width="75" />
+                    <TextBlock Grid.Row="4" Text="Archiv Nr.:" HorizontalAlignment="Left" Margin="5,0,0,0" Name="TextBlockArchivNr" VerticalAlignment="Center" Width="75" />
+                    <controls:ChoosePictureUserControl Grid.Row="0" Grid.Column="4" Grid.RowSpan="5" Margin="0,0,0,0" ImageFilename="{Binding CDCoverFrontFilename, Mode=TwoWay}" HorizontalAlignment="Center" Name="imageFrontCover" VerticalAlignment="Top" Width="130" Height="130" CoverType="Front" HasDropShadow="true" />
+                    <TextBlock Grid.Row="4" Grid.Column="2" Text="Bewertung:" HorizontalAlignment="Left" Margin="5,0,0,0" Name="TextBlockRating" VerticalAlignment="Center" Width="75"  />
+                    <controls:RatingUserControl Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,0,0" Name="ratingUserControl1" VerticalAlignment="Center" Rating="{Binding Rating, Mode=TwoWay}" />
+
+                    <DockPanel Grid.Row="5" Grid.ColumnSpan="5" >
+                        <!-- Toolbar -->
+                        <StackPanel Name="DockPanelTrackToolbar" Orientation="Horizontal" Margin="0,2,0,2" DockPanel.Dock="Top" Visibility="Collapsed">
+                            <StackPanel.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStopCollection>
+                                        <GradientStop Color="#F1F3FF" Offset="0"/>
+                                        <GradientStop Color="#E2E8FF" Offset="0.5"/>
+                                        <GradientStop Color="#C8DFF7" Offset="0.51"/>
+                                        <GradientStop Color="#CAE2F9" Offset="1"/>
+                                    </GradientStopCollection>
+                                </LinearGradientBrush>
+                            </StackPanel.Background>
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
+                                    <Style.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Opacity" Value="0.3"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Name="ButtonAddTrack" Click="ButtonAddTrack_Click" Padding="2" Margin="2,0,2,0" ToolTip="Track hinzufügen">
+                                <Image Source="/Big3.Hitbase.SharedResources;component/Images/AddTrack.png" Height="16" Width="16" />
+                            </Button>
+                            <Button Name="ButtonDeleteTrack" Click="ButtonDeleteTrack_Click" Padding="2" ToolTip="Track löschen">
+                                <Image Source="/Big3.Hitbase.SharedResources;component/Images/DeleteTrack.png" Height="16" Width="16" />
+                            </Button>
+                        </StackPanel>
+
+                        
+                        <Grid>
+                            <controls:DataGridEx Name="dataTracks" PreviewMouseDoubleClick="dataTracks_PreviewMouseDoubleClick" 
+                                  AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="False" CanUserResizeRows="False" 
+                                  BorderThickness="0" HeadersVisibility="Column" RowHeaderWidth="0" SelectionUnit="FullRow" EnableRowVirtualization="True" EnableColumnVirtualization="False" SelectionChanged="dataTracks_SelectionChanged"
+                                  dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="false" dd:DragDrop.DragHandler="{Binding ElementName=cduserControl}" >
+                            <controls:DataGridEx.ContextMenu>
+                                <ContextMenu DataContext="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PlacementTarget}" >
+                                    <ContextMenu.CommandBindings>
+                                        <CommandBinding Command="sr:HitbaseCommands.ChooseColumns" Executed="CommandBindingChooseColumns_Executed" />
+                                        <CommandBinding Command="sr:HitbaseCommands.OpenTrackLocation" Executed="CommandBindingOpenTrackLocation_Executed" CanExecute="CommandBindingOpenTrackLocation_CanExecute" />
+                                    </ContextMenu.CommandBindings>
+                                    <MenuItem Header="Track-Informationen..." Command="sr:HitbaseCommands.TrackInformation" CommandParameter="{Binding SelectedItem.ID}"/>
+                                    <Separator />
+                                    <MenuItem Header="Sofort spielen" Command="sr:HitbaseCommands.AddTracksToPlaylistNow" CommandParameter="{Binding SelectedItem.ID}">
+                                        <MenuItem.Icon>
+                                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/PlayNowBlack.png" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Als nächstes spielen" Command="sr:HitbaseCommands.AddTracksToPlaylistNext" CommandParameter="{Binding SelectedItem.ID}">
+                                        <MenuItem.Icon>
+                                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/PlayNextBlack.png" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Als letztes spielen" Command="sr:HitbaseCommands.AddTracksToPlaylistLast" CommandParameter="{Binding SelectedItem.ID}">
+                                        <MenuItem.Icon>
+                                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/PlayLastBlack.png" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <Separator />
+                                    <MenuItem Header="Speicherort öffnen" Command="sr:HitbaseCommands.OpenTrackLocation" CommandParameter="{Binding SelectedItem.Soundfile}"  />
+                                    <Separator />
+                                    <MenuItem Header="Spalten wählen..." Command="sr:HitbaseCommands.ChooseColumns" />
+                                </ContextMenu>
+                            </controls:DataGridEx.ContextMenu>
+                        </controls:DataGridEx>
+                            <StackPanel Name="StackPanelAddTracks" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock Text="{sr:Loc ClickNewToAddTracksStart}" /> 
+                                <Image Source="/Big3.Hitbase.SharedResources;component/Images/AddTrack.png" Height="16" Width="16" Margin="5,0,5,0" />
+                                <TextBlock Text="{sr:Loc ClickNewToAddTracksEnd}" />
+                            </StackPanel>
+                        </Grid>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Album" Name="tabItemCD">
+                <ScrollViewer VerticalScrollBarVisibility="Disabled" Name="ScrollViewerCD" HorizontalScrollBarVisibility="Disabled" SizeChanged="ScrollViewerCD_SizeChanged">
+                    <Grid TextElement.Foreground="{DynamicResource DefaultForeground}" Name="GridCD" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60*" />
+                            <ColumnDefinition Width="40*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="88"></ColumnDefinition>
+                                <ColumnDefinition Width="35*"></ColumnDefinition>
+                                <ColumnDefinition Width="78"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Eigenschaften:" Margin="0,0,0,0" Name="TextBlockEigenschaften" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Informationen" Name="TextBlock1" VerticalAlignment="Center" Background="#FF99B4D1" Padding="2" Margin="0,0,0,0" Grid.ColumnSpan="4" />
+                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDInterpret" Margin="0,0,0,0" Text="Interpret:" />
+                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDTitle" Text="Titel:" />
+                            <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDKomponist" Text="Komponist:" />
+                            <TextBlock Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDKategorie" Text="Genre:" />
+                            <TextBlock Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDKaufdatum" Text="Kaufdatum:" />
+                            <TextBlock Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDArchivnummer" Text="Archivnr.:" />
+                            <TextBlock Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDAufnahmejahr" Text="Aufnahmejahr:" />
+                            <TextBlock Grid.Row="9" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDCopyright" Text="Copyright:" />
+                            <TextBlock Grid.Row="10" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDLabel" Text="Label:" />
+                            <TextBlock Grid.Row="11" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDSprache" Text="Sprache:" />
+                            <TextBlock Grid.Row="12" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDStandort" Text="Standort:" />
+                            <TextBlock Grid.Row="13" Grid.Column="0" VerticalAlignment="Center" Name="TextBlockCDHomepage" Text="Homepage:" />
+                            <TextBlock Grid.Row="14" Grid.Column="0" VerticalAlignment="Top" Margin="0,5,0,0" Name="TextBlockCDKommentar" Text="Kommentar:" />
+                            <TextBlock Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Name="TextBlockCDKennzeichen" Text="Kennzeichen:" />
+                            <TextBlock Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" Name="TextBlockCDMedium" Text="Medium:" />
+                            <TextBlock Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" Name="TextBlockCDLaenge" Text="Länge:" />
+                            <TextBlock Grid.Row="11" Grid.Column="2" VerticalAlignment="Center" Name="TextBlockCDUPCEAN" Text="UPC/EAN:" />
+                            <TextBlock Grid.Row="12" Grid.Column="2" VerticalAlignment="Center" Name="TextBlockCDPreis" Text="Preis:" />
+                            <ToggleButton Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="60" Height="23" Name="buttonCDTogglebuttonSampler" IsChecked="{Binding Sampler}" Content="Sampler" Margin="5,5,5,5" Checked="buttonCDTogglebuttonSampler_Checked" Unchecked="buttonCDTogglebuttonSampler_Unchecked"></ToggleButton>
+                            <ToggleButton Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="75" Height="23" Name="buttonCDTogglebuttonOriginal" IsChecked="{Binding Original}" Content="Original" Margin="75,5,5,5"></ToggleButton>
+                            <controls:RatingUserControl Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Margin="5,5,0,5" Name="ratingCDUserControl1" VerticalAlignment="Center" Grid.ColumnSpan="2" Rating="{Binding Rating, Mode=TwoWay}" ToolTip="Bewertung" />
+                            <controls:TextBoxAutoComplete IsReadOnlyCaretVisible="True" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" Name="textCDInterpret" Margin="4,4,40,4" Text="{misc:BindingDirect Artist}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=ArtistCDName}" AutoCompleteTextBoxType="PersonGroup" />
+                            <Button Content="..." Height="23" HorizontalAlignment="Right" Margin="0,5,5,5" Name="buttonCDInterpret" VerticalAlignment="Center" Width="25" Grid.Column="3" Grid.Row="2" Click="buttonCDInterpret_Click" />
+                            <controls:TextBoxAutoComplete Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Name="textCDTitel" Margin="5,5,5,5" Text="{misc:BindingDirect Title}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=Title}" AutoCompleteTextBoxType="Title" />
+                            <controls:TextBoxAutoComplete Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Name="textCDKomponist" Margin="5,5,39,5" Text="{misc:BindingDirect Composer}" TextChanged="textCDKomponist_TextChanged" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=ComposerCDName}" AutoCompleteTextBoxType="PersonGroup" />
+                            <Button Content="..." Height="23" HorizontalAlignment="Right" Margin="5,5,5,5" Name="buttonCDKomponist" VerticalAlignment="Center" Width="25" Grid.Column="3" Grid.Row="4" Click="buttonCDKomponist_Click" />
+                            <ComboBox Grid.Row="5" Grid.Column="1" Height="23" Margin="5,5,39,5" Name="comboBoxCDCategory" Grid.ColumnSpan="3" VerticalAlignment="Center" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Category}" SelectionChanged="comboBoxCDCategory_SelectionChanged" />
+                            <Button Content="..." Height="23" HorizontalAlignment="Right" Margin="5,5,5,5" Name="buttonCDKategorie" VerticalAlignment="Center" Width="25" Grid.Column="3" Grid.Row="5" Command="sr:HitbaseCommands.EditCategories" />
+                            <TextBox Grid.Row="6" Grid.Column="1" Name="textCDKaufdatum" VerticalAlignment="Center" Margin="5,5,35,5" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=Date}" />
+                            <DatePicker BorderThickness="0" Grid.Column="1" Grid.Row="6" Height="25" Width="25" HorizontalAlignment="Right" Margin="0,0,5,0" Name="datePicker1" VerticalAlignment="Center" Padding="0" Text="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectedDateFormat="Short" SelectedDateChanged="datePicker1_SelectedDateChanged" />
+                            <TextBlock Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Name="TextBlockCDTracks" Text="Tracks:" />
+                            <ComboBox Grid.Row="6" Grid.Column="3" Height="23" Margin="5,5,0,5" Name="comboBoxCDTracks" VerticalAlignment="Center" IsEditable="True" HorizontalAlignment="Left" Width="50" Text="{Binding NumberOfTracks}" Style="{DynamicResource MyComboBoxStyle}">
+                                <ComboBoxItem Content="1" />
+                                <ComboBoxItem Content="2" />
+                                <ComboBoxItem Content="3" />
+                                <ComboBoxItem Content="4" />
+                                <ComboBoxItem Content="5" />
+                                <ComboBoxItem Content="6" />
+                                <ComboBoxItem Content="7" />
+                                <ComboBoxItem Content="8" />
+                                <ComboBoxItem Content="9" />
+                                <ComboBoxItem Content="10" />
+                                <ComboBoxItem Content="11" />
+                                <ComboBoxItem Content="12" />
+                                <ComboBoxItem Content="13" />
+                                <ComboBoxItem Content="14" />
+                                <ComboBoxItem Content="15" />
+                                <ComboBoxItem Content="16" />
+                                <ComboBoxItem Content="17" />
+                                <ComboBoxItem Content="18" />
+                                <ComboBoxItem Content="19" />
+                                <ComboBoxItem Content="20" />
+                                <ComboBoxItem Content="21" />
+                                <ComboBoxItem Content="22" />
+                                <ComboBoxItem Content="23" />
+                                <ComboBoxItem Content="24" />
+                                <ComboBoxItem Content="25" />
+                            </ComboBox>
+                            <TextBox Grid.Row="7" Grid.Column="1" Name="textCDArchivNr" VerticalAlignment="Center" Margin="5,5,35,5" Text="{misc:BindingDirect ArchiveNumber}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=ArchiveNumber}" PreviewLostKeyboardFocus="textCDArchivNr_PreviewLostKeyboardFocus"/>
+                            <Button Height="23" HorizontalAlignment="Right" Margin="5,5,5,5" Name="buttonCDArchivNR" VerticalAlignment="Center" Width="25" Grid.Column="1" Grid.Row="7" Click="buttonCDArchivNR_Click" ToolTip="{sr:Loc NextFreeArchiveNumber}">
+                                <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/NextArchiveNumber.png"></Image>
+                            </Button>
+                            <controls:TextBoxCodesWPF Grid.Row="7" Grid.Column="3" Name="textCDKennzeichen" VerticalAlignment="Center" Margin="5,5,35,5" Text="{misc:BindingDirect Codes}"/>
+                            <Button Content="..." Height="23" HorizontalAlignment="Right" Margin="5,5,5,5" Name="buttonCDKennzeichen" VerticalAlignment="Center" Width="25" Grid.Column="3" Grid.Row="7" Command="sr:HitbaseCommands.SelectCodes" CommandParameter="{Binding RelativeSource={RelativeSource self}}" />
+                            <TextBox Grid.Row="8" Grid.Column="1" Name="textCDAufnahmeJahr" VerticalAlignment="Center" Margin="5,5,35,5" Text="{misc:BindingDirect YearRecorded, Converter={StaticResource intHideZeroConverter}}" GotFocus="textCDAufnahmeJahr_GotFocus" LostFocus="textCDAufnahmeJahr_LostFocus"  />
+                            <ComboBox Grid.Row="8" Grid.Column="3" Height="23" Margin="5,5,35,5" Name="comboBoxCDMedium" VerticalAlignment="Center" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding Medium}" />
+                            <Button Content="..." Height="23" HorizontalAlignment="Right" Margin="5,5,5,5" Name="buttonCDMedium" VerticalAlignment="Center" Width="25" Grid.Column="3" Grid.Row="8" Command="sr:HitbaseCommands.EditMediums" />
+                            <TextBox Grid.Row="9" Grid.ColumnSpan="3" Grid.Column="1" Name="textCDCopyright" VerticalAlignment="Center" Margin="5,5,5,5" Text="{misc:BindingDirect Copyright}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=Copyright}" />
+                            <misc:MaxLengthComboBox Grid.Row="10" Grid.Column="1" Height="23" Margin="5,5,5,5" Name="comboBoxCDLabel" Grid.ColumnSpan="1" VerticalAlignment="Center" IsEditable="True" Text="{misc:BindingDirect Label}" Style="{DynamicResource MyComboBoxStyle}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=Label}" />
+                            <TextBox Grid.Row="10" Grid.Column="3" Name="textCDLaenge" VerticalAlignment="Center" Margin="5,5,5,5" Text="{Binding TotalLength, Converter={StaticResource lengthConverter}}" />
+                            <misc:MaxLengthComboBox Grid.Row="11" Grid.Column="1" Height="23" Margin="5,5,5,5" Name="comboBoxCDSprache" Grid.ColumnSpan="1" VerticalAlignment="Center" Text="{misc:BindingDirect Language}" IsEditable="True" Style="{DynamicResource MyComboBoxStyle}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=Language}"
+                                                     LostKeyboardFocus="comboBoxCDSprache_LostFocus" GotFocus="comboBoxCDSprache_GotFocus"/>
+                            <TextBox Grid.Row="11" Grid.Column="3" Name="textCDUPCEAN" VerticalAlignment="Center" Margin="5,5,5,5" Text="{misc:BindingDirect UPC}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=UPC}" />
+                            <misc:MaxLengthComboBox Grid.Row="12" Grid.Column="1" Name="comboBoxCDLocation" VerticalAlignment="Center" Margin="5,5,5,5" Text="{misc:BindingDirect Location}" IsEditable="True" Style="{DynamicResource MyComboBoxStyle}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=Location}" />
+                            <TextBox Grid.Row="12" Grid.Column="3" Name="textCDPreis" VerticalAlignment="Center" Margin="5,5,5,5" Text="{Binding Price, Converter={StaticResource priceConverter}}" />
+                            <TextBox Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="3" Name="textCDHomepage" VerticalAlignment="Center" Margin="5,5,35,5" Text="{misc:BindingDirect URL}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=Homepage}" />
+                            <Button Height="23" HorizontalAlignment="Right" Margin="5,5,5,5" Name="buttonCDHomepage" VerticalAlignment="Center" Width="25" Grid.Column="3" Grid.Row="13" Click="buttonCDHomepage_Click" ToolTip="{sr:Loc ShowWebsite}">
+                                <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/Internet.png" ></Image>
+                            </Button>
+
+                            <Border x:Name="b" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,5,5,0" />
+                            <TextBox Height="{Binding ActualHeight, ElementName=b}" MinHeight="50" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,5,5,0" x:Name="textCDKommentar" Text="{misc:BindingDirect Comment}" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" AcceptsReturn="True"/>
+                        </Grid>
+                        <Grid Grid.Column="1" DockPanel.Dock="Right">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Cover" Name="TextBlockCDCover" VerticalAlignment="Center" Background="#FF99B4D1" Padding="2" Margin="5,0,5,0" Grid.ColumnSpan="3" />
+                            <controls:ChoosePictureUserControl Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" Margin="5,5,5,5" ImageFilename="{Binding CDCoverFrontFilename, Mode=TwoWay}" HorizontalAlignment="Left" Name="imageCDFrontCover" VerticalAlignment="Top" CoverType="Front" HasDropShadow="true" />
+                            <controls:ChoosePictureUserControl Grid.Row="1" Grid.Column="1" Grid.RowSpan="4" Margin="5,5,5,5" ImageFilename="{Binding CDCoverBackFilename}" HorizontalAlignment="Left" Name="imageCDBackCover" VerticalAlignment="Top" CoverType="Back" HasDropShadow="true" />
+                            <controls:ChoosePictureUserControl Grid.Row="1" Grid.Column="2" Grid.RowSpan="4" Margin="5,5,5,5" ImageFilename="{Binding CDCoverLabelFilename}" HorizontalAlignment="Left" Name="imageCDLabelCover" VerticalAlignment="Top" CoverType="Label" HasDropShadow="true" />
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="CD-Set" Name="TextBlockCDSet" VerticalAlignment="Center" Background="#FF99B4D1" Padding="2" Margin="5,20,5,0" Grid.ColumnSpan="3" />
+                            <ToggleButton Grid.Row="6" Grid.Column="0" Width="74" Height="23" Name="buttonCDTogglebuttonCDSET" Content="CD-Set" Margin="0,5,5,5" Checked="buttonCDTogglebuttonCDSET_Checked" Unchecked="buttonCDTogglebuttonCDSET_Unchecked" UseLayoutRounding="True"></ToggleButton>
+                            <TextBlock Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Name="TextBlockCDSetNR" Text="Nr. der CD:" />
+                            <ComboBox Grid.Row="6" Grid.Column="6" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,0,5" Name="comboBoxCDSetNumber" IsEditable="True" Width="50" Text="{misc:BindingDirect CDSetNumber}" Style="{DynamicResource MyComboBoxStyle}">
+                                <ComboBoxItem Content="1" />
+                                <ComboBoxItem Content="2" />
+                                <ComboBoxItem Content="3" />
+                                <ComboBoxItem Content="4" />
+                                <ComboBoxItem Content="5" />
+                                <ComboBoxItem Content="6" />
+                                <ComboBoxItem Content="7" />
+                                <ComboBoxItem Content="8" />
+                                <ComboBoxItem Content="9" />
+                                <ComboBoxItem Content="10" />
+                                <ComboBoxItem Content="11" />
+                                <ComboBoxItem Content="12" />
+                                <ComboBoxItem Content="13" />
+                                <ComboBoxItem Content="14" />
+                                <ComboBoxItem Content="15" />
+                                <ComboBoxItem Content="16" />
+                                <ComboBoxItem Content="17" />
+                                <ComboBoxItem Content="18" />
+                                <ComboBoxItem Content="19" />
+                                <ComboBoxItem Content="20" />
+                                <ComboBoxItem Content="21" />
+                                <ComboBoxItem Content="22" />
+                                <ComboBoxItem Content="23" />
+                                <ComboBoxItem Content="24" />
+                                <ComboBoxItem Content="25" />
+                            </ComboBox>
+                            <misc:MaxLengthComboBox Grid.Row="7" Grid.Column="0" Height="23" Margin="5,5,5,5" Name="comboBoxCDSet" Grid.ColumnSpan="3" VerticalAlignment="Center" IsEditable="True" Text="{misc:BindingDirect CDSetName}" Style="{DynamicResource MyComboBoxStyle}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=CDSet}"/>
+                            <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" Text="Benutzerdefinierte Felder" Name="TextBlockCDBenutzer" VerticalAlignment="Center" Background="#FF99B4D1" Padding="2" Margin="5,20,5,0" />
+                            <my:UserFieldsUserControl Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Top" Grid.Row="9" Grid.RowSpan="6" Margin="0,0,0,0" x:Name="userCDFieldsUserControl"  />
+                            <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Text="{Binding Path=Identity, StringFormat=ID: {0}}" VerticalAlignment="Bottom" Opacity="0.4" Padding="2" Margin="5,20,5,0" />
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Track" Name="tabItemTrack" PreviewKeyDown="tabItemTrack_KeyDown">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" Name="ScrollViewerTrack" SizeChanged="ScrollViewerTrack_SizeChanged">
+                    <Grid TextElement.Foreground="{DynamicResource DefaultForeground}" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90"></ColumnDefinition>
+                                <ColumnDefinition Width="35*"></ColumnDefinition>
+                                <ColumnDefinition Width="85"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Track" VerticalAlignment="Center" Name="TextBlockTrack1" Background="#FF99B4D1" Padding="2" />
+                            <TextBlock Grid.Row="0" Grid.Column="4" Text="Liedtext (Lyrics)" VerticalAlignment="Center" Name="TextBlockTrackLyrics" Background="#FF99B4D1" Margin="5,0,0,0" Padding="2" />
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Interpret:" VerticalAlignment="Center" Name="TextBlockTrackInterpret" Margin="0,0,0,0" />
+                            <controls:TextBoxAutoComplete Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" IsReadOnlyCaretVisible="True" VerticalAlignment="Center" Margin="5,5,35,5" Name="textTrackInterpret" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.Artist}" AutoCompleteTextBoxType="PersonGroup" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=ArtistTrackName}"/>
+                            <Button Grid.Row="1" Grid.Column="3" Content="..." Height="23" HorizontalAlignment="Right" Margin="0,0,5,0" Name="buttonTrackInterpret" VerticalAlignment="Center" Width="25" Click="buttonTrackInterpret_Click" />
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Titel:" VerticalAlignment="Center" Name="TextBlockTrackTitel" Margin="0,0,0,0" />
+                            <controls:TextBoxAutoComplete Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" Margin="5,5,5,5" Name="textTrackTitel" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.Title}" AutoCompleteTextBoxType="TrackTitle" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=TrackTitle}" />
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Komponist:" VerticalAlignment="Center" Name="TextBlockTrackKomponist" Margin="0,0,0,0" />
+                            <controls:TextBoxAutoComplete Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" Margin="5,5,35,5" Name="textTrackKomponist" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.Composer}" AutoCompleteTextBoxType="PersonGroup" TextChanged="textTrackKomponist_TextChanged" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=ComposerTrackName}" />
+                            <Button Grid.Row="3" Grid.Column="3" Content="..." Height="23" HorizontalAlignment="Right" Margin="0,0,5,0" Name="buttonTrackKomponist" VerticalAlignment="Center" Width="25" Click="buttonTrackKomponist_Click" />
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Genre:" VerticalAlignment="Center" Name="TextBlockTrackKategorie" Margin="0,0,0,0" />
+                            <ComboBox Grid.Row="4" Grid.Column="1" Height="23" Margin="5,5,35,5" Name="comboBoxTrackCategory" VerticalAlignment="Center"  DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding ElementName=cduserControl, Path=CurrentTrack.Category}"/>
+                            <Button Grid.Row="4" Grid.Column="1" Content="..." Height="23" HorizontalAlignment="Right" Margin="0,0,5,0" Name="buttonTrackKategorie" VerticalAlignment="Center" Width="25" Command="sr:HitbaseCommands.EditCategories" />
+                            <TextBlock Grid.Row="4" Grid.Column="2" Text="Länge:" HorizontalAlignment="Right" VerticalAlignment="Center" Name="TextBlockTrackLaenge" Margin="0,0,0,0" />
+                            <TextBox Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" Margin="5,5,5,5" Name="textTrackLaenge" Text="{Binding ElementName=cduserControl, Path=CurrentTrack.Length, Converter={StaticResource lengthConverter}}" />
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="Kennzeichen:" VerticalAlignment="Center" Name="TextBlockTrackKennzeichen" Margin="0,0,0,0" />
+                            <controls:TextBoxCodesWPF Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="5,5,35,5" Name="textTrackKennzeichen" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.Codes}" />
+                            <Button Grid.Row="5" Grid.Column="1" Content="..." Height="23" HorizontalAlignment="Right" Margin="0,0,5,0" Name="buttonTrackKennzeichen" VerticalAlignment="Center" Width="25" Command="sr:HitbaseCommands.SelectCodes" CommandParameter="{Binding RelativeSource={RelativeSource self}}" />
+                            <TextBlock Grid.Row="5" Grid.Column="2" Text="BPM:" HorizontalAlignment="Right" VerticalAlignment="Center" Name="TextBlockTrackBPM" Margin="0,0,0,0" />
+                            <TextBox Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" Margin="5,5,35,5" Name="textTrackBPM" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.Bpm, Converter={StaticResource intHideZeroConverter}}" />
+                            <Button Grid.Row="5" Grid.Column="3" Content="..." Height="23" HorizontalAlignment="Right" Margin="0,0,5,0" Name="buttonTrackBeats" VerticalAlignment="Center" Width="25" Click="buttonTrackBeats_Click" />
+                            <TextBlock Grid.Row="6" Grid.Column="0" Text="Sprache:" VerticalAlignment="Center" Name="TextBlockTrackSprache" Margin="0,0,0,0" />
+                            <misc:MaxLengthComboBox Grid.Row="6" Grid.Column="1" Margin="5,5,5,5" Name="comboBoxTrackSprache" VerticalAlignment="Center" IsEditable="True" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.Language}" Style="{DynamicResource MyComboBoxStyle}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=TrackLanguage}"/>
+                            <TextBlock Grid.Row="6" Grid.Column="2" HorizontalAlignment="Right" Text="Aufnahmejahr:" VerticalAlignment="Center" Name="TextBlockTrackAufnahmejahr" Margin="0,0,0,0" />
+                            <TextBox Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" Margin="5,5,5,5" Name="textTrackAufnahmejahr" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.YearRecorded, Converter={StaticResource intHideZeroConverter}}" />
+                            <TextBlock Grid.Row="7" Grid.Column="0" Text="Bewertung:" VerticalAlignment="Center" Name="TextBlockTrackBewertung" Margin="0,0,0,0" />
+                            <controls:RatingUserControl Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" Margin="5,5,5,5" Name="ratingTrackUserControl1" VerticalAlignment="Center" Rating="{Binding ElementName=cduserControl, Path=CurrentTrack.Rating, Mode=TwoWay}" />
+                            <TextBlock Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right" Text="Tracknummer:" VerticalAlignment="Center" Name="TextBlockTrackNumber" Margin="0,0,0,0" />
+                            <TextBox Grid.Row="7" Grid.Column="3" VerticalAlignment="Center" Margin="5,5,5,5" Name="textTrackNumber" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.TrackNumber, Converter={StaticResource intHideZeroConverter}}" IsReadOnlyCaretVisible="True" />
+                            <TextBlock Grid.Row="8" Grid.Column="0" Text="Musikdatei:" VerticalAlignment="Center" Name="TextBlockTrackMusikdatei" Margin="0,0,0,0" />
+                            <TextBox Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" Margin="5,5,35,5" Name="textTrackMusikdatei" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.Soundfile}" MaxLength="{Binding Converter={StaticResource maxLengthConverter}, ConverterParameter=TrackSoundFile}"/>
+                            <Button Grid.Row="8" Grid.Column="3" Content="..." Height="23" HorizontalAlignment="Right" Margin="0,0,5,0" Name="buttonTrackMusikdatei" VerticalAlignment="Center" Width="25" Click="buttonTrackMusikdatei_Click"/>
+                            <TextBlock Grid.Row="9" Grid.Column="0" Text="Kommentar:" VerticalAlignment="Top" Name="TextBlockTrackKommentar" Margin="0,5,0,0" />
+                        
+                            <TextBox Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" MinHeight="50" Name="textTrackComment" VerticalScrollBarVisibility="Visible" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.Comment}" TextWrapping="Wrap" AcceptsReturn="True"/>
+                            <TextBlock Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="4" Text="Benutzerdefinierte Felder" Name="TextBlockTrackBenutzerDefinierteFelder" Background="#FF99B4D1" Padding="2" />
+                            <my:UserFieldsUserControl Grid.ColumnSpan="4" Grid.Row="11" Margin="0,0,0,0" x:Name="userTrackFieldsUserControl" VerticalAlignment="Top" TrackUserFields="true" />
+                            <TextBox Grid.Row="1" Grid.Column="5" Grid.RowSpan="11"  Margin="5,5,0,95" Name="textBoxTrackLyrics" Text="{misc:BindingDirect ElementName=cduserControl, Path=CurrentTrack.Lyrics}" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" />
+                            <Button Grid.Row="12" Grid.Column="4" Height="23" HorizontalAlignment="Right" Margin="0,0,0,70" Name="buttonTrackSucheLyrics" VerticalAlignment="Bottom" Width="140" Click="buttonTrackSucheLyrics_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="16" Height="16" Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/Internet.png" />
+                                    <TextBlock Margin="5,0,5,0" Text="Liedtext suchen" />
+                                </StackPanel>
+                            </Button>
+                            <Button Grid.Row="12" Grid.Column="4" Content="&lt;&lt; Vorheriger Track" Height="23" HorizontalAlignment="Right" Margin="5,0,135,0" Name="buttonTrackPrevTrack" VerticalAlignment="Bottom" Width="120"  Click="buttonTrackPrevTrack_Click"  />
+                            <Button Grid.Row="12" Grid.Column="4" Content="Nächster Track &gt;&gt;" Height="23" HorizontalAlignment="Right" Margin="0,0,0,0" Name="buttonTrackNextTrack" VerticalAlignment="Bottom" Width="120" Click="buttonTrackNextTrack_Click" />
+                            <controls:WaitProgress Grid.Row="12" Grid.Column="4" HorizontalAlignment="Right" Margin="0,0,150,72" Name="waitProgress1" VerticalAlignment="Bottom" WaitProgressColor="Black" Visibility="Collapsed">
+                                <controls:WaitProgress.LayoutTransform>
+                                    <ScaleTransform ScaleX="0.6" ScaleY="0.6" />
+                                </controls:WaitProgress.LayoutTransform>
+                            </controls:WaitProgress>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Bandmitglieder" Name="tabItemMember">
+                <local:ParticipantsUserControl Margin="5,0,5,0" x:Name="artistParticipants" IsReadOnly="True" TextElement.Foreground="{DynamicResource DefaultForeground}" />
+            </TabItem>
+            <TabItem Header="Mitwirkende" Name="tabItemParticipant">
+                <Grid TextElement.Foreground="{DynamicResource DefaultForeground}" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Mitwirkende" VerticalAlignment="Center" Name="TextBlockMitwirkende" Background="#FF99B4D1" Margin="5,0,5,5" Padding="2" />
+                    <Grid Grid.Row="1" Margin="5,0,5,0">
+                        <Grid.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStopCollection>
+                                    <GradientStop Color="#F1F3FF" Offset="0"/>
+                                    <GradientStop Color="#E2E8FF" Offset="0.5"/>
+                                    <GradientStop Color="#C8DFF7" Offset="0.51"/>
+                                    <GradientStop Color="#CAE2F9" Offset="1"/>
+                                </GradientStopCollection>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource {x:Static ToolBar.ToggleButtonStyleKey}}" >
+                            </Style>
+                        </Grid.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <ToggleButton Name="ButtonShowParticipantsTable" Click="ButtonShowParticipantsTable_Click" Padding="2" Margin="2,0,2,0">
+                                <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/ViewDetails.png" Stretch="None" />
+                            </ToggleButton>
+                            <ToggleButton Name="ButtonShowParticipantsPictures" Click="ButtonShowParticipantsPictures_Click" Padding="2">
+                                <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/ViewImages.png" Stretch="None" />
+                            </ToggleButton>
+                        </StackPanel>
+                    </Grid>
+                    <DataGrid Margin="5,0,5,0" Grid.Row="2" Name="dataGridParticipant" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False" HeadersVisibility="Column" RowHeaderWidth="0" SelectionUnit="FullRow" EnableRowVirtualization="True" EnableColumnVirtualization="True" SelectionChanged="dataGridParticipant_SelectionChanged" MouseDoubleClick="dataGridParticipant_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="30*" Header="Rolle" Binding="{Binding Role}" IsReadOnly="True" />
+                            <DataGridTextColumn Width="30*" Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
+                            <DataGridTextColumn Width="40" Header="Track" Binding="{Binding TrackNumber}" IsReadOnly="True"/>
+                            <DataGridTextColumn Width="40*" Header="Kommentar" Binding="{Binding Comment}" IsReadOnly="True"/>
+                            <!-- weiter felder -->
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <ListBox Margin="5,0,5,0" Grid.Row="2" Name="listboxParticipantPicture" ItemTemplate="{StaticResource ParticipantDataTemplate}" Background="Transparent" MouseDoubleClick="listboxParticipantPicture_MouseDoubleClick" ItemContainerStyle="{StaticResource MyListBoxItemContainerStyle}" SelectionChanged="listboxParticipantPicture_SelectionChanged">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <misc:AnimatedWrapPanel IsItemsHost="True" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+                    <Button Grid.Row="3" Grid.Column="0" Content="Hinzufügen..." Height="23" HorizontalAlignment="Left" Margin="5,5,5,5" Name="buttonMitwirkendeAdd" VerticalAlignment="Center" Width="90" Click="buttonMitwirkendeAdd_Click" />
+                    <Button Grid.Row="3" Grid.Column="0" Content="Bearbeiten..." Height="23" HorizontalAlignment="Left" Margin="100,5,5,5" Name="buttonMitwirkendeEdit" VerticalAlignment="Center" Width="90" Click="buttonMitwirkendeEdit_Click" />
+                    <Button Grid.Row="3" Grid.Column="0" Content="Löschen" Height="23" HorizontalAlignment="Left" Margin="195,5,5,5" Name="buttonMitwirkendeDel" VerticalAlignment="Center" Width="90" Click="buttonMitwirkendeDel_Click" />
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

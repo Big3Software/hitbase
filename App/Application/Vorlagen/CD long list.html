@@ -1,0 +1,205 @@
+<html>
+<!
+--------------------------------------------------------------------------------------------------
+Komplette Liste der zur Verfügung stehenden Variablen in einem Template
+--------------------------------------------------------------------------------------------------
+
+Globale Variablen - für gesammte DB
+-----------------------------------
+!INFO_NUMBEROFCDS!
+!INFO_NUMBEROFSONGS!
+!INFO_NUMBEROFARTISTS!
+!INFO_DATABASEFILENAME!
+!INFO_DATABASEPATHNAME!
+!INFO_NUMBEROFCDSLOANED!
+
+Fortlaufender Zähler für jede exportierte CD bei CD-Liste bzw. jeden Titel bei Titel-Liste
+------------------------------------------------------------------------------------------
+!INFO_COUNTER!
+
+Variablen mit CD spezifischen Infos
+-----------------------------------
+!CD_TITLE!
+!CD_ARTIST!
+!CD_CATEGORY!
+!CD_CODES!
+!CD_SAMPLER!
+!CD_COMMENT!
+!CD_NUMBEROFTRACKS!
+!CD_TOTALLENGTH!
+!CD_SETNAME!
+!CD_NUMBEROFSETS!
+!CD_BITMAPNAME!
+!CD_RECORDNUMBER!
+!CD_NAMEDATEFIELD!
+!CD_ARCHIVENUMBER!
+!CD_YEARRECORDED!
+!CD_COPYRIGHT!
+!CD_MEDIUM!
+!CD_USERFIELDNAME1!
+!CD_USER1!
+!CD_USERFIELDNAME2!
+!CD_USER2!
+!CD_USERFIELDNAME3!
+!CD_USER3!
+!CD_USERFIELDNAME4!
+!CD_USER4!
+!CD_USERFIELDNAME5!
+!CD_USER5!
+!CD_CDCOVERBACK!
+!CD_CDCOVERLABEL!
+!CD_ORIGINAL_CD!
+!CD_LABEL!
+!CD_UPC!
+!CD_URL!
+!CD_RATING!
+!CD_PRICE!
+!CD_LANGUAGE!
+!CD_LOCATION!
+!CD_ARTIST_CD_GROUPTYPE!
+!CD_ARTIST_CD_SEX!
+!CD_ARTIST_CD_COMMENT!
+!CD_ARTIST_CD_URL!
+!CD_ARTIST_CD_COUNTRY!
+!CD_ARTIST_CD_BIRTHDAY!
+!CD_ARTIST_CD_DAYOFDEATH!
+!CD_ARTIST_CD_IMAGEFILENAME!
+!CD_COMPOSER_CD_NAME!
+!CD_COMPOSER_CD_GROUPTYPE!
+!CD_COMPOSER_CD_SEX!
+!CD_COMPOSER_CD_COMMENT!
+!CD_COMPOSER_CD_URL!
+!CD_COMPOSER_CD_COUNTRY!
+!CD_COMPOSER_CD_BIRTHDAY!
+!CD_COMPOSER_CD_DAYOFDEATH!
+!CD_COMPOSER_CD_IMAGEFILENAME!
+
+Variablen mit Track spezifischen Infos
+--------------------------------------
+!TRACK_NR!
+!TRACK_TITLE!
+!TRACK_ARTIST!
+!TRACK_LENGTH!
+!TRACK_BPM!
+!TRACK_CODES!
+!TRACK_YEARRECORDED!
+!TRACK_COMMENT!
+!TRACK_LYRICS!
+!TRACK_USERFIELDNAME1!
+!TRACK_USER1!
+!TRACK_USERFIELDNAME2!
+!TRACK_USER2!
+!TRACK_USERFIELDNAME3!
+!TRACK_USER3!
+!TRACK_USERFIELDNAME4!
+!TRACK_USER4!
+!TRACK_USERFIELDNAME5!
+!TRACK_USER5!
+!TRACK_RATING!
+!TRACK_CHECKSUM!
+!TRACK_SOUNDFILE!
+!TRACK_ARTIST_SEX!
+!TRACK_ARTIST_URL!
+!TRACK_ARTIST_COUNTRY!
+!TRACK_ARTIST_TRACK_COMMENT!
+!TRACK_ARTIST_TRACK_GROUPTYPE!
+!TRACK_ARTIST_TRACK_BIRTHDAY!
+!TRACK_ARTIST_TRACK_DAYOFDEATH!
+!TRACK_ARTIST_TRACK_IMAGEFILENAME!
+!TRACK_COMPOSER_TRACK_NAME!
+!TRACK_COMPOSER_TRACK_GROUPTYPE!
+!TRACK_COMPOSER_TRACK_SEX!
+!TRACK_COMPOSER_TRACK_COMMENT!
+!TRACK_COMPOSER_TRACK_URL!
+!TRACK_COMPOSER_TRACK_COUNTRY!
+!TRACK_COMPOSER_TRACK_BIRTHDAY!
+!TRACK_COMPOSER_TRACK_DAYOFDEATH!
+!TRACK_COMPOSER_TRACK_IMAGEFILENAME!
+
+Folgende Schlüsselwörter sind nur einmal pro CD-Liste-Template erlaubt
+----------------------------------------------------------------------
+!CD_START!
+!CD_END!
+Optional:
+!TRACK_START!
+!TRACK_END!
+
+Achtung: !TRACK_START! und !TRACK_END! muss innerhalb von !CD_START! und !CD_END! vorkommen, sie sind aber optional
+
+Folgende Schlüsselwörter sind nur einmal pro Titel-Liste-Template erlaubt
+-------------------------------------------------------------------------
+!TITLE_START!
+!TITLE_END!
+
+In der Track Liste sind die Schlüsselwörte !CD_START!, !CD_END!, !TRACK_START!, !TRACK_END! NICHT zulässig!
+-----------------------------------------------------------------------------------------------------------
+>
+<head>
+<title>CD+Track loop</title>
+<style type="text/css" media="screen">
+.cdtitle {
+	background-color:#cccccc;
+	color:black;
+	font-size:14px;
+	font-family:verdana;
+	font-weight:bold;
+}
+.cdcell {
+	background-color:#f0f0f0;
+	color:black;
+	font-size:12px;
+	font-family:verdana;
+}
+.tracktitle {
+	background-color:#cccccc;
+	color:black;
+	font-size:12px;
+	font-family:verdana;
+	font-weight:bold;
+}
+.trackcell {
+	background-color:#f0f0f0;
+	color:black;
+	font-size:10px;
+	font-family:verdana;
+}
+</style>
+</head>
+<body>
+<!CD_START!>
+<table border=0 width="90%" align=center>
+<tr>
+	<td class=cdtitle>#</td>
+	<td class=cdtitle width="45%">CD Name</td>
+	<td class=cdtitle width="45%">CD Interpret</td>
+	<td class=cdtitle>CD Länge</td>
+</tr>
+<tr>
+	<td class=cdcell><!INFO_COUNTER!></td>
+	<td class=cdcell><!CD_TITLE!></td>
+	<td class=cdcell><!CD_ARTIST!></td>
+	<td class=cdcell><!CD_TOTALLENGTH!></td>
+</tr>
+<tr>
+	<td colspan=2>
+		<table border=0 width="100%">
+		<tr>
+			<td class=tracktitle width="45%">Track Name</td>
+			<td class=tracktitle width="45%">Track Interpret</td>
+			<td class=tracktitle>Track Länge</td>
+		</tr>
+		<!TRACK_START!>
+		<tr>
+			<td class=trackcell><!TRACK_TITLE!></td>
+			<td class=trackcell><!TRACK_ARTIST!></td>
+			<td class=trackcell><!TRACK_LENGTH!></td>
+		</tr>
+		<!TRACK_END!>
+		</table>
+	</td>
+</tr>
+</table>
+<!CD_END!>
+
+</body>
+</html>

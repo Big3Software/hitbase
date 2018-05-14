@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="Big3.Hitbase.MainControls.StatisticsChartUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Big3.Hitbase.MainControls"
+             xmlns:controls="clr-namespace:Big3.Hitbase.Controls;assembly=Controls"
+             xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded"
+             xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+             xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+             xmlns:datavis="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Controls;component/SplitButtonStyle.xaml" ></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
+
+
+            </Style>
+
+            <ControlTemplate TargetType="chartingToolkit:Chart" x:Key="PieChartTemplate">
+                <Border Background="Transparent"
+                        BorderThickness="0"
+                        Padding="10">
+
+                    <Grid Margin="0,15,0,15"
+                            Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <datavis:Legend x:Name="Legend" 
+                                            Style="{TemplateBinding LegendStyle}"
+                                            Grid.Column="1" Background="Transparent" BorderThickness="0"
+                                            Header="{TemplateBinding LegendTitle}" />
+
+                        <chartingprimitives:EdgePanel x:Name="ChartArea" 
+                                            Style="{TemplateBinding ChartAreaStyle}">
+                        </chartingprimitives:EdgePanel>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MyChartTemplate" TargetType="{x:Type chartingToolkit:Chart}">
+                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                    <Grid>
+                        <chartingprimitives:EdgePanel Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}" Grid.Row="1" Margin="0,15,0,15">
+                        </chartingprimitives:EdgePanel>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+
+            <Style x:Key="Color1Style" TargetType="Control">
+                <Setter Property="Background" Value="#005AAA" />
+            </Style>
+            <datavis:ResourceDictionaryCollection x:Key="MyPalette">
+                <ResourceDictionary>
+                    <Style x:Key="DataPointStyle" BasedOn="{StaticResource Color1Style}" TargetType="Control" />
+                </ResourceDictionary>
+            </datavis:ResourceDictionaryCollection>
+            
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+    <Grid>
+        <chartingToolkit:Chart Name="MyChart" BorderThickness="0" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="Big3.Hitbase.RecordMedium.NormalizeOptionsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:Big3.Hitbase.Controls;assembly=Controls"
+             mc:Ignorable="d" MinWidth="450" MinHeight="350" MaxWidth="450" MaxHeight="350" Height="350" Width="450">
+    <Grid Margin="10">
+        <Grid.Resources>
+            <Style TargetType="{x:Type ToggleButton}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Grid x:Name="mainGrid" Margin="1,1,1,1">
+                                <Grid x:Name="uncheckedState">
+                                    <Border Margin="0,0,0,0" BorderBrush="BlanchedAlmond" BorderThickness="2,2,2,2" CornerRadius="4,4,4,4">
+                                        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center"></ContentControl>
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.567"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                                <Grid x:Name="checkedState" Visibility="Collapsed" >
+                                    <Border Margin="0,0,0,0" BorderBrush="BlanchedAlmond" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                                        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center"></ContentControl>
+                                        <!--ContentControl HorizontalAlignment="Center" VerticalAlignment="Center">Sampler √</ContentControl-->
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                                                <GradientStop Color="#FFFFC934" Offset="0"/>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.567"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="checkedState" Property="Visibility" Value="Visible" />
+                                    <Setter TargetName="uncheckedState" Property="Visibility" Value="Collapsed" />
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect ShadowDepth="0" Color="Orange" BlurRadius="10" />
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <!--Setter TargetName="mainGrid" Property="Margin" Value="2,2,0,0"/-->
+                                    <!--Setter TargetName="checkedState" Property="Background" Value="Blue" /-->
+                                    <!--Setter TargetName="uncheckedState" Property="Background" Value="Red" /-->
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <ToggleButton Content="Normalisieren" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,70,0,0" Width="165" Height="37" Name="ToggleButtonNormalize" Checked="ToggleButtonNormalize_Checked" Unchecked="ToggleButtonNormalize_Unchecked" />
+        <Button Content="OK" Height="23" Name="buttonOK" IsDefault="True" VerticalAlignment="Bottom" Margin="0,0,93,0" HorizontalAlignment="Right" Width="75" Click="buttonOK_Click" />
+        <Button Content="Abbrechen" Height="23" Name="buttonCancel" IsCancel="True" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Click="buttonCancel_Click" Margin="0,0,12,0" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,133,0,0" Name="textBlockNormPercent" Text="Normalisiere auf :" VerticalAlignment="Top" />
+        <TextBlock Height="23" HorizontalAlignment="Right" Margin="0,133,50,0" Name="textBlockPercent1" Text="% der maximalen Amplitude (Lautstärke)" VerticalAlignment="Top" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,222,0,0" Name="textBlockAmpUnder" Text="Amplitude unter:" VerticalAlignment="Top" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,256,0,0" Name="textBlockAmpOver" Text="Amplitude über:" VerticalAlignment="Top" />
+        <Button Content="Standard" Height="23" Margin="0,0,343,0" Name="buttonDefault" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Click="buttonDefault_Click" ToolTip="Stellt die Standardwerte für die Noramlisierung wieder her." />
+        <TextBlock Height="33" HorizontalAlignment="Left" Margin="10,176,0,0" Name="textBlockInfoMinMax" VerticalAlignment="Top" Width="383">
+            Normalisiert wird nur, wenn die Amplitude (Lautstärke)<LineBreak />folgende Bereiche unter- bzw. überschreitet:
+        </TextBlock>
+        <TextBlock Height="52" HorizontalAlignment="Left" Margin="12,12,0,0" Name="textBlockInfoNormalisierenGeneral" VerticalAlignment="Top" Width="406" >
+            Wenn Sie die Amplitude (Lautstärke) der "gerippten" Audio-CDs auf einen<LineBreak/>
+            einheitlichen Wert festsetzen möchten, dann aktivieren sie diese Funktion.<LineBreak/>
+            Achtung: Dies kann das gewünschte Klangbild der Komposition verändern.<LineBreak/>
+        </TextBlock>
+        <TextBlock Height="23" HorizontalAlignment="Right" Margin="0,0,255,85" Name="textBlockPercent2" Text="%" VerticalAlignment="Bottom" />
+        <TextBlock Height="23" HorizontalAlignment="Right" Margin="0,0,255,50" Name="textBlockPercent3" Text="%" VerticalAlignment="Bottom" />
+        <controls:NumericBox HorizontalAlignment="Left" Name="numericBoxNormalize" Margin="109,130,0,175" MinWidth="50" Width="50" Minimum="0" Maximum="100" Value="98" ValueFormat="0" ToolTip="Die maximale Lautstärke sollte etwas geringer als 100% sein." />
+        <controls:NumericBox HorizontalAlignment="Left" Name="numericBoxMin" Margin="109,219,0,86" MinWidth="50" Width="50" Minimum="0" Maximum="100" Value="85" ValueFormat="0" ToolTip="Alle Tracks unterhalb dieser maximalen Amplitude (Lautstärke)  werden normalisiert." />
+        <controls:NumericBox HorizontalAlignment="Left" Name="numericBoxMax" Margin="109,254,0,51" MinWidth="50" Width="50" Minimum="0" Maximum="100" Value="99" ValueFormat="0" ToolTip="Alle Tracks mit einer Amplitude (Lautstärke) größer als dieser Wert, werden normalisiert." />
+    </Grid>
+</UserControl>

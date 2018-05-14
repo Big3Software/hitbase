@@ -1,0 +1,14 @@
+﻿<Window x:Class="Windows7.DesktopIntegration.LibraryManagerDemo.WindowLibraryNamePickup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Shell Library" Height="162" Width="308"
+    xmlns:local="clr-namespace:Windows7.DesktopIntegration.LibraryManagerDemo">
+    <Window.Resources>
+        <local:TextConverter x:Key="TextConverter" />
+    </Window.Resources>
+    <StackPanel>
+        <TextBlock Margin="8">Enter the library name:</TextBlock>
+        <TextBox  Margin="8" Name="_textBoxName" Text ="{Binding Path=LibraryName}"/>
+        <Button  Name="_libraryNameSetButton" IsEnabled="{Binding ElementName=_textBoxName, Path=Text, Converter={StaticResource TextConverter}}" Margin="8" Click="LibraryNameSetButton" IsDefault="True">Select Name</Button>
+    </StackPanel>
+</Window>

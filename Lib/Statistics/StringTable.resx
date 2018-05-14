@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TEXT_STATISTICS_GRAF_1" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Kategorie </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_10" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Aufnahmejahr </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_11" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Interpretenart </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_12" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Geschlecht </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_13" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Land </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_14" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Länge </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_15" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Aufnahmejahr </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_16" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Bewertung </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_17" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach BPM </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_18" xml:space="preserve">
+    <value>Die meisten Tracks eines Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_19" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Geschlecht von Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_2" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Medium </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_20" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Kennzeichen </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_21" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Ländern </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_22" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Art des Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_23" xml:space="preserve">
+    <value>Die meisten CDs eines Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_24" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Geschlecht eines Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_25" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Ländern </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_26" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Art des Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_3" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Preis </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_4" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Tracks </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_5" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Gesamtlänge </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_6" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Sampler </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_7" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Bewertung </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_8" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Kennzeichen </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_9" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Label </value>
+  </data>
+  <data name="TEXT_STATISTICS1" xml:space="preserve">
+    <value>Summe der Tracklängen</value>
+  </data>
+  <data name="TEXT_STATISTICS10" xml:space="preserve">
+    <value>Durchschnittliche Länge der CD</value>
+  </data>
+  <data name="TEXT_STATISTICS11" xml:space="preserve">
+    <value>Längste CD</value>
+  </data>
+  <data name="TEXT_STATISTICS12" xml:space="preserve">
+    <value>Kürzeste CD</value>
+  </data>
+  <data name="TEXT_STATISTICS13" xml:space="preserve">
+    <value>Anzahl der Interpreten</value>
+  </data>
+  <data name="TEXT_STATISTICS14" xml:space="preserve">
+    <value>Anzahl der CD Sets</value>
+  </data>
+  <data name="TEXT_STATISTICS15" xml:space="preserve">
+    <value>Anzahl der nicht zugewiesenen CDs</value>
+  </data>
+  <data name="TEXT_STATISTICS16" xml:space="preserve">
+    <value>Anzahl der zugewiesenen CDs</value>
+  </data>
+  <data name="TEXT_STATISTICS17" xml:space="preserve">
+    <value>Ausgeliehene CDs</value>
+  </data>
+  <data name="TEXT_STATISTICS18" xml:space="preserve">
+    <value>Gesamtwert der CD-Sammlung</value>
+  </data>
+  <data name="TEXT_STATISTICS2" xml:space="preserve">
+    <value>Anzahl der Tracks</value>
+  </data>
+  <data name="TEXT_STATISTICS3" xml:space="preserve">
+    <value>Längster Track</value>
+  </data>
+  <data name="TEXT_STATISTICS4" xml:space="preserve">
+    <value>Kürzester Track</value>
+  </data>
+  <data name="TEXT_STATISTICS5" xml:space="preserve">
+    <value>Durchschnittliche Tracklänge</value>
+  </data>
+  <data name="TEXT_STATISTICS6" xml:space="preserve">
+    <value>Durchschnittliche Anzahl Tracks pro CD</value>
+  </data>
+  <data name="TEXT_STATISTICS7" xml:space="preserve">
+    <value>Anzahl der CDs</value>
+  </data>
+  <data name="TEXT_STATISTICS8" xml:space="preserve">
+    <value>Anzahl Sampler CDs</value>
+  </data>
+  <data name="TEXT_STATISTICS9" xml:space="preserve">
+    <value>CD mit größter Anzahl von Tracks</value>
+  </data>
+  <data name="TEXT_OVERVIEW" xml:space="preserve">
+    <value>Häufig genutzte Statistiken</value>
+  </data>
+  <data name="TEXT_TEXTOVERVIEW" xml:space="preserve">
+    <value>Einfache Statistiken</value>
+  </data>
+</root>

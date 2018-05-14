@@ -1,0 +1,1701 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Abort" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="AddNewAlbum" xml:space="preserve">
+    <value>Neues Album</value>
+  </data>
+  <data name="AddNewCategory" xml:space="preserve">
+    <value>Neues Genre hinzufügen</value>
+  </data>
+  <data name="AddNewMedium" xml:space="preserve">
+    <value>Neues Medium hinzufügen</value>
+  </data>
+  <data name="AddRole" xml:space="preserve">
+    <value>Rolle hinzufügen</value>
+  </data>
+  <data name="AdjustSpelling" xml:space="preserve">
+    <value>Soll die Schreibweise der Interpreten und Titel automatisch an die Standardeinstellung angepasst werden?</value>
+  </data>
+  <data name="Album" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="AlbumCountMultiple" xml:space="preserve">
+    <value>{0} Alben</value>
+  </data>
+  <data name="AlbumCountSingle" xml:space="preserve">
+    <value>{0} Album</value>
+  </data>
+  <data name="AlbumType" xml:space="preserve">
+    <value>Albumtyp</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="All1" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="All2" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="AmazonSortBestSelling" xml:space="preserve">
+    <value>Beliebtheit</value>
+  </data>
+  <data name="AmazonSortTitleAscend" xml:space="preserve">
+    <value>Titel (A-Z)</value>
+  </data>
+  <data name="AmazonSortTitleDescend" xml:space="preserve">
+    <value>Titel (Z-A)</value>
+  </data>
+  <data name="AmazonSortYearAscend" xml:space="preserve">
+    <value>Erscheinungsdatum (alt-neu)</value>
+  </data>
+  <data name="AmazonSortYearDescend" xml:space="preserve">
+    <value>Erscheinungsdatum (neu-alt)</value>
+  </data>
+  <data name="And" xml:space="preserve">
+    <value>Und</value>
+  </data>
+  <data name="ArchiveNumber" xml:space="preserve">
+    <value>Archivnummer</value>
+  </data>
+  <data name="ArchiveNumberAlreadyExists" xml:space="preserve">
+    <value>Die angegebene Archivnummer ist bereits vorhanden.</value>
+  </data>
+  <data name="Artist" xml:space="preserve">
+    <value>Interpret</value>
+  </data>
+  <data name="ArtistAlreadyExists" xml:space="preserve">
+    <value>Die Person/Gruppe '{0}' ist bereits vorhanden. 
+
+Um die Person/Gruppe '{1}' in '{0}' umzubenennen, gehen Sie bitte folgendermaßen vor:
+
+1. Wählen Sie Katalog -&gt; Personen und Gruppen
+2. Selektieren Sie dort die Person/Gruppe '{1}'
+3. Klicken Sie auf "Löschen"
+4. Wählen Sie als neue Person/Gruppe '{0}'</value>
+  </data>
+  <data name="ArtistCount" xml:space="preserve">
+    <value>{0} Interpret(en)</value>
+  </data>
+  <data name="Artists" xml:space="preserve">
+    <value>Interpreten</value>
+  </data>
+  <data name="Boolean" xml:space="preserve">
+    <value>Ja/Nein</value>
+  </data>
+  <data name="Born" xml:space="preserve">
+    <value>Geboren am</value>
+  </data>
+  <data name="BreakAway" xml:space="preserve">
+    <value>Aufgelöst am</value>
+  </data>
+  <data name="BugDescription" xml:space="preserve">
+    <value>Geben Sie hier Ihre Problembeschreibung ein. Bitte beschreiben Sie, welche Funktionen Sie ausgeführt haben, bevor das Problem auftrat.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="CantDeleteWhileCDIsInDrive" xml:space="preserve">
+    <value>Diese CD liegt momentan in einem CD-Laufwerk. Sie können die CD erst löschen, nachdem Sie sie aus dem Laufwerk entfernt haben.</value>
+  </data>
+  <data name="CatalogAlreadyExists" xml:space="preserve">
+    <value>Der Katalog '{0}' existiert bereits. Bitte wählen Sie einen anderen Namen.</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="CategoryAlreadyExists" xml:space="preserve">
+    <value>Das Genre '{0}' existiert bereits.</value>
+  </data>
+  <data name="CDCount" xml:space="preserve">
+    <value>{0} CD(s)</value>
+  </data>
+  <data name="CDCoverBack" xml:space="preserve">
+    <value>CD-Cover Rückseite</value>
+  </data>
+  <data name="CDCoverFront" xml:space="preserve">
+    <value>CD-Cover Vorderseite</value>
+  </data>
+  <data name="CDCoverLabel" xml:space="preserve">
+    <value>CD-Cover Label</value>
+  </data>
+  <data name="CDList" xml:space="preserve">
+    <value>Katalog-Zusammenfassung</value>
+  </data>
+  <data name="CDs" xml:space="preserve">
+    <value>CDs</value>
+  </data>
+  <data name="CDSet" xml:space="preserve">
+    <value>CD-Set</value>
+  </data>
+  <data name="CDUserField" xml:space="preserve">
+    <value>Benutzerdefiniertes CD-Feld</value>
+  </data>
+  <data name="ChangeCode" xml:space="preserve">
+    <value>Kennzeichen ändern</value>
+  </data>
+  <data name="Checked" xml:space="preserve">
+    <value>Gesetzt</value>
+  </data>
+  <data name="ChooseFieldsForPrinting" xml:space="preserve">
+    <value>Wählen Sie aus der folgenden Liste aus, welche Felder gedruckt werden sollen:</value>
+  </data>
+  <data name="ChooseSoundfile" xml:space="preserve">
+    <value>Musikdatei auswählen</value>
+  </data>
+  <data name="ClickHereToSearchPicture" xml:space="preserve">
+    <value>Klicken Sie hier, um nach einem Bild zu suchen.</value>
+  </data>
+  <data name="CloseTab" xml:space="preserve">
+    <value>Registerkarte schließen</value>
+  </data>
+  <data name="Codes" xml:space="preserve">
+    <value>Kennzeichen</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="Composer" xml:space="preserve">
+    <value>Komponist</value>
+  </data>
+  <data name="ComposerAlreadyExists" xml:space="preserve">
+    <value>Der Komponist '{0}' ist bereits vorhanden. Um einer CD oder einem Track diesen Komponisten zuzuordnen, ändern Sie den Komponisten direkt in der Eingabemaske. Komponisten können Sie außerdem unter Katalog-&gt;Personen/Gruppen verwalten.</value>
+  </data>
+  <data name="ConfigureMusicLibrary" xml:space="preserve">
+    <value>Speicherorte verwalten</value>
+  </data>
+  <data name="Contains" xml:space="preserve">
+    <value>enthält</value>
+  </data>
+  <data name="ConvertNameChanged" xml:space="preserve">
+    <value>Der Name '{0}' ist in der Personentabelle mehrfach vorhanden. Er wurde in '{1}' umbenannt.</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Anzahl</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Herkunftsland</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Währung</value>
+  </data>
+  <data name="CurrentCD" xml:space="preserve">
+    <value>Aktuell eingelegte CD</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Geboren am</value>
+  </data>
+  <data name="DateOfBirthGroup" xml:space="preserve">
+    <value>Gegründet</value>
+  </data>
+  <data name="DateOfBirthMulti" xml:space="preserve">
+    <value>Gründungsdatum</value>
+  </data>
+  <data name="DateOfBirthPerson" xml:space="preserve">
+    <value>Geboren</value>
+  </data>
+  <data name="DateOfDeath" xml:space="preserve">
+    <value>Gestorben am</value>
+  </data>
+  <data name="DateOfDeathGroup" xml:space="preserve">
+    <value>Aufgelöst</value>
+  </data>
+  <data name="DateOfDeathMulti" xml:space="preserve">
+    <value>Auflösungsdatum</value>
+  </data>
+  <data name="DateOfDeathPerson" xml:space="preserve">
+    <value>Gestorben</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Tage</value>
+  </data>
+  <data name="DDMMYYYY" xml:space="preserve">
+    <value>TT.MM.JJJJ</value>
+  </data>
+  <data name="DeleteAllCDsOfArtist" xml:space="preserve">
+    <value>Sollen wirklich alle CDs des Interpreten "{0}" gelöscht werden?</value>
+  </data>
+  <data name="DeleteArtist" xml:space="preserve">
+    <value>Möchten Sie den Interpreten '{0}' wirklich löschen?</value>
+  </data>
+  <data name="DeleteCategory" xml:space="preserve">
+    <value>Möchten Sie das Genre '{0}' wirklich löschen?</value>
+  </data>
+  <data name="DeleteAlbum" xml:space="preserve">
+    <value>Möchten Sie dieses Album wirklich löschen?</value>
+  </data>
+  <data name="DeleteCDSet" xml:space="preserve">
+    <value>Möchten Sie das CD-Set '{0}' wirklich löschen?</value>
+  </data>
+  <data name="DeleteCDSetNotAllowed" xml:space="preserve">
+    <value>Das CD-Set '{0}' kann nicht gelöscht werden, da es noch CDs enthält.</value>
+  </data>
+  <data name="DeleteMedium" xml:space="preserve">
+    <value>Möchten Sie das Medium '{0}' wirklich löschen?</value>
+  </data>
+  <data name="DeleteMultipleCDs" xml:space="preserve">
+    <value>Möchten Sie diese {0} Alben wirklich löschen?</value>
+  </data>
+  <data name="DeleteRole" xml:space="preserve">
+    <value>Möchten Sie die Rolle '{0}' wirklich löschen?</value>
+  </data>
+  <data name="DeleteSoundfile" xml:space="preserve">
+    <value>Möchten Sie die diesem Track zugeordnete Musikdatei wirklich löschen? ({0})</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>absteigend</value>
+  </data>
+  <data name="DetailList" xml:space="preserve">
+    <value>Detaillierte Katalog-Informationen</value>
+  </data>
+  <data name="Died" xml:space="preserve">
+    <value>Gestorben am</value>
+  </data>
+  <data name="DiscNumberInCDSet" xml:space="preserve">
+    <value>CD-Set Disc-Nummer</value>
+  </data>
+  <data name="Diverse" xml:space="preserve">
+    <value>Diverse</value>
+  </data>
+  <data name="DontDisplayAgain" xml:space="preserve">
+    <value>Diese Meldung nicht mehr anzeigen</value>
+  </data>
+  <data name="Duo" xml:space="preserve">
+    <value>Duo/Duett</value>
+  </data>
+  <data name="DuplicateCodeNotAllowed" xml:space="preserve">
+    <value>Doppelte Kennzeichen sind nicht erlaubt.</value>
+  </data>
+  <data name="EditCategories" xml:space="preserve">
+    <value>Genres</value>
+  </data>
+  <data name="EditCategory" xml:space="preserve">
+    <value>Genre ändern</value>
+  </data>
+  <data name="EditCodes" xml:space="preserve">
+    <value>Kennzeichen</value>
+  </data>
+  <data name="EditMedium" xml:space="preserve">
+    <value>Medium ändern</value>
+  </data>
+  <data name="EditMediums" xml:space="preserve">
+    <value>Medien</value>
+  </data>
+  <data name="EditParticipant" xml:space="preserve">
+    <value>Mitwirkende(n) bearbeiten</value>
+  </data>
+  <data name="EditPersonGroup" xml:space="preserve">
+    <value>Person/Gruppe ändern</value>
+  </data>
+  <data name="EditRole" xml:space="preserve">
+    <value>Rolle bearbeiten</value>
+  </data>
+  <data name="EndOfList" xml:space="preserve">
+    <value>Ende der Liste</value>
+  </data>
+  <data name="EnterBugDescriptionHere" xml:space="preserve">
+    <value>&lt;&lt;&lt;&lt;&lt;Geben Sie hier bitte kurz an, welche Aktionen Sie in Hitbase ausgeführt haben, bevor diese Fehlermeldung auftrat. So helfen Sie uns das Problem schneller zu lösen. Vielen Dank!&gt;&gt;&gt;&gt;&gt;</value>
+  </data>
+  <data name="ErrorAmazonWebSiteOpen" xml:space="preserve">
+    <value>Kann nicht auf die Amazon-Webseite wechseln, um weitere Infos zum ausgewählten Medium anzuzeigen. 
+
+Die Fehlermeldung lautet: </value>
+  </data>
+  <data name="ErrorDetermineNextFreeArchiveNumber" xml:space="preserve">
+    <value>Die nächste freie Archivnummer konnte nicht automatisch ermittelt werden. Möglicherweise haben Sie nicht nur Zahlen in den Archivnummern gespeichert (Fehlermeldung der Datenbank: '{0}').</value>
+  </data>
+  <data name="ErrorDownloadImage" xml:space="preserve">
+    <value>Das Original-Bild konnte nicht geladen werden (möglicherweise wurde es vom Server entfernt).
+
+Möchten Sie stattdessen die Bildvorschau laden?</value>
+  </data>
+  <data name="ErrorFreeSql" xml:space="preserve">
+    <value>Beim Ausführen des SQL-Befehls trat ein Fehler auf. Die Fehlermeldung lautet: {0}</value>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Fehlermeldung</value>
+  </data>
+  <data name="ErrorSendingMail" xml:space="preserve">
+    <value>Die automatische E-Mail konnte nicht erstellt werden. Möglicherweise ist kein Mailprogramm installiert.</value>
+  </data>
+  <data name="ExportInProgress" xml:space="preserve">
+    <value>Exportvorgang läuft...</value>
+  </data>
+  <data name="Feminin" xml:space="preserve">
+    <value>Weiblich</value>
+  </data>
+  <data name="FieldTypeMismatch" xml:space="preserve">
+    <value>Sie haben zwei Felder mit unterschiedlichen Datentypen ausgewählt. Bei der Übertragung könnten Daten verloren gehen.
+
+Achtung: Diese Aktion lässt sich nicht rückgängig machen. Falls Sie unsicher sind, sollten Sie eine Sicherheitskopie der Datenbank anlegen, bevor Sie fortfahren.
+
+Möchten Sie die Feldübertragung durchführen?</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Datei</value>
+  </data>
+  <data name="FileExists" xml:space="preserve">
+    <value>Die Datei '{0}' existiert bereits. Soll sie überschrieben werden?</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Dateien</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter: {0}</value>
+  </data>
+  <data name="FilterHitbase" xml:space="preserve">
+    <value>Hitbase Kataloge (*.hdbx)|*.hdbx|Alle Dateien (*.*)|*.*||</value>
+  </data>
+  <data name="FilterImages" xml:space="preserve">
+    <value>JPEG-Dateien (*.jpg;*.jpeg)|*.jpg;*.jpeg|PNG-Dateien (*.png)|*.png|Bitmap-Dateien (*.bmp)|*.bmp|GIF-Dateien (*.gif)|*.gif|Alle Dateien (*.*)|*.*||</value>
+  </data>
+  <data name="FilterSoundfile" xml:space="preserve">
+    <value>Musikdateien (*.wav;*.mp3;*.wma;*.asf;*.ogg;*.flac)|*.wav;*.mp3;*.wma;*.asf;*.ogg;*.flac|Wave-Dateien (*.wav)|*.wav|MP3-Dateien (*.mp3)|*.mp3|Windows Media Audio-Dateien (*.wma;*.asf)|*.wma;*.asf|Ogg vorbis (*.ogg)|*.org|FLAC-Dateien (*.flac)|*.flac|Alle Dateien (*.*)|*.*</value>
+  </data>
+  <data name="FinishReplaceMulti" xml:space="preserve">
+    <value>Es wurden {0} Einträge ersetzt.</value>
+  </data>
+  <data name="FinishReplaceNothing" xml:space="preserve">
+    <value>Es wurde kein Eintrag gefünden.</value>
+  </data>
+  <data name="FinishReplaceSingle" xml:space="preserve">
+    <value>Es wurde 1 Eintrag ersetzt.</value>
+  </data>
+  <data name="FirstSteps" xml:space="preserve">
+    <value>Erste Schritte</value>
+  </data>
+  <data name="Founded" xml:space="preserve">
+    <value>Gegründet am</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Frei</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Von</value>
+  </data>
+  <data name="Genre" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="GiveBack" xml:space="preserve">
+    <value>Wurde die CD
+
+Interpret: {0}
+Titel: {1}
+
+zurückgegeben?</value>
+  </data>
+  <data name="GroupingOff" xml:space="preserve">
+    <value>Keine Gruppierung</value>
+  </data>
+  <data name="GroupMulti" xml:space="preserve">
+    <value>Gruppe</value>
+  </data>
+  <data name="GroupSingle" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>Stunde</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>Stunden</value>
+  </data>
+  <data name="Identity" xml:space="preserve">
+    <value>Identity</value>
+  </data>
+  <data name="Ignore" xml:space="preserve">
+    <value>Ignorieren</value>
+  </data>
+  <data name="ImageFilename" xml:space="preserve">
+    <value>Bild Dateiname</value>
+  </data>
+  <data name="ImportInProgress" xml:space="preserve">
+    <value>Importvorgang läuft...</value>
+  </data>
+  <data name="InvalidDateValue" xml:space="preserve">
+    <value>Geben Sie ein gültiges Datum ein.</value>
+  </data>
+  <data name="ItemNotFoundException" xml:space="preserve">
+    <value>Das Element mit der ID {0} wurde nicht gefunden. Möglicherweise wurde es gelöscht.</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="LandOfOrigin" xml:space="preserve">
+    <value>Herkunftsland</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Groß</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Länge</value>
+  </data>
+  <data name="LoanedCDList" xml:space="preserve">
+    <value>Liste der ausgeliehenen CDs</value>
+  </data>
+  <data name="LoanedDate" xml:space="preserve">
+    <value>Verliehen am</value>
+  </data>
+  <data name="LoanedTo" xml:space="preserve">
+    <value>Verliehen an</value>
+  </data>
+  <data name="LoanManager" xml:space="preserve">
+    <value>Verleih-Manager</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Standort</value>
+  </data>
+  <data name="LyricsNotFound" xml:space="preserve">
+    <value>Liedtext nicht gefunden.</value>
+  </data>
+  <data name="Masculin" xml:space="preserve">
+    <value>Männlich</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="MediumAlreadyExists" xml:space="preserve">
+    <value>Das Medium '{0}' existiert bereits.</value>
+  </data>
+  <data name="Minute" xml:space="preserve">
+    <value>Minute</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Minuten</value>
+  </data>
+  <data name="Mixed" xml:space="preserve">
+    <value>Gemischt</value>
+  </data>
+  <data name="MMYYYY" xml:space="preserve">
+    <value>MM.JJJJ</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>Mehr...</value>
+  </data>
+  <data name="MyMusic" xml:space="preserve">
+    <value>Meine Musik</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewPlaylist" xml:space="preserve">
+    <value>Neue Wiedergabeliste erstellen</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Keine Daten vorhanden</value>
+  </data>
+  <data name="NoExternalMediumFound" xml:space="preserve">
+    <value>Es wurde kein externes Mediengerät gefunden (z.B. MP3-Player oder USB-Stick).</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Kein</value>
+  </data>
+  <data name="NoOriginalCDs" xml:space="preserve">
+    <value>Keine Original-CDs</value>
+  </data>
+  <data name="NoSampler" xml:space="preserve">
+    <value>Keine Sampler</value>
+  </data>
+  <data name="Not" xml:space="preserve">
+    <value>Nicht</value>
+  </data>
+  <data name="NotContains" xml:space="preserve">
+    <value>enthält nicht</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Zahl</value>
+  </data>
+  <data name="NumberArtists" xml:space="preserve">
+    <value>{0} Interpret(en)</value>
+  </data>
+  <data name="NumberFromTo" xml:space="preserve">
+    <value>{0} von {1}</value>
+  </data>
+  <data name="NumberOfItems" xml:space="preserve">
+    <value>({0} gefunden)</value>
+  </data>
+  <data name="NumberOfPages" xml:space="preserve">
+    <value>Seite {0} von {1}</value>
+  </data>
+  <data name="NumberOfPersonsGroups" xml:space="preserve">
+    <value>{0} Person(en)/Gruppe(n)</value>
+  </data>
+  <data name="NumberOfTracks" xml:space="preserve">
+    <value>Anzahl Tracks</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OnlyOriginalCDs" xml:space="preserve">
+    <value>Nur Original-CDs</value>
+  </data>
+  <data name="OnlySampler" xml:space="preserve">
+    <value>Nur Sampler</value>
+  </data>
+  <data name="OnlySelectStatements" xml:space="preserve">
+    <value>Aus Sicherheitsgründen sind nur "SELECT"-Befehle erlaubt.</value>
+  </data>
+  <data name="OpenInNewTab" xml:space="preserve">
+    <value>In neuer Registerkarte öffnen</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>Oder</value>
+  </data>
+  <data name="Orchester" xml:space="preserve">
+    <value>Orchester</value>
+  </data>
+  <data name="OriginalCD" xml:space="preserve">
+    <value>Original-CD</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Andere</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Seite</value>
+  </data>
+  <data name="Pages" xml:space="preserve">
+    <value>Seite {0} von {1}</value>
+  </data>
+  <data name="PersonOrGroup" xml:space="preserve">
+    <value>Person/Gruppe</value>
+  </data>
+  <data name="PersonsGroups" xml:space="preserve">
+    <value>Person(en)/Gruppe(n)</value>
+  </data>
+  <data name="PreListen" xml:space="preserve">
+    <value>Vorhören (Pre-Listen)</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Preis</value>
+  </data>
+  <data name="PrintAlbum" xml:space="preserve">
+    <value>Drucken</value>
+  </data>
+  <data name="PrintCD" xml:space="preserve">
+    <value>CD</value>
+  </data>
+  <data name="PurchaseDate" xml:space="preserve">
+    <value>Kaufdatum</value>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Bewertung</value>
+  </data>
+  <data name="ReadingFiles" xml:space="preserve">
+    <value>Gerät wird eingelesen ({0} {1} gefunden)...</value>
+  </data>
+  <data name="ReadingResult" xml:space="preserve">
+    <value>Lese Daten ({0} von {1})...</value>
+  </data>
+  <data name="RecordsReplaced" xml:space="preserve">
+    <value>{0} Einträge ersetzt</value>
+  </data>
+  <data name="ReleaseDate" xml:space="preserve">
+    <value>Erscheinungsdatum</value>
+  </data>
+  <data name="RemovableMedium" xml:space="preserve">
+    <value>Wechseldatenträger</value>
+  </data>
+  <data name="RenameArtist" xml:space="preserve">
+    <value>Interpreten umbenennen</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>{0} CD(s) gefunden</value>
+  </data>
+  <data name="Retry" xml:space="preserve">
+    <value>Wiederholen</value>
+  </data>
+  <data name="ReturnDate" xml:space="preserve">
+    <value>Rückgabetermin</value>
+  </data>
+  <data name="ReturnLoanedCD" xml:space="preserve">
+    <value>Wurde die CD
+
+Interpret: {0}
+Titel: {1}
+
+zurückgegeben?</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rolle</value>
+  </data>
+  <data name="RoleExists" xml:space="preserve">
+    <value>Die Rolle '{0}' existiert bereits.</value>
+  </data>
+  <data name="Sampler" xml:space="preserve">
+    <value>Sampler</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>Speichern unter</value>
+  </data>
+  <data name="SaveCurrentCD" xml:space="preserve">
+    <value>CD speichern</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Suchen</value>
+  </data>
+  <data name="SearchAmazon" xml:space="preserve">
+    <value>Amazon nach Medien durchsuchen</value>
+  </data>
+  <data name="SearchAndReplaceWarning" xml:space="preserve">
+    <value>ACHTUNG: Mit der Funktion "Suchen und Ersetzen" können Sie große Datenmengen verändern. Diese Änderungen sind nicht rückgängig zu machen.
+
+Bevor Sie diese Funktion benutzen, sollten Sie unbedingt eine Sicherheitskopie Ihres Kataloges anfertigen.</value>
+  </data>
+  <data name="SearchImage" xml:space="preserve">
+    <value>Bild wird gesucht...</value>
+  </data>
+  <data name="SearchLyrics" xml:space="preserve">
+    <value>Liedtexte (Lyrics) werden gesucht...</value>
+  </data>
+  <data name="SearchWebService" xml:space="preserve">
+    <value>Suche läuft...</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>Sekunde</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>Sekunden</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>Geschlecht</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Klein</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Sortiert nach: {0}</value>
+  </data>
+  <data name="SoundCollection" xml:space="preserve">
+    <value>Musiksammlung</value>
+  </data>
+  <data name="Soundfile" xml:space="preserve">
+    <value>Musikdatei</value>
+  </data>
+  <data name="Soundfiles" xml:space="preserve">
+    <value>Musikdateien</value>
+  </data>
+  <data name="StartsWith" xml:space="preserve">
+    <value>beginnt mit</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Statistiken</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="TotalLength" xml:space="preserve">
+    <value>Gesamtlänge</value>
+  </data>
+  <data name="TotalPrinted" xml:space="preserve">
+    <value>{0} von {1} Datensätze gedruckt</value>
+  </data>
+  <data name="Track" xml:space="preserve">
+    <value>Track</value>
+  </data>
+  <data name="TrackBpm" xml:space="preserve">
+    <value>BPM</value>
+  </data>
+  <data name="TrackCategory" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="TrackChecksum" xml:space="preserve">
+    <value>Prüfsumme</value>
+  </data>
+  <data name="TrackCodes" xml:space="preserve">
+    <value>Kennzeichen</value>
+  </data>
+  <data name="TrackComment" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="TrackCount" xml:space="preserve">
+    <value>{0} Track(s)</value>
+  </data>
+  <data name="TrackLanguage" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="TrackLength" xml:space="preserve">
+    <value>Länge</value>
+  </data>
+  <data name="TrackList" xml:space="preserve">
+    <value>Track-Liste</value>
+  </data>
+  <data name="TrackLyrics" xml:space="preserve">
+    <value>Liedtext</value>
+  </data>
+  <data name="TrackNumber" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="TrackRating" xml:space="preserve">
+    <value>Bewertung</value>
+  </data>
+  <data name="Tracks" xml:space="preserve">
+    <value>Tracks</value>
+  </data>
+  <data name="TrackSoundFile" xml:space="preserve">
+    <value>Musikdatei</value>
+  </data>
+  <data name="TrackUserField" xml:space="preserve">
+    <value>Benutzerdefiniertes Track-Feld</value>
+  </data>
+  <data name="TrackYearRecorded" xml:space="preserve">
+    <value>Aufnahmejahr</value>
+  </data>
+  <data name="TransferFieldsRunning" xml:space="preserve">
+    <value>Feldübertragung läuft...</value>
+  </data>
+  <data name="TransferFieldsTotal" xml:space="preserve">
+    <value>Bei der Feldübertragung traten Fehler auf. Es wurde(n) {0} von {1} CD(s) bearbeitet.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Art</value>
+  </data>
+  <data name="Unchecked" xml:space="preserve">
+    <value>Nicht gesetzt</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unbekannt</value>
+  </data>
+  <data name="UnsavedPlaylist" xml:space="preserve">
+    <value>Nicht gespeicherte Liste</value>
+  </data>
+  <data name="UntitledPlaylist" xml:space="preserve">
+    <value>Unbenannte Wiedergabeliste</value>
+  </data>
+  <data name="UPC" xml:space="preserve">
+    <value>UPC/EAN</value>
+  </data>
+  <data name="Used" xml:space="preserve">
+    <value>Verwendet</value>
+  </data>
+  <data name="UserField" xml:space="preserve">
+    <value>Benutzerdefiniertes Feld</value>
+  </data>
+  <data name="WholePage" xml:space="preserve">
+    <value>Ganze Seite</value>
+  </data>
+  <data name="Wishlist" xml:space="preserve">
+    <value>Wunschliste</value>
+  </data>
+  <data name="WrongDatabaseFormat" xml:space="preserve">
+    <value>Um einen Katalog von Hitbase 2007 oder früher importieren zu können, muss er zunächst in das neue Format .hdbx konvertiert werden.
+
+Klicken Sie hierzu im Hauptfenster auf das runde Hitbase-Symbol, wählen Sie "Katalog öffnen" und geben Sie den alten Hitbase-Katalog an. Er wird dann automatisch in das neue Format konvertiert.</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Jahr</value>
+  </data>
+  <data name="YearRecorded" xml:space="preserve">
+    <value>Aufnahmejahr</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="YYYY" xml:space="preserve">
+    <value>JJJJ</value>
+  </data>
+  <data name="Loaned" xml:space="preserve">
+    <value>Verliehen</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Eigenschaften</value>
+  </data>
+  <data name="ShowRecordOptions" xml:space="preserve">
+    <value>Kopier-Einstellungen</value>
+  </data>
+  <data name="StartRecord" xml:space="preserve">
+    <value>CD kopieren</value>
+  </data>
+  <data name="TrackSoundFileLastModified" xml:space="preserve">
+    <value>Letzte Änderung Sounddatei</value>
+  </data>
+  <data name="SelectCodes" xml:space="preserve">
+    <value>Kennzeichen auswählen</value>
+  </data>
+  <data name="EditRoles" xml:space="preserve">
+    <value>Rollen ändern</value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_1" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Genre </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_10" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Aufnahmejahr </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_11" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Interpretenart </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_12" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Geschlecht </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_13" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Land </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_14" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Länge </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_15" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Aufnahmejahr </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_16" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Bewertung </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_17" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach BPM </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_19" xml:space="preserve">
+    <value>Die meisten Tracks eines Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_20" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Geschlecht von Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_2" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Medium </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_18" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Kennzeichen </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_21" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Ländern </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_22" xml:space="preserve">
+    <value>Anzahl Tracks gruppiert nach Art des Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_23" xml:space="preserve">
+    <value>Die meisten CDs eines Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_24" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Geschlecht eines Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_25" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Ländern </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_26" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Art des Interpreten </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_3" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Preis </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_4" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Tracks </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_5" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Gesamtlänge </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_6" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Sampler </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_7" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Bewertung </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_8" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Kennzeichen </value>
+  </data>
+  <data name="TEXT_STATISTICS_GRAF_9" xml:space="preserve">
+    <value>Anzahl CDs gruppiert nach Label </value>
+  </data>
+  <data name="TEXT_STATISTICS1" xml:space="preserve">
+    <value>Summe der Tracklängen</value>
+  </data>
+  <data name="TEXT_STATISTICS10" xml:space="preserve">
+    <value>Durchschnittliche Länge der CD</value>
+  </data>
+  <data name="TEXT_STATISTICS11" xml:space="preserve">
+    <value>Längste CD</value>
+  </data>
+  <data name="TEXT_STATISTICS12" xml:space="preserve">
+    <value>Kürzeste CD</value>
+  </data>
+  <data name="TEXT_STATISTICS13" xml:space="preserve">
+    <value>Anzahl der Interpreten</value>
+  </data>
+  <data name="TEXT_STATISTICS14" xml:space="preserve">
+    <value>Anzahl der CD Sets</value>
+  </data>
+  <data name="TEXT_STATISTICS15" xml:space="preserve">
+    <value>Anzahl der nicht zugewiesenen CDs</value>
+  </data>
+  <data name="TEXT_STATISTICS16" xml:space="preserve">
+    <value>Anzahl der zugewiesenen CDs</value>
+  </data>
+  <data name="TEXT_STATISTICS17" xml:space="preserve">
+    <value>Ausgeliehene CDs</value>
+  </data>
+  <data name="TEXT_STATISTICS18" xml:space="preserve">
+    <value>Gesamtwert der CD-Sammlung</value>
+  </data>
+  <data name="TEXT_STATISTICS2" xml:space="preserve">
+    <value>Anzahl der Tracks</value>
+  </data>
+  <data name="TEXT_STATISTICS3" xml:space="preserve">
+    <value>Längster Track</value>
+  </data>
+  <data name="TEXT_STATISTICS4" xml:space="preserve">
+    <value>Kürzester Track</value>
+  </data>
+  <data name="TEXT_STATISTICS5" xml:space="preserve">
+    <value>Durchschnittliche Tracklänge</value>
+  </data>
+  <data name="TEXT_STATISTICS6" xml:space="preserve">
+    <value>Durchschnittliche Anzahl Tracks pro CD</value>
+  </data>
+  <data name="TEXT_STATISTICS7" xml:space="preserve">
+    <value>Anzahl der CDs</value>
+  </data>
+  <data name="TEXT_STATISTICS8" xml:space="preserve">
+    <value>Anzahl Sampler CDs</value>
+  </data>
+  <data name="TEXT_STATISTICS9" xml:space="preserve">
+    <value>CD mit größter Anzahl von Tracks</value>
+  </data>
+  <data name="TEXT_OVERVIEW" xml:space="preserve">
+    <value>Allgemeine Statistiken</value>
+  </data>
+  <data name="TEXT_TEXTOVERVIEW" xml:space="preserve">
+    <value>Einfache Statistiken</value>
+  </data>
+  <data name="ChooseImage" xml:space="preserve">
+    <value>Bild auswählen</value>
+  </data>
+  <data name="ChooseColumns" xml:space="preserve">
+    <value>Spalten wählen...</value>
+  </data>
+  <data name="CopyToClipboard" xml:space="preserve">
+    <value>In Zwischenablage kopieren</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Erfasst</value>
+  </data>
+  <data name="LastModified" xml:space="preserve">
+    <value>Letzte Änderung</value>
+  </data>
+  <data name="TrackPlayCount" xml:space="preserve">
+    <value>Wiedergabeanzahl</value>
+  </data>
+  <data name="CancelRecord" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="Begin" xml:space="preserve">
+    <value>Von</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Bis</value>
+  </data>
+  <data name="TrackSavedOnHardDrive" xml:space="preserve">
+    <value>Speicherort:</value>
+  </data>
+  <data name="CopyFields" xml:space="preserve">
+    <value>Feldübertragung</value>
+  </data>
+  <data name="EditDatabaseFields" xml:space="preserve">
+    <value>Benutzerdefinierte Felder</value>
+  </data>
+  <data name="SearchAndReplace" xml:space="preserve">
+    <value>Suchen und Ersetzen</value>
+  </data>
+  <data name="BurnCD" xml:space="preserve">
+    <value>CD brennen</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="DeletePhysicallyMulti" xml:space="preserve">
+    <value>ACHTUNG: Wenn Sie fortfahren, werden {0} Musikdateien von Ihrem Computer gelöscht.</value>
+  </data>
+  <data name="DeletePhysicallySingle" xml:space="preserve">
+    <value>ACHTUNG: Wenn Sie fortfahren, wird 1 Musikdatei von Ihrem Computer gelöscht.</value>
+  </data>
+  <data name="ShowPlayer" xml:space="preserve">
+    <value>Player ein-/ausblenden</value>
+  </data>
+  <data name="AddToWishlist" xml:space="preserve">
+    <value>Zur Wunschliste hinzufügen</value>
+  </data>
+  <data name="PersonalSearches" xml:space="preserve">
+    <value>Meine Suchen</value>
+  </data>
+  <data name="DeleteCondition" xml:space="preserve">
+    <value>Bedingung entfernen</value>
+  </data>
+  <data name="ExecuteSearch" xml:space="preserve">
+    <value>Suche ausführen</value>
+  </data>
+  <data name="ExtendedSearch" xml:space="preserve">
+    <value>Erweiterte Suche</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="DeletePlaylist" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="ConfirmDeletePlaylist" xml:space="preserve">
+    <value>Möchten Sie die Wiedergabeliste '{0}' löschen?</value>
+  </data>
+  <data name="PlayInFullScreen" xml:space="preserve">
+    <value>Im Vollbild wiedergeben</value>
+  </data>
+  <data name="OperatorEmpty" xml:space="preserve">
+    <value>ist leer</value>
+  </data>
+  <data name="OperatorNotEmpty" xml:space="preserve">
+    <value>ist nicht leer</value>
+  </data>
+  <data name="SaveSearch" xml:space="preserve">
+    <value>Suche speichern</value>
+  </data>
+  <data name="EditCDSets" xml:space="preserve">
+    <value>CD-Sets</value>
+  </data>
+  <data name="PrintCDCover" xml:space="preserve">
+    <value>CD-Cover</value>
+  </data>
+  <data name="ReadOnlyBecauseOfNoSampler" xml:space="preserve">
+    <value>Dieses Feld kann nur bei einem Sampler geändert werden.</value>
+  </data>
+  <data name="NoImageFound" xml:space="preserve">
+    <value>Es wurde kein Bild gefunden. Klicken Sie auf "Mehr...", um die Suche manuell durchzuführen.</value>
+  </data>
+  <data name="ClickHereToShowPicture" xml:space="preserve">
+    <value>Klicken Sie hier, um das Bild vergrößert darzustellen.</value>
+  </data>
+  <data name="DeleteSearch" xml:space="preserve">
+    <value>Suche löschen</value>
+  </data>
+  <data name="RenameSearch" xml:space="preserve">
+    <value>Umbenennen</value>
+  </data>
+  <data name="UntitledSearch" xml:space="preserve">
+    <value>Unbenannte Suche</value>
+  </data>
+  <data name="NextFreeArchiveNumber" xml:space="preserve">
+    <value>Nächste freie Archivnummer ermitteln</value>
+  </data>
+  <data name="ShowWebsite" xml:space="preserve">
+    <value>Webseite anzeigen</value>
+  </data>
+  <data name="Statistic" xml:space="preserve">
+    <value>Statistik</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Wert</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="SearchCDInCDArchive" xml:space="preserve">
+    <value>CD suchen</value>
+  </data>
+  <data name="SendCatalogToInternet" xml:space="preserve">
+    <value>Ins CD-Archiv übertragen</value>
+  </data>
+  <data name="StartUploadCatalog" xml:space="preserve">
+    <value>Es werden {0} CDs in unser Internet CD-Archiv übertragen. Möchten Sie nun mit der Übertragung beginnen? Es werden keine persönlichen Informationen an Big 3 Software übermittelt.</value>
+  </data>
+  <data name="UploadCatalog" xml:space="preserve">
+    <value>Es werden {0} CDs übertragen.
+
+Dieser Vorgang kann abhängig von Ihrer Internetverbindung etwas dauern. Es werden keine persönlichen Informationen an Big 3 Software übermittelt.</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Fehlgeschlagen</value>
+  </data>
+  <data name="NoUploadableCDArchive" xml:space="preserve">
+    <value>Sie haben kein CD-Archiv angegeben, in welches Ihre CDs übertragen werden könnten. Möchten Sie dies nun tun?</value>
+  </data>
+  <data name="SendingData" xml:space="preserve">
+    <value>Sende Daten</value>
+  </data>
+  <data name="CDExists" xml:space="preserve">
+    <value>CD schon vorhanden</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Erfolgreich</value>
+  </data>
+  <data name="UploadCompleted" xml:space="preserve">
+    <value>Übertragung beendet.</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ZoomInChart" xml:space="preserve">
+    <value>Statistik vergrößern</value>
+  </data>
+  <data name="ZoomOutChart" xml:space="preserve">
+    <value>Statistik verkleinern</value>
+  </data>
+  <data name="BarChart" xml:space="preserve">
+    <value>Balkendiagramm</value>
+  </data>
+  <data name="ColumnChart" xml:space="preserve">
+    <value>Säulendiagramm</value>
+  </data>
+  <data name="PieChart" xml:space="preserve">
+    <value>Kuchendiagramm</value>
+  </data>
+  <data name="LineChart" xml:space="preserve">
+    <value>Liniendiagramm</value>
+  </data>
+  <data name="SendCDToCDArchive" xml:space="preserve">
+    <value>Ins CD-Archiv übertragen</value>
+  </data>
+  <data name="ShowDetails" xml:space="preserve">
+    <value>Details anzeigen</value>
+  </data>
+  <data name="Undefined" xml:space="preserve">
+    <value>Nicht definiert</value>
+  </data>
+  <data name="ChooseSkin" xml:space="preserve">
+    <value>Design wählen</value>
+  </data>
+  <data name="OpenTrackLocation" xml:space="preserve">
+    <value>Speicherort öffnen</value>
+  </data>
+  <data name="BetaVersionExpired" xml:space="preserve">
+    <value>Diese Beta-Version von Hitbase ist abgelaufen. Wenden Sie sich bitte an Big 3 Software, um eine neue Version zu erhalten.</value>
+  </data>
+  <data name="RepeatOff" xml:space="preserve">
+    <value>Wiederholung ausschalten</value>
+  </data>
+  <data name="RepeatSingle" xml:space="preserve">
+    <value>Wiederholung anschalten (einfach)</value>
+  </data>
+  <data name="ShuffleOff" xml:space="preserve">
+    <value>Zufällige Wiedergabe ausschalten</value>
+  </data>
+  <data name="ShuffleOn" xml:space="preserve">
+    <value>Zufällige Wiedergabe anschalten</value>
+  </data>
+  <data name="VolumeOff" xml:space="preserve">
+    <value>Ton aus</value>
+  </data>
+  <data name="VolumeOn" xml:space="preserve">
+    <value>Ton an</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>gelöscht</value>
+  </data>
+  <data name="NextTrackAndSeek" xml:space="preserve">
+    <value>Nächster Track (Lange gedrückt halten, um schnell vorzuspulen)</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Wiedergabe</value>
+  </data>
+  <data name="PrevTrackAndSeek" xml:space="preserve">
+    <value>Vorheriger Track (Lange gedrückt halten, um schnell zurückzuspulen)</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stopp</value>
+  </data>
+  <data name="Volume" xml:space="preserve">
+    <value>Lautstärke</value>
+  </data>
+  <data name="NextTrack" xml:space="preserve">
+    <value>Nächstes Musikstück</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Anhalten</value>
+  </data>
+  <data name="PrevTrack" xml:space="preserve">
+    <value>Vorheriges Musikstück</value>
+  </data>
+  <data name="PrintWishlist" xml:space="preserve">
+    <value>Wunschliste drucken</value>
+  </data>
+  <data name="SaveWishlist" xml:space="preserve">
+    <value>Wunschliste speichern</value>
+  </data>
+  <data name="CloseWishlist" xml:space="preserve">
+    <value>Wunschliste schließen</value>
+  </data>
+  <data name="CopyToExternalMedium" xml:space="preserve">
+    <value>Auf externes Medium kopieren</value>
+  </data>
+  <data name="TotalPlaytime" xml:space="preserve">
+    <value>Spieldauer</value>
+  </data>
+  <data name="TotalPlaytimeRemaining" xml:space="preserve">
+    <value>Restspieldauer</value>
+  </data>
+  <data name="UploadToMyHitbase" xml:space="preserve">
+    <value>my.Hitbase!</value>
+  </data>
+  <data name="PrepareCatalog" xml:space="preserve">
+    <value>Katalog wird vorbereitet</value>
+  </data>
+  <data name="SendCatalog" xml:space="preserve">
+    <value>Katalog wird übertragen</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Fertig</value>
+  </data>
+  <data name="ShowExtendedQualityDialog" xml:space="preserve">
+    <value>Erweitert</value>
+  </data>
+  <data name="CompressCatalog" xml:space="preserve">
+    <value>Katalog wird komprimiert</value>
+  </data>
+  <data name="UploadNow" xml:space="preserve">
+    <value>Jetzt hochladen</value>
+  </data>
+  <data name="UserOrPasswordIncorrect" xml:space="preserve">
+    <value>Der Benutzername oder das Passwort sind ungültig.</value>
+  </data>
+  <data name="BrowseCDArchive" xml:space="preserve">
+    <value>CD-Archiv durchsuchen</value>
+  </data>
+  <data name="CDArchiveCDDB" xml:space="preserve">
+    <value>freedb</value>
+  </data>
+  <data name="CDArchiveHitbaseFile" xml:space="preserve">
+    <value>Hitbase (Datei)</value>
+  </data>
+  <data name="CDArchiveHitbaseInternet" xml:space="preserve">
+    <value>CD-Archiv (Internet)</value>
+  </data>
+  <data name="CDArchiveLocal" xml:space="preserve">
+    <value>CD-Archiv (Datei)</value>
+  </data>
+  <data name="CDArchiveLocalCDDB" xml:space="preserve">
+    <value>freedb-Archiv-Verzeichnis (Lokal)</value>
+  </data>
+  <data name="CDsFound" xml:space="preserve">
+    <value>CD(s) gefunden</value>
+  </data>
+  <data name="CopyCDArtistToTracks" xml:space="preserve">
+    <value>Alle Interpreten gleichsetzen</value>
+  </data>
+  <data name="LinkCD" xml:space="preserve">
+    <value>CD zuweisen</value>
+  </data>
+  <data name="OneMomentPlease" xml:space="preserve">
+    <value>Einen Moment bitte</value>
+  </data>
+  <data name="AmazonCopySuccess" xml:space="preserve">
+    <value>Es wurde(n) {0} CD(s) erfolgreich übertragen.</value>
+  </data>
+  <data name="CDAlreadyLinked" xml:space="preserve">
+    <value>Diese CD wurde schon zugewiesen. Soll sie erneut zugewiesen werden?</value>
+  </data>
+  <data name="CDAlreadyLinkedToThisCD" xml:space="preserve">
+    <value>Die aktuelle CD ist dieser CD bereits zugewiesen.</value>
+  </data>
+  <data name="MP3AlbumExists" xml:space="preserve">
+    <value>Achtung: Sie haben in Ihren Katalog bereits früher Musikdateien (z.B. MP3-Alben) manuell hinzugefügt. Wenn Sie die neue Synchronisierungsfunktion von Hitbase verwenden, werden diese in Ihrem Katalog gelöscht. 
+
+Es werden dann automatisch alle Musikdateien, die in den angegebenen Verzeichnissen gefunden werden, mit Ihrem Katalog synchronisiert.
+
+</value>
+  </data>
+  <data name="AskAdjustSpellingTitle" xml:space="preserve">
+    <value>Schreibweise anpassen?</value>
+  </data>
+  <data name="DelKey" xml:space="preserve">
+    <value>Entf</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>leer</value>
+  </data>
+  <data name="AudioCD" xml:space="preserve">
+    <value>Audio-CD</value>
+  </data>
+  <data name="ManagedSoundFiles" xml:space="preserve">
+    <value>Musikdateien (verwaltet)</value>
+  </data>
+  <data name="MusicDataCD" xml:space="preserve">
+    <value>Musik-CD (Dateien)</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Über Hitbase</value>
+  </data>
+  <data name="Participant" xml:space="preserve">
+    <value>Mitwirkender</value>
+  </data>
+  <data name="ShowHelp" xml:space="preserve">
+    <value>Hilfe</value>
+  </data>
+  <data name="NormalizeOptions" xml:space="preserve">
+    <value>Einstellungen für "Normalisieren"</value>
+  </data>
+  <data name="ShowNormalizeOptions" xml:space="preserve">
+    <value>Normalisieren</value>
+  </data>
+  <data name="MP3Settings" xml:space="preserve">
+    <value>MP3 Einstellungen</value>
+  </data>
+  <data name="OpenCDDrive" xml:space="preserve">
+    <value>CD-Laufwerk öffnen</value>
+  </data>
+  <data name="AlreadyLoaned" xml:space="preserve">
+    <value>Die CD ist bereits verliehen. Möchten Sie den Verleih-Manager starten, um den aktuellen Status zu ändern?</value>
+  </data>
+  <data name="PlayAlbumLast" xml:space="preserve">
+    <value>Als letztes spielen</value>
+  </data>
+  <data name="PlayAlbumNext" xml:space="preserve">
+    <value>Als nächstes spielen</value>
+  </data>
+  <data name="PlayAlbumNow" xml:space="preserve">
+    <value>Sofort spielen</value>
+  </data>
+  <data name="CantSaveAsSameFilename" xml:space="preserve">
+    <value>Der Katalog ist bereits geöffnet. Bitte vergeben Sie einen neuen Namen.</value>
+  </data>
+  <data name="EjectCD" xml:space="preserve">
+    <value>CD auswerfen</value>
+  </data>
+  <data name="MissingCatalog" xml:space="preserve">
+    <value>Der zuletzt geöffnete Katalog '{0}' konnte nicht automatisch geladen werden, da er nicht gefunden wurde.
+
+Hitbase benötigt eine Katalog-Datei, um gestartet zu werden. Bitte wählen Sie einen vorhandenen Katalog aus oder legen Sie einen neuen an.</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Umbenennen</value>
+  </data>
+  <data name="TrackInformation" xml:space="preserve">
+    <value>Track-Information</value>
+  </data>
+  <data name="PinTab" xml:space="preserve">
+    <value>Registerkarte anheften</value>
+  </data>
+  <data name="CreateCatalog" xml:space="preserve">
+    <value>Katalog anlegen</value>
+  </data>
+  <data name="CompactDataBase" xml:space="preserve">
+    <value>Komprimieren und reparieren</value>
+  </data>
+  <data name="AlbumView" xml:space="preserve">
+    <value>Albumansicht</value>
+  </data>
+  <data name="ChooseMusicLibraryFolder" xml:space="preserve">
+    <value>Wählen Sie ein Verzeichnis aus.</value>
+  </data>
+  <data name="ImageView" xml:space="preserve">
+    <value>Bildansicht</value>
+  </data>
+  <data name="RepeatAll" xml:space="preserve">
+    <value>Wiederholung anschalten (komplett)</value>
+  </data>
+  <data name="UserDefinedCrossFade" xml:space="preserve">
+    <value>Benutzerdefiniertes Überblenden</value>
+  </data>
+  <data name="MultiTagEdit" xml:space="preserve">
+    <value>Mehrfaches Umbenennen</value>
+  </data>
+  <data name="MultiTagEditWarning" xml:space="preserve">
+    <value>Möchten Sie die Information für alle selektierten Tracks ändern?</value>
+  </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>aufsteigend</value>
+  </data>
+  <data name="Sort" xml:space="preserve">
+    <value>Sortieren</value>
+  </data>
+  <data name="SortKey1" xml:space="preserve">
+    <value>1. Sortierschlüssel</value>
+  </data>
+  <data name="SortKey2" xml:space="preserve">
+    <value>2. Sortierschlüssel</value>
+  </data>
+  <data name="SortKey3" xml:space="preserve">
+    <value>3. Sortierschlüssel</value>
+  </data>
+  <data name="UpdateCatalog" xml:space="preserve">
+    <value>Der zuletzt geöffnete Katalog '{0}' muss in das aktuelle Format von Hitbase 2012 konvertiert werden, damit Sie ihn verwenden können.
+
+Wählen Sie "Katalog konvertieren", um den Katalog jetzt zu konvertieren (empfohlen). Es wird automatisch eine Sicherheitskopie das alten Kataloges unter dem Namen '{1}' angelegt. Bitte beachten Sie, dass der konvertierte Katalog mit älteren Hitbase-Versionen nicht mehr geöffnet werden kann.
+
+Wählen Sie "Neuen Katalog anlegen", um einen neuen, leeren Katalog anzulegen.
+
+Wählen Sie "Hitbase beenden", um das Programm zu beenden.</value>
+  </data>
+  <data name="CatalogNotFound" xml:space="preserve">
+    <value>Der Katalog '{0}' ist nicht vorhanden. Soll er aus der Liste entfernt werden?</value>
+  </data>
+  <data name="NoTracksFound" xml:space="preserve">
+    <value>Im angegebenen Verzeichnis wurden keine Musikdateien gefunden.</value>
+  </data>
+  <data name="NewVersionDetails" xml:space="preserve">
+    <value>{0}
+
+Ihre Version: {1}.{2}.{3}
+Aktuelle Version: {4}.{5}.{6}
+Datum der neuen Version: {7}</value>
+  </data>
+  <data name="NewVersionAvailable" xml:space="preserve">
+    <value>Es ist eine neuere Version von Hitbase verfügbar. Möchten Sie die Homepage von Big 3 Software öffnen?</value>
+  </data>
+  <data name="NewVersionAvailableTitle" xml:space="preserve">
+    <value>Neue Version verfügbar</value>
+  </data>
+  <data name="SharewareWarning" xml:space="preserve">
+    <value>Sie haben die Shareware-Version von Hitbase 2012 länger als 30 Tage im Einsatz.
+
+Bitte seien Sie so fair und lassen Sie sich registrieren. Damit fördern Sie die Weiterentwicklung von Hitbase.
+
+Vielen Dank!</value>
+  </data>
+  <data name="Star" xml:space="preserve">
+    <value>Stern</value>
+  </data>
+  <data name="Stars" xml:space="preserve">
+    <value>Sterne</value>
+  </data>
+  <data name="Unrated" xml:space="preserve">
+    <value>Unbewertet</value>
+  </data>
+  <data name="SharewareWarningTitle" xml:space="preserve">
+    <value>Shareware-Warnung</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Bitte warten Sie {0} Sekunde(n)...</value>
+  </data>
+  <data name="CompressCompleted" xml:space="preserve">
+    <value>Die Funktion "reparieren und komprimieren" wurde erfolgreich durchgeführt.</value>
+  </data>
+  <data name="RecordRunningCancel" xml:space="preserve">
+    <value>Möchten Sie den Kopiervorgang beenden?</value>
+  </data>
+  <data name="RecordRunningText" xml:space="preserve">
+    <value>Sie können die Registerkarte nur schließen, wenn Sie den Kopiervorgang beenden.</value>
+  </data>
+  <data name="RecordRunningTitle" xml:space="preserve">
+    <value>Kopiervorgang läuft</value>
+  </data>
+  <data name="BetaVersionExpires" xml:space="preserve">
+    <value>Läuffähig bis zum {0}</value>
+  </data>
+  <data name="OpenCatalog" xml:space="preserve">
+    <value>Katalog öffnen</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Drucken</value>
+  </data>
+  <data name="RibbonContextAddToQATText" xml:space="preserve">
+    <value>Zu Symbolleiste für den Schnellzugriff hinzufügen</value>
+  </data>
+  <data name="RibbonContextMaximizeTheRibbonText" xml:space="preserve">
+    <value>Menüband maximieren</value>
+  </data>
+  <data name="RibbonContextMinimizeTheRibbonText" xml:space="preserve">
+    <value>Menüband minimieren</value>
+  </data>
+  <data name="RibbonContextRemoveFromQATText" xml:space="preserve">
+    <value>Aus Symbolleiste für den Schnellzugriff entfernen</value>
+  </data>
+  <data name="RibbonContextShowQATAboveText" xml:space="preserve">
+    <value>Symbolleiste für den Schnellzugriff über dem Menüband anzeigen</value>
+  </data>
+  <data name="RibbonContextShowQATBelowText" xml:space="preserve">
+    <value>Symbolleiste für den Schnellzugriff unter dem Menüband anzeigen</value>
+  </data>
+  <data name="CorrectTrackNumbers" xml:space="preserve">
+    <value>Tracknummern korrigieren</value>
+  </data>
+  <data name="InsertPlaylist" xml:space="preserve">
+    <value>Wiedergabeliste hinzufügen</value>
+  </data>
+  <data name="UpdatingGenres" xml:space="preserve">
+    <value>Genres werden aktualisiert...</value>
+  </data>
+  <data name="UpdatingPersonGroups" xml:space="preserve">
+    <value>Namen werden aktualisiert...</value>
+  </data>
+  <data name="LicensedTo" xml:space="preserve">
+    <value>Lizenziert an: {0}</value>
+  </data>
+  <data name="Shareware" xml:space="preserve">
+    <value>Shareware-Version</value>
+  </data>
+  <data name="Shareware30DaysTest" xml:space="preserve">
+    <value>Sie dürfen diese Version 30 Tage kostenlos testen.</value>
+  </data>
+  <data name="NoCDArchiveDefined" xml:space="preserve">
+    <value>Es ist kein CD-Archiv aktiviert, das das "Durchsuchen" unterstützt. Aktivieren Sie ein CD-Archiv vom Typ "CDArchiv (Datei)" unter Optionen-&gt;CD-Archive.</value>
+  </data>
+  <data name="AutoBackFailure" xml:space="preserve">
+    <value>Die automatische Sicherheitskopie des Kataloges konnte nicht angelegt werden. Bitte überprüfen Sie die Einstellung in den Optionen. Die Fehlermeldung lautet: </value>
+  </data>
+  <data name="WriteID3TagsAccessDenied" xml:space="preserve">
+    <value>Die ID3-Tags in '{0}' konnten nicht aktualisiert werden. Hierfür gibt es mehrere mögliche Ursachen:
+
+1. Das Musikstück wird gerade wiedergegeben. Bitte beenden Sie die Wiedergabe und versuchen Sie es erneut.
+
+2. Die Datei ist von einem anderen Programm in Benutzung. Bitte beenden Sie dieses Programm und versuchen Sie es erneut.
+
+3. Die Datei ist schreibgeschützt und kann nicht aktualisiert werden. Dies ist z.B. der Fall, wenn sich die Datei auf einer CD befindet.</value>
+  </data>
+  <data name="WriteID3TagsAccessDeniedTitle" xml:space="preserve">
+    <value>Fehler beim Schreiben der ID3-Tags</value>
+  </data>
+  <data name="Center" xml:space="preserve">
+    <value>Zentriert</value>
+  </data>
+  <data name="Left" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="Right" xml:space="preserve">
+    <value>Rechts</value>
+  </data>
+  <data name="PureDataCD" xml:space="preserve">
+    <value>Bei der eingelegten CD handelt es sich um eine Daten-CD. Soll die CD nach Musikdateien durchsucht werden?</value>
+  </data>
+  <data name="PureDataCDTitle" xml:space="preserve">
+    <value>Diese CD ist eine Daten-CD.</value>
+  </data>
+  <data name="ClickNewToAddTracksEnd" xml:space="preserve">
+    <value>, um Tracks hinzuzufügen.</value>
+  </data>
+  <data name="ClickNewToAddTracksStart" xml:space="preserve">
+    <value>Klicken Sie auf</value>
+  </data>
+  <data name="SizeAndPosition" xml:space="preserve">
+    <value>Größe und Position</value>
+  </data>
+</root>

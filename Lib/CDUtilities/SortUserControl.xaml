@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Big3.Hitbase.CDUtilities.SortUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+             mc:Ignorable="d" 
+             Height="300" Width="400">
+    <Grid Margin="10">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="{sr:Loc OK}" Name="buttonOK" MinWidth="75" Padding="2" Click="buttonOK_Click" />
+                <Button Content="{sr:Loc Cancel}" Margin="10,0,0,0" Padding="2" Name="buttonCancel" MinWidth="80" Click="buttonCancel_Click" />
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Background="#40FFFFFF" Text="{sr:Loc SortKey1}" Margin="0,0,0,5" Padding="2" />
+                <Grid>
+                    <ComboBox HorizontalAlignment="Left" Name="comboBoxSort1" VerticalAlignment="Top" Width="200" />
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Width="150">
+                        <RadioButton Content="{sr:Loc Ascending}" Margin="0,2,0,2" HorizontalAlignment="Left" Name="radioButtonSort1Ascending" VerticalAlignment="Top" />
+                        <RadioButton Content="{sr:Loc Descending}" Margin="0,2,0,2" HorizontalAlignment="Left" Name="radioButtonSort1Descending" VerticalAlignment="Top" />
+                    </StackPanel>
+                </Grid>
+                <TextBlock Background="#40FFFFFF" Text="{sr:Loc SortKey2}" Margin="0,20,0,5" Padding="2" />
+                <Grid>
+                    <ComboBox HorizontalAlignment="Left" Name="comboBoxSort2" VerticalAlignment="Top" Width="200" />
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Width="150">
+                        <RadioButton Content="{sr:Loc Ascending}" Margin="0,2,0,2" HorizontalAlignment="Left" Name="radioButtonSort2Ascending" VerticalAlignment="Top" />
+                        <RadioButton Content="{sr:Loc Descending}" Margin="0,2,0,2" HorizontalAlignment="Left" Name="radioButtonSort2Descending" VerticalAlignment="Top" />
+                    </StackPanel>
+                </Grid>
+                <TextBlock Background="#40FFFFFF" Text="{sr:Loc SortKey3}" Margin="0,20,0,5" Padding="2" />
+                <Grid>
+                    <ComboBox HorizontalAlignment="Left" Name="comboBoxSort3" VerticalAlignment="Top" Width="200" />
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Width="150">
+                        <RadioButton Content="{sr:Loc Ascending}" Margin="0,2,0,2" HorizontalAlignment="Left" Name="radioButtonSort3Ascending" VerticalAlignment="Top" />
+                        <RadioButton Content="{sr:Loc Descending}" Margin="0,2,0,2" HorizontalAlignment="Left" Name="radioButtonSort3Descending" VerticalAlignment="Top" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</UserControl>

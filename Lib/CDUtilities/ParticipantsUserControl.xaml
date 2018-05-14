@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Big3.Hitbase.CDUtilities.ParticipantsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Big3.Hitbase.CDUtilities"
+             xmlns:misc="clr-namespace:Big3.Hitbase.Miscellaneous;assembly=Misc"
+             mc:Ignorable="d" x:Name="participantsUserControl"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <local:ParticipantImageConverter x:Key="participantImageConverter" />
+        <local:ConvertBeginEndToString x:Key="convertBeginEndToString" />
+        <misc:DateConverter x:Key="dateConverter" />
+
+        <Style x:Key="ToggleButtonStyle" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource {x:Static ToolBar.ToggleButtonStyleKey}}" >
+        </Style>
+
+        <DataTemplate x:Key="ParticipantDataTemplate">
+            <StackPanel Orientation="Vertical" Width="150" TextElement.Foreground="{DynamicResource DefaultForeground}">
+                <Image Width="80" Height="80" Stretch="Uniform" HorizontalAlignment="Center">
+                    <Image.Source>
+                        <MultiBinding Converter="{StaticResource participantImageConverter}" >
+                            <Binding Path="Name" />
+                            <Binding Path="DataBase" ElementName="participantsUserControl" />
+                        </MultiBinding>
+                    </Image.Source>
+                </Image>
+                <TextBlock HorizontalAlignment="Center" Text="{Binding Name}" TextTrimming="CharacterEllipsis"/>
+                <TextBlock HorizontalAlignment="Center" Text="{Binding Role}" TextTrimming="CharacterEllipsis"/>
+                <TextBlock HorizontalAlignment="Center" Text="{Binding Converter={StaticResource convertBeginEndToString}}" TextTrimming="CharacterEllipsis"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <DockPanel>
+        <Grid Grid.Row="1" DockPanel.Dock="Top">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStopCollection>
+                        <GradientStop Color="#F1F3FF" Offset="0"/>
+                        <GradientStop Color="#E2E8FF" Offset="0.5"/>
+                        <GradientStop Color="#C8DFF7" Offset="0.51"/>
+                        <GradientStop Color="#CAE2F9" Offset="1"/>
+                    </GradientStopCollection>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.Resources>
+                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>
+            <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                <Button Name="ButtonAddParticipant" Click="ButtonAddParticipant_Click" Padding="2" Margin="2,0,2,0" ToolTip="Mitwirkenden hinzufügen">
+                    <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/AddPersonGroup.png" Height="16" Width="16" />
+                </Button>
+                <Button Name="ButtonDeleteParticipant" Click="ButtonDeleteParticipant_Click" Padding="2" ToolTip="Mitwirkenden löschen">
+                    <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/DeletePersonGroup.png" Height="16" Width="16" />
+                </Button>
+                <ToggleButton Name="ButtonShowParticipantsTable" Click="ButtonShowParticipantsTable_Click" Padding="2" Margin="2,0,2,0" Style="{StaticResource ToggleButtonStyle}">
+                    <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/ViewDetails.png" Stretch="None" />
+                </ToggleButton>
+                <ToggleButton Name="ButtonShowParticipantsPictures" Click="ButtonShowParticipantsPictures_Click" Padding="2" Style="{StaticResource ToggleButtonStyle}">
+                    <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/ViewImages.png" Stretch="None" />
+                </ToggleButton>
+            </StackPanel>
+        </Grid>
+        <DataGrid AutoGenerateColumns="false" CanUserAddRows="false" CanUserDeleteRows="false" Name="dataGridParticipants" Background="Transparent"
+                              CanUserSortColumns="False" CanUserResizeRows="False" SelectionChanged="dataGridParticipants_SelectionChanged"
+                              BorderThickness="0" HeadersVisibility="Column" RowHeaderWidth="0" SelectionUnit="FullRow" EnableRowVirtualization="True" EnableColumnVirtualization="False" PreviewKeyDown="dataGridParticipants_KeyDown" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="30*" Header="Rolle" Binding="{Binding Role}" IsReadOnly="True" />
+                <DataGridTextColumn Width="30*" Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
+                <DataGridTextColumn Width="100" Header="Von" Binding="{Binding Begin, Converter={StaticResource dateConverter}}" IsReadOnly="True"/>
+                <DataGridTextColumn Width="100" Header="Bis" Binding="{Binding End, Converter={StaticResource dateConverter}}" IsReadOnly="True"/>
+                <!-- weiter felder -->
+            </DataGrid.Columns>
+        </DataGrid>
+        <ListBox Margin="5,0,5,0" Grid.Row="2" Name="listboxParticipantPicture" ItemTemplate="{StaticResource ParticipantDataTemplate}" 
+                 Background="Transparent" MouseDoubleClick="listboxParticipantPicture_MouseDoubleClick" ItemContainerStyle="{StaticResource MyListBoxItemContainerStyle}" 
+                 SelectionChanged="listboxParticipantPicture_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <misc:AnimatedWrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+
+    </DockPanel>
+</UserControl>

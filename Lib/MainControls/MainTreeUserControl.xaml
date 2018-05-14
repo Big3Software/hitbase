@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Big3.Hitbase.MainControls.MainTreeUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+             xmlns:controls="clr-namespace:Big3.Hitbase.Controls;assembly=Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" >
+    <UserControl.CommandBindings>
+        <CommandBinding Command="sr:HitbaseCommands.DeletePlaylist" Executed="DeletePlaylistCommandBinding_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.DeleteSearch" Executed="DeleteSearchCommandBinding_Executed" CanExecute="DeleteSearchCommandBinding_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.RenameSearch" Executed="RenameSearchCommandBinding_Executed" CanExecute="RenameSearchCommandBinding_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.PersonGroupProperties" Executed="PersonGroupPropertiesCommandBinding_Executed" CanExecute="PersonGroupPropertiesCommandBinding_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.CorrectTrackNumbers" Executed="CorrectTrackNumbersCommandBinding_Executed" />
+        
+    </UserControl.CommandBindings>
+    <UserControl.Resources>
+        <sr:SharedResourcesImageConverter x:Key="sharedResourcesImageConverter" />
+        <HierarchicalDataTemplate x:Key="ItemTemplate"
+            ItemsSource="{Binding Items}">
+            <Border x:Name="ItemBorder" BorderThickness="1" BorderBrush="Transparent" CornerRadius="2" Padding="{Binding Padding}" Margin="{Binding Margin}" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="16" Source="{Binding ImageResourceString, Converter={StaticResource sharedResourcesImageConverter}}" Margin="0,0,5,0" />
+                    <controls:EditableTextBlock IsEditable="{Binding IsEditable}" Text="{Binding Title}" VerticalAlignment="Center" ToolTip="{Binding Title}" Foreground="{DynamicResource DefaultForeground}" />
+                </StackPanel>
+            </Border>
+            <HierarchicalDataTemplate.Triggers>
+                <Trigger SourceName="ItemBorder" Property="IsMouseOver" Value="True">
+                    <Setter TargetName="ItemBorder" Property="Background" Value="{DynamicResource TreeViewHoverBackgroundBrush}" />
+                    <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#300000FF" />
+                    <Setter TargetName="ItemBorder" Property="Cursor" Value="Hand" />
+                </Trigger>
+            </HierarchicalDataTemplate.Triggers>
+        </HierarchicalDataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <TreeView Name="TreeView" Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource ItemTemplate}"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseDown="TreeView_PreviewMouseDown" TreeViewItem.Expanded="TreeView_Expanded" PreviewKeyDown="TreeView_PreviewKeyDown">
+            <TreeView.Resources>
+                <SolidColorBrush
+            x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+            Color="#40FFFFFF" />
+                <SolidColorBrush
+            x:Key="{x:Static SystemColors.ControlBrushKey}" 
+            Color="Transparent" />
+                <SolidColorBrush
+            x:Key="{x:Static SystemColors.HighlightTextBrushKey}" 
+            Color="Black" />
+
+                <ContextMenu x:Key="ItemContextMenu" 
+                      ItemsSource="{Binding ContextMenuItems}">
+<!--                    <ContextMenu.ItemContainerStyle>
+                        <Style TargetType="{x:Type MenuItem}">
+                            <Setter Property="Header" Value="{Binding Text}" />
+                            <Setter Property="Command" Value="{Binding}" />
+                            <Setter Property="CommandParameter" Value="{Binding ElementName=TreeView, Path=SelectedItem}" />
+                        </Style>
+                    </ContextMenu.ItemContainerStyle>-->
+                </ContextMenu>
+            </TreeView.Resources>
+            <TreeView.ItemContainerStyle>
+                <!-- 
+    This Style binds a TreeViewItem to a PersonViewModel. 
+    -->
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=OneTime}" />
+                    <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+                </Style>
+                </TreeView.ItemContainerStyle>
+        </TreeView>            
+    </Grid>
+</UserControl>

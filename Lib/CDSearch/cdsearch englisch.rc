@@ -1,0 +1,311 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Deutsch (Deutschland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 7, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\cdsearch.rc2""  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen\r\n"
+    "#include ""l.deu\\afxres.rc""          // Standardkomponenten\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704B0"
+        BEGIN
+            VALUE "FileDescription", "cdsearch DLL"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "cdsearch"
+            VALUE "LegalCopyright", "Copyright (C) 1999"
+            VALUE "OriginalFilename", "cdsearch.DLL"
+            VALUE "ProductName", "cdsearch Dynamic Link Library"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(GERMAN)
+#if defined(APSTUDIO_INVOKED)
+IDD_MULTIPLE_CDS_FOUND$(GERMAN) DIALOG  0, 0, 296, 141
+#else
+IDD_MULTIPLE_CDS_FOUND DIALOG  0, 0, 296, 141
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Mehrere CDs gefunden"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,90,120,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,156,120,50,14
+    LTEXT           "Es konnte nicht eindeutig ermittelt werden, welche CD in Ihrem CDROM-Laufwerk liegt. Bitte wählen Sie aus der Liste die korrekte CD aus:",
+                    IDC_STATIC,7,7,282,19
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_OWNERDRAWFIXED | 
+                    WS_BORDER | WS_TABSTOP,7,33,282,73
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(GERMAN)
+#if defined(APSTUDIO_INVOKED)
+IDD_UPLOAD_DOWNLOAD_CDS$(GERMAN) DIALOGEX 0, 0, 326, 246
+#else
+IDD_UPLOAD_DOWNLOAD_CDS DIALOGEX 0, 0, 326, 246
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "CDs werden übertragen/empfangen..."
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CTEXT           "<...>",IDC_CDSEARCH_ACTION,7,7,249,28
+    PUSHBUTTON      "Abbrechen",IDC_CDSEARCH_CANCEL,269,24,50,14
+    CONTROL         "List1",IDC_CDSEARCH_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_OWNERDRAWFIXED | WS_BORDER | 
+                    WS_TABSTOP,7,61,312,75
+    PUSHBUTTON      "Details >>",IDC_CDSEARCH_DETAILS,269,41,50,14
+    LTEXT           "Fehlermeldungen:",IDC_STATIC,7,145,57,8
+    EDITTEXT        IDC_CDSEARCH_ERRORS,7,156,312,83,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_VSCROLL | WS_HSCROLL
+    CONTROL         "Progress1",IDC_CDSEARCH_PROGRESS1,"msctls_progress32",
+                    WS_BORDER,7,44,249,11
+    PUSHBUTTON      "Starten",IDC_CDSEARCH_START,269,7,50,14
+END
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    "IDD_MULTIPLE_CDS_FOUND$(GERMAN)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 289
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+
+    "IDD_UPLOAD_DOWNLOAD_CDS$(GERMAN)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 319
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 239
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_UPDATE_CD           "Thee CD\n\nArtist: %s\nTitle: %s\n\nis already available in the CD archive. Do you want to update it?"
+    IDS_ENTER_TRENNZEICHEN  "Please enter a separator character."
+END
+
+#endif    // Deutsch (Deutschland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Englisch (USA) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(ENGLISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_MULTIPLE_CDS_FOUND$(ENGLISH) DIALOG  0, 0, 296, 141
+#else
+IDD_MULTIPLE_CDS_FOUND DIALOG  0, 0, 296, 141
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Multiple CD's found"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,90,120,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,156,120,50,14
+    LTEXT           "The CD in your CD-ROM drive could not be identified uniquely. Please choose the correct CD from the following list:",
+                    IDC_STATIC,7,7,282,19
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_OWNERDRAWFIXED | 
+                    WS_BORDER | WS_TABSTOP,7,33,282,73
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(ENGLISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_UPLOAD_DOWNLOAD_CDS$(ENGLISH) DIALOGEX 0, 0, 326, 246
+#else
+IDD_UPLOAD_DOWNLOAD_CDS DIALOGEX 0, 0, 326, 246
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "CDs werden übertragen/empfangen..."
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CTEXT           "<...>",IDC_CDSEARCH_ACTION,7,7,249,28
+    PUSHBUTTON      "Cancel",IDC_CDSEARCH_CANCEL,269,24,50,14
+    CONTROL         "List1",IDC_CDSEARCH_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_OWNERDRAWFIXED | WS_BORDER | 
+                    WS_TABSTOP,7,61,312,75
+    PUSHBUTTON      "Details >>",IDC_CDSEARCH_DETAILS,269,41,50,14
+    LTEXT           "Error messages:",IDC_STATIC,7,145,51,8
+    EDITTEXT        IDC_CDSEARCH_ERRORS,7,156,312,83,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_VSCROLL | WS_HSCROLL
+    CONTROL         "Progress1",IDC_CDSEARCH_PROGRESS1,"msctls_progress32",
+                    WS_BORDER,7,44,249,11
+    PUSHBUTTON      "Start",IDC_CDSEARCH_START,269,7,50,14
+END
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    "IDD_MULTIPLE_CDS_FOUND$(ENGLISH)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 289
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+
+    "IDD_UPLOAD_DOWNLOAD_CDS$(ENGLISH)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 319
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 239
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Englisch (USA) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE 7, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\cdsearch.rc2"  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen
+#include "l.deu\afxres.rc"          // Standardkomponenten
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

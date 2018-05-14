@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="6b81ff03-8581-4e7e-a121-32aa68425dd5" Name="Hitbase 2012" Language="1031" Version="13.0.15"
+           Manufacturer="Big 3 Software, Gebr. Schmitz GbR" UpgradeCode="ab6b50e7-559b-4cff-bf67-df1c71683640">
+		<Package Id="*" InstallerVersion="300" Compressed="yes"  />
+    <!--<Upgrade Id="ab6b50e7-559b-4cff-bf67-df1c71683640">
+      <UpgradeVersion OnlyDetect='no' Property='SELFFOUND'
+          Minimum='13.0.2' IncludeMinimum='yes'
+          Maximum='13.0.2' IncludeMaximum='yes' />
+      <UpgradeVersion OnlyDetect='no' Property='NEWERFOUND'
+          Minimum='13.0.2' IncludeMinimum='no'
+          Maximum='13.0.2' IncludeMaximum='yes' />
+    </Upgrade>-->
+
+    <CustomAction Id="DoSomething"
+                  FileKey="PostSetup.exe"
+                  ExeCommand="-setup"
+                  Execute="deferred"
+                  Return="ignore"
+                  HideTarget="no"
+                  Impersonate="no" />
+
+    <InstallExecuteSequence>
+       <RemoveExistingProducts After="InstallInitialize" />
+       <Custom Action="DoSomething" Before="InstallFinalize">NOT Installed</Custom>
+    </InstallExecuteSequence>
+
+    <UI>
+      <TextStyle Id="MyFontTitle" FaceName="Tahoma" Size="9" Bold="yes" />
+      <Dialog Id="myLicenseAgreementDlg" Width="370" Height="270" Title="!(loc.LicenseAgreementDlg_Title)">
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="!(loc.WixUIBack)" />
+        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="!(loc.WixUINext)">
+          <Publish Event="SpawnWaitDialog" Value="WaitForCostingDlg">CostingComplete = 1</Publish>
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="!(loc.WixUICancel)">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="!(loc.LicenseAgreementDlgBannerBitmap)" />
+        <Control Id="LicenseText" Type="ScrollableText" X="5" Y="50" Width="360" Height="170" Sunken="yes" TabSkip="no">
+          <Text SourceFile="readme.rtf" />
+        </Control>
+        <Control Id="Print" Type="PushButton" X="112" Y="243" Width="56" Height="17" Text="!(loc.WixUIPrint)">
+          <Publish Event="DoAction" Value="WixUIPrintEula">1</Publish>
+        </Control>
+        <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
+        <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+        <Control Id="Description" Type="Text" X="25" Y="23" Width="340" Height="15" Transparent="yes" NoPrefix="yes" Text="Bitte lesen Sie folgende wichtige Hinweise zu dieser Hitbase-Version." />
+        <Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes" Text="{\MyFontTitle}Wichtige Hinweise" />
+      </Dialog>
+
+      <Dialog Id="fileExtensionsDlg" Width="370" Height="270" Title="Dateiverknüpfungen">
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="!(loc.WixUIBack)" />
+        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="!(loc.WixUINext)">
+          <Publish Event="SpawnWaitDialog" Value="WaitForCostingDlg">CostingComplete = 1</Publish>
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="!(loc.WixUICancel)">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="!(loc.LicenseAgreementDlgBannerBitmap)" />
+
+        <Control Id="Desc1" Type="Text" X="35" Y="60" Width="310" Height="30" Transparent="yes" NoPrefix="yes" Text="Wenn Sie folgende Dateien im Explorer doppelklicken, wird automatisch Hitbase zum Abspielen gestartet." />
+
+        <Control Id="CheckBox_AUDIOCD" Type="CheckBox" X="35" Y="90" Width="200" Height="15" Property="REGISTEREXT_AUDIOCD" Text="Audio CDs" CheckBoxValue="1" />
+        <Control Id="CheckBox_MP3" Type="CheckBox" X="35" Y="105" Width="200" Height="15" Property="REGISTEREXT_MP3" Text="MP3" CheckBoxValue="1"  />
+        <Control Id="CheckBox_OGG" Type="CheckBox" X="35" Y="120" Width="200" Height="15" Property="REGISTEREXT_OGG" Text="OGG" CheckBoxValue="1" />
+        <Control Id="CheckBox_WAV" Type="CheckBox" X="35" Y="135" Width="200" Height="15" Property="REGISTEREXT_WAV" Text="WAV" CheckBoxValue="1" />
+        <Control Id="CheckBox_FLAC" Type="CheckBox" X="35" Y="150" Width="200" Height="15" Property="REGISTEREXT_FLAC" Text="FLAC" CheckBoxValue="1" />
+        <Control Id="CheckBox_M3U" Type="CheckBox" X="35" Y="165" Width="200" Height="15" Property="REGISTEREXT_M3U" Text="M3U" CheckBoxValue="1" />
+
+        <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="370" Height="0" />
+        <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+        <Control Id="Description" Type="Text" X="25" Y="23" Width="340" Height="15" Transparent="yes" NoPrefix="yes" Text="Bitte wählen Sie aus, welche Dateiverknüpfungen erstellt werden sollen." />
+        <Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes" Text="{\MyFontTitle}Dateiverknüpfungen auswählen" />
+      </Dialog>
+
+    </UI>
+
+    <UI Id="WixUI_InstallDir">
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+      <Property Id="WixUI_Mode" Value="InstallDir" />
+
+      <DialogRef Id="BrowseDlg" />
+      <DialogRef Id="fileExtensionsDlg" />
+      <DialogRef Id="DiskCostDlg" />
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <DialogRef Id="PrepareDlg" />
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ResumeDlg" />
+      <DialogRef Id="UserExit" />
+
+      <Publish Dialog="BrowseDlg" Control="OK" Event="DoAction" Value="WixUIValidatePath" Order="3">1</Publish>
+      <Publish Dialog="BrowseDlg" Control="OK" Event="SpawnDialog" Value="InvalidDirDlg" Order="4"><![CDATA[WIXUI_INSTALLDIR_VALID<>"1"]]></Publish>
+
+      <Publish Dialog="ExitDialog" Control="Finish" Event="EndDialog" Value="Return" Order="999">1</Publish>
+
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="myLicenseAgreementDlg">NOT Installed</Publish>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">Installed AND PATCH</Publish>
+
+      <Publish Dialog="myLicenseAgreementDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
+      <Publish Dialog="myLicenseAgreementDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg">1</Publish>
+
+      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="myLicenseAgreementDlg">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="SetTargetPath" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="DoAction" Value="WixUIValidatePath" Order="2">NOT WIXUI_DONTVALIDATEPATH</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="SpawnDialog" Value="InvalidDirDlg" Order="3"><![CDATA[NOT WIXUI_DONTVALIDATEPATH AND WIXUI_INSTALLDIR_VALID<>"1"]]></Publish>
+      <Publish Dialog="InstallDirDlg" Control="Next" Event="NewDialog" Value="fileExtensionsDlg" Order="4">WIXUI_DONTVALIDATEPATH OR WIXUI_INSTALLDIR_VALID="1"</Publish>
+      <Publish Dialog="InstallDirDlg" Control="ChangeFolder" Property="_BrowseProperty" Value="[WIXUI_INSTALLDIR]" Order="1">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="ChangeFolder" Event="SpawnDialog" Value="BrowseDlg" Order="2">1</Publish>
+
+      <Publish Dialog="fileExtensionsDlg" Control="Back" Event="NewDialog" Value="InstallDirDlg">NOT Installed</Publish>
+      <Publish Dialog="fileExtensionsDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">NOT Installed</Publish>
+
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="fileExtensionsDlg" Order="1">NOT Installed</Publish>
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="MaintenanceTypeDlg" Order="2">Installed AND NOT PATCH</Publish>
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="myLicenseAgreementDlg" Order="2">Installed AND PATCH</Publish>
+
+      <Publish Dialog="MaintenanceWelcomeDlg" Control="Next" Event="NewDialog" Value="MaintenanceTypeDlg">1</Publish>
+
+      <Publish Dialog="MaintenanceTypeDlg" Control="RepairButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="RemoveButton" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="MaintenanceTypeDlg" Control="Back" Event="NewDialog" Value="MaintenanceWelcomeDlg">1</Publish>
+
+      <Property Id="ARPNOMODIFY" Value="1" />
+    </UI>
+
+    <UIRef Id="WixUI_Common" />
+
+    <UI>
+      <!--<UIRef Id="WixUI_InstallDir" />-->
+      <UIRef Id="WixUI_ErrorProgressText" />
+      <Publish Dialog="ExitDialog"
+          Control="Finish"
+          Event="DoAction"
+          Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
+
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+
+    <WixVariable Id="WixUIBannerBmp" Value="banner.jpg" />
+    <WixVariable Id="WixUIDialogBmp" Value="bannerFull.jpg" />
+    <WixVariable Id="WixUILicenseRtf" Value="readme.rtf" />
+
+    <PropertyRef Id="NETFRAMEWORK40CLIENT"/>
+    <Condition Message="Das .NET Framework 4.0 Client Profile muss installiert sein.">
+      Installed OR NETFRAMEWORK40CLIENT
+    </Condition>
+
+    <Property Id='ARPPRODUCTICON'>hitbase.ico</Property>
+    
+    <Icon Id="hitbase.ico" SourceFile="..\..\app\application\hitbase.ico" />
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Hitbase 2012 starten" />
+    <Property Id="WixShellExecTarget" Value="[#hitbase.exe]" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+
+    <Property Id="REGISTEREXT_AUDIOCD" Value="1" />
+    <Property Id="REGISTEREXT_MP3" />
+    <Property Id="REGISTEREXT_OGG" />
+    <Property Id="REGISTEREXT_WAV" />
+    <Property Id="REGISTEREXT_FLAC" />
+    <Property Id="REGISTEREXT_M3U" />
+    
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="907150F2-5104-41B4-AE28-50A4D11481D9">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="Hitbase 2012"
+                  Description="Hitbase 2012"
+                  Target="[INSTALLLOCATION]hitbase.exe"
+                  WorkingDirectory="INSTALLLOCATION"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryKey Root="HKCU" Key="Software\Big 3\Hitbase 2012" Action="createAndRemoveOnUninstall" />
+        <RegistryValue Root="HKCU" Key="Software\Big 3\Hitbase 2012" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+        <RegistryValue Root="HKLM" Key="Software\Big 3\Hitbase 2012" Name="InstallLocation" Value="[INSTALLLOCATION]" Type="string" Action="write" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="TARGETDIR">
+      <Merge Id="CRT" Language="0" SourceFile="c:\Program Files (x86)\Common Files\Merge Modules\microsoft_vc100_crt_x86.msm" DiskId="1" />
+      <Merge Id="MFC" Language="0" SourceFile="c:\Program Files (x86)\Common Files\Merge Modules\microsoft_vc100_MFC_x86.msm" DiskId="1" />
+    </DirectoryRef>
+    
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Hitbase 2012"/>
+      </Directory>
+
+      <Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLLOCATION" Name="Hitbase 2012">
+					 <Component Id="ProductComponent" Guid="bab4f8c5-d610-40c8-8198-7de0d07aa6e9">
+             <File Id="hitbase.exe" Name="hitbase.exe" DiskId="1" Source="..\..\app\application\bin\release\hitbase.exe" />
+             <File Id="hitbase.exe.config" Name="hitbase.exe.config" DiskId="1" Source="..\..\app\application\bin\release\hitbase.exe.config" />
+
+             <File Id="Big3.Hitbase.SharedResources.dll" Name="Big3.Hitbase.SharedResources.dll" DiskId="1" Source="..\..\app\application\bin\release\Big3.Hitbase.SharedResources.dll" />
+             <File Id="Big3.Hitbase.CDCover.dll" Name="Big3.Hitbase.CDCover.dll" DiskId="1" Source="..\..\app\application\bin\release\Big3.Hitbase.CDCover.dll" />
+             <File Id="CatalogView3D.dll" Name="CatalogView3D.dll" DiskId="1" Source="..\..\app\application\bin\release\CatalogView3D.dll" />
+             <File Id="cdsearch.dll" Name="cdsearch.dll" DiskId="1" Source="..\..\app\application\bin\release\cdsearch.dll" />
+             <File Id="CDUtilities.dll" Name="CDUtilities.dll" DiskId="1" Source="..\..\app\application\bin\release\CDUtilities.dll" />
+             <File Id="Community.dll" Name="Community.dll" DiskId="1" Source="..\..\app\application\bin\release\Community.dll" />
+             <File Id="Configuration.dll" Name="Configuration.dll" DiskId="1" Source="..\..\app\application\bin\release\Configuration.dll" />
+             <File Id="Configuration.XmlSerializers.dll" Name="Configuration.XmlSerializers.dll" DiskId="1" Source="..\..\app\application\bin\release\Configuration.XmlSerializers.dll" />
+             <File Id="Controls.dll" Name="Controls.dll" DiskId="1" Source="..\..\app\application\bin\release\Controls.dll" />
+             <File Id="Controls.XmlSerializers.dll" Name="Controls.XmlSerializers.dll" DiskId="1" Source="..\..\app\application\bin\release\Controls.XmlSerializers.dll" />
+             <File Id="DataBaseEngine.dll" Name="DataBaseEngine.dll" DiskId="1" Source="..\..\app\application\bin\release\DataBaseEngine.dll" />
+             <File Id="Fluent.dll" Name="Fluent.dll" DiskId="1" Source="..\..\app\application\bin\release\Fluent.dll" />
+             <File Id="fmodex.dll" Name="fmodex.dll" DiskId="1" Source="..\..\app\application\bin\release\fmodex.dll" />
+             <File Id="GridCtrl.dll" Name="GridCtrl.dll" DiskId="1" Source="..\..\app\application\bin\release\GridCtrl.dll" />
+             <File Id="HitMisc.dll" Name="HitMisc.dll" DiskId="1" Source="..\..\app\application\bin\release\HitMisc.dll" />
+             <File Id="Lpfm.LastFmScrobbler.dll" Name="Lpfm.LastFmScrobbler.dll" DiskId="1" Source="..\..\app\application\bin\release\Lpfm.LastFmScrobbler.dll" />
+             <File Id="MainControls.dll" Name="MainControls.dll" DiskId="1" Source="..\..\app\application\bin\release\MainControls.dll" />
+             <File Id="MediaRipper.dll" Name="MediaRipper.dll" DiskId="1" Source="..\..\app\application\bin\release\MediaRipper.dll" />
+             <File Id="Microsoft.Windows.Shell.dll" Name="Microsoft.Windows.Shell.dll" DiskId="1" Source="..\..\app\application\bin\release\Microsoft.Windows.Shell.dll" />
+             <File Id="Microsoft.WindowsAPICodePack.dll" Name="Microsoft.WindowsAPICodePack.dll" DiskId="1" Source="..\..\app\application\bin\release\Microsoft.WindowsAPICodePack.dll" />
+             <File Id="Microsoft.WindowsAPICodePack.Shell.dll" Name="Microsoft.WindowsAPICodePack.Shell.dll" DiskId="1" Source="..\..\app\application\bin\release\Microsoft.WindowsAPICodePack.Shell.dll" />
+             <File Id="Misc.dll" Name="Misc.dll" DiskId="1" Source="..\..\app\application\bin\release\Misc.dll" />
+             <File Id="NativeGUI.dll" Name="NativeGUI.dll" DiskId="1" Source="..\..\app\application\bin\release\NativeGUI.dll" />
+             <File Id="PostSetup.exe" Name="PostSetup.exe" DiskId="1" Source="..\..\setup\Postsetup\bin\release\PostSetup.exe" />
+             <File Id="RecordMedium.dll" Name="RecordMedium.dll" DiskId="1" Source="..\..\app\application\bin\release\RecordMedium.dll" />
+             <File Id="RibbonControlsLibrary.dll" Name="RibbonControlsLibrary.dll" DiskId="1" Source="..\..\app\application\bin\release\RibbonControlsLibrary.dll" />
+             <File Id="SkinEngine.dll" Name="SkinEngine.dll" DiskId="1" Source="..\..\app\application\bin\release\SkinEngine.dll" />
+             <File Id="SoundEngine.dll" Name="SoundEngine.dll" DiskId="1" Source="..\..\app\application\bin\release\SoundEngine.dll" /> 
+             <File Id="SoundEngineGUI.dll" Name="SoundEngineGUI.dll" DiskId="1" Source="..\..\app\application\bin\release\SoundEngineGUI.dll" />
+             <File Id="SoundFilesManagement.dll" Name="SoundFilesManagement.dll" DiskId="1" Source="..\..\app\application\bin\release\SoundFilesManagement.dll" />
+             <File Id="sqlceca40.dll" Name="sqlceca40.dll" DiskId="1" Source="..\..\app\application\bin\release\sqlceca40.dll" />
+             <File Id="sqlcecompact40.dll" Name="sqlcecompact40.dll" DiskId="1" Source="..\..\app\application\bin\release\sqlcecompact40.dll" />
+             <File Id="sqlceer40EN.dll" Name="sqlceer40EN.dll" DiskId="1" Source="..\..\app\application\bin\release\sqlceer40EN.dll" />
+             <File Id="sqlceme40.dll" Name="sqlceme40.dll" DiskId="1" Source="..\..\app\application\bin\release\sqlceme40.dll" />
+             <File Id="sqlceqp40.dll" Name="sqlceqp40.dll" DiskId="1" Source="..\..\app\application\bin\release\sqlceqp40.dll" />
+             <File Id="sqlcese40.dll" Name="sqlcese40.dll" DiskId="1" Source="..\..\app\application\bin\release\sqlcese40.dll" />
+             <File Id="System.Data.SqlServerCe.dll" Name="System.Data.SqlServerCe.dll" DiskId="1" Source="..\..\app\application\bin\release\System.Data.SqlServerCe.dll" />
+             <File Id="System.Windows.Controls.DataVisualization.Toolkit.dll" Name="System.Windows.Controls.DataVisualization.Toolkit.dll" DiskId="1" Source="..\..\app\application\bin\release\System.Windows.Controls.DataVisualization.Toolkit.dll" />
+             <File Id="taglibsharp.dll" Name="taglib-sharp.dll" DiskId="1" Source="..\..\app\application\bin\release\taglib-sharp.dll" />
+             <File Id="Transitionals.dll" Name="Transitionals.dll" DiskId="1" Source="..\..\app\application\bin\release\Transitionals.dll" />
+             <File Id="XPTable.dll" Name="XPTable.dll" DiskId="1" Source="..\..\app\application\bin\release\XPTable.dll" />
+
+             <File Id="template.sdf" Name="template.sdf" DiskId="1" Source="..\..\app\application\template.sdf" />
+
+             <File Id="Microsoft.VC90.CRT.manifest" Name="Microsoft.VC90.CRT.manifest" DiskId="1" Source="Redists\Microsoft.VC90.CRT.manifest" />
+             <File Id="msvcr90.dll" Name="msvcr90.dll" DiskId="1" Source="Redists\msvcr90.dll" />
+
+             <ProgId Id='Hitbase.hdbxfile' Description='Hitbase Katalog'>
+               <Extension Id='hdbx' ContentType='application/hdbx'>
+                 <Verb Id='open' Command='Open' TargetFile='hitbase.exe' Argument='"%1"' />
+               </Extension>
+             </ProgId>
+
+             <ProgId Id='Hitbase.soundfile' Description='Hitbase'>
+               <Extension Id='Hitbase.soundfile' >
+                 <Verb Id='open' Command='Open' TargetFile='hitbase.exe' Argument='"%1"' />
+               </Extension>
+             </ProgId>
+
+             <ProgId Id='Hitbase.hvcfile' Description='Hitbase Wiedergabeliste'>
+               <Extension Id='hvc' ContentType='application/hvc'>
+                 <Verb Id='open' Command='Open' TargetFile='hitbase.exe' Argument='"%1"' />
+               </Extension>
+             </ProgId>
+
+             <!-- Capabilities keys for Vista/7 "Set Program Access and Defaults" -->
+             <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities" Name="ApplicationDescription" Value="Hitbase 2012" Type="string" />
+             <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities" Name="ApplicationIcon" Value="[INSTALLLOCATION]hitbase.exe,0" Type="string" />
+             <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities" Name="ApplicationName" Value="Hitbase 2012" Type="string" />
+             <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities\DefaultIcon" Value="[INSTALLLOCATION]hitbase.exe,1" Type="string" />
+             <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities\shell\Open\command" Value="&quot;[INSTALLLOCATION]hitbase.exe&quot; &quot;%1&quot;" Type="string" />
+             <RegistryValue Root="HKLM" Key="SOFTWARE\RegisteredApplications" Name="Hitbase" Value="SOFTWARE\Clients\Media\Hitbase\Capabilities" Type="string" />
+
+           </Component>
+
+          
+          <!--- Dateiverknüpfungen -->
+
+          <Component Id="AudioCDComponent" Guid="ACC2BC52-4C3F-4E2C-B2AE-41213B32B1BE">
+            <Condition>REGISTEREXT_AUDIOCD = 1</Condition>
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities\FileAssociations" Name=".cda" Value="Hitbase.soundfile" Type="string" />
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities\FileAssociations" Name="AudioCD" Value="Hitbase.soundfile" Type="string" />
+            <RegistryValue Root="HKCR" Key="AudioCD\shell\play\command"  Value="&quot;[INSTALLLOCATION]hitbase.exe&quot; &quot;%1&quot;" Type="string" />
+            
+            <!--<ProgId Id='Hitbase.cdafile' Description='Hitbase'>
+              <Extension Id='cda' ContentType='application/cda'>
+                <Verb Id='open' Command='Open' TargetFile='hitbase.exe' Argument='"%1"' />
+              </Extension>
+            </ProgId>-->
+
+          </Component>
+
+          <Component Id="MP3Component" Guid="0C5D0AFF-13C7-4C87-9023-A7B4151D8BF0">
+            <Condition>REGISTEREXT_MP3 = 1</Condition>
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities\FileAssociations" Name=".mp3" Value="Hitbase.soundfile" Type="string" />
+          </Component>
+
+          <Component Id="OGGComponent" Guid="612A5FF7-0F38-428C-898E-65AC78F5BFA3">
+            <Condition>REGISTEREXT_OGG = 1</Condition>
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities\FileAssociations" Name=".ogg" Value="Hitbase.soundfile" Type="string" />
+          </Component>
+
+          <Component Id="WAVComponent" Guid="ADCC342C-12B7-48D7-920B-B3073EEA6AB5">
+            <Condition>REGISTEREXT_WAV = 1</Condition>
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities\FileAssociations" Name=".wav" Value="Hitbase.soundfile" Type="string" />
+          </Component>
+
+          <Component Id="FLACComponent" Guid="6DFC7EB0-B3D8-4CFD-ADA9-BB2B1ADA5AC8">
+            <Condition>REGISTEREXT_FLAC = 1</Condition>
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities\FileAssociations" Name=".flac" Value="Hitbase.soundfile" Type="string" />
+          </Component>
+
+          <Component Id="M3UComponent" Guid="71777C79-0CD3-4BCB-908C-2CE7399A14CF">
+            <Condition>REGISTEREXT_M3U = 1</Condition>
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Media\Hitbase\Capabilities\FileAssociations" Name=".m3u" Value="Hitbase.soundfile" Type="string" />
+          </Component>
+
+          <Directory Id="TEMPLATES_INSTALLLOCATION" Name="Templates">
+            <Component Id="ProductComponentTemplates" Guid="8659943D-ABFF-4989-BBE8-8806C796A338">
+              <!-- Templates -->
+              <File Id="CD_long_list.html" Name="CD long list.html" DiskId="1" Source="..\..\app\application\Vorlagen\CD long list.html" />
+              <File Id="CD_short_list.html" Name="CD short list.html" DiskId="1" Source="..\..\app\application\Vorlagen\CD short list.html" />
+              <File Id="Track_list.html" Name="Track list.html" DiskId="1" Source="..\..\app\application\Vorlagen\Track list.html" />
+            </Component>
+          </Directory>
+            
+          <Directory Id="THEMES_INSTALLLOCATION" Name="Themes">
+            <Directory Id="DEFAULT_THEME_INSTALLLOCATION" Name="Default">
+              <Component Id="ProductComponentDefaultThemes" Guid="DD9C2C9E-5828-45EC-9CA5-C55F665FC09E">
+                <!-- Themes -->
+                <File Id="default_Theme.xaml" Name="Theme.xaml" DiskId="1" Source="..\..\app\application\bin\release\themes\default\Theme.xaml" />
+                <File Id="default_Background.jpg" Name="Background.jpg" DiskId="1" Source="..\..\app\application\bin\release\themes\default\Background.jpg" />
+              </Component>
+            </Directory>
+            <Directory Id="BLACK_THEME_INSTALLLOCATION" Name="Black">
+              <Component Id="ProductComponentBlackThemes" Guid="45A80C9C-E070-4C0F-BBF0-0DB56C408FDA">
+                <!-- Themes -->
+                <File Id="Black_Theme.xaml" Name="Theme.xaml" DiskId="1" Source="..\..\app\application\bin\release\themes\Black\Theme.xaml" />
+                <File Id="Black_Background.jpg" Name="Background.jpg" DiskId="1" Source="..\..\app\application\bin\release\themes\Black\Background.jpg" />
+              </Component>
+            </Directory>
+            <Directory Id="SILVER_THEME_INSTALLLOCATION" Name="Silver">
+              <Component Id="ProductComponentSilverThemes" Guid="C9372F34-A923-4964-8933-05B010D3EAFE">
+                <!-- Themes -->
+                <File Id="Silver_Theme.xaml" Name="Theme.xaml" DiskId="1" Source="..\..\app\application\bin\release\themes\Silver\Theme.xaml" />
+                <File Id="Silver_Background.jpg" Name="Background.jpg" DiskId="1" Source="..\..\app\application\bin\release\themes\Silver\Background.jpg" />
+              </Component>
+            </Directory>
+          </Directory>
+
+        </Directory>
+
+        
+			</Directory>
+		</Directory>
+
+		<Feature Id="ProductFeature" Title="Setup" Level="1">
+			<!-- TODO: Remove the comments around this ComponentRef element and the Component above in order to add resources to this installer. -->
+      <ComponentRef Id="ProductComponent" />
+
+      <ComponentRef Id="AudioCDComponent" />
+      <ComponentRef Id="MP3Component" />
+      <ComponentRef Id="OGGComponent" />
+      <ComponentRef Id="WAVComponent" />
+      <ComponentRef Id="FLACComponent" />
+      <ComponentRef Id="M3UComponent" />
+
+      <ComponentRef Id="ProductComponentTemplates" />
+
+      <ComponentRef Id="ProductComponentDefaultThemes" />
+
+      <ComponentRef Id="ProductComponentBlackThemes" />
+      
+      <ComponentRef Id="ProductComponentSilverThemes" /> 
+			
+			<!-- Note: The following ComponentGroupRef is required to pull in generated authoring from project references. -->
+			<!--<ComponentGroupRef Id="Product.Generated" />-->
+
+      <ComponentRef Id="ApplicationShortcut" />
+
+    </Feature>
+
+    <Feature Id="VCRedist" Title="Visual C++ 10.0 Runtime" AllowAdvertise="no" Display="hidden" Level="1">
+      <MergeRef Id="CRT" />
+      <MergeRef Id="MFC" />
+    </Feature>
+
+  </Product>
+</Wix>

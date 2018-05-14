@@ -1,0 +1,6 @@
+; PlugInEngined.def : Declares the module parameters for the DLL.
+
+LIBRARY      "PlugInEngined"
+
+EXPORTS
+    ; Explicit exports can go here

@@ -1,0 +1,16 @@
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\bin\Debug\Windows7.DesktopIntegration.MainDemo.exe
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\bin\Debug\Windows7.DesktopIntegration.MainDemo.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\bin\Debug\VistaBridgeLibrary.dll
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\bin\Debug\Windows7.DesktopIntegration.dll
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\bin\Debug\Windows7.DesktopIntegration.Registration.exe
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\bin\Debug\VistaBridgeLibrary.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\bin\Debug\VistaBridgeLibrary.xml
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\bin\Debug\Windows7.DesktopIntegration.Registration.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\bin\Debug\Windows7.DesktopIntegration.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\bin\Debug\Windows7.DesktopIntegration.xml
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\obj\Debug\Windows7.DesktopIntegration.MainDemo.Properties.Resources.resources
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\obj\Debug\Windows7.DesktopIntegration.MainDemo.Windows7Form.resources
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\obj\Debug\Windows7.DesktopIntegration.MainDemo.csproj.GenerateResource.Cache
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\obj\Debug\Windows7.DesktopIntegration.MainDemo.exe
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.MainDemo\obj\Debug\Windows7.DesktopIntegration.MainDemo.pdb

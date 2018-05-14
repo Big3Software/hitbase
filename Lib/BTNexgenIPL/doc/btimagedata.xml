@@ -1,0 +1,2025 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="btnexgenipl.xsl"?>
+
+<!DOCTYPE btdoc SYSTEM "btdoc.dtd">
+
+<btdoc>
+	<classsynopsis language="c++">
+		<ooclass>
+			<classname>BTCImageData</classname>
+		</ooclass>
+		
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Create</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nWidth</parameter>
+				<desc>Specifies the width (in pixels) of the image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nHeight</parameter>
+				<desc>Specifies the height (in pixels) of the image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nBitsPerPixel</parameter>
+				<initializer>8</initializer>
+				<desc>Specifies the number of color bits per display pixel.</desc>
+			</methodparam>
+			<desc>Initializes an bitmap and attaches it to a BTCImageData object.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>void</type>
+			<methodname>DeleteObject</methodname>
+			<void/>
+			<desc>Deletes the image data by freeing attached memory. The object is not affected by this call.</desc>
+			<retvaldesc>None.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>IsLoaded</methodname>
+			<void/>
+			<modifier>const</modifier>
+			<desc>Check whether the image is initialized successfully.</desc>
+			<retvaldesc>true if the image is initialized; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>GetPlanes</methodname>
+			<void/>
+			<modifier>const</modifier>
+			<desc>Returns the number of channels in the image. By default, indexed-color images have one channel; RGB images (16bpp) have two, (24bpp) have three and RGBA (32bpp) images four channels.</desc>
+			<retvaldesc>Number of planes; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>GetDepth</methodname>
+			<void/>
+			<modifier>const</modifier>
+			<desc>Returns the image's resolution in bits per pixel per plane. For 1bpp images this is 1, for 4bpp it is 4 and for 8, 16, 24 and 32bpp images this is 8.</desc>
+			<retvaldesc>The bit depth per pixel; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>GetBitsPerPixel</methodname>
+			<void/>
+			<modifier>const</modifier>
+			<desc>Returns the number of bits per pixel (1,4,8,16,24,32).</desc>
+			<retvaldesc>Number of bits per pixel; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>GetBytesPerPixel</methodname>
+			<void/>
+			<modifier>const</modifier>
+			<desc>Returns the number of bytes used per pixel (1,2,3,4).</desc>
+			<retvaldesc>Number of bytes; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetBytesPerLine</methodname>
+			<void/>
+			<modifier>const</modifier>
+			<desc>Returns the number of bytes per line.</desc>
+			<retvaldesc>Number of bytes per line; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public static</modifier>
+			<type>long</type>
+			<methodname>GetBytesPerLine</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nWidth</parameter>
+				<desc>Specifies the width (in pixels) of the image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nBitsPerPixel</parameter>
+				<desc>Specifies the number of color bits per display pixel.</desc>
+			</methodparam>
+			<modifier>const</modifier>
+			<desc>Returns the number of bytes per line.</desc>
+			<retvaldesc>Number of bytes per line; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetImageSize</methodname>
+			<void/>
+			<modifier>const</modifier>
+			<desc>Returns the number of bytes used to store the image data.</desc>
+			<retvaldesc>Number of bytes used to store the image, or -1 if there is an error.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public static</modifier>
+			<type>long</type>
+			<methodname>GetImageSize</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nWidth</parameter>
+				<desc>Specifies the width (in pixels) of the image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nHeight</parameter>
+				<desc>Specifies the height (in pixels) of the image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nBitsPerPixel</parameter>
+				<desc>Specifies the number of color bits per display pixel.</desc>
+			</methodparam>
+			<modifier>const</modifier>
+			<desc>Returns the number of bytes used to store the image data.</desc>
+			<retvaldesc>Number of bytes used to store the image, or -1 if there is an error.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetWidth</methodname>
+			<void/>
+			<modifier>const</modifier>
+			<desc>Returns the width of the image in pixels.</desc>
+			<retvaldesc>The image width in pixels; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetHeight</methodname>
+			<void/>
+			<modifier>const</modifier>
+			<desc>Returns the height of the image in pixels.</desc>
+			<retvaldesc>The image height in pixels; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>long</type>
+			<methodname>GetResolution</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTResolutionMetric&amp;</type>
+				<parameter>Metric</parameter>
+				<enumlist>
+					<enum>BTMETRIC_NONE</enum>
+					<enum>BTMETRIC_CENTIMETER</enum>
+					<enum>BTMETRIC_METER</enum>
+					<enum>BTMETRIC_INCH</enum>
+				</enumlist>
+				<desc>Specifies the resolution unit:</desc>
+			</methodparam>
+			<modifier>const</modifier>
+			<desc>Returns the image resolution.</desc>
+			<retvaldesc>The resolution if successful; otherwise, BTRESUNIT_NONE.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>LPBITMAPINFO</type>
+			<methodname>GetBitmapInfo</methodname>
+			<void/>
+			<desc>Returns a pointer to the BITMAPINFO structure that defines the dimensions and color information of a image. Look into MSDN for more detailed informations.</desc>
+			<retvaldesc>The pointer to the structure; otherwise, NULL.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>LPBITMAPINFOHEADER</type>
+			<methodname>GetBitmapInfoHeader</methodname>
+			<void/>
+			<desc>Returns a pointer to the BITMAPINFOHEADER structure that contains information about the dimensions and color format of a image. Look into MSDN for more detailed informations.</desc>
+			<retvaldesc>The pointer to the structure; otherwise, NULL.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>unsigned char*</type>
+			<methodname>GetBits</methodname>
+			<void/>
+			<desc>Returns a pointer to the image data at position (0,0).</desc>
+			<retvaldesc>The pointer to the data, otherwise, NULL. Please NOTICE that the library uses a top-down DIB with it's origin in the upper left corner.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>unsigned char*</type>
+			<methodname>GetBits</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>x</parameter>
+				<desc>Specifies the logical x-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>y</parameter>
+				<desc>Specifies the logical y-coordinate of the position.</desc>
+			</methodparam>
+			<desc>Returns a pointer to the image data at position (x,y).</desc>
+			<retvaldesc>The pointer to the data, otherwise, NULL. Please NOTICE that the library uses a top-down DIB with it's origin in the upper left corner.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>GetIndexFromColor</methodname>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>col</parameter>
+				<desc>Specifies the color.</desc>
+			</methodparam>
+			<desc>Returns the index of a given color in the color table.</desc>
+			<retvaldesc>The index of the color in the color table; otherwise -1 (e.g. color depth &gt; 8).</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>GetIndexFromPixel</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>x</parameter>
+				<desc>Specifies the logical x-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>y</parameter>
+				<desc>Specifies the logical y-coordinate of the position.</desc>
+			</methodparam>
+			<desc>Returns the index of a color at (x,y).</desc>
+			<retvaldesc>The index of the color at position (x,y); otherwise -1 (e.g. color depth &gt; 8).</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>BTCOLORREF</type>
+			<methodname>GetColorFromIndex</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nIndex</parameter>
+				<desc>The index of a color in the color table.</desc>
+			</methodparam>
+			<desc>Returns the color from an index of a given color in the color table.</desc>
+			<retvaldesc>The color; otherwise -1 (e.g. color depth &gt; 8, index &gt; Number of colors in the color table).</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>BTCOLORREF</type>
+			<methodname>GetColorFromPixel</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>x</parameter>
+				<desc>Specifies the logical x-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>y</parameter>
+				<desc>Specifies the logical y-coordinate of the position.</desc>
+			</methodparam>
+			<desc>Returns the color at position (x,y).</desc>
+			<retvaldesc>The color at position (x,y); otherwise, -1;</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>SetColorForIndex</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nIndex</parameter>
+				<desc>The color table index of the color to be modified.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>col</parameter>
+				<desc>Specifies the color to be inserted.</desc>
+			</methodparam>
+			<desc>Sets the color for a specific palette index.</desc>
+			<retvaldesc>true if successful; otherwise false (e.g. color depth &gt; 8, index &gt; Number of colors in the color table).</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>SetColorForPixel</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>x</parameter>
+				<desc>Specifies the logical x-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>y</parameter>
+				<desc>Specifies the logical y-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nIndex</parameter>
+				<desc>Specifies the color table index of the color.</desc>
+			</methodparam>
+			<desc>Sets the index to a color in the color table for the pixel at position (x,y).</desc>
+			<retvaldesc>true if successful; otherwise false (e.g. color depth &gt; 8, index &gt; Number of colors in the color table).</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>SetColorForPixel</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>x</parameter>
+				<desc>Specifies the logical x-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>y</parameter>
+				<desc>Specifies the logical y-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>col</parameter>
+				<desc>Specifies the color to be inserted.</desc>
+			</methodparam>
+			<desc>Sets the index to a color in the color table for the pixel at position (x,y).</desc>
+			<retvaldesc>true if successful; otherwise false (e.g. color depth &gt; 8, index &gt; Number of colors in the color table).</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>SetColorForColor</methodname>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>oldCol</parameter>
+				<desc>Specifies the color to be modified.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>newCol</parameter>
+				<desc>Specifies the new color.</desc>
+			</methodparam>
+			<desc>Replaces a color with another one in the whole image.</desc>
+			<retvaldesc>true if successful; otherwise false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>IsColorInColorTable</methodname>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>col</parameter>
+				<desc>Specifies the color to search for.</desc>
+			</methodparam>
+			<desc>Checks whether the requested color is available in the image color table.</desc>
+			<retvaldesc>true if the color is available; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>FindNearestPaletteColor</methodname>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>col</parameter>
+				<desc>Specifies the color to be matched.</desc>
+			</methodparam>
+			<desc>Returns the color that best matches a specified color.</desc>
+			<retvaldesc>The index of the color if successful; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>RGBQUAD*</type>
+			<methodname>GetColorTable</methodname>
+			<void/>
+			<desc>Returns the pointer to the image color table.</desc>
+			<retvaldesc>The pointer to the color table; otherwise, NULL (e.g. the image doesn't have a palette, image &gt; 8 bpp).</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>GetColorTableSize</methodname>
+			<void/>
+			<desc>Returns the size of the color table.</desc>
+			<retvaldesc>The size of the color table; otherwise, 0.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public static</modifier>
+			<type>int</type>
+			<methodname>GetColorTableSize</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nNumColorEntries</parameter>
+				<desc>Number of colors in the color table.</desc>
+			</methodparam>
+			<desc>Returns the size of the color table.</desc>
+			<retvaldesc>The size of the color table; otherwise, 0.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>GetNumColorEntries</methodname>
+			<void/>
+			<desc>Returns the number of color table entries in this image.</desc>
+			<retvaldesc>The number of colours used in this image; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public static</modifier>
+			<type>int</type>
+			<methodname>GetNumColorEntries</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nBitsPerPixel</parameter>
+				<desc>Specifies the number of color bits per display pixel.</desc>
+			</methodparam>
+			<desc>Returns the number of color table entries in this image.</desc>
+			<retvaldesc>The number of colours used in this image; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>FillColorTable</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>RGBQUAD*</type>
+				<parameter>pPalette</parameter>
+				<desc>Pointer to an array of colors.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>iEntries</parameter>
+				<desc>Number of colors in the array.</desc>
+			</methodparam>
+			<desc>Fills the color table.</desc>
+			<retvaldesc>true if successful; otherwise false (e.g. color depth &gt; 8).</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>HPALETTE</type>
+			<methodname>GetPalette</methodname>
+			<void/>
+			<modifier>const</modifier>
+			<desc>Returns the image palette. When you no longer need the palette, call the Win32API DeleteObject function to delete it.</desc>
+			<retvaldesc>The handle to a logical palette, otherwise, NULL (e.g. the image doesn't own a palette).</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>SetPalette</methodname>
+			<methodparam>
+				<type>HPALETTE</type>
+				<parameter>hPal</parameter>
+				<desc>Handle to the new palette.</desc>
+			</methodparam>
+			<desc>Sets the palette for the image.</desc>
+			<retvaldesc>true if successful; otherwise, false (e.g. the image doesn't own a palette).</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Resize</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nWidth</parameter>
+				<desc>Specifies the new width (in pixels) of the image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nHeight</parameter>
+				<desc>Specifies the new height (in pixels) of the image.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTResizeFilter&amp;</type>
+				<parameter>Filter</parameter>
+				<initializer>Bilinear</initializer>
+				<enumlist>
+					<enum>Box</enum>
+					<enum>Bilinear</enum>
+					<enum>Gaussian</enum>
+					<enum>Hamming</enum>
+					<enum>Blackman</enum>
+					<enum>Triangle</enum>
+					<enum>Bell</enum>
+					<enum>BSpline</enum>
+					<enum>Sinc</enum>
+					<enum>Lanczos3</enum>
+					<enum>Mitchell</enum>
+					<enum>Quadratic</enum>
+					<enum>Hermite</enum>
+					<enum>Hanning</enum>
+					<enum>Catrom</enum>
+					<enum>Cubic</enum>
+					<enum>Hann4</enum>
+				</enumlist>
+				<desc>Specifies the filter to resize bitmap. The following filters are available</desc>
+			</methodparam>
+			<desc>Resizes the image using various filters.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Resize</methodname>
+			<methodparam>
+				<type>BTCImageData&amp;</type>
+				<parameter>DestImage</parameter>
+				<desc>Specifies the destination image object.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nWidth</parameter>
+				<desc>Specifies the new width (in pixels) of the image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nHeight</parameter>
+				<desc>Specifies the new height (in pixels) of the image.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTResizeFilter&amp;</type>
+				<parameter>Filter</parameter>
+				<initializer>Bilinear</initializer>
+				<enumlist>
+					<enum>Box</enum>
+					<enum>Bilinear</enum>
+					<enum>Gaussian</enum>
+					<enum>Hamming</enum>
+					<enum>Blackman</enum>
+					<enum>Triangle</enum>
+					<enum>Bell</enum>
+					<enum>BSpline</enum>
+					<enum>Sinc</enum>
+					<enum>Lanczos3</enum>
+					<enum>Mitchell</enum>
+					<enum>Quadratic</enum>
+					<enum>Hermite</enum>
+					<enum>Hanning</enum>
+					<enum>Catrom</enum>
+					<enum>Cubic</enum>
+					<enum>Hann4</enum>
+				</enumlist>
+				<desc>Specifies the filter to resize bitmap. The following filters are available</desc>
+			</methodparam>
+			<desc>Resizes the image using various filters.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Crop</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>RECT&amp;</type>
+				<parameter>rect</parameter>
+				<desc>The area you want to keep.</desc>
+			</methodparam>
+			<desc>Cropping eliminates areas of an image by removing them.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Crop</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>x</parameter>
+				<desc>Specifies the logical x-coordinate of the upper-left corner from the area you want to keep.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>y</parameter>
+				<desc>Specifies the logical y-coordinate of the upper-left corner from the area you want to keep.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nWidth</parameter>
+				<desc>Specifies the width of the area you want to keep.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nHeight</parameter>
+				<desc>Specifies the height of the area you want to keep.</desc>
+			</methodparam>
+			<desc>Cropping eliminates areas of an image by removing them.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Copy</methodname>
+			<methodparam>
+				<type>BTCImageData&amp;</type>
+				<parameter>SrcImage</parameter>
+				<desc>The source image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>RECT&amp;</type>
+				<parameter>rect</parameter>
+				<desc>Specifies the area to copy.</desc>
+			</methodparam>
+			<desc>Copies the given rectangle from the given image into this image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Copy</methodname>
+			<methodparam>
+				<type>BTCImageData&amp;</type>
+				<parameter>SrcImage</parameter>
+				<desc>The source image.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>x</parameter>
+				<desc>Specifies the logical x-coordinate of the upper-left corner from the area you want to copy.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>y</parameter>
+				<desc>Specifies the logical y-coordinate of the upper-left corner from the area you want to copy.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nWidth</parameter>
+				<desc>Specifies the width of the area you want to copy.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nHeight</parameter>
+				<desc>Specifies the height of the area you want to copy.</desc>
+			</methodparam>
+			<desc>Copies the given rectangle from the given image into this image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Fill</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>RECT&amp;</type>
+				<parameter>rect</parameter>
+				<desc>Specifies the area to fill.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>col</parameter>
+				<desc>Specifies the color to be used.</desc>
+			</methodparam>
+			<desc>Fills the specified rectangle with a specified color.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Fill</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>x</parameter>
+				<desc>Specifies the logical x-coordinate of the upper-left corner of the rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>y</parameter>
+				<desc>Specifies the logical y-coordinate of the upper-left corner of the rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>w</parameter>
+				<desc>Specifies the width of the rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>h</parameter>
+				<desc>Specifies the height of the rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>col</parameter>
+				<desc>Specifies the color to be used.</desc>
+			</methodparam>
+			<desc>Fills the specified rectangle with a specified color.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Combine</methodname>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pImage</parameter>
+				<desc>The image to be combined.</desc>
+			</methodparam>
+			<methodparam>
+				<type>enum BTCombineFunction</type>
+				<parameter>cf</parameter>
+				<enumlist>
+					<enum>Normal</enum>
+					<enum>Add</enum>
+					<enum>Subtract</enum>
+					<enum>Multiply</enum>
+					<enum>Divide</enum>
+					<enum>Difference</enum>
+					<enum>Lightest</enum>
+					<enum>Darkest</enum>
+					<enum>Average</enum>
+					<enum>Or</enum>
+					<enum>And</enum>
+					<enum>Screen</enum>
+					<enum>Overlay</enum>
+				</enumlist>
+				<desc>Sets the method for combining the images. The color data from the two images is combined on a pixel-by-pixel basis according to the function. The following functions are available:</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>x</parameter>
+				<initializer>0</initializer>
+				<desc>Specifies the logical x-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>y</parameter>
+				<initializer>0</initializer>
+				<desc>Specifies the logical y-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nOpacity</parameter>
+				<initializer>100</initializer>
+				<desc>At 0% opacity, the combined image is completely transparent; at 100% opacity, the comined image is completely opaque.</desc>
+			</methodparam>
+			<methodparam>
+				<type>bool</type>
+				<parameter>bClipValues</parameter>
+				<initializer>true</initializer>
+				<desc>Determines how to handle final color values greater than 255 and less than 0.<![CDATA[<p></p><table width="75%" border="1"><tr> <td width="33%" class="Text">bClipValues</td><td width="33%" class="Text">Value &lt; 0</td><td width="33%" class="Text">Value &gt; 255</td></tr><tr><td width="33%" class="Text">true</td><td width="33%" class="Text">Value = 0</td><td width="33%" class="Text">Value = 255</td></tr><tr><td width="33%" class="Text">false</td><td width="33%" class="Text">Value = 256 + Value</td><td width="33%" class="Text">Value = Value - 256</td></tr></table>]]></desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDivisor</parameter>
+				<initializer>1</initializer>
+				<desc>The divisor [0..255] is applied to the color values produced by the formula/function. It is used to divide the color values. It can reduce the effects of the other parameters.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nBias</parameter>
+				<initializer>0</initializer>
+				<desc>The bias [-255..255] is applied to the color values produced by the formula/function. It shifts each color value by a fixed amount. The number is added to the color value produced by the formula/function and divisor.</desc>
+			</methodparam>
+			<desc>Combines another image with this image at position (x,y). For color depths &lt;&#61; 8 bpp the resulting colors are mapped to the origin color table.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Blend</methodname>
+			<methodparam>
+				<type>BTCImageData&amp;</type>
+				<parameter>ImageData</parameter>
+				<desc>The image to be used to blend.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>x</parameter>
+				<desc>Specifies the logical x-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>y</parameter>
+				<desc>Specifies the logical y-coordinate of the position.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>a</parameter>
+				<desc>Specifies an alpha transparency value [0..255] to be used [0 = Transparent, 255 = Opaque].</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>colProtect</parameter>
+				<initializer>0x01000000</initializer>
+				<desc>Specifies a color that is protected from blending.</desc>
+			</methodparam>
+			<desc>For color depths &lt;&#61; 8 bpp the resulting colors are mapped to the origin color table. The image object must be created before using this method.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>GetChannel</methodname>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pImage</parameter>
+				<desc>Specifies the object to receive the channel. The object will be initialized/created automatically.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTChannel&amp;</type>
+				<parameter>Channel</parameter>
+				<enumlist>
+					<enum>Red</enum>
+					<enum>Green</enum>
+					<enum>Blue</enum>
+					<enum>Alpha</enum>
+				</enumlist>
+				<desc>Specifies the channel.</desc>
+			</methodparam>
+			<desc>Returns the requested channel.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>SetChannel</methodname>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pImage</parameter>
+				<desc>Specifies the image from which the channel should be extracted.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTChannel&amp;</type>
+				<parameter>Channel</parameter>
+				<enumlist>
+					<enum>Red</enum>
+					<enum>Green</enum>
+					<enum>Blue</enum>
+					<enum>Alpha</enum>
+				</enumlist>
+				<desc>Specifies the channel.</desc>
+			</methodparam>
+			<desc>Sets the specified channel. Only for images > 8bpp. To set the alpha channel a 32bpp image is required.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>SplitChannels</methodname>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pRed</parameter>
+				<desc>Specifies the object to receive the red channel.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pGreen</parameter>
+				<desc>Specifies the object to receive the green channel.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pBlue</parameter>
+				<desc>Specifies the object to receive the blue channel.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pAlpha</parameter>
+				<desc>Specifies the object to receive the alpha channel.</desc>
+			</methodparam>
+			<desc>Extracts the red, blue, green and alpha channels as individual greyscale (8bpp) images. To get only specific channels set the not needed channels to NULL. The BTCImageData object's receiving the requested channels only have to be pointers to valid objects. They do not have to be created using Create().</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>CombineChannels</methodname>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pRed</parameter>
+				<desc>Specifies the red channel.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pGreen</parameter>
+				<desc>Specifies the green channel.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pBlue</parameter>
+				<desc>Specifies the blue channel.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pAlpha</parameter>
+				<desc>Specifies the alpha channel.</desc>
+			</methodparam>
+			<desc>Combines the red, blue, green and alpha channels to a new image. Before using this method the destination image has to be created using Create(). If there has to be added an alpha channel the object must be created as 32bpp image, otherwise 24bpp. To combine only specific channels set the not needed channels to NULL. The channel objects must be greyscale (8bpp) images.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>ConvertTo24BPP</methodname>
+			<void/>
+			<desc>Converts the given image to 24 bits per pixel.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>ConvertTo32BPP</methodname>
+			<void/>
+			<desc>Converts the given image to 32 bits per pixel.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Quantize</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nBitsPerPixel</parameter>
+				<desc>Number of bits per pixel (1,4,8).</desc>
+			</methodparam>
+			<desc>Quantizes a image &gt; 8 bpp to an n bpp image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Blur</methodname>
+			<void/>
+			<desc>Blur softens the image. Notice, this method is available only for 32 bpp images.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Grayscale</methodname>
+			<void/>
+			<desc>Removes the colors from an image and replaces each color with a grey matching its luminance value.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Negate</methodname>
+			<void/>
+			<desc>Replaces each pixel color with its opposite on the color space.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Flip</methodname>
+			<void/>
+			<desc>Reverses an image along it's vertical axis.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Mirror</methodname>
+			<void/>
+			<desc>Reverses the image along it's horizontal axis.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Rotate</methodname>
+			<methodparam>
+				<type>double</type>
+				<parameter>dAngle</parameter>
+				<desc>Specifies the rotation angle in degrees [0 ... 360].</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTDirection&amp;</type>
+				<parameter>Direction</parameter>
+				<initializer>BTRotation::Right</initializer>
+				<desc>Specifies the rotation direction.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>colBackground</parameter>
+				<initializer>0x00000000</initializer>
+				<desc>Specifies the background color.</desc>
+			</methodparam>
+			<desc>Rotates the image to the left or right around its center point. Images with less than 24bpp will be converted to 24bpp.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Rotate90</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTDirection&amp;</type>
+				<parameter>Direction</parameter>
+				<initializer>BTRotation::Right</initializer>
+				<desc>Specifies the rotation direction.</desc>
+			</methodparam>
+			<desc>Rotates the image 90 degrees to the left or right.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Smooth</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nKernelSize</parameter>
+				<initializer>3</initializer>
+				<desc>Size of the N x N kernel.</desc>
+			</methodparam>
+			<desc>Smoothes the image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Normalize</methodname>
+			<void/>
+			<desc>Normalizes the pixel values to span the full range of color values.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Posterize</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nLevels</parameter>
+				<initializer>7</initializer>
+				<desc>Number of levels to use [2..255].</desc>
+			</methodparam>
+			<desc>Posterize decreases the number of used colors and levels of lightness in the image. The result is a flatter-looking image with bands of color rather than smooth gradients.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Threshold</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nThreshold</parameter>
+				<initializer>166</initializer>
+				<desc>Threshold level to use [1..255].</desc>
+			</methodparam>
+			<desc>Threshold turns the image into a black-and-white image. All pixels whose brightness values are below the threshold level become black and all pixels whose brightness values are equal to or greater than the threshold level become white.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Emboss</methodname>
+			<void/>
+			<desc>Highlights the areas of contrast with black or white pixels and colors the low contrast areas a medium grey. Colors appear when there is a large difference in the contrast.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Detail</methodname>
+			<void/>
+			<desc>Increases the details of an image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>EdgeEnhance</methodname>
+			<void/>
+			<desc>Increases the contrast along the edges in the image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>EdgeEnhanceMore</methodname>
+			<void/>
+			<desc>Increases the contrast along the edges in the image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Median</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nAperature</parameter>
+				<initializer>1</initializer>
+				<desc>Indicates the number of pixels around each pixel that are used to determine the median that replaces the pixel [1..30]. For example: nAperature = 1 -&gt; 3 x 3 Kernel, nAperature = 2 -&gt; 5 x 5 Kernel.</desc>
+			</methodparam>
+			<desc>The Median filter adjusts the intensity of each pixel to the median value of its surrounding N x N pixel neighborhood. Notice, you can apply this effect only to 24 and 32-bit images.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Dilate</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nAperature</parameter>
+				<initializer>1</initializer>
+				<desc>Indicates the number of pixels around each pixel that are used to determine the median that replaces the pixel [1..30]. For example: nAperature = 1 -&gt; 3 x 3 Kernel, nAperature = 2 -&gt; 5 x 5 Kernel.</desc>
+			</methodparam>
+			<desc>The Dilate filter is a variation of a standard N x N pixel medium filter. It adjusts the intensity of each pixel to the maximum value of its surrounding N x N pixel neighborhood. Notice, you can apply this effect only to 24 and 32-bit images.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Erode</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nAperature</parameter>
+				<initializer>1</initializer>
+				<desc>Indicates the number of pixels around each pixel that are used to determine the median that replaces the pixel [1..30]. For example: nAperature = 1 -&gt; 3 x 3 Kernel, nAperature = 2 -&gt; 5 x 5 Kernel.</desc>
+			</methodparam>
+			<desc>The Erode filter is a variation of a standard N x N pixel medium filter. It adjusts the intensity of each pixel to the minimum value of its surrounding N x N pixel neighborhood. Notice, you can apply this effect only to 24 and 32-bit images.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>FindEdge</methodname>
+			<methodparam>
+				<type>double</type>
+				<parameter>dFactor</parameter>
+				<initializer>60.0</initializer>
+				<desc>Factor of edge highlighting [0..100].</desc>
+			</methodparam>
+			<desc>Enhances the contrasts between light and dark in the image by darkening the image and then highlighting the edges (Laplacian Filter).</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Sharpen</methodname>
+			<void/>
+			<desc>Sharpens the image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Solarize</methodname>
+			<methodparam>
+				<type>double</type>
+				<parameter>dFactor</parameter>
+				<initializer>0.0</initializer>
+				<desc>Factor of solarization [0..99.9%].</desc>
+			</methodparam>
+			<desc>Produces a 'solarization' effect seen when exposing a photographic film to light during the development process.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Antialias</methodname>
+			<methodparam>
+				<type>double</type>
+				<parameter>dWeight</parameter>
+				<initializer>1.0 / 3.0</initializer>
+				<desc>Spezifies the weight of antialising [0...1].</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nSameThreshold</parameter>
+				<initializer>25</initializer>
+				<desc>How close two colors have to be to be the 'same' [0...255].</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDiffTreshold</parameter>
+				<initializer>25</initializer>
+				<desc>How close two colors have to be to be 'different' [0...255].</desc>
+			</methodparam>
+			<desc>Antialias the image. Notice, you can apply this effect only to 24 and 32-bit images.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>DeInterlace</methodname>
+			<methodparam>
+				<type>bool</type>
+				<parameter>bRetainOdd</parameter>
+				<initializer>true</initializer>
+				<desc>Retain or remove odd lines.</desc>
+			</methodparam>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>enum BTDeInterlaceType&amp;</type>
+				<parameter>Type</parameter>
+				<initializer>Interpolate</initializer>
+				<enumlist>
+					<enum>Interpolate</enum>
+					<enum>Duplicate</enum>
+				</enumlist>
+				<desc>Method to replace missing lines. The following methods are available:</desc>
+			</methodparam>
+			<desc>Removes missing or mis-aligned scan lines from a video image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Noise</methodname>
+			<methodparam>
+				<type>BTNoiseType</type>
+				<parameter>Type</parameter>
+				<enumlist>
+					<enum>UniformNoise</enum>
+					<enum>LaplacianNoise</enum>
+					<enum>PoissonNoise</enum>
+					<enum>GaussianNoise</enum>
+					<enum>MultiplicativeGaussianNoise</enum>
+					<enum>ImpulseNoise</enum>
+				</enumlist>
+				<desc>The filter to use. The following filters are available:</desc>
+			</methodparam>
+			<desc>The noise filter adds random pixels to an image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>OilPaint</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nRadius</parameter>
+				<initializer>2</initializer>
+				<desc>The radius around a pixel that should be used for calculation [1..10].</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nSmoothness</parameter>
+				<initializer>85</initializer>
+				<desc>Defines how smooth details should be [1..255].</desc>
+			</methodparam>
+			<desc>Let the image looks like oil painted.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>Convolve</methodname>
+			<methodparam>
+				<modifier>const</modifier>
+				<type>double*</type>
+				<parameter>pKernel</parameter>
+				<desc>Pointer to the kernel.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nKernelSize</parameter>
+				<desc>Specifies the size of the kernel.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDivisor</parameter>
+				<initializer>1</initializer>
+				<desc>Each coefficient in the filter kernel is divided by the division factor before being applied to a pixel.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nBias</parameter>
+				<initializer>0</initializer>
+				<desc>The bias is added to the product of the kernel calculation and the division factor.</desc>
+			</methodparam>
+			<methodparam>
+				<type>bool</type>
+				<parameter>bAbs</parameter>
+				<initializer>false</initializer>
+				<desc>Specifies that only absolute color values should be used for calculations.</desc>
+			</methodparam>
+			<desc>Manipulates the image by using the specified N x N kernel.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustBrightness</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<desc>Adjust the brightness of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustContrast</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<desc>Adjust the contrast of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustHighlight</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [0..100].</desc>
+			</methodparam>
+			<desc>Adjust the highlight of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustMidtone</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [0..100].</desc>
+			</methodparam>
+			<desc>Adjust the midtone of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustShadow</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [0..100].</desc>
+			</methodparam>
+			<desc>Adjust the shadow of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustGamma</methodname>
+			<methodparam>
+				<type>double</type>
+				<parameter>dRedValue</parameter>
+				<initializer>1.0</initializer>
+				<desc>Red value [0.2 ... 5.0].</desc>
+			</methodparam>
+			<methodparam>
+				<type>double</type>
+				<parameter>dGreenValue</parameter>
+				<initializer>1.0</initializer>
+				<desc>Green value [0.2 ... 5.0].</desc>
+			</methodparam>
+			<methodparam>
+				<type>double</type>
+				<parameter>dBlueValue</parameter>
+				<initializer>1.0</initializer>
+				<desc>Blue value [0.2 ... 5.0].</desc>
+			</methodparam>
+			<desc>Adjust the midtones and color balance of an image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustHue</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [-180..180].</desc>
+			</methodparam>
+			<desc>Adjust the hue values of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustLightness</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<desc>Adjust the lightness values of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustSaturation</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<desc>Adjust the saturation values of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustHLS</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nHueDegrees</parameter>
+				<initializer>0</initializer>
+				<desc>Number of percent to change [-180..180].</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nLightnessPercentage</parameter>
+				<initializer>0</initializer>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nSaturationPercentage</parameter>
+				<initializer>0</initializer>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<desc>Adjust the hue, lightness and saturation values of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustRed</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<desc>Adjust the red values of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustGreen</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<desc>Adjust the green values of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustBlue</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nPercentage</parameter>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<desc>Adjust the blue values of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>AdjustRGB</methodname>
+			<methodparam>
+				<type>int</type>
+				<parameter>nRedPercentage</parameter>
+				<initializer>0</initializer>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nGreenPercentage</parameter>
+				<initializer>0</initializer>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nBluePercentage</parameter>
+				<initializer>0</initializer>
+				<desc>Number of percent to change [-100..100].</desc>
+			</methodparam>
+			<desc>Adjust the red, green and blue values of the entire image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>Stretch</methodname>
+			<methodparam>
+				<type>HDC</type>
+				<parameter>hdc</parameter>
+				<desc>Handle to the destination device context.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xDest</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>yDest</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestWidth</parameter>
+				<desc>Specifies the width, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestHeight</parameter>
+				<desc>Specifies the height, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xSrc</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>ySrc</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nSrcWidth</parameter>
+				<desc>Specifies the width, in logical units, of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nSrcHeight</parameter>
+				<desc>Specifies the height, in logical units, of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>iMode</parameter>
+				<initializer>COLORONCOLOR</initializer>
+				<desc>Specifies the stretching mode. (See SetStretchBltMode [Win32API] in the MSDN for available modes).</desc>
+			</methodparam>
+			<methodparam>
+				<type>unsigned long</type>
+				<parameter>dwRop</parameter>
+				<initializer>SRCCOPY</initializer>
+				<desc>Specifies the raster operation to be performed. (See BitBlt [Win32API] in the MSDN for a list of common raster operation codes).</desc>
+			</methodparam>
+			<desc>The function copies a bitmap from a source rectangle into a destination rectangle, stretching or compressing the bitmapto fit the dimensions of the destination rectangle, if necessary. The system stretches or compresses the bitmap according to the stretching mode specified.</desc>
+			<retvaldesc>Number of scanlines drawed; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>Draw</methodname>
+			<methodparam>
+				<type>HDC</type>
+				<parameter>hdc</parameter>
+				<desc>Handle to the destination device context.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xDest</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>yDest</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestWidth</parameter>
+				<desc>Specifies the width, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestHeight</parameter>
+				<desc>Specifies the height, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xSrc</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>ySrc</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>iMode</parameter>
+				<initializer>COLORONCOLOR</initializer>
+				<desc>Specifies the stretching mode. (See SetStretchBltMode [Win32API] in the MSDN for available modes).</desc>
+			</methodparam>
+			<methodparam>
+				<type>unsigned long</type>
+				<parameter>dwRop</parameter>
+				<initializer>SRCCOPY</initializer>
+				<desc>Specifies the raster operation to be performed. (See BitBlt [Win32API] in the MSDN for a list of common raster operation codes).</desc>
+			</methodparam>
+			<desc>The function draws the specified rectangle of pixels into the destination device context.</desc>
+			<retvaldesc>Number of scanlines drawed; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>DrawDithered</methodname>
+			<methodparam>
+				<type>HDC</type>
+				<parameter>hdc</parameter>
+				<desc>Handle to the destination device context.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xDest</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>yDest</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestWidth</parameter>
+				<desc>Specifies the width, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestHeight</parameter>
+				<desc>Specifies the height, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xSrc</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>ySrc</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<desc>Calls Draw() with iMode = HALFTONE. See Draw() for more details.</desc>
+			<retvaldesc>Number of scanlines drawed; otherwise, -1.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>StretchTransparent</methodname>
+			<methodparam>
+				<type>HDC</type>
+				<parameter>hdc</parameter>
+				<desc>Handle to the destination device context.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xDest</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>yDest</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestWidth</parameter>
+				<desc>Specifies the width, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestHeight</parameter>
+				<desc>Specifies the height, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xSrc</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>ySrc</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nSrcWidth</parameter>
+				<desc>Specifies the width, in logical units, of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nSrcHeight</parameter>
+				<desc>Specifies the height, in logical units, of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>crColor</parameter>
+				<desc>Specifies the transparent color.</desc>
+			</methodparam>
+			<desc>The function copies a bitmap from a source rectangle into a destination rectangle, stretching or compressing the bitmap to fit the dimensions of the destination rectangle, if necessary. The image parts specified by the color crColor will be drawn transparent.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>DrawTransparent</methodname>
+			<methodparam>
+				<type>HDC</type>
+				<parameter>hdc</parameter>
+				<desc>Handle to the destination device context.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xDest</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>yDest</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestWidth</parameter>
+				<desc>Specifies the width, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestHeight</parameter>
+				<desc>Specifies the height, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xSrc</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>ySrc</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>crColor</parameter>
+				<desc>Specifies the transparent color.</desc>
+			</methodparam>
+			<desc>The function draws the specified rectangle of pixels into the destination device context. The image parts specified by the color crColor will be drawn transparent.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>DrawSemiTransparent</methodname>
+			<methodparam>
+				<type>HDC</type>
+				<parameter>hdc</parameter>
+				<desc>Handle to the destination device context.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xDest</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>yDest</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestWidth</parameter>
+				<desc>Specifies the width, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestHeight</parameter>
+				<desc>Specifies the height, in logical units, of the destination rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xSrc</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>ySrc</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>BTCOLORREF</type>
+				<parameter>crColor</parameter>
+				<desc>Specifies the transparent color.</desc>
+			</methodparam>
+			<desc>The function draws the specified rectangle of pixels semi transparent into the destination device context. Notice, this function is only available for &lt;&#61; 8 bpp images.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>FromDC</methodname>
+			<methodparam>
+				<type>HDC</type>
+				<parameter>hdc</parameter>
+				<desc>Handle to the destination device context.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestWidth</parameter>
+				<desc>Specifies the width, in logical units, of the image to create.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nDestHeight</parameter>
+				<desc>Specifies the height, in logical units, of the image to create.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>xSrc</parameter>
+				<desc>Specifies the x-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>ySrc</parameter>
+				<desc>Specifies the y-coordinate, in logical units, of the upper-left corner of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nSrcWidth</parameter>
+				<desc>Specifies the width, in logical units, of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>int</type>
+				<parameter>nSrcHeight</parameter>
+				<desc>Specifies the height, in logical units, of the source rectangle.</desc>
+			</methodparam>
+			<methodparam>
+				<type>unsigned long</type>
+				<parameter>dwRop</parameter>
+				<initializer>SRCCOPY</initializer>
+				<desc>Specifies the raster operation to be performed (See BitBlt [Win32API] in the MSDN for a list of common raster operation codes).</desc>
+			</methodparam>
+			<desc>Creates a image that is compatible with the device specified by hdc. The image has the same number of color planes or the same bits-per-pixel format as the specified Windows device context. If the size of the source rectangle is not equal to the size of the image to create the source rectangle will be resized to the destination size.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>FromHandle</methodname>
+			<methodparam>
+				<type>HBITMAP</type>
+				<parameter>hBitmap</parameter>
+				<desc>Specifies a Windows GDI bitmap.</desc>
+			</methodparam>
+			<desc>Creates a image from a Windows GDI bitmap.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>FromDIB</methodname>
+			<methodparam>
+				<type>HANDLE</type>
+				<parameter>hDib</parameter>
+				<desc>Specifies a device-independent bitmap.</desc>
+			</methodparam>
+			<desc>Creates a image from a device-independent bitmap (DIB).</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>HANDLE</type>
+			<methodname>GetDIB</methodname>
+			<void/>
+			<desc>Returns a device-independed bitmap (DIB) from the image. When you no longer need the bitmap, call the Win32-API ::GlobalFree function to delete it.</desc>
+			<retvaldesc>The handle to the bitmap if successful; otherwise, NULL.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>HBITMAP</type>
+			<methodname>GetBitmap</methodname>
+			<void/>
+			<desc>Returns a device-dependent bitmap (DDB) from the image. When you no longer need the bitmap, call the Win32-API ::DeleteObject function to delete it.</desc>
+			<retvaldesc>The handle to the bitmap if successful; otherwise, NULL.</retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>int</type>
+			<methodname>Compare</methodname>
+			<methodparam>
+				<type>BTCImageData*</type>
+				<parameter>pImageData</parameter>
+				<desc>Pointer to image object to compare with.</desc>
+			</methodparam>
+			<desc>Compares the image with another one.</desc>
+			<retvaldesc>&gt;&#61; 0 if successful; otherwise, -1.<![CDATA[<p class="Text">BTCMP_IMAGE = Images are different.<br>BTCMP_NUMCOLORS = Number of colours in palette differ.<br>BTCMP_COLOR = Image colours differ.<br>BTCMP_SIZE_X = Image width differs.<br>BTCMP_SIZE_Y = Image heights differ.</p>]]></retvaldesc>
+		</methodsynopsis>
+
+		<methodsynopsis>
+			<modifier>public</modifier>
+			<type>bool</type>
+			<methodname>GetHistogram</methodname>
+			<methodparam>
+				<type>BTCHistogram*</type>
+				<parameter>pHistogram</parameter>
+				<desc>Pointer to a BTCHistogram object.</desc>
+			</methodparam>
+			<desc>Retrieves the histogram of the image.</desc>
+			<retvaldesc>true if successful; otherwise, false.</retvaldesc>
+		</methodsynopsis>
+	</classsynopsis>
+</btdoc>

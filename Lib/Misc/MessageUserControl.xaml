@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Big3.Hitbase.Miscellaneous.MessageUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Width="500" Height="200" Loaded="UserControl_Loaded"
+             d:DesignHeight="261" d:DesignWidth="462">
+    <Grid Margin="10" >
+        <DockPanel Name="dockPanelTop">
+            <Image Name="image" DockPanel.Dock="Left" Source="{Binding Image}" Width="48" Margin="0,0,20,0" VerticalAlignment="Top"/>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Margin="5" Width="70" x:Name="ButtonOK" IsDefault="True" Click="ButtonOK_Click">OK</Button>
+                <Button Margin="5,5,0,5" Width="90" x:Name="ButtonCancel" IsCancel="True" Click="ButtonCancel_Click">Abbrechen</Button>
+            </StackPanel>
+            <DockPanel>
+                <TextBlock FontSize="18" Text="{Binding HeaderText}" DockPanel.Dock="Top" Margin="0,0,0,20" TextWrapping="Wrap"/>
+                <CheckBox Name="CheckBoxDontShowAgain" Content="Nicht wieder nachfragen" DockPanel.Dock="Bottom" Margin="0,10,0,0" Visibility="Collapsed" />
+                <TextBlock Text="{Binding Text}" TextWrapping="Wrap"/>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</UserControl>

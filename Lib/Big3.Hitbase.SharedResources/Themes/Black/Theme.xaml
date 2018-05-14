@@ -1,0 +1,223 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Fluent;Component/Themes/Office2010/Black.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--<ImageBrush x:Key="MainBackground" ImageSource="background.jpg"></ImageBrush>-->
+    <LinearGradientBrush x:Key="MainBackground" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#8B8B8B" Offset="0" />
+        <GradientStop Color="#474747" Offset="1" />
+    </LinearGradientBrush>
+
+    <Style TargetType="Window" x:Key="MyWindowStyle">
+        <Setter Property="Background" Value="{DynamicResource MainBackground}" />
+    </Style>
+
+
+    <SolidColorBrush x:Key="DefaultForeground" Color="White" />
+
+    <SolidColorBrush x:Key="HeadingForeground" Color="#FBCA6C" />
+
+    <SolidColorBrush x:Key="HyperlinkForeground" Color="#FFFFFF" />
+    
+    <!--<Style TargetType="ribbon:Ribbon">
+        <Setter Property="Background" Value="Gray" />
+
+    </Style>-->
+    
+    <Style TargetType="ListBoxItem" x:Key="MyListBoxItemContainerStyle">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Style.Resources>
+            <LinearGradientBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" StartPoint="0,0" EndPoint="0,1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#50F8FBFE" Offset="0" />
+                    <GradientStop Color="#50E8F2FE" Offset="1" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="{x:Static SystemColors.ControlBrushKey}" StartPoint="0,0" EndPoint="0,1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#30F8FBFE" Offset="0" />
+                    <GradientStop Color="#30E8F2FE" Offset="1" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="White"></SolidColorBrush>
+        </Style.Resources>
+    </Style>
+
+    <Style TargetType="ListBoxItem" x:Key="MyListBoxTrackItemContainerStyle">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Style.Resources>
+            <LinearGradientBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" StartPoint="0,0" EndPoint="0,1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#10FFFFFF" Offset="0" />
+                    <GradientStop Color="#30FFFFFF" Offset="1" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="{x:Static SystemColors.ControlBrushKey}" StartPoint="0,0" EndPoint="0,1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#10F8FBFE" Offset="0" />
+                    <GradientStop Color="#10E8F2FE" Offset="1" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"></SolidColorBrush>
+        </Style.Resources>
+    </Style>
+
+    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" x:Key="MyMusicItemHoverBackground">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#30FFFFFF" Offset="0" />
+            <GradientStop Color="#10FFFFFF" Offset="1" />
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" x:Key="MyListBoxItemHoverBackgroundBrush">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#50FFFFFF" Offset="0" />
+            <GradientStop Color="#20FFFFFF" Offset="1" />
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" x:Key="TreeViewHoverBackgroundBrush">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#50FFFFFF" Offset="0" />
+            <GradientStop Color="#20FFFFFF" Offset="1" />
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+
+    <LinearGradientBrush x:Key="ToolbarBackground" StartPoint="0,0" EndPoint="0,1">
+        <GradientStopCollection>
+            <GradientStop Color="#F3F3F3" Offset="0"/>
+            <GradientStop Color="#E2E2E2" Offset="0.5"/>
+            <GradientStop Color="#C8C8C8" Offset="0.51"/>
+            <GradientStop Color="#E2E2E2" Offset="1"/>
+        </GradientStopCollection>
+    </LinearGradientBrush>
+
+    <!-- TabControl -->
+    <LinearGradientBrush x:Key="TabItem_BackgroundBrush_Selected" 
+                           StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#FFFFC14A" Offset="0.1" />
+            <GradientStop Color="#EEEEEE" 
+                          Offset="0.15"/>
+            <GradientStop Color="#C8C8C8" Offset="0.8"/>
+            <GradientStop Color="#E2E2E2" 
+                          Offset="1.0"/>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <GroupStyle x:Key="DataGridGroupStyle">
+        <GroupStyle.Panel>
+            <ItemsPanelTemplate>
+                <DataGridRowsPresenter />
+            </ItemsPanelTemplate>
+        </GroupStyle.Panel>
+        <GroupStyle.HeaderTemplate>
+            <DataTemplate>
+                <StackPanel>
+                    <TextBlock Text="{Binding Path=Name}" FontWeight="Bold" Padding="3"/>
+                </StackPanel>
+            </DataTemplate>
+        </GroupStyle.HeaderTemplate>
+        <GroupStyle.ContainerStyle>
+            <Style TargetType="{x:Type GroupItem}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type GroupItem}">
+                            <Expander IsExpanded="False"  
+                                                BorderBrush="#FFA4B97F"   
+                                                BorderThickness="0,0,0,0"
+                                                Margin="0,0,0,3"
+                                                >
+                                <Expander.Header>
+                                    <DockPanel TextBlock.FontWeight="Bold">
+                                        <TextBlock Text="{Binding Path=Name}"   
+                                                            Margin="5,0,5,0"  
+                                                            />
+                                        <TextBlock>
+                                                    <TextBlock.Text>
+                                                        <MultiBinding StringFormat="({0})">
+                                                            <Binding Path="ItemCount" /> 
+                                                        </MultiBinding>                                                        
+                                                    </TextBlock.Text>
+                                        </TextBlock>
+                                    </DockPanel>
+                                </Expander.Header>
+                                <ItemsPresenter>
+                                </ItemsPresenter>
+                            </Expander>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </GroupStyle.ContainerStyle>
+    </GroupStyle>
+    <Style TargetType="{x:Type DataGrid}">
+        <Style.Setters>
+            <Setter Property="AlternationCount" Value="2" />
+            <Setter Property="HorizontalGridLinesBrush" Value="#20FFFFFF" />
+            <Setter Property="VerticalGridLinesBrush" Value="#20FFFFFF" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="HorizontalGridLinesBrush" Value="#30FFFFFF" />
+            <Setter Property="VerticalGridLinesBrush" Value="#30FFFFFF" />
+        </Style.Setters>
+    </Style>
+    <Style TargetType="{x:Type DataGridRow}">
+        <Style.Triggers>
+            <Trigger Property="AlternationIndex" Value="0">
+                <Setter Property="Background" Value="#10FFFFFF" />
+            </Trigger>
+            <Trigger Property="AlternationIndex" Value="1">
+                <Setter Property="Background" Value="#00FFFFFF" />
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#53FFFFFF" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsSelected" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="#63FFFFFF" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsSelected" Value="false" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="#40FFFFFF" />
+            </MultiTrigger>
+            <!--            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#A0FFFFFF" />
+            </Trigger>-->
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="{x:Type DataGridCell}">
+        <!--<Setter Property="Foreground" Value="{Binding Path=TextColor}" />-->
+        <Setter Property="Foreground" Value="{DynamicResource DefaultForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Border Background="Transparent" 
+                BorderBrush="Transparent"  
+                BorderThickness="0"  
+                SnapsToDevicePixels="True" Padding="0 2 0 2" VerticalAlignment="Stretch">
+                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--<Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#33A7D3FF" />
+            </Trigger>
+        </Style.Triggers>-->
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,132 @@
+﻿<RibbonWindow x:Class="Big3.Hitbase.CDCover.CDCoverWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+        xmlns:local="clr-namespace:Big3.Hitbase.CDCover"
+        Title="CD-Cover drucken"  Style="{DynamicResource MyWindowStyle}"
+        x:Name="Window" 
+        Width="1024" Height="768" xmlns:my="clr-namespace:Big3.Hitbase.CDCover">
+    <RibbonWindow.CommandBindings>
+        <CommandBinding Command="sr:HitbaseCommands.Print" Executed="CommandBindingPrint_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ShowBorders" Executed="CommandBindingShowBorders_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.Zoom" Executed="CommandBindingZoom_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ZoomWholePage" Executed="CommandBindingZoomWholePage_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ZoomWholeWidth" Executed="CommandBindingZoomWholeWidth_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ChooseColumns" Executed="CommandBindingChooseColumns_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ChooseFont" Executed="CommandBindingChooseFont_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.SizeAndPosition" Executed="CommandBindingSizeAndPosition_Executed" />
+        <CommandBinding Command="my:CoverCommands.BackCoverChooseBackgroundNone" Executed="CommandBindingBackCoverChooseBackgroundNone_Executed" />
+        <CommandBinding Command="my:CoverCommands.BackCoverChooseBackgroundColor" Executed="CommandBindingBackCoverChooseBackgroundColor_Executed" />
+        <CommandBinding Command="my:CoverCommands.BackCoverChooseBackgroundImage" Executed="CommandBindingBackCoverChooseBackgroundImage_Executed" />
+        <CommandBinding Command="my:CoverCommands.BackCoverChooseBackgroundFromCD" Executed="CommandBindingBackCoverChooseBackgroundFromCD_Executed" />
+        <CommandBinding Command="my:CoverCommands.FrontCoverChooseBackgroundNone" Executed="CommandBindingFrontCoverChooseBackgroundNone_Executed" />
+        <CommandBinding Command="my:CoverCommands.FrontCoverChooseBackgroundColor" Executed="CommandBindingFrontCoverChooseBackgroundColor_Executed" />
+        <CommandBinding Command="my:CoverCommands.FrontCoverChooseBackgroundImage" Executed="CommandBindingFrontCoverChooseBackgroundImage_Executed" />
+        <CommandBinding Command="my:CoverCommands.FrontCoverChooseBackgroundFromCD" Executed="CommandBindingFrontCoverChooseBackgroundFromCD_Executed" />
+        <CommandBinding Command="my:CoverCommands.Bold" Executed="CommandBindingBold_Executed" />
+        <CommandBinding Command="my:CoverCommands.Italic" Executed="CommandBindingItalic_Executed" />
+        <CommandBinding Command="my:CoverCommands.Underline" Executed="CommandBindingUnderline_Executed" />
+    </RibbonWindow.CommandBindings>
+    <Grid>
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Ribbon x:Name="Ribbon">
+                <Ribbon.ApplicationMenu>
+                    <RibbonApplicationMenu SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/ApplicationMenu.png" x:Name="applicationMenu">
+
+                        <RibbonApplicationMenuItem Name="buttonExit" Header="Schließen" Command="my:CoverCommands.Close" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Close.png" />
+
+                    </RibbonApplicationMenu>
+                </Ribbon.ApplicationMenu>
+                <RibbonTab x:Name="CDCoverTab" 
+                              Header="CD-Cover">
+                    <RibbonGroup x:Name="GroupCover" 
+                                    Header="Cover">
+                        <RibbonButton Name="buttonPrint" Label="Drucken" Command="sr:HitbaseCommands.Print" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/Printer.png" />
+                        <RibbonButton Name="buttonSizeAndPosition" Label="Größe und Position" Command="sr:HitbaseCommands.SizeAndPosition" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/SizeAndPosition.png" />
+                    </RibbonGroup>
+
+                    <RibbonGroup Header="Schriftart">
+                        <RibbonControlGroup>
+                            <RibbonComboBox IsEditable="True" CanUserResizeHorizontally="True" CanUserResizeVertically="True" x:Name="ribbonComboBoxFontFamilies"  DropDownHeight="400">
+                                <RibbonGallery MaxColumnCount="1" x:Name="ribbonFontGallery" SelectionChanged="RibbonGalleryFontFamily_SelectionChanged"  >
+                                    <RibbonGallery.Resources>
+                                        <DataTemplate x:Key="GalleryItemTemplate">
+                                            <Grid>
+                                                <TextBlock Text="{Binding}" FontFamily="{Binding}" FontSize="14"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </RibbonGallery.Resources>
+                                    <RibbonGalleryCategory Header="Alle Schriftarten" Name="RibbonGalleryAllFonts" ItemTemplate="{StaticResource GalleryItemTemplate}" >
+
+                                    </RibbonGalleryCategory>
+                                </RibbonGallery>
+                            </RibbonComboBox>
+
+                            <RibbonComboBox IsEditable="True" DropDownHeight="200" SelectionBoxWidth="40" CanUserResizeVertically="True" x:Name="ribbonComboBoxFontSizes" >
+                                <RibbonGallery MaxColumnCount="1" x:Name="ribbonFontSizeGallery" SelectionChanged="RibbonGalleryFontSize_SelectionChanged" >
+                                    <RibbonGallery.Resources>
+                                        <DataTemplate x:Key="GalleryItemTemplate">
+                                            <Grid>
+                                                <TextBlock Text="{Binding}" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </RibbonGallery.Resources>
+                                    <RibbonGalleryCategory HeaderVisibility="Collapsed"  Name="RibbonGalleryAllFontSizes" ItemTemplate="{StaticResource GalleryItemTemplate}" >
+
+                                    </RibbonGalleryCategory>
+                                </RibbonGallery>
+                            </RibbonComboBox>
+                        </RibbonControlGroup>
+                        <RibbonControlGroup>
+                            <RibbonToggleButton x:Name="ToggleButtonBold" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/Bold.png" Command="my:CoverCommands.Bold" />
+                            <RibbonToggleButton x:Name="ToggleButtonItalic" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/Italic.png" Command="my:CoverCommands.Italic"  />
+                            <RibbonToggleButton x:Name="ToggleButtonUnderline" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/Underline.png" Command="my:CoverCommands.Underline"  /> 
+                        </RibbonControlGroup>
+                    </RibbonGroup>
+                    <RibbonGroup Header="Front-Cover">
+                        <RibbonMenuButton Label="Hintergrund" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/BackgroundColor32x32.png">
+                            <RibbonMenuItem Name="buttonFrontCoverBackgroundNone" ImageSource="/Big3.Hitbase.SharedResources;component/Images/NoBackground.png" Header="Kein" Command="my:CoverCommands.FrontCoverChooseBackgroundNone" />
+                            <RibbonMenuItem Name="buttonFrontCoverBackgroundColor" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Color.png" Header="Farbe..." Command="my:CoverCommands.FrontCoverChooseBackgroundColor" />
+                            <RibbonMenuItem Name="buttonFrontCoverBackgroundImage" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Picture.png" Header="Bild..." Command="my:CoverCommands.FrontCoverChooseBackgroundImage" />
+                            <RibbonMenuItem Name="buttonFrontCoverBackgroundFromCD" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Picture.png" Header="Von CD" Command="my:CoverCommands.FrontCoverChooseBackgroundFromCD" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+
+                    <RibbonGroup Header="Back-Cover">
+                        <RibbonButton Name="buttonChooseColumns" Label="Spalten wählen" Command="sr:HitbaseCommands.ChooseColumns" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/ChooseColumns.png" />
+                        <RibbonMenuButton Label="Hintergrund" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/BackgroundColor32x32.png">
+                            <RibbonMenuItem Name="buttonBackCoverBackgroundNone" ImageSource="/Big3.Hitbase.SharedResources;component/Images/NoBackground.png" Header="Kein" Command="my:CoverCommands.BackCoverChooseBackgroundNone" />
+                            <RibbonMenuItem Name="buttonBackCoverBackgroundColor" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Color.png" Header="Farbe..." Command="my:CoverCommands.BackCoverChooseBackgroundColor" />
+                            <RibbonMenuItem Name="buttonBackCoverBackgroundImage" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Picture.png" Header="Bild..." Command="my:CoverCommands.BackCoverChooseBackgroundImage" />
+                            <RibbonMenuItem Name="buttonBackCoverBackgroundFromCD" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Picture.png" Header="Von CD" Command="my:CoverCommands.BackCoverChooseBackgroundFromCD" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+
+                    <RibbonGroup Header="Ansicht">
+                        <RibbonMenuButton Name="buttonZoom" Label="Zoom" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/Zoom.png">
+                            <RibbonMenuItem Name="buttonZoom25" Header="25%" Command="sr:HitbaseCommands.Zoom" CommandParameter="25" />
+                            <RibbonMenuItem Name="buttonZoom50" Header="50%" Command="sr:HitbaseCommands.Zoom" CommandParameter="50" />
+                            <RibbonMenuItem Name="buttonZoom75" Header="75%" Command="sr:HitbaseCommands.Zoom" CommandParameter="75" />
+                            <RibbonMenuItem Name="buttonZoom100" Header="100%" Command="sr:HitbaseCommands.Zoom" CommandParameter="100" />
+                            <RibbonMenuItem Name="buttonZoom200" Header="200%" Command="sr:HitbaseCommands.Zoom" CommandParameter="200" />
+                            <RibbonMenuItem Name="buttonZoom300" Header="300%" Command="sr:HitbaseCommands.Zoom" CommandParameter="300" />
+                            <RibbonMenuItem Name="buttonZoom400" Header="400%" Command="sr:HitbaseCommands.Zoom" CommandParameter="400" />
+                            <RibbonMenuItem Name="buttonZoom800" Header="800%" Command="sr:HitbaseCommands.Zoom" CommandParameter="800" />
+                            <RibbonSeparator />
+                            <RibbonMenuItem Name="buttonZoomWholePage" Header="Ganze Seite" Command="sr:HitbaseCommands.ZoomWholePage" />
+                            <RibbonMenuItem Name="buttonZoomWholeWidth" Header="Ganze Breite" Command="sr:HitbaseCommands.ZoomWholeWidth" />
+                        </RibbonMenuButton>
+                        <RibbonToggleButton Name="buttonShowBorder" Label="Ränder anzeigen" Command="sr:HitbaseCommands.ShowBorders" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/ShowBorders.png" />
+                    </RibbonGroup>
+                </RibbonTab>
+            </Ribbon>
+            <my:CDCoverPageUserControl Grid.Row="1" x:Name="cdCoverPageUserControl" />
+        </Grid>
+        <Grid x:Name="modalGrid" />
+    </Grid>
+</RibbonWindow>

@@ -1,0 +1,25 @@
+format (
+	firma Zweckform
+	vorlage ( name "32250/32251 (alt)" Fx 595 Fy 290 Bx 295 By 1500 Lx -1 Ly -1 )
+	vorlage ( name 32250/32251 Fx 595 Fy 235 Bx 295 By 1550 Lx -1 Ly -1 )
+	vorlage ( name 6015/6043/3654 Fx -1 Fy -1 Bx -1 By -1 Lx 470 Ly 210 )
+	vorlage ( name 6115 Fx -1 Fy -1 Bx -1 By -1 Lx 470 Ly 210 )
+	vorlage ( name 6044/6045/6046/6047 Fx -1 Fy -1 Bx -1 By -1 Lx 470 Ly 210 )
+	vorlage ( name 6082/6074 Fx -1 Fy -1 Bx -1 By -1 Lx 470 Ly 210 )
+)
+
+format (
+	firma "Phono Sound"
+	vorlage ( name "LS-EP100 (rechts)" Fx -1 Fy -1 Bx -1 By -1 Lx 800 Ly 240 )
+	vorlage ( name "LS-EP100 (links)" Fx -1 Fy -1 Bx -1 By -1 Lx 45 Ly 240 )
+)
+
+format (
+	firma "Data Becker"
+	vorlage ( name 310335 Fx -1 Fy -1 Bx -1 By -1 Lx 473 Ly 170 )
+)
+
+format (
+	firma "Hewlett Peckard"
+	vorlage ( name "CDX8020,8040A/E,8045A/E,8046E" Fx -1 Fy -1 Bx -1 By -1 Lx 460 Ly 240 )
+)

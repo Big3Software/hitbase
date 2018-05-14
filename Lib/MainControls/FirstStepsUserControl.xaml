@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Big3.Hitbase.MainControls.FirstStepsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+             mc:Ignorable="d" Unloaded="UserControl_Unloaded"
+             d:DesignHeight="600" d:DesignWidth="600" >
+    <Grid>
+        <RichTextBox IsDocumentEnabled="True" IsReadOnly="True" IsReadOnlyCaretVisible="False" Padding="20,0,20,0" Name="richTextBox" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Transparent" BorderThickness="0">
+            <RichTextBox.Document>
+                <FlowDocument Foreground="{DynamicResource DefaultForeground}" >
+                    <Paragraph LineStackingStrategy="BlockLineHeight" LineHeight="1" ></Paragraph>
+                    <Paragraph TextElement.Foreground="{DynamicResource HeadingForeground}" Margin="0,20,0,0" FontSize="20" FontWeight="Bold" >
+                        Herzlich Willkommen bei Hitbase 2012!
+                    </Paragraph>
+                    <Paragraph LineHeight="20" FontSize="14">
+                        Diese Übersichtsseite soll Sie in die grundlegenden Funktionen von Hitbase 2012 einführen. Sie haben die Möglichkeit, Ihren Computer oder andere Netzwerkgeräte nach Musikdateien zu durchsuchen. Desweiteren können Sie Ihre CD-Sammlung erfassen oder verschiedene Statistiken ausführen.
+                    </Paragraph>
+                    <Paragraph TextElement.Foreground="{DynamicResource HeadingForeground}" FontSize="18" FontWeight="Bold">
+                        Erste Schritte
+                    </Paragraph>
+                    
+                    <Table>
+                        <Table.Columns>
+                            <TableColumn Width="140"/>
+                            <TableColumn />
+                        </Table.Columns>
+                        <TableRowGroup>
+                            <TableRow>
+                                <TableCell >
+                                    <Paragraph>
+                                        <Image Width="128" Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/ManageMusicFilesLarge.png" />
+                                    </Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph TextElement.Foreground="{DynamicResource HeadingForeground}" FontSize="18" FontWeight="Bold" LineHeight="30">
+                                        Musikdateien (MP3, WMA, etc.) verwalten
+                                    </Paragraph>
+                                    <Paragraph FontSize="14" LineHeight="20">
+                                        Mit Hitbase können Sie Musikdateien, die auf Ihrem Computer oder z.B. einem Netzwerkgerät
+                        gespeichert sind, verwalten. Hierunter fallen z.B. MP3-, WMA- oder WAVE-Dateien. 
+                        Sie können einen oder mehrere Speicherorte angeben, die Hitbase nach Musikdateien 
+                        durchsuchen soll. Diese werden nachfolgend automatisch in Ihren Katalog gespeichert und 
+                        werden fortlaufend synchronisiert.
+                                        <LineBreak />
+                                        <LineBreak />
+                                        <Hyperlink Name="HyperLinkManageMusicFiles" Command="sr:HitbaseCommands.ConfigureMusicLibrary" Foreground="{DynamicResource HyperlinkForeground}">
+                                            <Run>Klicken Sie hier, wenn Sie jetzt einen Speicherort Ihrer Musikdateien angeben möchten.</Run>
+                                        </Hyperlink>
+                                        <LineBreak />
+                                        <LineBreak />
+                                        <LineBreak />
+                                    </Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>
+                                    <Paragraph>
+                                        <Image Width="128" Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/ManageCDsLarge.png" />
+                                    </Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph TextElement.Foreground="{DynamicResource HeadingForeground}" FontSize="18" FontWeight="Bold" LineHeight="30">
+                                        CD-Sammlung verwalten
+                                    </Paragraph>
+                                    <Paragraph FontSize="14" LineHeight="20">
+                                        Um Ihre CD-Sammlung zu erfassen, legen Sie einfach Ihre CDs der Reihe nach in Ihr CD-Laufwerk ein. Hitbase sucht automatisch nach den CD-Informationen und speichert diese in Ihrem Katalog.
+                                        <LineBreak />
+                                        <LineBreak />
+                                        <Hyperlink Command="sr:HitbaseCommands.OpenCDDrive" Foreground="{DynamicResource HyperlinkForeground}">
+                                            <Run>Klicken Sie hier, wenn Sie jetzt Ihre CDs erfassen möchten.</Run>
+                                        </Hyperlink>
+                                    </Paragraph>
+                                </TableCell>
+                            </TableRow>
+                        </TableRowGroup>
+                    </Table>
+                    <Paragraph>
+                        <CheckBox Content="Dieses Fenster beim Start nicht mehr anzeigen" x:Name="CheckBoxShowAtStartUp" Unchecked="CheckBoxShowAtStartUp_Unchecked" Checked="CheckBoxShowAtStartUp_Checked" />
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox.Document>
+        </RichTextBox>
+<!--        <RichTextBox Name="richTextBox" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Transparent" BorderThickness="0">
+            <RichTextBox.Document>
+                <FlowDocument>
+                </FlowDocument>
+            </RichTextBox.Document>
+        </RichTextBox>-->
+    </Grid>
+</UserControl>

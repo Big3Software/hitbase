@@ -1,0 +1,391 @@
+﻿<Window x:Class="Big3.Hitbase.CDUtilities.BurnMedium"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Big3.Hitbase.CDUtilities" Style="{DynamicResource MyWindowStyle}"
+        xmlns:misc="clr-namespace:Big3.Hitbase.Miscellaneous;assembly=Misc"
+        xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+        xmlns:controls="clr-namespace:Big3.Hitbase.Controls;assembly=Controls"
+        xmlns:dd="clr-namespace:Big3.Hitbase.Controls.DragDrop;assembly=Controls"
+         WindowStartupLocation="Manual" Name="BurnWindow" TextElement.Foreground="{DynamicResource DefaultForeground}"
+        Title="Neues Medium erstellen" Height="700" Width="800" MinHeight="700" MinWidth="800" Unloaded="Window_Unloaded" Loaded="Window_Loaded" Closing="Window_Closing" UseLayoutRounding="True" TextOptions.TextFormattingMode="Display" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo />
+    </Window.TaskbarItemInfo>
+    <Window.Resources>
+        <DataTemplate x:Key="DataTemplateFileList">
+            <StackPanel Orientation="Horizontal" >
+                <Image Source="{Binding Image}" Margin="5,1,3,1" Stretch="None" />
+                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DataTemplateBurnFileList">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding Image}" Margin="5,1,3,1"  Stretch="None" />
+                <controls:EditableTextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+            </StackPanel>
+        </DataTemplate>
+
+        <misc:FileSizeToStringConverter x:Key="FileSizeToStringConverter" />
+        <HierarchicalDataTemplate x:Key="DirectoryList" ItemsSource="{Binding Path=Items}">
+            <Border x:Name="ItemBorder" BorderThickness="1" BorderBrush="Transparent" CornerRadius="2" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/FolderOpen.png" Width="16" Height="16" Margin="0,0,5,0" />
+                    <TextBlock Text="{Binding Path=Name}"  />
+                </StackPanel>
+            </Border>
+            <HierarchicalDataTemplate.Triggers>
+                <Trigger SourceName="ItemBorder" Property="IsMouseOver" Value="True">
+                    <Setter TargetName="ItemBorder" Property="Background" >
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="#F8FBFE" Offset="0" />
+                                    <GradientStop Color="#E8F2FE" Offset="1" />
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#300000FF" />
+                    <Setter TargetName="ItemBorder" Property="Cursor" Value="Hand" />
+                </Trigger>
+            </HierarchicalDataTemplate.Triggers>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate x:Key="EditableDirectoryList" ItemsSource="{Binding Path=Items}">
+            <Border x:Name="ItemBorder" BorderThickness="1" BorderBrush="Transparent" CornerRadius="2" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/FolderOpen.png" Width="16" Height="16" Margin="0,0,5,0" />
+                    <controls:EditableTextBlock Text="{Binding Path=Name}"  />
+                </StackPanel>
+            </Border>
+            <HierarchicalDataTemplate.Triggers>
+                <Trigger SourceName="ItemBorder" Property="IsMouseOver" Value="True">
+                    <Setter TargetName="ItemBorder" Property="Background" >
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="#F8FBFE" Offset="0" />
+                                    <GradientStop Color="#E8F2FE" Offset="1" />
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#300000FF" />
+                    <Setter TargetName="ItemBorder" Property="Cursor" Value="Hand" />
+                </Trigger>
+            </HierarchicalDataTemplate.Triggers>
+        </HierarchicalDataTemplate>
+    </Window.Resources>
+    <Grid DataContext="{Binding}" MinWidth="750" Margin="10">
+        <Grid.Resources>
+            <Style TargetType="{x:Type ToggleButton}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Grid x:Name="mainGrid" Margin="1,1,1,1">
+                                <Grid x:Name="uncheckedState">
+                                    <Border Margin="0,0,0,0" BorderBrush="BlanchedAlmond" BorderThickness="2,2,2,2" CornerRadius="4,4,4,4">
+                                        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center"></ContentControl>
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.567"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                                <Grid x:Name="checkedState" Visibility="Collapsed" >
+                                    <Border Margin="0,0,0,0" BorderBrush="BlanchedAlmond" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                                        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center"></ContentControl>
+                                        <!--ContentControl HorizontalAlignment="Center" VerticalAlignment="Center">Sampler √</ContentControl-->
+                                        <Border.Background>
+                                            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                                                <GradientStop Color="#FFFFC934" Offset="0"/>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.567"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="checkedState" Property="Visibility" Value="Visible" />
+                                    <Setter TargetName="uncheckedState" Property="Visibility" Value="Collapsed" />
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect ShadowDepth="0" Color="Orange" BlurRadius="10" />
+                                        </Setter.Value>
+                                    </Setter>
+
+                                    <!--Setter TargetName="mainGrid" Property="Margin" Value="2,2,0,0"/-->
+                                    <!--Setter TargetName="checkedState" Property="Background" Value="Blue" /-->
+                                    <!--Setter TargetName="uncheckedState" Property="Background" Value="Red" /-->
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <GroupBox Header="Datenträger brennen" Height="155" Name="groupBox2" VerticalAlignment="Top" Grid.Row="0">
+            <Grid VerticalAlignment="Top" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Rekorder:"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left"
+                       Name="label1" VerticalAlignment="Center" Width="65" />
+                <ComboBox ItemsSource="{Binding cboitems}"
+                          Grid.Row="0" Margin="0,2,0,2"
+                          Grid.Column="1"
+                          HorizontalAlignment="Left" 
+                          Name="comboBurner"
+                          VerticalAlignment="Center"
+                          Width="224" Loaded="comboBurner_Loaded" 
+                          SelectionChanged="comboBurner_SelectionChanged" IsReadOnly="False">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel.Resources>
+                                    <local:VolumesToDrivesConverter x:Key="volumesToDrive" />
+                                </StackPanel.Resources>
+                                <TextBlock Text="{Binding VolumePathNames,Converter={StaticResource volumesToDrive}}" Width="40" />
+                                <TextBlock Text="{Binding ProductId}" Width="300" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Text="Eingelegtes Medium:"
+                       Grid.Row="0" Margin="20,0,5,0"
+                       Grid.Column="2"
+                       HorizontalAlignment="Left" 
+                       Name="label6" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="3"
+                           Grid.ColumnSpan="2" Name="textBlockCurrentMedium"
+                           Text="" VerticalAlignment="Center" />
+
+                <TextBlock Text="Typ:"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left" Name="label5" VerticalAlignment="Center" Width="65" />
+                <ComboBox 
+                          Grid.Row="1" Margin="0,2,0,2"
+                          Grid.Column="1"
+                          IsReadOnly="False"
+                          Name="comboBoxType" VerticalAlignment="Center" SelectionChanged="comboBoxType_SelectionChanged" HorizontalAlignment="Left" Width="224">
+                    <ComboBox.Items>
+                        <ComboBoxItem Content="Daten-CD oder DVD" />
+                        <ComboBoxItem Content="Audio-CD" />
+                    </ComboBox.Items>
+                </ComboBox>
+                <TextBlock Text="Datenträger Überprüfung:"
+                       Grid.Row="2" Margin="20,0,5,0"
+                       Grid.Column="2"
+                       HorizontalAlignment="Left" Name="label3" VerticalAlignment="Center"/>
+                <ComboBox Grid.Row="2"
+                          Grid.Column="3"
+                          HorizontalAlignment="Left"
+                          Name="comboBoxVerify" VerticalAlignment="Center" Width="195" >
+                    <ComboBoxItem Content="Keine" IsSelected="True" />
+                    <ComboBoxItem Content="Schnell" />
+                    <ComboBoxItem Content="Vollständig" />
+                </ComboBox>
+
+                <TextBlock Text="Name Datenträger:"
+                       Grid.Row="2" Margin="0,0,5,0"
+                       Grid.Column="0"
+                       HorizontalAlignment="Left" Name="label2" VerticalAlignment="Center" />
+                <TextBox Grid.Row="2"
+                         Grid.Column="1" Margin="0,2,0,2"
+                         Name="textBoxLabel"
+                         MaxLength="16"
+                         VerticalAlignment="Center" HorizontalAlignment="Left" 
+                         Width="224" TextChanged="textBoxLabel_TextChanged" />
+
+                <TextBlock Text="Schreibgeschwindigkeit:"
+                       Grid.Row="3" Margin="20,0,5,0"
+                       Grid.Column="2"
+                       HorizontalAlignment="Left"
+                       Name="label4" VerticalAlignment="Center" />
+                
+                <ComboBox ItemsSource="{Binding cboSpeedItems}"
+                          Grid.Row="3"
+                          Grid.Column="3"
+                          HorizontalAlignment="Left"
+                          Name="comboBoxWriteSpeed"
+                          VerticalAlignment="Center"
+                          Width="195" Margin="0,0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding SpeedX}" Width="50" />
+                                <TextBlock Text="{Binding SpeedKB}" Width="60" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Grid.Row="4"
+                           Grid.Column="1"
+                           HorizontalAlignment="Left"
+                           Name="textBlockMinSize" Text="0" VerticalAlignment="Bottom" />
+                <TextBlock Grid.Row="4"
+                           Grid.Column="4"
+                           Name="textBlockTotalSize"
+                           Text="0 MB" VerticalAlignment="Bottom" TextAlignment="Right" HorizontalAlignment="Right" Width="112" />
+                <TextBlock Text="Kapazität:" 
+                           Grid.Row="5"
+                           Grid.Column="0"
+                           HorizontalAlignment="Left"
+                           Name="label9" VerticalAlignment="Top"/>
+                <ProgressBar 
+                             Grid.Row="5"
+                             Grid.Column="1"
+                             Grid.ColumnSpan="4"
+                             
+                             Name="progressMediaSize" Margin="0,0">
+                </ProgressBar>
+                <ToggleButton HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1"  Height="23" Name="buttonToggleGAP" Margin="0,2" Width="224" Click="buttonToggleGAP_Click">
+                    <TextBlock>Keine Pause zwischen Tracks</TextBlock>
+                </ToggleButton>
+            </Grid>
+
+        </GroupBox>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50*" />
+            </Grid.RowDefinitions>
+            <GroupBox Header="Inhalt Computer" Name="groupBox3"  VerticalContentAlignment="Stretch" Grid.Row="0" Margin="0,5,0,0">
+                <DockPanel>
+                    <ToolBar DockPanel.Dock="Top">
+                        <Button Name="buttonAdd" Click="buttonAdd_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Big3.Hitbase.SharedResources;component/Images/AddItems.png" Height="16" Width="16" />
+                                <TextBlock Text="Hinzufügen"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </ToolBar>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Name="SelectGridDirs" Width="Auto" MinWidth="50"/>
+                            <ColumnDefinition Width="3"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TreeView Grid.Column="0" ItemsSource="{Binding SelectDirectories}" ItemTemplate="{StaticResource DirectoryList}" Name="treeViewSelectDirectory" 
+                                  Background="Transparent" SelectedItemChanged="treeViewSelectDirectory_SelectedItemChanged" TreeViewItem.Expanded="treeViewSelectDirectory_Expanded"
+                                  dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="false" dd:DragDrop.DragAdornerTemplate="{StaticResource DirectoryList}">
+                            <TreeView.ItemContainerStyle>
+                                <Style TargetType="TreeViewItem">
+                                    <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded, Mode=TwoWay}" />
+                                    <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
+                                </Style>
+                            </TreeView.ItemContainerStyle>
+                        </TreeView>
+                        <GridSplitter Grid.Column="1" ResizeBehavior="PreviousAndNext" ResizeDirection="Columns" Width="3" />
+                        <DataGrid Grid.Column="2" Name="dataGridSelectDirectoryFiles" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" RowHeaderWidth="0" HeadersVisibility="Column" IsReadOnly="True" PreviewMouseDoubleClick="dataGridSelectDirectoryFiles_MouseDoubleClick" 
+                                  dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="false" dd:DragDrop.DragAdornerTemplate="{StaticResource DataTemplateFileList}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="Name" Width="*" SortMemberPath="Name" CellTemplate="{StaticResource DataTemplateFileList}">
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Änderungsdatum" Binding="{Binding LastModified}" />
+                                <DataGridTextColumn Header="Elementtyp" Binding="{Binding ElementType}" />
+                                <local:DataGridRightAlighTextColumn Header="Größe" Binding="{Binding Size, Converter={StaticResource FileSizeToStringConverter}}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </DockPanel>
+            </GroupBox>
+            <GroupBox Header="Inhalt neuer Datenträger" Name="groupBox4" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,5,0,0">
+                <DockPanel>
+                    <ToolBar DockPanel.Dock="Top">
+                        <Button Click="buttonCreateDir_Click" Name="buttonNew" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/NewFolder16.png" Width="16" DataContext="{Binding}" />
+                                <TextBlock Text=" Neu"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button Click="buttonDel_Click" Name="buttonDel" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/Delete12x12.png" Width="16" DataContext="{Binding}" />
+                                <TextBlock Text=" Löschen"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button Click="buttonGetPlaylist_Click" Name="buttonGetPlaylist" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/Playlist.png" Width="16" DataContext="{Binding}" />
+                                <TextBlock Text="{sr:Loc InsertPlaylist}"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </ToolBar>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Name="BurnGridDirs"  Width="100" />
+                            <ColumnDefinition Width="3" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TreeView Grid.Column="0" TreeViewItem.Selected="treeViewBurnDirectoryList_Selected" PreviewKeyDown="treeViewBurnDirectoryList_PreviewKeyDown"
+                                  ItemTemplate="{StaticResource EditableDirectoryList}" ItemsSource="{Binding AllBurnItems}" Name="treeViewBurnDirectoryList" Background="Transparent" SelectedItemChanged="treeViewBurnDirectoryList_SelectedItemChanged" AllowDrop="True" 
+                                  dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="true" dd:DragDrop.DragAdornerTemplate="{StaticResource EditableDirectoryList}"
+                                  dd:DragDrop.DropHandler="{Binding}"/>
+                        <GridSplitter Name="splitterBurnDirs" Grid.Column="1" ResizeBehavior="PreviousAndNext" ResizeDirection="Columns" Width="3" />
+
+                        <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" Grid.Column="2" Name="dataGridBurnFileList" IsReadOnly="False" AllowDrop="True" RowHeaderWidth="0" HeadersVisibility="Column" PreviewKeyDown="dataGridBurnFileList_PreviewKeyDown"
+                                  dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="true" dd:DragDrop.DragAdornerTemplate="{StaticResource DataTemplateBurnFileList}"
+                                  dd:DragDrop.DropHandler="{Binding}" SelectionChanged="dataGridBurnFileList_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="Name" Width="*" SortMemberPath="Name" CellTemplate="{StaticResource DataTemplateBurnFileList}" >
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Binding="{Binding LastModified}" Header="Änderungsdatum" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding ElementType}" Header="Elementtyp" IsReadOnly="True" />
+                                <local:DataGridRightAlighTextColumn Binding="{Binding Size, Converter={StaticResource FileSizeToStringConverter}}" Header="Größe" TextBlock.TextAlignment="Right" IsReadOnly="True" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </DockPanel>
+            </GroupBox>
+        </Grid>
+        <Grid Row="2" Margin="0,10,0,0">
+            <Button Height="54" HorizontalAlignment="Right" Name="buttonBurn" VerticalAlignment="Bottom" Width="138" Click="buttonBurn_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="/Big3.Hitbase.SharedResources;component/Images/BurnCDLarge.png" VerticalAlignment="Center" Width="48" Height="48"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" Text="Brennen!" Name="TextBlockBurn" />
+                </StackPanel>
+            </Button>
+            <TextBox Height="23" Margin="111,0,357,31" Name="textBoxCurrentBurnAction" VerticalAlignment="Bottom" IsReadOnly="True" />
+            <ProgressBar Height="23" Margin="111,0,357,0" Name="progressBarBurnStatus" VerticalAlignment="Bottom" />
+
+            <Label Content="Aktion:" HorizontalAlignment="Left" Margin="12,0,0,31" Name="label7" Width="93" Height="23" VerticalAlignment="Bottom" />
+            <Label Content="Fortschritt:" HorizontalAlignment="Left" Margin="12,0,0,0" Name="label8" Width="87" Height="23" VerticalAlignment="Bottom" />
+            <ToggleButton  Width="168" Height="23" VerticalAlignment="Center" Name="buttonTogglePlaySound" Click="buttonTogglePlaySound_Click" Margin="0,38,176,0" HorizontalAlignment="Right">
+                <TextBlock>Sound abspielen</TextBlock>
+            </ToggleButton>
+            <Button Content="..." Height="20" HorizontalAlignment="Right" Margin="0,40,154,0" Name="buttonSelectSound" VerticalAlignment="Top" Width="16" Click="buttonSelectSound_Click" />
+            <ToggleButton Width="190" Height="23" Name="buttonToggleEject" Click="buttonToggleEject_Click" Margin="0,7,154,31" HorizontalAlignment="Right">
+                <TextBlock>Medium auswerfen, wenn fertig</TextBlock>
+            </ToggleButton>
+        </Grid>
+    </Grid>
+</Window>

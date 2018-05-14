@@ -1,0 +1,7 @@
+; hitmisc.def : Declares the module parameters for the DLL.
+
+LIBRARY      "hitmisc"
+DESCRIPTION  'hitmisc Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here

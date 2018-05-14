@@ -1,0 +1,672 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A1F74ECE-CEF8-4A0F-9DFD-75820D8F5F77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Big3.Hitbase.DataBaseEngine</RootNamespace>
+    <AssemblyName>DataBaseEngine</AssemblyName>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>http://localhost/DataBaseEngine/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\SQL Server Compact 4.0\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlbumView.cs" />
+    <Compile Include="AutoCompleteTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AutoCompleteTextBox.designer.cs">
+      <DependentUpon>AutoCompleteTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Categories.cs" />
+    <Compile Include="CategoryDataSet.cs">
+      <DependentUpon>CategoryDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CategoryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CategoryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CD.cs" />
+    <Compile Include="CDArchiveLocalFile.cs" />
+    <Compile Include="CDDataSet.cs">
+      <DependentUpon>CDDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CDDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CDDataView.cs">
+    </Compile>
+    <Compile Include="CDQueryDataSet.cs">
+      <DependentUpon>CDQueryDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CDQueryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDQueryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CDTreeDataSet.cs">
+      <DependentUpon>CDTreeDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CDTreeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDTreeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CodeDataSet.cs">
+      <DependentUpon>CodeDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CodeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CodeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertDataSet.cs">
+      <DependentUpon>ConvertDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConvertDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConvertDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SearchDataSet.cs">
+      <DependentUpon>SearchDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SearchDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Track.cs" />
+    <Compile Include="TrackView.cs" />
+    <Compile Include="DataBaseView.cs" />
+    <Compile Include="Delegates.cs" />
+    <Compile Include="FormCDAlreadyExists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCDAlreadyExists.Designer.cs">
+      <DependentUpon>FormCDAlreadyExists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupParticipant.cs" />
+    <Compile Include="GroupParticipantDataSet.cs">
+      <DependentUpon>GroupParticipantDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GroupParticipantDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupParticipantDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HelperClasses.cs" />
+    <Compile Include="PersonGroup.cs" />
+    <Compile Include="PersonGroupCatalogViewDataSet.cs">
+      <DependentUpon>PersonGroupCatalogViewDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PersonGroupCatalogViewDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonGroupCatalogViewDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QueueDataSet.cs">
+      <DependentUpon>QueueDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QueueDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QueueDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TrackDataView.cs" />
+    <Compile Include="DialogDataSet.cs">
+      <DependentUpon>DialogDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DialogDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DialogDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="FormConvertHdbToHdbx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConvertHdbToHdbx.Designer.cs">
+      <DependentUpon>FormConvertHdbToHdbx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConvertProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConvertProgress.Designer.cs">
+      <DependentUpon>FormConvertProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalUtilities.cs" />
+    <Compile Include="Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="IndexDataSet.cs">
+      <DependentUpon>IndexDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IndexDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IndexDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LoanedCDDataSet.cs">
+      <DependentUpon>LoanedCDDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LoanedCDDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoanedCDDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Medium.cs" />
+    <Compile Include="DataBase.cs" />
+    <Compile Include="Field.cs" />
+    <Compile Include="HdbToSdfConverter.cs" />
+    <Compile Include="MasterConfig.cs" />
+    <Compile Include="MasterDataSet.cs">
+      <DependentUpon>MasterDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MasterDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MdbToSdfConverter.cs" />
+    <Compile Include="MediumDataSet.cs">
+      <DependentUpon>MediumDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MediumDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediumDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ParticipantDataSet.cs">
+      <DependentUpon>ParticipantDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ParticipantDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParticipantDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PersonGroupDataSet.cs">
+      <DependentUpon>PersonGroupDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PersonGroupDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonGroupDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramDataSet.cs">
+      <DependentUpon>ProgramDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProgramDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProgramDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RoleDataSet.cs">
+      <DependentUpon>RoleDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoleDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Condition.cs" />
+    <Compile Include="SetDataSet.cs">
+      <DependentUpon>SetDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SetDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TrackDataSet.cs">
+      <DependentUpon>TrackDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TrackDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrackDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Url.cs" />
+    <Compile Include="UrlDataSet.cs">
+      <DependentUpon>UrlDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UrlDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UrlDataSet.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Hitbase.sdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="GroupParticipantDataSet.xsc">
+      <DependentUpon>GroupParticipantDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GroupParticipantDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GroupParticipantDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="GroupParticipantDataSet.xss">
+      <DependentUpon>GroupParticipantDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PersonGroupCatalogViewDataSet.xsc">
+      <DependentUpon>PersonGroupCatalogViewDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PersonGroupCatalogViewDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PersonGroupCatalogViewDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PersonGroupCatalogViewDataSet.xss">
+      <DependentUpon>PersonGroupCatalogViewDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\ConvertDatabase.png" />
+    <None Include="SearchDataSet.xsc">
+      <DependentUpon>SearchDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SearchDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SearchDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SearchDataSet.xss">
+      <DependentUpon>SearchDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UrlDataSet.xsc">
+      <DependentUpon>UrlDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UrlDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UrlDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="UrlDataSet.xss">
+      <DependentUpon>UrlDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="CategoryDataSet.xsc">
+      <DependentUpon>CategoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CategoryDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CategoryDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CategoryDataSet.xss">
+      <DependentUpon>CategoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CDDataSet.xsc">
+      <DependentUpon>CDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CDDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CDDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CDDataSet.xss">
+      <DependentUpon>CDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CDQueryDataSet.xsc">
+      <DependentUpon>CDQueryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CDQueryDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CDQueryDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CDQueryDataSet.xss">
+      <DependentUpon>CDQueryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CDTreeDataSet.xsc">
+      <DependentUpon>CDTreeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CDTreeDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CDTreeDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CDTreeDataSet.xss">
+      <DependentUpon>CDTreeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CodeDataSet.xsc">
+      <DependentUpon>CodeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CodeDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CodeDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CodeDataSet.xss">
+      <DependentUpon>CodeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ConvertDataSet.xsc">
+      <DependentUpon>ConvertDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ConvertDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConvertDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ConvertDataSet.xss">
+      <DependentUpon>ConvertDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DialogDataSet.xsc">
+      <DependentUpon>DialogDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DialogDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DialogDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DialogDataSet.xss">
+      <DependentUpon>DialogDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="IndexDataSet.xsc">
+      <DependentUpon>IndexDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="IndexDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IndexDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="IndexDataSet.xss">
+      <DependentUpon>IndexDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LoanedCDDataSet.xsc">
+      <DependentUpon>LoanedCDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LoanedCDDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LoanedCDDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LoanedCDDataSet.xss">
+      <DependentUpon>LoanedCDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MasterDataSet.xsc">
+      <DependentUpon>MasterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MasterDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MasterDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="MasterDataSet.xss">
+      <DependentUpon>MasterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MediumDataSet.xsc">
+      <DependentUpon>MediumDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MediumDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MediumDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="MediumDataSet.xss">
+      <DependentUpon>MediumDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ParticipantDataSet.xsc">
+      <DependentUpon>ParticipantDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ParticipantDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ParticipantDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ParticipantDataSet.xss">
+      <DependentUpon>ParticipantDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PersonGroupDataSet.xsc">
+      <DependentUpon>PersonGroupDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PersonGroupDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PersonGroupDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PersonGroupDataSet.xss">
+      <DependentUpon>PersonGroupDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProgramDataSet.xsc">
+      <DependentUpon>ProgramDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProgramDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProgramDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ProgramDataSet.xss">
+      <DependentUpon>ProgramDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QueueDataSet.xsc">
+      <DependentUpon>QueueDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QueueDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QueueDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QueueDataSet.xss">
+      <DependentUpon>QueueDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RoleDataSet.xsc">
+      <DependentUpon>RoleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RoleDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RoleDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RoleDataSet.xss">
+      <DependentUpon>RoleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SetDataSet.xsc">
+      <DependentUpon>SetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SetDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SetDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SetDataSet.xss">
+      <DependentUpon>SetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TrackDataSet.xsc">
+      <DependentUpon>TrackDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TrackDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TrackDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TrackDataSet.xss">
+      <DependentUpon>TrackDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormCDAlreadyExists.resx">
+      <DependentUpon>FormCDAlreadyExists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConvertHdbToHdbx.resx">
+      <DependentUpon>FormConvertHdbToHdbx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConvertProgress.resx">
+      <DependentUpon>FormConvertProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Big3.Hitbase.SharedResources\Big3.Hitbase.SharedResources.csproj">
+      <Project>{F6825A2F-F2B6-465E-8A7F-9B380BD65CB2}</Project>
+      <Name>Big3.Hitbase.SharedResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Configuration\Big3.Hitbase.Configuration.csproj">
+      <Project>{0D1AE543-68CA-4DC8-826B-38987B119B4A}</Project>
+      <Name>Big3.Hitbase.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Misc\Big3.Hitbase.Miscellaneous.csproj">
+      <Project>{1B40397C-387B-4145-9EDD-77414FB90F6E}</Project>
+      <Name>Big3.Hitbase.Miscellaneous</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

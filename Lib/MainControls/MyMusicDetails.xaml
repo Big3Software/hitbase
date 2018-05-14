@@ -1,0 +1,362 @@
+﻿<UserControl x:Class="Big3.Hitbase.MainControls.MyMusicDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:hc="clr-namespace:Big3.Hitbase.Controls;assembly=Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dd="clr-namespace:Big3.Hitbase.Controls.DragDrop;assembly=Controls"
+             xmlns:local="clr-namespace:Big3.Hitbase.MainControls"
+             xmlns:misc="clr-namespace:Big3.Hitbase.Miscellaneous;assembly=Misc"
+             xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="900" x:Name="myMusicDetails">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <local:AlbumViewDataTemplateSelector x:Key="AlbumViewSelector" />
+            <misc:LengthConverter x:Key="lengthConverter" />
+            <local:TrackColorForegroundConverter x:Key="trackColorForegroundConverter" />
+            <misc:FileExistsToVisibilityConverter x:Key="fileExistsToVisibilityConverter" />
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" x:Key="BrushTextBlockHeader">
+                <GradientStopCollection>
+                    <GradientStop Color="#EEF5FC" Offset="0" />
+                    <GradientStop Color="#D9E5F2" Offset="1" />
+                </GradientStopCollection>
+            </LinearGradientBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" x:Key="BrushTextBlockHeaderMouseDown">
+                <GradientStopCollection>
+                    <GradientStop Color="#D9E5F2" Offset="0" />
+                    <GradientStop Color="#A9C5D2" Offset="1" />
+                </GradientStopCollection>
+            </LinearGradientBrush>
+            <Style x:Key="HeaderTextBlockStyle" TargetType="{x:Type TextBlock}">
+<!--                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter Property="Background" Value="#B0C6DF" />
+                    </Trigger>
+                </Style.Triggers>-->
+                <EventSetter Event="PreviewMouseMove" Handler="HeaderTextBlock_MouseMove" />
+                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="HeaderTextBlock_MouseLeftButtonDown" />
+                <EventSetter Event="PreviewMouseLeftButtonUp" Handler="HeaderTextBlock_MouseLeftButtonUp" />
+                <Setter Property="Background" Value="{StaticResource BrushTextBlockHeader}" />
+                <Setter Property="Padding" Value="4" />
+                <Setter Property="Margin" Value="0,0,1,1" />
+            </Style>
+
+            <DataTemplate x:Key="TrackListBoxTemplate">
+                <StackPanel UseLayoutRounding="True" Orientation="Horizontal" SnapsToDevicePixels="True" Name="StackPanelTrack" Height="18" TextElement.Foreground="{Binding Converter={StaticResource trackColorForegroundConverter}, IsAsync=True}">
+                    <StackPanel.Background>
+                        <LinearGradientBrush x:Name="BackgroundBrush" StartPoint="0,0" EndPoint="0,1" Opacity="0">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStop Color="#3EB8F1" Offset="0" />
+                                <GradientStop Color="#2B77BF" Offset="1" />
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <StackPanel x:Name="PlayButtons" SnapsToDevicePixels="True" Width="70" Orientation="Horizontal" Opacity="0" Visibility="{Binding Soundfile, Converter={StaticResource fileExistsToVisibilityConverter}}">
+                        <Image x:Name="ImagePlayNow" SnapsToDevicePixels="True" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,1,0,0" Stretch="None" ToolTip="Sofort spielen" MouseLeftButtonUp="ImagePlayNow_MouseLeftButtonUp" >
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Image.Source" Value="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/PlayNow.png" />
+                                    <Style.Triggers>
+                                        <Trigger Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Source" Value="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/PlayNowHover.png" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Image x:Name="ImagePlayNext" SnapsToDevicePixels="True" Margin="1,1,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="None" ToolTip="Als nächstes spielen" MouseLeftButtonUp="ImagePlayNext_MouseLeftButtonUp">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Image.Source" Value="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/PlayNext.png" />
+                                    <Style.Triggers>
+                                        <Trigger Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Source" Value="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/PlayNextHover.png" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Image x:Name="ImagePlayLast" SnapsToDevicePixels="True" Margin="1,1,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="None" ToolTip="Als letztes spielen" MouseLeftButtonUp="ImagePlayLast_MouseLeftButtonUp">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Image.Source" Value="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/PlayLast.png" />
+                                    <Style.Triggers>
+                                        <Trigger Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Source" Value="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/PlayLastHover.png" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Image x:Name="ImagePlayPreListen" SnapsToDevicePixels="True" Margin="1,1,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="None" ToolTip="Vorhören (Pre-Listen)" MouseLeftButtonUp="ImagePlayPreListen_MouseLeftButtonUp">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Image.Source" Value="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/PlayPreListen.png" />
+                                    <Style.Triggers>
+                                        <Trigger Property="Image.IsMouseOver" Value="True">
+                                            <Setter Property="Image.Source" Value="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/PlayPreListenHover.png" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </StackPanel>
+                    <TextBlock Width="{Binding NumberColumnWidth, ElementName=myMusicDetails}" VerticalAlignment="Center" Text="{Binding TrackNumber}" />
+                    <TextBlock Width="{Binding TitleColumnWidth, ElementName=myMusicDetails}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Text="{Binding Title}" />
+                    <TextBlock Width="{Binding LengthColumnWidth, ElementName=myMusicDetails}" VerticalAlignment="Center" Text="{Binding Length, Converter={StaticResource lengthConverter}}" />
+                    <hc:RatingUserControl Height="14" Width="{Binding RatingColumnWidth, ElementName=myMusicDetails}" Rating="{Binding Rating}" VerticalAlignment="Center" MouseLeftButtonDown="RatingUserControl_MouseLeftButtonDown" />
+                    <TextBlock Width="{Binding ComposerColumnWidth, ElementName=myMusicDetails}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Text="{Binding Composer}" />
+                </StackPanel>
+                <DataTemplate.Triggers>
+                    <EventTrigger SourceName="StackPanelTrack" RoutedEvent="TextBlock.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                <DoubleAnimation Storyboard.TargetName="BackgroundBrush"
+                                                                    Storyboard.TargetProperty="Opacity"
+                                                                    From="0" To="1" Duration="00:00:00.3" />
+                                <DoubleAnimation Storyboard.TargetName="PlayButtons" 
+                                                                                 Storyboard.TargetProperty="Opacity"
+                                                                                 From="0" To="1" Duration="00:00:00.3" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger SourceName="StackPanelTrack" RoutedEvent="TextBlock.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="BackgroundBrush"
+                                                                    Storyboard.TargetProperty="Opacity"
+                                                                    From="1" To="0" Duration="00:00:00.3" />
+                                <DoubleAnimation Storyboard.TargetName="PlayButtons" 
+                                                                                 Storyboard.TargetProperty="Opacity"
+                                                                                 From="1" To="0" Duration="00:00:00.3" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+
+
+            <DataTemplate x:Key="AlbumViewTitleDataTemplate">
+                <Border Name="ItemContainer" BorderThickness="1" CornerRadius="5" BorderBrush="Transparent" Height="18" ContextMenuOpening="ItemContainer_ContextMenuOpening">
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Foreground="#0E7DC8" Margin="10,0,5,0" DockPanel.Dock="Left" Text="{Binding Title}"></TextBlock>
+                        <Rectangle VerticalAlignment="Center" Width="2000" Height="1" Fill="#30000000"></Rectangle>
+                    </StackPanel>
+                </Border>
+                <DataTemplate.Triggers>
+                    <Trigger SourceName="ItemContainer" Property="IsMouseOver" Value="True">
+                        <Setter TargetName="ItemContainer" Property="Background" >
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <LinearGradientBrush.GradientStops>
+                                        <!--<GradientStop Color="#F8FBFE" Offset="0" />
+                                            <GradientStop Color="#E8F2FE" Offset="1" />-->
+                                        <GradientStop Color="#90FFFFFF" Offset="0" />
+                                        <GradientStop Color="#30FFFFFF" Offset="1" />
+                                    </LinearGradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter TargetName="ItemContainer" Property="BorderBrush" Value="#400000FF" />
+                    </Trigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AlbumViewItemDataTemplate">
+                <Border Name="ItemContainer" MinHeight="100" BorderThickness="1" CornerRadius="5" BorderBrush="Transparent">
+                    <Grid Name="GridRow" Background="Transparent" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Width="{Binding AlbumColumnWidth, ElementName=myMusicDetails}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <hc:ChoosePictureUserControl VerticalAlignment="Top" ImageWatermark="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/CDCover.png" ButtonText="" Grid.Column="0" ImageFilename="{Binding Path=ImageFilename, IsAsync=True, Mode=TwoWay}" Height="80" Width="80" Margin="0,5,10,10" Artist="{Binding Artist}" Title="{Binding Title}" DataBase="{Binding DataBase, ElementName=myMusicDetails}" CDID="{Binding ID}" >
+                                
+                            </hc:ChoosePictureUserControl>
+                            <StackPanel Orientation="Vertical" Grid.Column="1">
+                                <TextBlock Text="{Binding Path=Artist}" TextTrimming="CharacterEllipsis" Margin="0 3 0 3" />
+                                <TextBlock Text="{Binding Path=Title}"  TextTrimming="CharacterEllipsis" Margin="0 3 0 3" />
+                                <TextBlock Text="{Binding Path=Genre}"  TextTrimming="CharacterEllipsis" Margin="0 3 0 3" />
+                                <TextBlock Text="{Binding Path=Year}"  TextTrimming="CharacterEllipsis" Margin="0 3 0 3" />
+                                <TextBlock Text="{Binding Path=ArchiveNumber}"  TextTrimming="CharacterEllipsis" Margin="0 3 0 3" />
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <!--<ScrollViewer MaxHeight="362" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" >-->
+                            <ListBox VirtualizingStackPanel.IsVirtualizing="True"  MaxHeight="362"
+                                         Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                         ItemContainerStyle="{DynamicResource MyListBoxTrackItemContainerStyle}"
+                                         ItemsSource="{Binding Path=Tracks}" BorderThickness="0" SnapsToDevicePixels="True" 
+                                         ItemTemplate="{StaticResource TrackListBoxTemplate}" PreviewMouseWheel="ListBox_PreviewMouseWheel" 
+                                         Foreground="{DynamicResource DefaultForeground}" SelectionMode="Extended" 
+                                         dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="false" dd:DragDrop.DragAdornerTemplate="{StaticResource TrackListBoxTemplate}">
+                                <ListBox.ContextMenu>
+                                    <ContextMenu DataContext="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PlacementTarget}">
+                                        <MenuItem Header="Sofort spielen" Click="AddTracksToPlaylistPlayNow_Click">
+                                            <MenuItem.Icon>
+                                                <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/PlayNowBlack.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Als nächstes spielen" Click="AddTracksToPlaylistPlayNext_Click">
+                                            <MenuItem.Icon>
+                                                <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/PlayNextBlack.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Als letztes spielen" Click="AddTracksToPlaylistPlayLast_Click">
+                                            <MenuItem.Icon>
+                                                <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/PlayLastBlack.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Header="Vorhören (Pre-Listen)" Click="AddTracksToPlaylistPreListen_Click">
+                                            <MenuItem.Icon>
+                                                <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/PlayPreListenBlack.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <Separator />
+                                        <MenuItem Header="Speicherort öffnen" Command="sr:HitbaseCommands.OpenTrackLocation" CommandParameter="{Binding SelectedItem.ID}">
+                                            <MenuItem.Icon>
+                                                <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/OpenFolder.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <Separator />
+                                        <MenuItem Header="Zur Wunschliste hinzufügen" Command="sr:HitbaseCommands.AddToWishlist" CommandParameter="{Binding SelectedItem.ID}">
+                                            <MenuItem.Icon>
+                                                <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/AddToWishlist.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <Separator />
+                                        <MenuItem Header="Eigenschaften" Command="sr:HitbaseCommands.OpenTrack" CommandParameter="{Binding SelectedItem.ID}">
+                                            <MenuItem.Icon>
+                                                <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/Properties.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </ListBox.ContextMenu>
+                                </ListBox>
+                            <!--</ScrollViewer>-->
+                        </Grid>
+
+                    </Grid>
+                </Border>
+                <DataTemplate.Triggers>
+                    <Trigger SourceName="ItemContainer" Property="IsMouseOver" Value="True">
+                        <Setter TargetName="ItemContainer" Property="Background" Value="{DynamicResource MyMusicItemHoverBackground}" />
+                        <Setter TargetName="ItemContainer" Property="BorderBrush" Value="#400000FF" />
+                    </Trigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <DockPanel >
+        <Grid DockPanel.Dock="Top" Background="{StaticResource BrushTextBlockHeader}" Name="GridHeader">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.ColumnSpan="6" Fill="#30000000"/>
+            <TextBlock Grid.Column="0" Text="Album" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+            <TextBlock Grid.Column="1" Text="Nummer" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+            <TextBlock Grid.Column="2" Text="Titel" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+            <TextBlock Grid.Column="3" Text="Länge" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+            <TextBlock Grid.Column="4" Text="Bewertung" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+            <TextBlock Grid.Column="5" Text="Komponist" Style="{StaticResource HeaderTextBlockStyle}"></TextBlock>
+        </Grid>
+        <ListBox x:Name="itemsControl" ItemTemplateSelector="{StaticResource AlbumViewSelector}" Foreground="{DynamicResource DefaultForeground}" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                      VirtualizingStackPanel.IsVirtualizing="True" 
+                      ScrollViewer.CanContentScroll="true" 
+                      VirtualizingStackPanel.VirtualizationMode="Recycling" 
+                      ItemContainerStyle="{DynamicResource MyListBoxItemContainerStyle}"
+                      AlternationCount="2" MouseDoubleClick="itemsControl_MouseDoubleClick"
+                 dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="false" >
+            <ListBox.ContextMenu>
+                <ContextMenu DataContext="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PlacementTarget}">
+                    <MenuItem Header="Löschen" Command="sr:HitbaseCommands.DeleteAlbum">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/delete.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="Ins CD-Archiv übertragen" Command="sr:HitbaseCommands.SendCDToCDArchive" CommandParameter="{Binding SelectedItem.ID}">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/SendToInternet.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Verliehen..." Command="sr:HitbaseCommands.CDLoaned" CommandParameter="{Binding SelectedItem.ID}">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/LoanCD.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="Sofort spielen" Command="sr:HitbaseCommands.AddAlbumToPlaylistNow" CommandParameter="{Binding SelectedItem.ID}">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/PlayNowBlack.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Als nächstes spielen" Command="sr:HitbaseCommands.AddAlbumToPlaylistNext" CommandParameter="{Binding SelectedItem.ID}">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/PlayNextBlack.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Als letztes spielen" Command="sr:HitbaseCommands.AddAlbumToPlaylistLast" CommandParameter="{Binding SelectedItem.ID}">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/PlayLastBlack.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <Separator />
+                    <MenuItem Header="Drucken" Command="sr:HitbaseCommands.PrintAlbum" CommandParameter="{Binding SelectedItem.ID}">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/Print.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="In die Zwischenablage kopieren" Command="sr:HitbaseCommands.CopyToClipboard" CommandParameter="{Binding SelectedItem.ID}">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/Copy.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="Schreibweise anpassen" Command="sr:HitbaseCommands.AdjustSpelling" CommandParameter="{Binding SelectedItem.ID}">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/AdjustSpelling.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="Eigenschaften" Command="sr:HitbaseCommands.OpenAlbum" CommandParameter="{Binding SelectedItem.ID}">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="/Big3.Hitbase.SharedResources;component/Images/Properties.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <local:VirtualizingAlbumPanel></local:VirtualizingAlbumPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.Template>
+                <ControlTemplate>
+                    <ScrollViewer x:Name="ScrollViewer" Padding="{TemplateBinding Padding}">
+                        <ItemsPresenter />
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ListBox.Template>
+        </ListBox>
+    </DockPanel>
+</UserControl>

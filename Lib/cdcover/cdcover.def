@@ -1,0 +1,6 @@
+; cdcover.def : Declares the module parameters for the DLL.
+
+LIBRARY      "cdcover"
+
+EXPORTS
+    ; Explicit exports can go here

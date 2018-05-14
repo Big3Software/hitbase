@@ -1,0 +1,13 @@
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\bin\Debug\SLUtil.exe
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\bin\Debug\SLUtil.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\bin\Debug\VistaBridgeLibrary.dll
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\bin\Debug\Windows7.DesktopIntegration.dll
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\bin\Debug\Windows7.DesktopIntegration.Registration.exe
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\bin\Debug\VistaBridgeLibrary.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\bin\Debug\VistaBridgeLibrary.xml
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\bin\Debug\Windows7.DesktopIntegration.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\bin\Debug\Windows7.DesktopIntegration.xml
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\bin\Debug\Windows7.DesktopIntegration.Registration.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\obj\Debug\SLUtil.exe
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Libraries\Windows7.DesktopIntegration.SLUtil\obj\Debug\SLUtil.pdb

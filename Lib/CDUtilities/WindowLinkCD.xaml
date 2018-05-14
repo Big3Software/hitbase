@@ -1,0 +1,43 @@
+﻿<Window x:Class="Big3.Hitbase.CDUtilities.WindowLinkCD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Style="{DynamicResource MyWindowStyle}"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:misc="clr-namespace:Big3.Hitbase.Miscellaneous;assembly=Misc"
+        Title="Zuordnung der aktuellen CD" MinHeight="500" MinWidth="660" Height="500" Width="660" SourceInitialized="Window_SourceInitialized"
+        
+        TextOptions.TextFormattingMode="Display" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <misc:LengthConverter x:Key="lengthConverter" />
+    </Window.Resources>
+    <Grid Margin="10">
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,13,0,0" Name="textBlock1" Text="Wählen Sie aus der Liste die CD, die der aktuell eingelegten CD zugeordnet werden soll:" VerticalAlignment="Top" />
+
+        <DataGrid AutoGenerateColumns="False" Margin="0,40,0,189" Name="DataGridResult" SelectionChanged="DataGridResult_SelectionChanged"
+            CanUserAddRows="false" CanUserDeleteRows="false" Background="Transparent" MouseDoubleClick="DataGridResult_MouseDoubleClick"
+            CanUserResizeRows="False" IsReadOnly="True"
+            BorderThickness="0" HeadersVisibility="Column" RowHeaderWidth="0" SelectionUnit="FullRow" EnableRowVirtualization="True" EnableColumnVirtualization="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Interpret" Width="250" Binding="{Binding Artist}" />
+                <DataGridTextColumn Header="Titel" Width="250" Binding="{Binding Title}" />
+                <DataGridTextColumn Header="Länge" Width="50" Binding="{Binding Length, Converter={StaticResource lengthConverter}}" />
+                <DataGridTextColumn Header="Tracks" Width="50" Binding="{Binding NumberOfTracks}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
+        <GroupBox Header="Zeige nur CDs, auf die folgende Kriterien zutreffen:" HorizontalAlignment="Left" Margin="0,0,0,56" Name="groupBox1" Width="464" Height="127" VerticalAlignment="Bottom">
+            <Grid>
+                <CheckBox Content="Gleiche Trackanzahl" Height="16" HorizontalAlignment="Left" Margin="10,10,0,0" Name="checkBoxSameTrackCount" VerticalAlignment="Top" />
+                <CheckBox Content="Noch nicht zugewiesen" Height="16" HorizontalAlignment="Left" Margin="10,36,0,0" Name="checkBoxNotAssigned" VerticalAlignment="Top" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="14,71,0,0" Name="textBlock2" Text="Interpret:" VerticalAlignment="Top" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="70,68,0,0" Name="textBoxArtist" VerticalAlignment="Top" Width="120" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="233,71,0,0" Name="textBlock3" Text="Titel:" VerticalAlignment="Top" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="264,68,0,0" Name="textBoxTitle" VerticalAlignment="Top" Width="120" />
+            </Grid>
+        </GroupBox>
+        <Button Content="Suche starten" HorizontalAlignment="Right" Margin="0,0,0,143" Name="buttonSearch" Width="106" Click="buttonSearch_Click" Height="23" VerticalAlignment="Bottom" />
+        <Button Content="CD anzeigen..." HorizontalAlignment="Right" Margin="0,0,0,111" Name="buttonShowCD" Width="106" Click="buttonShowCD_Click" Height="23" VerticalAlignment="Bottom" />
+        <Button Content="OK" Height="23" HorizontalAlignment="Right" Margin="0,0,95,0" Name="buttonOK" VerticalAlignment="Bottom" Width="75" Click="buttonOK_Click" />
+        <Button Content="Abbrechen" Height="23" HorizontalAlignment="Right" Margin="0,0,0,0" Name="buttonCancel" VerticalAlignment="Bottom" Width="83" IsCancel="True" />
+    </Grid>
+</Window>

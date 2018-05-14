@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Big3.Hitbase.Controls.ChoosePictureUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+             d:DesignHeight="200" d:DesignWidth="200" Name="choosePictureUserControl">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
+        </Style>
+
+        <ContextMenu x:Key="myContextMenu" Opened="ContextMenu_Opened">
+            <MenuItem Name="menuItemChooseImage" Click="menuItemChooseImage_Click" Header="Bild auswählen..."></MenuItem>
+            <MenuItem Header="Bild scannen..." Click="menuItemScan_Click"></MenuItem>
+            <MenuItem Name="menuItemLoadFromWeb" Header="Bild aus dem Internet laden" Click="menuItemLoadFromWeb_Click"></MenuItem>
+            <MenuItem Name="menuItemSearchInWeb" Header="Bild im Internet suchen..." Click="menuItemSearchInWeb_Click"></MenuItem>
+            <MenuItem Name="menuItemShowImage" Header="Bild anzeigen" Click="menuItemShowImage_Click"></MenuItem>
+            <MenuItem Name="menuItemEditImage" Header="Bild bearbeiten" Click="menuItemEditImage_Click"></MenuItem>
+            <MenuItem Name="menuItemDelete" Click="menuItemDelete_Click" Header="Bild entfernen"></MenuItem>
+            <Separator></Separator>
+            <MenuItem Name="menuItemCopy" Click="menuItemCopy_Click" Header="Kopieren">
+                <MenuItem.Icon>
+                    <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/Copy.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Name="menuItemPaste" Click="menuItemPaste_Click" Header="Einfügen">
+                <MenuItem.Icon>
+                    <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/Paste.png" />
+                </MenuItem.Icon>
+            </MenuItem>
+        </ContextMenu>
+
+        <Button x:Key="mySearchPictureButton" Name="SearchPictureButton" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,5,5" Opacity="0" Click="SearchPictureButton_Click"  ToolTip="{sr:Loc ClickHereToSearchPicture}">
+            <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/SearchPicture.png" />
+        </Button>
+        <Button x:Key="myShowPictureButton" Name="ShowPictureButton" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,5,5" Opacity="0" Click="ShowPictureButton_Click"  ToolTip="{sr:Loc ClickHereToShowPicture}" Visibility="Collapsed">
+            <Image Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/ShowPicture.png" />
+        </Button>
+
+    </UserControl.Resources>
+    <Grid MouseRightButtonUp="Grid_MouseRightButtonUp" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" x:Name="theGrid" MinHeight="20" MinWidth="20">
+        <Button Name="buttonChoosePicture" Click="buttonChoosePicture_Click">
+            <Grid>
+                <Image Name="imageBackground" Margin="5" Source="{Binding Path=ImageWatermark,ElementName=choosePictureUserControl}"></Image>
+                <TextBlock Margin="5" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Klicken Sie hier, um ein Bild hinzuzufügen." Name="textBlock" TextWrapping="Wrap" />
+            </Grid>
+        </Button>
+        <!--<Grid Name="GridImage" Visibility="Collapsed">-->
+            <Image Name="image" Stretch="Uniform" >
+                <!--<Image.Effect>
+                    <DropShadowEffect Color="LightGray" />
+                </Image.Effect>-->
+            </Image>
+            <!--<Image Name="glassImage" Stretch="Fill" Source="pack://application:,,,/Big3.Hitbase.SharedResources;component/Images/glaseffekt-frontglas.png">
+            
+            </Image>-->
+        <!--</Grid>-->
+    </Grid>
+</UserControl>

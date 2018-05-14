@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Segoe UI" Size="9" />
+  <Class Name="System.Windows.Forms.Ribbon" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Ribbon.cs</FileName>
+      <HashCode>AwGEEMJMAUAFBaAAEAJAADQCERAEEUAAcYCAAADCIgQ=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Tabs" />
+      <Property Name="Contexts" />
+      <Property Name="Sensor" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Tabs" Type="System.Windows.Forms.RibbonTabCollection" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.625" Y="0.5" />
+        <Point X="1.625" Y="0.26" />
+        <Point X="3.25" Y="0.26" />
+        <Point X="3.25" Y="0.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.496" Y="0.132" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Contexts" Type="System.Windows.Forms.RibbonTabContextCollection">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.559" Y="0.228" Height="0.182" Width="0.951" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Sensor" Type="System.Windows.Forms.RibbonTabSensor">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.358" Y="0.783" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonPanel" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>RibbonPanel.cs</FileName>
+      <HashCode>gACAgADIgEAhCMAFCgFCBADiABAA0hEJIIQICCWLQgI=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FlowsTo" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Items" Type="System.Windows.Forms.RibbonItem" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="0.697" />
+        <Point X="9" Y="0.697" />
+        <Point X="9" Y="4.256" />
+        <Point X="9.75" Y="4.256" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="FlowsTo" Type="System.Windows.Forms.RibbonPanelFlowDirection">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.432" Y="0.115" Height="0.182" Width="0.833" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonPanelCollection" Collapsed="true">
+    <Position X="4.75" Y="2" Width="2" />
+    <TypeIdentifier>
+      <FileName>RibbonPanelCollection.cs</FileName>
+      <HashCode>AAIAgECIAAABAAAEAAAAAAAAAAAAAAAAAAAAAAAFAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonItem" Collapsed="true">
+    <Position X="9.75" Y="4" Width="2" />
+    <TypeIdentifier>
+      <FileName>RibbonItem.cs</FileName>
+      <HashCode>AACAgATIiQghJMCFBgBAAAhiIBAIWBUZIIAACAaHSjM=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonItemCollection" Collapsed="true">
+    <Position X="12.75" Y="7.5" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>RibbonItemCollection.cs</FileName>
+      <HashCode>AAYEgECIAAABEAAUAAAAAAAAAAAICQAAAAAIGAAFAAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonTab" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>RibbonTab.cs</FileName>
+      <HashCode>AYCAgADIAgAgBoAEAgRAAABgABAAAAE5AIAQCYCEwEI=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Panels" />
+      <Property Name="Context" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Panels" Type="System.Windows.Forms.RibbonPanelCollection">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.251" Y="0.267" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Context" Type="System.Windows.Forms.RibbonTabContext" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="0.773" />
+        <Point X="4.312" Y="0.773" />
+        <Point X="4.312" Y="1.254" />
+        <Point X="3.625" Y="1.254" />
+        <Point X="3.625" Y="2" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.419" Y="0.199" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonTabCollection" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>RibbonTabCollection.cs</FileName>
+      <HashCode>AAIAgECIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonElementPaintEventArgs" Collapsed="true">
+    <Position X="0.5" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>RibbonElementPaintEventArgs.cs</FileName>
+      <HashCode>AAAAAAAAAIAAAAAAAgAAAAAACAAAAAACAAAAIAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonButton" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RibbonButton.cs</FileName>
+      <HashCode>iRCAAACIAACJAAIlYAAAAIEgIAAABgAIDAAABCAAkQE=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Style" />
+    </ShowAsAssociation>
+    <InheritanceLine Type="System.Windows.Forms.RibbonItem" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="4.25" />
+        <Point X="12.125" Y="4.25" />
+        <Point X="12.125" Y="2.875" />
+        <Point X="12.75" Y="2.875" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Style" Type="System.Windows.Forms.RibbonButtonStyle" FixedToPoint="true">
+      <Path>
+        <Point X="15" Y="2.812" />
+        <Point X="16.5" Y="2.812" />
+      </Path>
+    </AssociationLine>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonTextBox" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>RibbonTextBox.cs</FileName>
+      <HashCode>AACAAACAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <InheritanceLine Type="System.Windows.Forms.RibbonItem" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="4.25" />
+        <Point X="12.125" Y="4.25" />
+        <Point X="12.125" Y="1.812" />
+        <Point X="12.75" Y="1.812" />
+      </Path>
+    </InheritanceLine>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonButtonList" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RibbonButtonList.cs</FileName>
+      <HashCode>QAKAACCIwAAhIAAAIAAgAAGiCAgBgoBAAAAIgCAAQAE=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Buttons" />
+    </ShowAsAssociation>
+    <InheritanceLine Type="System.Windows.Forms.RibbonItem" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="4.437" />
+        <Point X="12.125" Y="4.437" />
+        <Point X="12.125" Y="3.813" />
+        <Point X="12.75" Y="3.813" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Buttons" Type="System.Windows.Forms.RibbonButtonCollection">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.365" Y="0.25" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonSeparator" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>RibbonSeparator.cs</FileName>
+      <HashCode>AACAAACAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <InheritanceLine Type="System.Windows.Forms.RibbonItem" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="4.25" />
+        <Point X="12.125" Y="4.25" />
+        <Point X="12.125" Y="0.846" />
+        <Point X="12.75" Y="0.846" />
+      </Path>
+    </InheritanceLine>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonElementMeasureSizeEventArgs" Collapsed="true">
+    <Position X="0.5" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>RibbonElementMeasureSizeEventArgs.cs</FileName>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAACAAAAAACAAAAAAQAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonRenderer">
+    <Position X="6.75" Y="10.25" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>RibbonRenderer.cs</FileName>
+      <HashCode>AgAEAAAgIAAAAAAAACCAAAAAAAAQAAIAAAAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonRenderEventArgs">
+    <Position X="1.25" Y="11" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>RibbonRenderEventArgs.cs</FileName>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAEAAACgAAAAACAgAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonItemRenderEventArgs">
+    <Position X="4" Y="10.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RibbonItemRenderEventArgs.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonTabRenderEventArgs">
+    <Position X="4" Y="11.75" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RibbonTabRenderEventArgs.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <InheritanceLine Type="System.Windows.Forms.RibbonRenderEventArgs" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="12.25" />
+        <Point X="4" Y="12.25" />
+      </Path>
+    </InheritanceLine>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonPanelRenderEventArgs">
+    <Position X="4" Y="13.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RibbonPanelRenderEventArgs.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <InheritanceLine Type="System.Windows.Forms.RibbonRenderEventArgs" FixedFromPoint="true">
+      <Path>
+        <Point X="3" Y="13.062" />
+        <Point X="3.375" Y="13.062" />
+        <Point X="3.375" Y="13.866" />
+        <Point X="4" Y="13.866" />
+      </Path>
+    </InheritanceLine>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonTabContext" Collapsed="true">
+    <Position X="2.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>RibbonTabContext.cs</FileName>
+      <HashCode>AAAAgACIAAAAAAAAAAAAAAAAAAgEAEAIAAAACABAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Tabs" />
+    </ShowAsAssociation>
+    <AssociationLine Name="Tabs" Type="System.Windows.Forms.RibbonTabCollection" FixedFromPoint="true">
+      <Path>
+        <Point X="2.875" Y="2" />
+        <Point X="2.875" Y="1.191" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.28" Y="0.534" Height="0.182" Width="0.612" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonTabContextCollection" Collapsed="true">
+    <Position X="0.5" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>RibbonTabContextCollection.cs</FileName>
+      <HashCode>AAIAgECIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonItemGroup" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>RibbonItemGroup.cs</FileName>
+      <HashCode>AACAAACIgAABCAAEAAAAAAAgABAAAgAAAAAAACAAAAE=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Items" />
+    </ShowAsAssociation>
+    <InheritanceLine Type="System.Windows.Forms.RibbonItem" FixedToPoint="true">
+      <Path>
+        <Point X="10.75" Y="4.562" />
+        <Point X="10.75" Y="4.938" />
+        <Point X="12.75" Y="4.938" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Items" Type="System.Windows.Forms.RibbonItemGroupItemCollection">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.457" Y="0.423" Height="0.182" Width="0.803" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonItemGroupItemCollection" Collapsed="true">
+    <Position X="12.75" Y="6" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>RibbonItemGroupItemCollection.cs</FileName>
+      <HashCode>AAIAAEAAAAAAAAAAAAAAAAABAAAAAAAAgAAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+    <InheritanceLine Type="System.Windows.Forms.RibbonItemCollection" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.938" Y="7.5" />
+        <Point X="13.938" Y="6.691" />
+      </Path>
+    </InheritanceLine>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonButtonCollection" Collapsed="true">
+    <Position X="16.5" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RibbonButtonCollection.cs</FileName>
+      <HashCode>AAIAAEAAAAgAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+    <InheritanceLine Type="System.Windows.Forms.RibbonItemCollection" FixedFromPoint="true">
+      <Path>
+        <Point X="15.5" Y="7.812" />
+        <Point X="15.875" Y="7.812" />
+        <Point X="15.875" Y="6.096" />
+        <Point X="16.5" Y="6.096" />
+      </Path>
+    </InheritanceLine>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonForm" Collapsed="true">
+    <Position X="3.25" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>RibbonForm.cs</FileName>
+      <HashCode>AAAAAAAAASAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Sensor" />
+    </ShowAsAssociation>
+    <AssociationLine Name="Sensor" Type="System.Windows.Forms.RibbonTabSensor" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5" Y="4" />
+        <Point X="5" Y="3.375" />
+        <Point X="3.25" Y="3.375" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.56" Y="-0.293" Height="0.182" Width="0.805" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="System.Windows.Forms.RibbonTabSensor" Collapsed="true">
+    <Position X="1.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>RibbonTabSensor.cs</FileName>
+      <HashCode>AAEhAECkGCSkUAAAAAAAEBACAAIAAEAAAhACICACAAI=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.429" />
+  </Class>
+  <Interface Name="System.Windows.Forms.IRibbonElement">
+    <Position X="0.5" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>IRibbonElement.cs</FileName>
+      <HashCode>AACAAACAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="System.Windows.Forms.IContainsSelectableItems">
+    <Position X="3" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>IContainsRibbonItems.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAACAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="System.Windows.Forms.RibbonButtonStyle">
+    <Position X="16.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>RibbonButtonStyle.cs</FileName>
+      <HashCode>AAIAAAAAAAAAAAAAABAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="System.Windows.Forms.RibbonElementSizeMode">
+    <Position X="3.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <FileName>RibbonPanelSizeMode.cs</FileName>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAIgAAAAAAAAAAAAAIEEAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="System.Windows.Forms.RibbonPanelFlowDirection">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>RibbonPanelFlowDirection.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

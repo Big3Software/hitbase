@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A54BD22-56F5-4926-A3D8-D06354A1A360}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Big3.Hitbase.Controls</RootNamespace>
+    <AssemblyName>Controls</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BaseAddress>811597824</BaseAddress>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <BaseAddress>811597824</BaseAddress>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nur .Net|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Nur .Net\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <BaseAddress>811597824</BaseAddress>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="PresentationFramework.Royale" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddToPlaylistUserControl.xaml.cs">
+      <DependentUpon>AddToPlaylistUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CDCoverAmazon.cs" />
+    <Compile Include="ChoosePictureFastUserControl.xaml.cs">
+      <DependentUpon>ChoosePictureFastUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DragDropHelper.cs" />
+    <Compile Include="DragDrop\DefaultDragHandler.cs" />
+    <Compile Include="DragDrop\DefaultDropHandler.cs" />
+    <Compile Include="DragDrop\DragAdorner.cs" />
+    <Compile Include="DragDrop\DragDrop.cs" />
+    <Compile Include="DragDrop\DragInfo.cs" />
+    <Compile Include="DragDrop\DropInfo.cs" />
+    <Compile Include="DragDrop\DropTargetAdorner.cs" />
+    <Compile Include="DragDrop\DropTargetAdorners.cs" />
+    <Compile Include="DragDrop\DropTargetHighlightAdorner.cs" />
+    <Compile Include="DragDrop\DropTargetInsertionAdorner.cs" />
+    <Compile Include="DragDrop\IDragSource.cs" />
+    <Compile Include="DragDrop\IDropTarget.cs" />
+    <Compile Include="DragDrop\Utilities\ItemsControlExtensions.cs" />
+    <Compile Include="DragDrop\Utilities\TypeUtilities.cs" />
+    <Compile Include="DragDrop\Utilities\VisualTreeExtensions.cs" />
+    <Compile Include="FormThemeManager.cs" />
+    <Compile Include="NumericBox.xaml.cs">
+      <DependentUpon>NumericBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AmazonServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TabControl\TabItemModel.cs" />
+    <Compile Include="TextBoxAutoComplete.cs" />
+    <Compile Include="ChoosePictureButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChoosePictureButton.Designer.cs">
+      <DependentUpon>ChoosePictureButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChoosePictureUserControl.xaml.cs">
+      <DependentUpon>ChoosePictureUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContainerListView.cs" />
+    <Compile Include="DataGridExtensions.cs" />
+    <Compile Include="MusicBrainz.cs" />
+    <Compile Include="TextBoxDateWPF.cs" />
+    <Compile Include="TextBoxCurrencyWPF.cs" />
+    <Compile Include="ctlCharmap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctlCharmap.designer.cs">
+      <DependentUpon>ctlCharmap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CueBannerTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EditableTextBlock.cs" />
+    <Compile Include="EditableTextBlockAdorner.cs" />
+    <Compile Include="FormCharmap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCharmap.Designer.cs">
+      <DependentUpon>FormCharmap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearchImageInWeb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearchImageInWeb.Designer.cs">
+      <DependentUpon>FormSearchImageInWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelperTools.cs" />
+    <Compile Include="HitbaseDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HitbaseDataGridView.Designer.cs">
+      <DependentUpon>HitbaseDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagerControl.Designer.cs">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PictureSearchPopup.xaml.cs">
+      <DependentUpon>PictureSearchPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PictureSearchUserControl.xaml.cs">
+      <DependentUpon>PictureSearchUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PromptedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RatingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RatingControl.Designer.cs">
+      <DependentUpon>RatingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RatingUserControl.xaml.cs">
+      <DependentUpon>RatingUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchTextBox.cs" />
+    <Compile Include="ShowPictureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowPictureForm.Designer.cs">
+      <DependentUpon>ShowPictureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowPicturePopup.xaml.cs">
+      <DependentUpon>ShowPicturePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SplitButton.cs" />
+    <Compile Include="StringTools.cs" />
+    <Compile Include="TabControl\ScrollableTabPanel.cs" />
+    <Compile Include="TabControl\ScrollBarConverters.cs" />
+    <Compile Include="TabControl\TabControlDecoupledWindow.xaml.cs">
+      <DependentUpon>TabControlDecoupledWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextBoxCodes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBoxCodes.Designer.cs">
+      <DependentUpon>TextBoxCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextBoxCodesWPF.cs" />
+    <Compile Include="TextBoxCurrency.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBoxCurrency.Designer.cs">
+      <DependentUpon>TextBoxCurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextBoxDate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBoxDate.Designer.cs">
+      <DependentUpon>TextBoxDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeListView.cs" />
+    <Compile Include="ValueConverter.cs" />
+    <Compile Include="WaitProgress.xaml.cs">
+      <DependentUpon>WaitProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaitProgressUserControl.xaml.cs">
+      <DependentUpon>WaitProgressUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaitProgressWindow.xaml.cs">
+      <DependentUpon>WaitProgressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\net.live.search.api\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WindowShowDetails.xaml.cs">
+      <DependentUpon>WindowShowDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WP7WaitUserControl.xaml.cs">
+      <DependentUpon>WP7WaitUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ChoosePictureButton.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ChoosePictureButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContainerListView.resx">
+      <DependentUpon>ContainerListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctlCharmap.resx">
+      <DependentUpon>ctlCharmap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCharmap.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCharmap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearchImageInWeb.resx">
+      <DependentUpon>FormSearchImageInWeb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HitbaseDataGridView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>HitbaseDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagerControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowPictureForm.resx">
+      <DependentUpon>ShowPictureForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TextBoxCodes.resx">
+      <DependentUpon>TextBoxCodes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeListView.resx">
+      <DependentUpon>TreeListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StarDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tv_minus.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tv_plus.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Big3.Hitbase.SharedResources\Big3.Hitbase.SharedResources.csproj">
+      <Project>{F6825A2F-F2B6-465E-8A7F-9B380BD65CB2}</Project>
+      <Name>Big3.Hitbase.SharedResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Configuration\Big3.Hitbase.Configuration.csproj">
+      <Project>{0D1AE543-68CA-4DC8-826B-38987B119B4A}</Project>
+      <Name>Big3.Hitbase.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataBaseEngine\DataBaseEngine.csproj">
+      <Project>{A1F74ECE-CEF8-4A0F-9DFD-75820D8F5F77}</Project>
+      <Name>DataBaseEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Misc\Big3.Hitbase.Miscellaneous.csproj">
+      <Project>{1B40397C-387B-4145-9EDD-77414FB90F6E}</Project>
+      <Name>Big3.Hitbase.Miscellaneous</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundEngineNET\Big3.Hitbase.SoundEngine.csproj">
+      <Project>{9F1B6B6E-1EB8-40A7-A135-F341574C552B}</Project>
+      <Name>Big3.Hitbase.SoundEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cdcover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MissingPersonImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AddToPlaylistUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChoosePictureFastUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChoosePictureUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NumericBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PictureSearchPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PictureSearchUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RatingUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ShowPicturePopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SplitButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TabControl\TabControlDecoupledWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabControl\TabControlStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TabControl\TabControlStyleClose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WaitProgress.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WaitProgressUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WaitProgressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowShowDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WP7WaitUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Paste.png" />
+    <None Include="Service References\AmazonServiceReference\AWSECommerceService1.wsdl" />
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.Controls.AmazonServiceReference.BrowseNodeLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.Controls.AmazonServiceReference.CartAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.Controls.AmazonServiceReference.CartClearResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.Controls.AmazonServiceReference.CartCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.Controls.AmazonServiceReference.CartGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.Controls.AmazonServiceReference.CartModifyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.Controls.AmazonServiceReference.ItemLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.Controls.AmazonServiceReference.ItemSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AmazonServiceReference\Big3.Hitbase.Controls.AmazonServiceReference.SimilarityLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Web References\net.live.search.api\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\net.live.search.api\search.wsdl" />
+    <None Include="Web References\net.live.search.api\SearchResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://api.search.live.net/search.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\net.live.search.api\</RelPath>
+      <UpdateFromURL>http://api.search.live.net/search.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Controls_net_live_search_api_LiveSearchService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Bing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PlayLast.png" />
+    <Resource Include="Images\PlayLastHover.png" />
+    <Resource Include="Images\PlayNext.png" />
+    <Resource Include="Images\PlayNextHover.png" />
+    <Resource Include="Images\PlayNow.png" />
+    <Resource Include="Images\PlayNowHover.png" />
+    <Resource Include="Images\PlayPreListen.png" />
+    <Resource Include="Images\PlayPreListenHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cdcover1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clear.png" />
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AmazonServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AmazonServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AmazonServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AmazonServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AddWish.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AddWishHover.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="UpdateHitbase.PageFinish"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600" Loaded="UserControl_Loaded">
+    <Grid Margin="10">
+        <Image Margin="0" Name="image" Source="Success.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top" Width="32" Height="32" />
+        <TextBlock x:Name="textBlockResult" Margin="40,0,0,0" FontSize="16" FontWeight="Bold" Text="Update erfolgreich!" Foreground="DarkGreen" />
+        <TextBlock x:Name="textBlockResult2" Margin="0,50,0,0" FontSize="16" Text="Hitbase 2012 wurde erfolgreich aktualisiert." TextWrapping="Wrap" />
+        <TextBox HorizontalAlignment="Stretch" Margin="0,100,0,0" Name="textBoxErrorDetails" VerticalAlignment="Stretch" 
+                 VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Visibility="Collapsed" />
+    </Grid>
+</UserControl>

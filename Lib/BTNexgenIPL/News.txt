@@ -1,0 +1,919 @@
+Binary Technologies
+http://www.binary-technologies.de | http://www.binary-technologies.com
+info@binary-technologies.com
+
+
+    NexgenIPL - Image Processing Library
+   --------------------------------------
+
+13.11.2003 Version 2.9.5 Final Build 20031113 [Deuterium]
+
+- Another lint session (=> found some NULL pointer errors).
+- Updated MNG-Engine.
+- Updated TIFF-Engine.
+- Updated JP2-Engine.
+
+------------------------------------------------------------------------------------------------
+
+08.05.2003 Version 2.9.5 RC3 Build 20030508 [Berylium]
+
+- Fixed bug in RAS-Encoder.
+- Fixed bug in RAS-Decoder.
+- Added IPTC support to JPEG-Encoder.
+- Added EXIF support to JPEG-Encoder.
+- Fixed bug in BTCEncoderOptionsJPEG. Set default value for m_nQuality from 0 (low quality)
+  to 100 (best quality).
+- Fixed bug in BMP-Encoder when writing 4bpp RLE images.
+- Fixed bug in BTCImageData::Quantize(1). The colortable wasn't set to black/white.
+- Modified option interface for PNG-Encoder. BTEO_PNG_TRANSPARENTCOLORINDEX (int) changed to
+  BTEO_PNG_TRANSPARENTCOLOR (BTColorRGB).
+- Modified PNG-Encoder. A transparent color can be set for paletted and rgb images.
+- Added BTCImageData::SwapPaletteIndex(...) to swap two palette colors.
+
+------------------------------------------------------------------------------------------------
+
+12.04.2003 Version 2.9.5 RC2 Build 20030412 [Tammuz]
+
+- Changed return parameter for BTCImageObject::Load(...) from bool to long. The return
+  parameter is the id of the codec used to decode the image.
+- Changed return parameter for BTCImageObject::Save(...) from bool to BTRESULT.
+- Updated documentation.
+- Updated FAQ.
+- Fixed bug in BTCString. This bug is the reason for some crashes (e.g. loading TIFF images).
+- Added IPTC support to JPEG and TIFF decoder.
+
+------------------------------------------------------------------------------------------------
+
+06.04.2003 Version 2.9.5 RC1 Build 20030406 [Nebukadnezar]
+
+- Fixed bug in CMS-Engine (only affect's the unicode version).
+- Added LogLuv support to TIFF-Decoder.
+- Added BTCString string class.
+- Modified Option-Interface (GetOption(const long lId, BTCString &strValue) and
+  SetOption(const long lId, const BTCString strValue)). Furthermore the macro BTGETOPTION had to
+  be changed.
+- Increased decoding speed for GIF images.
+- Enhanced TIFF-Decoder option interface. Now you can get the title, author, description, software
+  and copyright attributes.
+- Enhanced PNG-Decoder option interface. Now you can get the title, author, description, copyright,
+  software, disclaimer and comment attributes.
+- Enhanced PXM-Decoder option interface. Now you can get the description attribute.
+- Enhanced MNG-Encoder/Decoder interface. Now you can set/get the title, author, description,
+  copyright, creationtime, software, disclaimer, warning, source and comment attributes.
+- Fixed bug in example stream implementation BTCOMemStream.
+- Added EXIF support to JPEG-Decoder. Please read the FAQ how to use this feature. More
+  image formats will be supported within the next version.
+
+------------------------------------------------------------------------------------------------
+
+09.03.2003 Version 2.9.4 Build 20030309 [Tritium]
+
+- Some internal modifications.
+- Updated JP2-Engine.
+- Fixed bug in JP2-Encoder when encoding 4, 8 and 16bpp images.
+
+------------------------------------------------------------------------------------------------
+
+24.01.2003 Version 2.9.4 RC4 Build 20030124 [Sardaukar]
+
+- Modified GIF-Decoder. All frames except the first one are rendered as 32bpp. The transparent
+  parts of the images will be decoded into the alpha channel.
+- Fixed bug in BTCImageData::GetIndexFromColor(...).
+- Another lint session.
+
+------------------------------------------------------------------------------------------------
+
+11.01.2003 Version 2.9.4 RC3 Build 20030111 [Tanager]
+
+- Modified BTCImageObject::AddCodec(...).
+- Added BTCImageObject::GetCodecIdFromFormat(...) and GetCodecIdFromExtension(...) to
+  retrieve the id of the requested codec.
+- Removed BTFileType structure (BTDefines.h).
+- Modified BTCImageObject::Save(...).
+- Fixed bug in PNG-Encoder. The image resolution information wasn't written.
+- Modified PNG-Encoder options interface. Added BTEO_PNG_INTERLACE to enable/disable interlacing.
+- Fixed bug in the GIF-Decoder (a never ending story). Colortable array bounds weren't checked,
+  which results in a crash in some cases.
+- Updated Faq.txt.
+
+------------------------------------------------------------------------------------------------
+
+26.12.2002 Version 2.9.4 RC2 Build 20021226 [Kaitain]
+
+- Modified BTICodec interface.
+- Modified BTCOptions interface. Return values changed from bool to BTRESULT.
+- Modified BTCDecoder interface. IsValidType(...) now returns BTRESULT instead of long.
+- Added BTCImageData::SetChannel(...) method.
+- Modified BTCImageData::Combine(...) method. When using 'BTCombineFunction::Normal' the
+  alpha channel will be copied, too. For all other filters processing the alpha channel
+  does not make much sense, in this case the origin alpha channel won't be modified.
+
+------------------------------------------------------------------------------------------------
+
+15.12.2002 Version 2.9.4 RC1 Build 20021215 [Zyklotron]
+
+- Modified JP2-Encoder options interface. Added BTEO_JP2_CODEC to set type of codec for
+  encoding. You can choose between JP2 (File Format Syntax) and JPC (Code Stream Syntax).
+- Modified BTICodec interface. GetFormat(), GetDescription() and GetExtension() now returning
+  unicode strings when using unicode version of the library.
+- Modified MNG-Decoder. Now the images will be loaded complete.
+- Fixed bug in BTCImageObject::GetFileType. It was not able to load images using the last
+  registered decoder codec (default: CUT).
+- Added BTCImageData::Rotate(...) method.
+
+------------------------------------------------------------------------------------------------
+
+09.11.2002 Version 2.9.3 Final Build 20021109 [Stark]
+
+- Another complete source code check using lint (more aggressive settings).
+- Modified GIF-Decoder to load as much as possible from the image when
+  detecting an error.
+- Fixed memory leak in GIF-Decoder.
+- Updated documentation.
+
+------------------------------------------------------------------------------------------------
+
+08.09.2002 Version 2.9.3 RC2 Build 20020908 [Tokamak]
+
+- Modified JPEG-Decoder to load images in correct color depth (not only 32bpp).
+- Some internal code changes/enhancements.
+- Updated PNG-Engine.
+- Updated MNG-Engine.
+- Updates CMS-Engine.
+
+------------------------------------------------------------------------------------------------
+
+09.08.2002 Version 2.9.3 RC1 Build 20020809 [Tachyon]
+
+- Added ability to load JPEG's with RGBA output colorspace.
+- Renamed BTRGB color structure (BTCColor.h) to BTColorRGB.
+- Modified BTCIOStream::Close() method (look into BTCIOStream.h for more details).
+- Added BTCImageData::OilPaint(...) method.
+- Complete source code was checked using lint. This results in many fixed bugs and
+  hopefully a more solid/stable piece of software.
+
+------------------------------------------------------------------------------------------------
+
+07.06.2002 Version 2.9.2 Build 20020607 [Radium]
+
+- Modified BTCImageData::CombineChannel() and SplitChannel().
+- Fixed bug in the BMP-Encoder. Images with odd width's will be encoded (RLE4/8) correct now.
+- Modified GIF-Decoder options interface. Added BTDO_GIF_TRANSPARENTCOLORAVAILABLE to retrieve
+  informations whether there is a transparent color available.
+- Added BTCImageData::StretchTransparent(...) function.
+- Added RAS-Encoder.
+- Fixed bug in the unicode library version when loading images containing embedded color
+  profiles.
+
+------------------------------------------------------------------------------------------------
+
+17.05.2002 Version 2.9.1 Build 20020517 [Radiance]
+
+- Fixed bug in the GIF-Decoder (local palette was not used for rendering). Now all frames,
+  except the first frame, will be rendered as 24bpp images. Notice that the GIF option
+  interface has been changed.
+- Added BTCImageData::Noise(...).
+- Added Perlin noise implementation. You can find the code in the '/example/filters' directory.
+- Updated PNG-Engine.
+- Fixed bug in JPEG-decoder when loading images with embedded sRGB color profile.
+
+------------------------------------------------------------------------------------------------
+
+21.04.2002 Version 2.9.0.1 Build 20020421 [Vulkan]
+
+- Fixed bug in BTCImageData::Draw && Stretch (The modification made in the last version doesn't
+  work correct under Win9x).
+- Fixed 'Division by Zero' bug in JPEG-Decoder when decoding images with unknown resolution
+  information.
+
+------------------------------------------------------------------------------------------------
+
+10.04.2002 Version 2.9 Build 20020410 [Helium]
+
+- Fixed bug in BMP-Encoder writing 4bpp.
+- BMP-Decoder detects file size corrupted files and prevent loading these files.
+- Fixed bug in BTCImageData::Draw && Stretch. Drawing parts of an image will be displayed
+  correct now. Notice that the old implementation was incorrect, so you possibly have to
+  update your code.
+- The biSizeImage header attribute will be set correct when encoding BMP images.
+- Fixed bug in TIFF-Encoder. Due the change of the interface you were not able to save
+  compressed images.
+- Fixed bug (retrieving transparency) in PNG && GIF-Decoder which were caused due the new
+  option interface.
+- Increased performance of some generic methods.
+- Fixed some memory leaks.
+
+------------------------------------------------------------------------------------------------
+
+16.03.2002 Version 2.9 RC3 Build 20020316 [Eclipse]
+
+- Modified decoder/encoder class interface.
+- Increased PGM-Encoder performance and reduced memory cosumption.
+- Fixed some bugs in BMP-Decoder/Encoder.
+- Added new options for PNG-Decoder:
+  - Retrieve transparent color from paletted/indexed images.
+  - Retrieve transparent color from RGB images.
+  - Set the background color.
+- Added new options for PNG-Encoder:
+  - Set transparent color for indexed/paletted images.
+- Fixed bug loading images from resource using strings.
+- Added PBM-Encoder.
+- Some more enhancements.
+
+------------------------------------------------------------------------------------------------
+
+17.02.2002 Version 2.9 RC2 Build 20020217 [ColorTheory]
+
+- Updated JP2-Decoder/Encoder engine.
+- Fixed a bug in the BMP-Encoder. It won't be created corrupted 4/8 bpp images anymore.
+- Added embedded profile support for TIF/JPEG. Please read the FAQ how to use it.
+
+------------------------------------------------------------------------------------------------
+
+09.02.2002 Version 2.9 RC1 Build 20020209 [Farbraum]
+
+- Recoded BTCColor class.
+- Added BTIColorSpace and BTIColorManagementSystem classes.
+- Added CMYK support to JPEG-Decoder.
+- Added CIELab (8bit) support to TIFF-Decoder.
+- Fixed bug in TIFF-Encoder. It won't crash anymore whether BTParamTIFF is not filled
+  completely.
+- Renamed BTFilter to BTResizeFilter.
+- Renamed resize filter BTFilter::Lanczos to Lanczos3.
+- Added new resize filter BTFilter::Hann4.
+- Fixed a bug in the resize engine. Using some filters will not produce clipping errors
+  anymore.
+- Modified BTCImageData::Convolve(...). Notice that the parameters has been changed.
+- Removed parameter in BTCImageData::Sharpen().
+- Renamed BTCImageData::EnhanceEdge to EdgeEnhance.
+- Added the following filters to BTCImageData:
+  - Dilate
+  - Erode
+  - EdgeEnhanceMore
+  - Detail
+- Added the following fixed filters (source is available):
+  - Borderize
+  - Define
+  - BigEdge
+  - Defocus
+  - EdgeDetect
+  - Highlight
+  - Sharpen
+  - SharpenMore
+  - PrewittVertical
+  - PrewittHorizontal
+  - SobelVertical
+  - SobelHorizontal
+  - Laplacian
+  - Laplacian5x5
+  - Gaussian
+  - Gaussian5x5
+  - HighPass
+  - HighPass5x5
+  - Average
+  - LowPass1
+  - LowPass2
+  - LowPass3
+  - Contour1
+  - Contour2
+  - Contour3
+  The filters are implemented as a template class (BTFixedFilters.h). You can find it
+  in the '/examples/filters/' directory.
+
+------------------------------------------------------------------------------------------------
+
+27.12.2001 Version 2.8.3 Build 20011227 [Fusion]
+
+- Added Dr. Halo Decoder/Encoder.
+- Fixed bug in BTCImageData::Create(...). The default color table will be initialized correct
+  for 8 bpp images.
+- Modified BTCImageData::FromDC(...). The source rectangle will be stretched to the destination
+  size if they are not equal. Notice that the result of the stretched image is not very good.
+  If you want a good quality use the Resize(...) method.
+- Updated the FAQ.txt.
+- Added BTCColor::GetIntensity(...) to calculate the color intensity.
+
+------------------------------------------------------------------------------------------------
+
+14.12.2001 Version 2.8.2 Build 20011214 [Horus]
+
+- Changed BTICodec interface and added GetCodecType() method.
+- Added BTCColor class. Removed the color conversion methods from BTCImageData.
+- Removed the following methods from BTCImageData:
+  - Add(...)
+  - Difference(...)
+  - Multiply(...)
+  - Paste(...)
+- Added BTCImageData::Combine(...) method. The following functions are available:
+  - Normal
+  - Add
+  - Subtract
+  - Multiply
+  - Divide
+  - Difference
+  - Lightest
+  - Darkest
+  - Average
+  - Or
+  - And
+  - Screen
+  - Overlay
+- Updated TIFF-Decoder/Encoder engine. Added the following codecs:
+  - DEFLATE
+  - DEFLATE_ADOBE
+- Fixed bug in Convolve, DeInterlace and Normalize. 32bpp images lost their Alpha-Channel
+  using this functions.
+- Fixed bug in BMP-Decoder when loading 16bpp images.
+
+------------------------------------------------------------------------------------------------
+
+09.11.2001 Version 2.8.1 Final Build 20011109 [Vothex]
+
+- Fixed bug in the TGA-Decoder. Decoder won't crash anymore if there are wrong alpha-channel
+  informations in the file header.
+- Added lossy compression to JP2-Encoder. See BTParamJP2 for more details (BTDefines.h).
+- Fixed bug in the GIF-Decoder. Background will be initialized correct for frame numbers > 1.
+- Added YUV ITU-R BT 601 (CCIR 601) 4:2:2 Decoder/Encoder sample implementation.
+
+------------------------------------------------------------------------------------------------
+
+12.10.2001 Version 2.8.1 RC2 Build 20011012 [Tesox]
+
+- Fixed bug in JP2-Encoder. 1-bit images will be saved now as grayscale images.
+- Added sample implementation of BTCOMemStream output-stream to save images to memory.
+- Added sample implementation of BTCIInternetStream input-stream to load images
+  across networks via http or ftp.
+- Added the following Resize-Filters: Triangle, Bell, BSpline, Sinc, Lanczos, Mitchell,
+  Quadratic, Hermite, Hanning, Catrom, Cubic. Now it's also possible to resize images
+  with 1, 4, 8, 16 and 24 bpp.
+- Fixed datatype bug (GetFileType, Load & Save).
+- Fixed BTMAKEINTRESOURCE define.
+
+------------------------------------------------------------------------------------------------
+
+19.09.2001 Version 2.8.1 RC1 Build 20010919 [Freedom]
+
+- Fixed bug in the JPEG-Decoder. The resolution will be calculated correct now.
+- Added JPEG2000-Decoder/Encoder.
+
+------------------------------------------------------------------------------------------------
+
+29.08.2001 Version 2.8 Build 20010829 [Helikon]
+
+- Added a Unicode version of library.
+- Added BTCImageObject::GetCodecs(...) to receive a list containing the available
+  codecs.
+- Added the interface class BTICodecList. The class provides some methods to navigate
+  through the list of codecs (See BTICodec.h for more details).
+- Changed the BTICodec interface. The following methods are added (See the sample
+  decoder implementation (BTCDecoderICO) for more details):
+
+  virtual const char *GetFormat() = 0;
+  virtual const char *GetDescription() = 0;
+  virtual const char *GetExtension() = 0;
+
+- Fixed bug in the JPEG-Decoder. The APP0 marker will be loaded correct now for CMYK images
+  (Resolution informations).
+- Replaced BTFILETYPE_PPM_BIN, BTFILETYPE_PPM_ASCII, BTFILETYPE_PGM_BIN, BTFILETYPE_PGM_ASCII,
+  BTFILETYPE_PBM_BIN, BTFILETYPE_PBM_ASCII with BTFILETYPE_PPM, BTFILETYPE_PGM, BTFILETYPE_PBM.
+  To receive detailed informations about the format use the BTParamPxM structure at loading.
+  To save a image as Binary/Raw or ASCII also use the BTParamPxM structure to specify the
+  format. Use BTENCODINGTYPE_ASCII or BTENCODINGTYPE_BINARY to specify the type (see
+  BTDefines.h for more details).
+- Some internal enhancements (Speeded up loading files in some cases).
+
+------------------------------------------------------------------------------------------------
+
+30.07.2001 Version 2.73 Build 20010730 [Pixelstorm]
+
+- Added BTCImageData::Median(...) filter.
+- Modified BTCImageData::Convolve(...) method.
+- Some internal modifications.
+- Added the class documentation.
+
+------------------------------------------------------------------------------------------------
+
+01.07.2001 Version 2.72 Build 20010701 [Rammstein]
+
+- Fixed bug in BTCImageData::DrawTransparent(...). Modifications on the destination DC before
+  drawing won't be reseted anymore.
+
+------------------------------------------------------------------------------------------------
+
+23.06.2001 Version 2.71 Build 20010623 [Schwellwert]
+
+- Modified BTCImageData::AdjustContrast(...).
+- Added BTCImageData::Posterize(...).
+- Added BTCImageData::Threshold(...).
+
+------------------------------------------------------------------------------------------------
+
+06.06.2001 Version 2.7 Build 20010606 [Abendstern]
+
+- Fixed bug in JPEG-Decoder. Now CMYK images will be loaded correct.
+- Fixed memory leak in BTCImageData::DrawTransparent(...).
+- Redesigned BTCImageData::CombineChannels(...).
+- Added BTCImageData::SplitChannels(...) to split an image into its channels.
+- Modified the calling parameters BTCImageData::GetChannel(...).
+- Added PSP-Decoder. Currently PaintShopPro V6 and V7 images with 1 layer are supported.
+
+------------------------------------------------------------------------------------------------
+
+21.05.2001 Version 2.7 RC1 Build 20010521 [Morgenstern]
+
+- Internal modifications.
+- BMP-Encoder writes RLE (Run-Length-Encryption) files by default (Only for 4 and 8bpp images,
+  BMP does not support RLE for 16, 24 and 32bpp images). To turn off compression see BTParamBMP.
+- Added 32bpp support to PCX-Decoder/Encoder.
+- Added MNG-Encoder. You're able to set the compression level (see BTParamMNG.h).
+- Recoded TGA-Decoder.
+- TGA-Encoder writes RLE files by default. To turn off compression see BTParamTGA (BTDefines.h).
+- Modified BTIProgressNotification interface. Now you're able to abort loading/saving.
+  See BTIProgressNotification.h for more details.
+- Fixed bug in BTCImageData::SetPalette().
+- Fixed a little bug in the ICO-Decoder.
+- Added BTResolution BTCImageData::GetResolution(const enum BTResolutionUnit& ResUnit = BTRESUNIT_METER)
+  method. Use this to get the resolution of the image. Resolution informations
+  are available for the following formats: BMP, JPEG, PNG, PCX and TIFF. All other
+  formats doesn't support this feature.
+- Renamed BTCImageData::Edge -> EnhanceEdge.
+- Modified BTCImageData::DrawTransparent method.
+
+------------------------------------------------------------------------------------------------
+
+30.04.2001 Version 2.63 Build 20010430
+
+- Internal modifications.
+- Added 16 bit support to PNG-Encoder (will be converted to 24bpp).
+- Recoded PCX-Decoder. PCX-Files won't be decoded as 24bpp images only anymore.
+- Recoded PNG-Decoder. PNG-Files <= 8bpp won't be decoded as 32bpp images only anymore.
+
+------------------------------------------------------------------------------------------------
+
+17.04.2001 Version 2.62 Build 20010417
+
+- Added 16 bit support to BMP-Decoder.
+
+------------------------------------------------------------------------------------------------
+
+13.04.2001 Version 2.61 Build 20010413
+
+- Added DCT/IDCT method support to JPEG-Decoder. You can choose between different modes
+  (See BTDefines.h for BTDCTMethod and BTParamJPEG).
+- Now the following methods are available for 1,4,8,16,24 and 32 bpp images.
+
+  Mirror
+  Paste
+  Add
+  Difference
+  Multiply
+  Blend
+  AdjustBrightness
+  AdjustContrast
+  AdjustHighlight
+  AdjustMidtone
+  AdjustShadow
+  AdjustHue
+  AdjustLightness
+  AdjustSaturation
+  AdjustHLS
+  AdjustRed
+  AdjustGreen
+  AdjustBlue
+  AdjustRGB
+
+- Fixed bug in EPS-Encoder.
+
+------------------------------------------------------------------------------------------------
+
+17.03.2001 Version 2.6 Build 20010317
+
+- Added ability to specify transparent color when writing GIF-Images (see BTDefines.h).
+- Added JNG, WMF, EMF, APM support (decoders only).
+- Added DCT/IDCT method support to JPEG-Encoder. You can choose between different modes
+  (See BTDefines.h for BTDCTMethod and BTParamJPEG).
+- Modified EPS-Decoder to load encapsulated WMF/EMF/APM. Please notice that the image
+  size sometimes differ from the size loading the image in Photoshop/Paintshop Pro.
+- Fixed GDI-Bug in BTCImageData::DrawTransparent(...).
+- Added BTCImageData::GetPlanes().
+- Added BTCImageData::GetDepth().
+- Renamed BTHSV to BTHSB.
+
+------------------------------------------------------------------------------------------------
+
+07.02.2001 Version 2.5 Build 20010207
+
+- Fixed bug in TIFF-Decoder. Now colors will be calculated correct if image is <= 8bpp and 
+  palette is 16 bits.
+- Fixed bug in TGA-Decoder. Color values from grayscale images will be calculated correct now.
+- Enhanced TGA-Decoder. 15 bit images are now supported.
+- Fixed bug in BMP-Decoder. Now 4bpp RLE compressed images will be loaded correct.
+- Fixed bug in ICO-Decoder. Now all types of color depths should be loaded correct.
+- Enhanced ICO-Decoder. Number of icons in file is returnd through parameter.
+- Added MNG-Decoder.
+
+------------------------------------------------------------------------------------------------
+
+29.01.2001 Version 2.4 Build 20010129
+
+- Fixed bug in BTCDataObject::GetFileType(...).
+- New parameter added: BTCImageObject::GetFileType(unsigned char* pData) changed to
+  GetFileType(unsigned char* pData, long lSize);
+- BTCImageObject::GetFileType(...) returns now long values.
+- All BTCImageObject::GetFileType(...) are no longer static methods. You have to create a
+  BTCImageObject to use them.
+- Parameter nType in BTCImageObject::Save(...) has been changed from int to long.
+- Added interface to let you add your own decoders/encoders:
+
+  bool BTCImageObject::AddCodec(long lId, BTICodec* pCodec, const enum BTCodecType& CodecType);
+  void BTCImageObject::RemoveCodec(long lId, const enum BTCodecType& CodecType);
+
+- FileType ids are no longer located in the BTCImageObject class. You can find them now
+  in BTDefines.h.
+- Added decoder to load ICONS. The source is available in the Example directory.
+- Updated FAQ's.
+
+------------------------------------------------------------------------------------------------
+
+15.01.2001 Version 2.3 Build 20010115
+
+- Modified TIFF-Encoder for alpha channel support.
+- Added compression support to TIFF-Encoder. Now you are able to choose between the
+  following codecs:
+
+  - CCITTRLE
+  - CCITTRLEW
+  - CCITTFAX3
+  - CCITTFAX4
+  - JPEG
+  - PACKBITS
+
+  LZW compression is not supported because of Unisys patents.
+
+- Fixed bug in TIFF-Decoder when loading 32 bit images (Alpha-Channel will be loaded
+  correct now).
+- Defined BTCOLORREF and changed COLORREF to BTCOLORREF.
+- Added EPS-Decoder. Now it is possible to load EPS-Files with embedded TIFF's.
+- Added BTCImageData::GetDIB() method.
+- Fixed bug in BTCImageData::FromDIB(...).
+- Fixed bug in BTCImageData::Fill(...). It'll work correct for images > 8bpp now.
+
+------------------------------------------------------------------------------------------------
+
+28.12.2000 Version 2.2 Build 20001228
+
+- Renamed BTStructs.h to BTDefines.h.
+- Preparing library to support alpha channels.
+- Added 32 bit support to TGA-Decoder/Encoder.
+- Fixed encoding bug in TGA-Encoder when writing 16 bit images.
+- Modified BTCImageData::GetChannel(...) to retrieve Alpha-Channel.
+- Added BTCImageData::DeInterlace(bool bRetainOdd = true, const enum BTDeInterlaceType& Type = Interpolate) method.
+
+------------------------------------------------------------------------------------------------
+
+19.12.2000 Version 2.11 Build 20001219
+
+- Fixed bug in BTCImageData::AdjustGamma(...);
+- Updated FAQ's.
+
+------------------------------------------------------------------------------------------------
+
+20.11.2000 Version 2.1 Build 20001120
+
+- Improved JPEG-Encoder. Encoding big images needs less memory now.
+- Added the following parameters to BTParamJPEG which can be used for saving:
+
+  - nSmoothingFactor; // 1..100, or 0 for no input smoothing.
+  - bOptimizeCoding;  // true = optimize entropy encoding parms.
+
+- Library is compiled with MSVC 6.0 and /LINK50COMPAT to enable using this library
+  with MSVC 5.0. Also Bugtrapper and Purify should work correct.
+
+------------------------------------------------------------------------------------------------
+
+06.11.2000 Version 2.0 Final Build 20001106
+
+- Fixed bug in GIF-Decoder when loading images using background color.
+- Fixed decoding error in GIF-Decoder.
+- Added feature to add comments to GIF-Files.
+- Added feature to get comments from a GIF-File when loading.
+- Added BTCImageData::Antialias(double dWeight = 1.0 / 3.0, int nSameThreshold = 25, int nDiffThreshold = 25);
+- Fixed GDI-Resource problem in BTCImageData::Stretch(...) and BTCImageData::Draw(...)
+  method.
+
+------------------------------------------------------------------------------------------------
+
+20.10.2000 Version 2.0 RC6 Build 20001020
+
+- Added PBM-Decoder.
+- Added BTCImageData::Rotate90(const enum BTDirection& Direction = Right) to rotate image
+  90 degrees to left or right.
+- Added new BTCImageData::Resize(int nWidth, int nHeight, const enum BTFilter& Filter = Bilinear);
+  to resize current image and save result to DestImage.
+- Changed parameters in BTCImageData::Resize(...);
+- Fixed bug when loading images from memory buffer. Because of this the number of
+  parameters from the Load(...) method has been changed (lSize is the size of the memory
+  block):
+
+  BTCImageObject::Load(unsigned char* pData, long lSize, void* pParam = NULL);
+  
+- Fixed bug in BTCImageData::FromDIB(HANDLE hDib);
+- Fixed bug in BTCImageData::ConvertTo24BPP();
+- Fixed some bugs in GIF-Decoder e.g. loading correct colortable.
+- Fixed memory leak in BTCImageData::DrawTransparent(...);
+- Added BTCImageData::Smooth(int nMaskSize = 3).
+- Added BTCImageData::Edge().
+- Improved BTCImageData::FindEdge(double dFactor = 60.0);
+- Images do not have to be converted to 32 bits per pixel for the following methods:
+
+  - BTCImageData::Grayscale()
+  - BTCImageData::Negate()
+  - BTCImageData::Flip()
+
+  Please notice that some image manipulation methods e.g. Solarize doesn't work
+  correctly with images < 24 bits (the result looks ugly). That's because 8 bit
+  images only have 256 colors, and that's not enough.
+
+------------------------------------------------------------------------------------------------
+
+24.09.2000 Version 2.0 RC5 Build 20000924
+
+- Added BTCImageData::Solarize(double dFactor = 0.0) method.
+- Added BTCImageData::Sharpen(double dFactor = 86.0) method.
+- Added BTCImageData::FindEdge() method.
+- Added BTCImageData::Embose() method.
+- Added BTCImageData::Normalize() method.
+- Added BTCImageData::Convolve(float* pMatrix, int nMatrixSize, bool bAbs, COLORREF colBase = 0x01000000) to process filters.
+- Better error processing in TIFF-Decoder/-Encoder.
+- Removed bug when loading images < 1024 bytes from resource.
+- ConvertTo32BPP()/ConvertTo24BPP() now returning true if the image has the
+  right color depth.
+
+------------------------------------------------------------------------------------------------
+
+15.09.2000 Version 2.0 RC4 Build 20000915
+
+- 24 bit TIFF images won't be loaded as 32 bit images anymore.
+- Fixed error in internal output stream.
+- Improved HLS manipulation functions.
+
+------------------------------------------------------------------------------------------------
+
+08.09.2000 Version 2.0 RC3 Build 20000908
+
+- Improved speed when writing images/files.
+- Fixed bug in PCX-Encoder.
+
+------------------------------------------------------------------------------------------------
+
+06.09.2000 Version 2.0 RC2 Build 20000906
+
+- Added interface to use your own input streams for loading images.
+- Many internal changes and improvements.
+- Removed little bug from TIFF-Decoder when loading palette images.
+- Added 24 bit support to PCX-Encoder.
+- Removed bug from PCX-Encoder when encoding 8 bit images.
+
+------------------------------------------------------------------------------------------------
+
+18.08.2000 Version 2.0 RC1 Build 20000818
+
+- Added BTCImageData::FromDIB(HANDLE hDib);
+- Added BTCIStream/BTCOStream virtual classes for user implemented input/output.
+  Currently only user implemented outputs are supported.
+- Added 16 bit bitmaps support. They have to be converted to 24 bits because some
+  16 bit images stored as BITFIELDS support 5-6-5 color masks, NexgenIPL only 5-5-5
+  (a restriction given from Windows). Thats because NexgenIPL stores colors as RGB
+  uncompressed format. For more details look in MSDN for BITMAPINFOHEADER.
+- Improved TIFF-Decoder. B&W images are displayed correct now.
+
+------------------------------------------------------------------------------------------------
+
+31.07.2000 Version 1.23 Build 20000731
+
+- Improved bool BTCImageData::AdjustHue(int nDegrees);
+- Improved static BTHLS BTCImageData::RGBtoHLS(COLORREF col);
+- Improved static COLORREF BTCImageData::HLStoRGB(const BTHLS& hls);
+- Improved static COLORREF BTCImageData::HLStoRGB(double H, double L, double S);
+- Improved static double BTCImageData::GetHLSValue(double m1, double m2, double hue);
+- Removed bug in TIFF-Decoder. Colors for images <= 8 bits per pixel were calculated one
+  less from the origin color.
+
+------------------------------------------------------------------------------------------------
+
+24.07.2000 Version 1.22 Build 20000724
+
+- Improved Gamma-Correction function.
+
+  bool BTCImageData::AdjustGamma(double dRedValue = 1.0, double dGreenValue = 1.0, double dBlueValue = 1.0);
+
+- Added BTCImageData::ConvertTo24BPP() function to convert image to 24 bit color depth.
+
+------------------------------------------------------------------------------------------------
+
+18.07.2000 Version 1.21 Build 20000718
+
+- Removed bug in PCX-Decoder when loading 1BPP images.
+- Removed bug when loading images from resource/memory.
+- Fixed bug in BMP-Decoder when loading 24BPP images.
+- Improved BTCImageData::AdjustBrightness(...) function. Now you can darken and lighten
+  the image (-100% <-> +100% brightness).
+- Improved the following methods:
+
+  - bool BTCImageData::AdjustRGB(int nRedPercentage = 0, int nGreenPercentage = 0, int nBluePercentage = 0);
+  - bool BTCImageData::AdjustRed(int nPercentage);
+  - bool BTCImageData::AdjustGreen(int nPercentage);
+  - bool BTCImageData::AdjustBlue(int nPercentage);
+  
+  You can now adjust each channel from -100% to +100%
+  
+- Added the following static methods:
+
+  - static BTHSV BTCImageData::RGBtoHSV(COLORREF col);
+  - static COLORREF BTCImageData::HSVtoRGB(const BTHSV& hsv);
+  - static COLORREF BTCImageData::HSVtoRGB(double H, double S, double V);
+
+  - static BTHLS BTCImageData::RGBtoHLS(COLORREF col);
+  - static COLORREF BTCImageData::HLStoRGB(const BTHLS& hls);
+  - static COLORREF BTCImageData::HLStoRGB(double H, double L, double S);
+
+  - static double BTCImageData::GetHLSValue(double m1, double m2, double hue);
+  - static double BTCImageData::GetHue(COLORREF col);
+  - static double BTCImageData::GetBrightness(COLORREF col);
+  - static double BTCImageData::GetSaturation(COLORREF col);
+  - static int BTCImageData::GetLightness(COLORREF col);
+ 
+- !!!!! ATTENTION !!!!! Number of parameters has changed for:
+
+  bool BTCImageObject::Load(unsigned char* pData = NULL, void* pParam = NULL);
+  bool BTCImageObject::Load(UINT nResource, void* pParam = NULL, HANDLE hModule = NULL, LPCTSTR lpType = RT_BITMAP);
+  bool BTCImageObject::Load(LPCTSTR lpszResource, void* pParam = NULL, HANDLE hModule = NULL, LPCTSTR lpType = RT_BITMAP);
+
+  This can be a reason for crashing when loading images from resource or memory.
+
+  Old:
+	BTCImageObject Object;
+	Object.Load( "test.bmp", AfxGetResourceHandle(), ...);		// Correct in last library version.
+									// But now it causes a crash.
+  New:
+	Object.Load( "test.bmp", NULL, AfxGetResourceHandle(), ...);	// Correct.
+
+  The second parameter is currently only necessary for GIF images. You can fill out a structure,
+  load a specific frame from image (for animated gifs) and get back some parameters like
+  background color, transparent color or delay time. If you don't need something like that this can
+  also be NULL. For every other image type the second parameter must be NULL.
+
+------------------------------------------------------------------------------------------------
+
+07.07.2000 Version 1.2 Build 20000707
+
+- Added blur function:
+
+  bool Blur();
+
+- Now there is also a static linked dll available. The library is now independed
+  from installed runtime library on tthe target system.
+- Added support for loading a specific frame from gif.
+- Added support for animated gifs.
+- Added crop function:
+
+  bool Crop(RECT& rect);
+  bool Crop(int x, int y, int nWidth, int nHeight);
+
+- Added function to retrieve statistics from each channel:
+
+  bool GetHistogram(BTCHistogram* pHistogram);
+
+- Added function to retrieve a specific channel (red, green or blue);
+
+  bool GetChannel(const enum BTChannel& Channel, BTCImageData& Image);
+
+- Added function to add channels to one image:
+
+  bool CombineChannels(BTCImageData* pRedImage, BTCImageData* pGreenImage, BTCImageData* pBlueImage);
+
+- Removed bug in TIFF-Encoder. Indexed images will be saved correct now.
+
+ToDo:
+-----
+
+- Remove bug in JPEG/TIFF-Decoders to display CMYK images correctly.
+
+------------------------------------------------------------------------------------------------
+
+02.06.2000 Version 1.1 Build 20000602
+
+- Removed bug in BMP-Decoder when loading OS/2 images.
+- BTCImageData::Grayscale and BTCImageData::Negate can be used now for every color depth
+  without converting to 32 bits per pixel.
+- Internal changes for better portation (perhaps in future).
+- Removed all MFC crap, so it can be used from Win32 and MFC. The library is now a generic
+  Win32 DLL that exports c++ classes.
+- Added new octree quantization algorithm for better color reduction quality.
+- Removed Bug in PPM-Decoder and PGM-Decoder.
+
+------------------------------------------------------------------------------------------------
+
+11.05.2000 Version 1.0 Build 20000511
+
+- Removed bug in PNG-Decoder when loading Photoshop images.
+- IProgressNotification interface renamed to BTIProgressNotification.
+
+------------------------------------------------------------------------------------------------
+
+05.05.2000 Version 1.0 Build 20000505
+
+- Removed bug in RAS-Decoder.
+- Removed bug in TIFF-Encoder when writing 16,  24 or 32bpp images.
+- Removed bug in GIF-Encoder.
+- Removed bug in PNG-Encoder (colors will be correct now).
+- New BMP-Encoder.
+- Added a progress notification interface for loading and saving.
+- Renamed BTCImageObject::SetObjectData(...) to BTCImageObject::Attach(...).
+- Now your able to add some user data to files when saving them (PPM, PGM, JPEG, more coming...).
+  See BTParamStructs.h.
+- Added BTCImageData::Compare(...) to compare two images.
+- Added BTCImageObject::Load(...) to load images located in memory (not resource).
+- Added BTCImageData::FindNearestPaletteColor(...) to find the nearest color in the palette to the
+  color submitted as parameter. It returns the palette index of the color.
+- Many internal improvements.
+
+ToDo:
+-----
+
+- Better quantization algorithm.
+- Any ideas? Mail them to info@binary-technologies.de.
+
+------------------------------------------------------------------------------------------------
+
+21.03.2000 Version 0.1 beta Build 20000321
+
+- 1 bits per pixel images will be displayed correct now.
+- Fixed some bugs.
+- Internal improvements.
+- Added ILBM/IFF decoder. The following files can be loaded:
+
+  - HAM, HAM8, EHB, PBM, NORMAL, 24BIT
+
+- Added Sun RAS decoder (if anyone knows how to calculate correct line width for ras files,
+  please contact info@binary-technologies.de).
+- Fixed bug in PPM and PGM decoder (occurs when files did not have a comment).
+- Fixed a really hard internal bug.
+
+------------------------------------------------------------------------------------------------
+
+06.03.2000 Version 0.1 beta Build 20000306
+
+- Added Quantize(int BitsPerPixel) methode to reduce color depth to 1, 4 or 8 bits per pixel.
+- Added Resize() to change image size. The following filters are available:
+
+  - BILINEARFILTER
+  - BOXFILTER
+  - GAUSSIANFILTER
+  - HAMMINGFILTER
+  - BLACKMANFILTER
+
+------------------------------------------------------------------------------------------------
+
+24.02.2000 Version 0.1 beta Build 20000224
+
+- Removed two memory leaks.
+- Now GIF-decoder can load gif's from resource, too.
+
+------------------------------------------------------------------------------------------------
+
+23.02.2000 Version 0.1 beta Build 20000223
+
+- Fixed bug when loading files when their image height > width.
+- Added GIF-Encoder to write uncompressed gif's (no usage of LZW algorithm) to file.
+
+------------------------------------------------------------------------------------------------
+
+22.02.2000 Version 0.1 beta Build 20000222
+
+- Added GIF-Decoder to read gif's from file.
+
+------------------------------------------------------------------------------------------------
+
+21.02.2000 Version 0.1 beta Build 20000221
+
+- Added JPEG-Decoder to read jpeg's from file/resource.
+- Bug in BMP detecting when loading from resource fixed.
+
+------------------------------------------------------------------------------------------------
+
+12.02.2000 Version 0.1 beta Build 20000212
+
+- Added many image manipulation routines.
+- Added more file formats that are supported to read/write.
+
+What comes next:
+----------------
+
+- Resizing, more filters (e.g. motion blur).
+- Reading JPEG and GIF from file/resource.
+- Supporting individual user data for specific file formats (e.g. file comments, compression ratio, ...)
+- Win32 static library version.
+- ActiveX version.
+- ...
+

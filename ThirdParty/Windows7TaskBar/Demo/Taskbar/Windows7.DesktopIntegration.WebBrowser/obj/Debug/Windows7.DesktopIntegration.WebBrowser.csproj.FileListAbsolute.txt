@@ -1,0 +1,16 @@
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\bin\Debug\Windows7.DesktopIntegration.WebBrowser.exe
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\bin\Debug\Windows7.DesktopIntegration.WebBrowser.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\bin\Debug\VistaBridgeLibrary.dll
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\bin\Debug\Windows7.DesktopIntegration.dll
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\bin\Debug\Windows7.DesktopIntegration.Registration.exe
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\bin\Debug\VistaBridgeLibrary.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\bin\Debug\VistaBridgeLibrary.xml
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\bin\Debug\Windows7.DesktopIntegration.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\bin\Debug\Windows7.DesktopIntegration.xml
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\bin\Debug\Windows7.DesktopIntegration.Registration.pdb
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\obj\Debug\Windows7.DesktopIntegration.WebBrowser.Properties.Resources.resources
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\obj\Debug\Windows7.DesktopIntegration.WebBrowser.SimpleWebBrowser.resources
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\obj\Debug\Windows7.DesktopIntegration.WebBrowser.csproj.GenerateResource.Cache
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\obj\Debug\Windows7.DesktopIntegration.WebBrowser.exe
+C:\Users\barbara.HYPERSCHMITZ\Desktop\Windows7IntegrationLibrary_Taskbar_Libraries\Demo\Taskbar\Windows7.DesktopIntegration.WebBrowser\obj\Debug\Windows7.DesktopIntegration.WebBrowser.pdb

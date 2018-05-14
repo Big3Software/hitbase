@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="Big3.Hitbase.MainControls.StatisticsItemUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Big3.Hitbase.MainControls"
+             xmlns:controls="clr-namespace:Big3.Hitbase.Controls;assembly=Controls"
+             xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+             xmlns:trans="clr-namespace:Transitionals;assembly=Transitionals"
+             xmlns:transc="clr-namespace:Transitionals.Controls;assembly=Transitionals"
+             xmlns:transt="clr-namespace:Transitionals.Transitions;assembly=Transitionals"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Controls;component/SplitButtonStyle.xaml" ></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
+
+
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="local:ChartCommands.ZoomChart" Executed="CommandBindingZoomChart_Executed" />
+        <CommandBinding Command="local:ChartCommands.Overview" Executed="CommandBindingOverview_Executed" />
+
+        <CommandBinding Command="local:ChartCommands.PieChart" Executed="CommandBindingPieChart_Executed" />
+        <CommandBinding Command="local:ChartCommands.BarChart" Executed="CommandBindingBarChart_Executed" />
+        <CommandBinding Command="local:ChartCommands.ColumnChart" Executed="CommandBindingColumnChart_Executed" />
+        <CommandBinding Command="local:ChartCommands.LineChart" Executed="CommandBindingLineChart_Executed" />
+
+        <CommandBinding Command="local:ChartCommands.CDGroupByCategoryCount" Executed="CommandBindingCDGroupByCategoryCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByMediumCount" Executed="CommandBindingCDGroupByMediumCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByPriceCount" Executed="CommandBindingCDGroupByPriceCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByNumberOfTracksCount" Executed="CommandBindingCDGroupByNumberOfTracksCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByLengthCount" Executed="CommandBindingCDGroupByLengthCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupBySamplerCount" Executed="CommandBindingCDGroupBySamplerCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByRatingCount" Executed="CommandBindingCDGroupByRatingCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByAttributeCount" Executed="CommandBindingCDGroupByAttributeCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByLabelCount" Executed="CommandBindingCDGroupByLabelCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByRecordCount" Executed="CommandBindingCDGroupByRecordCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByArtistArtCount" Executed="CommandBindingCDGroupByArtistArtCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByArtistSexCount" Executed="CommandBindingCDGroupByArtistSexCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.CDGroupByCountryCount" Executed="CommandBindingCDGroupByCountryCount_Executed" />
+
+        <CommandBinding Command="local:ChartCommands.TrackGroupByLengthCount" Executed="CommandBindingTrackGroupByLengthCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.TrackGroupByRecordCount" Executed="CommandBindingTrackGroupByRecordCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.TrackGroupByRating" Executed="CommandBindingTrackGroupByRating_Executed" />
+        <CommandBinding Command="local:ChartCommands.TrackGroupByBPMCount" Executed="CommandBindingTrackGroupByBPMCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.TrackGroupByAttributeCount" Executed="CommandBindingTrackGroupByAttributeCount_Executed" />
+
+        <CommandBinding Command="local:ChartCommands.ArtistTrackMost" Executed="CommandBindingArtistTrackMost_Executed" />
+        <CommandBinding Command="local:ChartCommands.ArtistTrackGroupBySexCount" Executed="CommandBindingArtistTrackGroupBySexCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.ArtistTrackGroupByCountryCount" Executed="CommandBindingArtistTrackGroupByCountryCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.ArtistTrackGroupByArtistArtCount" Executed="CommandBindingArtistTrackGroupByArtistArtCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.ArtistCDsMost" Executed="CommandBindingArtistCDsMost_Executed" />
+        <CommandBinding Command="local:ChartCommands.ArtistGroupBySexCount" Executed="CommandBindingArtistGroupBySexCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.ArtistGroupByCountryCount" Executed="CommandBindingArtistGroupByCountryCount_Executed" />
+        <CommandBinding Command="local:ChartCommands.ArtistGroupByArtistArtCount" Executed="CommandBindingArtistGroupByArtistArtCount_Executed" />
+
+
+    </UserControl.CommandBindings>
+
+    <Grid Margin="0,10,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+            <!--                        <datavis:Title Content="{TemplateBinding Title}" Style="{TemplateBinding TitleStyle}" />-->
+            <controls:SplitButton Grid.Row="1" HorizontalAlignment="Center" Name="splitButtonSelectStatistic" Height="24" FontWeight="Bold"
+                                Style="{StaticResource ToolBarSplitButtonStyle}" LabelMaxWidth="200" >
+                <controls:SplitButton.DropDownContextMenu>
+                    <ContextMenu FontWeight="Normal">
+                        <MenuItem Header="{sr:Loc TEXT_OVERVIEW}" Command="local:ChartCommands.Overview"/>
+                        <MenuItem Header="Album">
+                            <MenuItem.Items>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_1}" Command="local:ChartCommands.CDGroupByCategoryCount" />
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_2}" Command="local:ChartCommands.CDGroupByMediumCount" />
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_3}" Command="local:ChartCommands.CDGroupByPriceCount" />
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_4}" Command="local:ChartCommands.CDGroupByNumberOfTracksCount" />
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_5}" Command="local:ChartCommands.CDGroupByLengthCount" />
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_6}" Command="local:ChartCommands.CDGroupBySamplerCount" />
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_7}" Command="local:ChartCommands.CDGroupByRatingCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_8}" Command="local:ChartCommands.CDGroupByAttributeCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_9}" Command="local:ChartCommands.CDGroupByLabelCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_10}" Command="local:ChartCommands.CDGroupByRecordCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_11}" Command="local:ChartCommands.CDGroupByArtistArtCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_12}" Command="local:ChartCommands.CDGroupByArtistSexCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_13}" Command="local:ChartCommands.CDGroupByCountryCount"/>
+                            </MenuItem.Items>
+                        </MenuItem>
+                        <MenuItem Header="Track">
+                            <MenuItem.Items>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_14}" Command="local:ChartCommands.TrackGroupByLengthCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_15}" Command="local:ChartCommands.TrackGroupByRecordCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_16}" Command="local:ChartCommands.TrackGroupByRating"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_17}" Command="local:ChartCommands.TrackGroupByBPMCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_18}" Command="local:ChartCommands.TrackGroupByAttributeCount"/>
+                            </MenuItem.Items>
+                        </MenuItem>
+                        <MenuItem Header="Interpret">
+                            <MenuItem.Items>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_19}" Command="local:ChartCommands.ArtistTrackMost"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_20}" Command="local:ChartCommands.ArtistTrackGroupBySexCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_21}" Command="local:ChartCommands.ArtistTrackGroupByCountryCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_22}" Command="local:ChartCommands.ArtistTrackGroupByArtistArtCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_23}" Command="local:ChartCommands.ArtistCDsMost"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_24}" Command="local:ChartCommands.ArtistGroupBySexCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_25}" Command="local:ChartCommands.ArtistGroupByCountryCount"/>
+                                <MenuItem Header="{sr:Loc TEXT_STATISTICS_GRAF_26}" Command="local:ChartCommands.ArtistGroupByArtistArtCount"/>
+                            </MenuItem.Items>
+                        </MenuItem>
+                    </ContextMenu>
+                </controls:SplitButton.DropDownContextMenu>
+            </controls:SplitButton>
+
+            <controls:SplitButton Grid.Row="1" HorizontalAlignment="Center" Name="splitButtonSelectChartType" Height="22"
+                                Style="{StaticResource ToolBarSplitButtonStyle}" Image="/Big3.Hitbase.SharedResources;component/Images/Statistics.png" Click="splitButtonSelectChartType_Click" >
+                <controls:SplitButton.DropDownContextMenu>
+                    <ContextMenu>
+                        <MenuItem Icon="/Big3.Hitbase.SharedResources;component/Images/StatisticsPie.png" Header="{sr:Loc PieChart}" Command="local:ChartCommands.PieChart"/>
+                        <MenuItem Icon="/Big3.Hitbase.SharedResources;component/Images/StatisticsBar.png" Header="{sr:Loc BarChart}" Command="local:ChartCommands.BarChart"/>
+                        <MenuItem Icon="/Big3.Hitbase.SharedResources;component/Images/Statistics.png" Header="{sr:Loc ColumnChart}" Command="local:ChartCommands.ColumnChart"/>
+                        <MenuItem Icon="/Big3.Hitbase.SharedResources;component/Images/StatisticsLine.png" Header="{sr:Loc LineChart}" Command="local:ChartCommands.LineChart"/>
+                    </ContextMenu>
+                </controls:SplitButton.DropDownContextMenu>
+            </controls:SplitButton>
+
+            <Button Name="ButtonZoom" VerticalAlignment="Center" Click="ButtonZoom_Click" ToolTip="{sr:Loc ZoomInChart}" >
+                <Image Name="ImageZoom" Source="/Big3.Hitbase.SharedResources;component/Images/ZoomIn.png" />
+            </Button>
+
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <transc:TransitionElement x:Name="ChartTransitionBox">
+                <transc:TransitionElement.Transition>
+                    <transt:FadeAndBlurTransition />
+                </transc:TransitionElement.Transition>
+            </transc:TransitionElement>
+        </Grid>
+    </Grid>
+</UserControl>

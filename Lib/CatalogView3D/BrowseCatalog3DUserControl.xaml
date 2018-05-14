@@ -1,0 +1,1174 @@
+﻿<UserControl x:Class="Big3.Hitbase.CatalogView3D.BrowseCatalog3DUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cv3d="clr-namespace:Big3.Hitbase.CatalogView3D" 
+    xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+    xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+    xmlns:misc="clr-namespace:Big3.Hitbase.Miscellaneous;assembly=Misc"
+    xmlns:local="clr-namespace:Big3.Hitbase.CatalogView3D"
+                     xmlns:sgui="clr-namespace:Big3.Hitbase.SoundEngineGUI;assembly=SoundEngineGUI"
+             xmlns:dd="clr-namespace:Big3.Hitbase.Controls.DragDrop;assembly=Controls"
+             xmlns:controls="clr-namespace:Big3.Hitbase.Controls;assembly=Controls" 
+    KeyDown="UserControl_KeyDown" IsTabStop="True" Focusable="True" Background="Black">
+    <UserControl.Resources>
+        <misc:LengthConverter x:Key="LengthConverter" />
+        <local:Mp3ImageConverter x:Key="mp3ImageConverter" />
+        <local:TrackTextConverter x:Key="trackTextConverter" />
+        <misc:IntegerToVisibilityConverter x:Key="integerToVisibilityConverter" />
+        <misc:StringToVisibilityConverter x:Key="stringToVisibilityConverter" />
+
+        <!-- Scrollbar BEGIN -->
+        <!-- Fill Brushes -->
+
+        <LinearGradientBrush x:Key="NormalBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FFF" Offset="0.0"/>
+                    <GradientStop Color="#99F" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+
+        <LinearGradientBrush x:Key="PressedBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#BBB" Offset="0.0"/>
+                    <GradientStop Color="#EEE" Offset="0.1"/>
+                    <GradientStop Color="#EEE" Offset="0.9"/>
+                    <GradientStop Color="#FFF" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
+
+        <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE" />
+
+        <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="#DDD" />
+
+        <!-- Border Brushes -->
+
+        <LinearGradientBrush x:Key="NormalBorderBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#CCC" Offset="0.0"/>
+                    <GradientStop Color="#CCC" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="DefaultedBorderBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#777" Offset="0.0"/>
+                    <GradientStop Color="#000" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="PressedBorderBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#444" Offset="0.0"/>
+                    <GradientStop Color="#888" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA" />
+
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="#888" />
+
+        <SolidColorBrush x:Key="LightBorderBrush" Color="#AAA" />
+
+        <!-- Miscellaneous Brushes -->
+        <SolidColorBrush x:Key="GlyphBrush" Color="#444" />
+
+
+        <Style x:Key="ScrollBarLineButton" TargetType="{x:Type RepeatButton}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Border 
+          Name="Border"
+          Margin="1" 
+          CornerRadius="2" 
+          Background="{StaticResource NormalBrush}"
+          BorderBrush="{StaticResource NormalBorderBrush}"
+          BorderThickness="1">
+                            <Path 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Fill="{StaticResource GlyphBrush}"
+            Data="{Binding Path=Content,RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource PressedBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ScrollBarPageButton" TargetType="{x:Type RepeatButton}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Border Background="Transparent" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border 
+          CornerRadius="2" 
+          Background="{TemplateBinding Background}"
+          BorderBrush="{TemplateBinding BorderBrush}"
+          BorderThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <ControlTemplate x:Key="VerticalScrollBar"
+            TargetType="{x:Type ScrollBar}">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition MaxHeight="18"/>
+                    <RowDefinition Height="0.00001*"/>
+                    <RowDefinition MaxHeight="18"/>
+                </Grid.RowDefinitions>
+                <Border Grid.RowSpan="3" CornerRadius="2" Background="#F0F0F0" />
+                <RepeatButton Grid.Row="0" Style="{StaticResource ScrollBarLineButton}"
+                        Height="18"
+                        Command="ScrollBar.LineUpCommand"
+                        Content="M 0 4 L 8 4 L 4 0 Z" />
+                <Track
+                            Name="PART_Track"
+                            Grid.Row="1"
+                            IsDirectionReversed="true">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton
+                                    Style="{StaticResource ScrollBarPageButton}"
+                                    Command="ScrollBar.PageUpCommand" />
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb
+          Style="{StaticResource ScrollBarThumb}"
+          Margin="1,0,1,0"
+          Background="{StaticResource NormalBrush}"
+          BorderBrush="{StaticResource NormalBorderBrush}" />
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton
+          Style="{StaticResource ScrollBarPageButton}"
+          Command="ScrollBar.PageDownCommand" />
+                    </Track.IncreaseRepeatButton>
+                </Track>
+                <RepeatButton
+      Grid.Row="3"
+      Style="{StaticResource ScrollBarLineButton}"
+      Height="18"
+      Command="ScrollBar.LineDownCommand"
+      Content="M 0 0 L 4 4 L 8 0 Z"/>
+            </Grid>
+        </ControlTemplate>
+
+
+
+        <ControlTemplate x:Key="HorizontalScrollBar" TargetType="{x:Type ScrollBar}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="25"/>
+                    <ColumnDefinition Width="0.00001*"/>
+                    <ColumnDefinition MaxWidth="25"/>
+                </Grid.ColumnDefinitions>
+                <Border
+      Grid.ColumnSpan="3"
+      CornerRadius="2" 
+      Background="#4040AF" />
+                <RepeatButton 
+      Grid.Column="0"                           
+      Style="{StaticResource ScrollBarLineButton}"
+      Width="25"
+      Command="ScrollBar.LineLeftCommand"
+      Content="M 4 0 L 4 8 L 0 4 Z" />
+                <Track 
+      Name="PART_Track"
+      Grid.Column="1"
+      IsDirectionReversed="False">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton 
+          Style="{StaticResource ScrollBarPageButton}"
+          Command="ScrollBar.PageLeftCommand" />
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb 
+          Style="{StaticResource ScrollBarThumb}" 
+          Margin="0,1,0,1"  
+          Background="{StaticResource NormalBrush}"
+          BorderBrush="{StaticResource NormalBorderBrush}" />
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton 
+          Style="{StaticResource ScrollBarPageButton}"
+          Command="ScrollBar.PageRightCommand" />
+                    </Track.IncreaseRepeatButton>
+                </Track>
+                <RepeatButton 
+      Grid.Column="3" 
+      Style="{StaticResource ScrollBarLineButton}"
+      Width="25"
+      Command="ScrollBar.LineRightCommand"
+      Content="M 0 0 L 4 4 L 0 8 Z"/>
+            </Grid>
+        </ControlTemplate>
+
+        <!--<Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Style.Triggers>
+                <Trigger Property="Orientation" Value="Horizontal">
+                    <Setter Property="Width" Value="Auto"/>
+                    <Setter Property="Height" Value="18" />
+                    <Setter Property="Template" Value="{StaticResource HorizontalScrollBar}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+
+
+        <local:LengthConverter x:Key="lengthConverter" />
+        <Style TargetType="{x:Type Button}" x:Key="roundButton">
+            <Style.Resources>
+
+                <!-- colors -->
+                <LinearGradientBrush x:Key="roundButtonBackground" StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Blue" />
+                    <GradientStop Color="LightBlue" Offset="1" />
+                </LinearGradientBrush>
+
+                <LinearGradientBrush x:Key="disabledRoundButtonBackground" StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#555" />
+                    <GradientStop Color="#CCC" Offset="1" />
+                </LinearGradientBrush>
+
+                <LinearGradientBrush x:Key="mouseOverRoundButtonBackground" StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Blue" />
+                    <GradientStop Color="White" Offset="1" />
+                </LinearGradientBrush>
+
+                <!--<RadialGradientBrush x:Key="mouseOverRoundButtonBackground">
+                    <GradientStop Color="White" Offset="0" />
+                    <GradientStop Color="LightBlue" Offset="0.2" />
+                    <GradientStop Color="Blue" Offset="0.7" />
+
+                    <GradientStop Color="Red" Offset="1" />
+                </RadialGradientBrush>-->
+
+                <LinearGradientBrush x:Key="glossShineBrush" StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#DDFFFFFF" Offset="0" />
+                    <GradientStop Color="#33FFFFFF" Offset="1" />
+                </LinearGradientBrush>
+
+                <SolidColorBrush x:Key="roundButtonStroke" Color="Transparent" />
+
+                <SolidColorBrush x:Key="disabledRoundButtonStroke" Color="#333" />
+
+                <DropShadowEffect x:Key="focusEffect" ShadowDepth="0" Color="Orange" BlurRadius="4"  />
+                <DropShadowEffect x:Key="pressedEffect" ShadowDepth="0" Color="Red" BlurRadius="6"  />
+
+            </Style.Resources>
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="7*" />
+                                <RowDefinition Height="7*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Ellipse x:Name="bgEllipse" Grid.ColumnSpan="3" Grid.RowSpan="3" Fill="{StaticResource roundButtonBackground}" Stroke="{StaticResource roundButtonStroke}" />
+                            <ContentPresenter Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" />
+                            <Ellipse x:Name="shine" Grid.Row="1" Grid.Column="1" Fill="{StaticResource glossShineBrush}" />
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter TargetName="bgEllipse" Property="Effect" Value="{StaticResource focusEffect}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="shine" Property="Opacity" Value="0.35" />
+                                <Setter TargetName="bgEllipse" Property="Effect" Value="{StaticResource pressedEffect}" />
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter TargetName="bgEllipse" Property="StrokeThickness" Value="1.5" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="bgEllipse" Property="Fill" Value="{StaticResource mouseOverRoundButtonBackground}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="bgEllipse" Property="Fill" Value="{StaticResource disabledRoundButtonBackground}" />
+                                <Setter TargetName="bgEllipse" Property="Stroke" Value="{StaticResource disabledRoundButtonStroke}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="PlaylistItemSingleTemplate">
+            <Border x:Name="ItemBorder" BorderThickness="1" BorderBrush="Transparent" CornerRadius="2" Padding="0,2,0,2" TextElement.Foreground="White">
+                <Grid Name="ItemGrid">
+                    <Grid.RenderTransform>
+                        <TranslateTransform x:Name="ItemGridTranslate"  />
+                    </Grid.RenderTransform>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <DockPanel x:Name="ItemDockPanel" Margin="0,0,5,0">
+                        <TextBlock Text="{Binding Path=Info.Title}" TextTrimming="CharacterEllipsis" ></TextBlock>
+                        <TextBlock Foreground="LightGray" TextTrimming="CharacterEllipsis" Text=" - " />
+                        <TextBlock Foreground="LightGray" TextTrimming="CharacterEllipsis" Text="{Binding Path=Info.Artist}" />
+                    </DockPanel>
+                    <TextBlock Grid.Column="1" Text="{Binding Path=Info.Length, Converter={StaticResource LengthConverter}}" />
+                </Grid>
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger SourceName="ItemBorder" Property="IsMouseOver" Value="True">
+                    <Setter TargetName="ItemBorder" Property="Background" Value="#30FFFFFF" />
+                    <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#50FFFFFF" />
+                </Trigger>
+                <DataTrigger Binding="{Binding Path=IsPlaying}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard  Name="PlayingStoryboard">
+                            <Storyboard>
+                                <ThicknessAnimation Storyboard.TargetName="ItemGrid" Storyboard.TargetProperty="Margin" From="10,0,0,0" To="-10,0,0,0" Duration="0:0:2.000" RepeatBehavior="Forever" AutoReverse="True" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <RemoveStoryboard BeginStoryboardName="PlayingStoryboard" />
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=IsNew}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="ItemGridTranslate" Storyboard.TargetProperty="X" From="250" To="0" Duration="0:0:1.000">
+                                    <DoubleAnimation.EasingFunction>
+                                        <BackEase />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <DataTemplate x:Key="WishlistItem">
+            <DockPanel>
+                <Image DockPanel.Dock="Left" Source="{Binding ImageFilename}" Margin="0,0,4,0" Stretch="Uniform" Width="40" Height="40">
+                    <Image.Effect>
+                        <DropShadowEffect Color="Gray" ShadowDepth="2" />
+                    </Image.Effect>
+                </Image>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" ></TextBlock>
+                    <TextBlock Foreground="Gray" Text="{Binding Artist}" TextTrimming="CharacterEllipsis" ></TextBlock>
+                    <TextBlock Foreground="Gray" Text="{Binding From}" TextTrimming="CharacterEllipsis" ></TextBlock>
+                </StackPanel>
+            </DockPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ListBoxItemTemplate">
+            <TextBlock Name="TextControl" Text="{Binding }" Background="Transparent" Padding="0,2,0,2" TextTrimming="CharacterEllipsis">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="White"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=TextControl, Path=IsMouseOver}" Value="True">
+                                <Setter Property="Foreground" Value="White"/>
+                            </DataTrigger>
+                           <DataTrigger Binding="{Binding Modified}" Value="true">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard Name="HighlightStoryboard">
+                                        <Storyboard>
+                                            <ColorAnimation 
+                                               Storyboard.TargetProperty="(Foreground).(Color)"  
+                                               From="White" To="Blue" Duration="0:0:1" AutoReverse="True" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                                <DataTrigger.ExitActions>
+                                    <RemoveStoryboard BeginStoryboardName="HighlightStoryboard"></RemoveStoryboard>
+                                </DataTrigger.ExitActions>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding CurrentlyPlaying}" Value="true">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard Name="CurrentStoryboard">
+                                        <Storyboard>
+                                            <ThicknessAnimation
+                                               Storyboard.TargetProperty="Margin"  
+                                               From="10,0,0,0" To="-10,0,0,0" Duration="0:0:2" AutoReverse="True" RepeatBehavior="Forever" />
+                                            <!--<DoubleAnimation Storyboard.TargetProperty="FontWeight" From="8" To="20" Duration="0:0:2" AutoReverse="True" RepeatBehavior="Forever" />-->
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                                <DataTrigger.ExitActions>
+                                    <RemoveStoryboard BeginStoryboardName="CurrentStoryboard"></RemoveStoryboard>
+                                </DataTrigger.ExitActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <DataTemplate.Triggers>
+                <EventTrigger SourceName="TextControl" RoutedEvent="TextBlock.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="TextControl"
+                                Storyboard.TargetProperty="Background.Color"
+                                From="#00A7B3FF" To="#A7B3FF" Duration="00:00:00.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger SourceName="TextControl" RoutedEvent="TextBlock.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="TextControl"
+                                Storyboard.TargetProperty="Background.Color"
+                                From="#A7B3FF" To="#00A7B3FF" Duration="00:00:00.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <!-- Template für die Wunschliste -->
+        <DataTemplate x:Key="ListBoxWishItemTemplate">
+            <Grid SnapsToDevicePixels="True" x:Name="GridControlWish" Background="Transparent" >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18" />
+                    <ColumnDefinition Width="16" />
+                    <ColumnDefinition Width="16" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
+                <Image x:Name="ImagePlayNow" SnapsToDevicePixels="True" HorizontalAlignment="Right" Margin="0,0,1,0" ToolTip="Sofort spielen" Grid.Column="0" Source="/CatalogView3D;component/Images/PlayNow.png" Stretch="None" MouseEnter="ImagePlayNow_MouseEnter" MouseLeave="ImagePlayNow_MouseLeave" MouseLeftButtonDown="ImagePlayNow_MouseLeftButtonDown" />
+                <Image x:Name="ImagePlayNext" SnapsToDevicePixels="True" Margin="0,0,0,0" HorizontalAlignment="Left" ToolTip="Als nächstes spielen" Grid.Column="1" Source="/CatalogView3D;component/Images/PlayNext.png" Stretch="None"  MouseEnter="ImagePlayNext_MouseEnter" MouseLeave="ImagePlayNext_MouseLeave" MouseLeftButtonDown="ImagePlayNext_MouseLeftButtonDown" />
+                <Image x:Name="ImagePlayLast" SnapsToDevicePixels="True" Margin="0,0,0,0" HorizontalAlignment="Left" ToolTip="Als letztes spielen" Grid.Column="2" Source="/CatalogView3D;component/Images/PlayLast.png" Stretch="None"  MouseEnter="ImagePlayLast_MouseEnter" MouseLeave="ImagePlayLast_MouseLeave" MouseLeftButtonDown="ImagePlayLast_MouseLeftButtonDown" />
+                <Image x:Name="ImagePlayPreListen" SnapsToDevicePixels="True" Margin="0,0,0,0" HorizontalAlignment="Left" ToolTip="Vorhören (Pre-Listen)" Grid.Column="3" Source="/CatalogView3D;component/Images/PlayPreListen.png" Stretch="None"  MouseEnter="ImagePlayPreListen_MouseEnter" MouseLeave="ImagePlayPreListen_MouseLeave" MouseLeftButtonDown="ImagePlayPreListen_MouseLeftButtonDown" />
+                <StackPanel Grid.Column="4" Name="StackPanelWishItem" Orientation="Vertical" Background="Transparent">
+                    <TextBlock Name="TextControl" FontWeight="2"  Text="{Binding}" Background="Transparent" Padding="0,2,0,2" TextTrimming="CharacterEllipsis">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="White"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=TextControl, Path=IsMouseOver}" Value="True">
+                                    <Setter Property="Foreground" Value="White"/>
+                                </DataTrigger>
+                               <DataTrigger Binding="{Binding Modified}" Value="true">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard Name="HighlightStoryboard">
+                                            <Storyboard>
+                                                <ColorAnimation 
+                                                   Storyboard.TargetProperty="(Foreground).(Color)"  
+                                                   From="White" To="Blue" Duration="0:0:1" AutoReverse="True" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                    <DataTrigger.ExitActions>
+                                        <RemoveStoryboard BeginStoryboardName="HighlightStoryboard"></RemoveStoryboard>
+                                    </DataTrigger.ExitActions>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Name="TextControlSubTitle" Text="{Binding SubTitle}" FontSize="9">
+                   <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="White"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=TextControlSubTitle, Path=IsMouseOver}" Value="True">
+                                    <Setter Property="Foreground" Value="White"/>
+                                </DataTrigger>
+                               <DataTrigger Binding="{Binding Modified}" Value="true">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard Name="HighlightStoryboard">
+                                            <Storyboard>
+                                                <ColorAnimation 
+                                                   Storyboard.TargetProperty="(Foreground).(Color)"  
+                                                   From="White" To="Blue" Duration="0:0:1" AutoReverse="True" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                    <DataTrigger.ExitActions>
+                                        <RemoveStoryboard BeginStoryboardName="HighlightStoryboard"></RemoveStoryboard>
+                                    </DataTrigger.ExitActions>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+            <DataTemplate.Triggers>
+                <EventTrigger SourceName="GridControlWish" RoutedEvent="Grid.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="GridControlWish"
+                                Storyboard.TargetProperty="Background.Color"
+                                From="#00A7B3FF" To="#A7B3FF" Duration="00:00:00.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger SourceName="GridControlWish" RoutedEvent="Grid.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="GridControlWish"
+                                Storyboard.TargetProperty="Background.Color"
+                                From="#A7B3FF" To="#00A7B3FF" Duration="00:00:00.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="ListBoxAddItemSelectedTemplate">
+            <Border x:Name="ItemBorder" BorderThickness="1" BorderBrush="Transparent" CornerRadius="2" Padding="0,1,0,1" TextElement.Foreground="White">
+                <Grid SnapsToDevicePixels="True" x:Name="GridControl" Background="Transparent" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="23"/>
+                        <RowDefinition Height="23"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ToolTip>
+                        <ToolTip Opened="ToolTip_Opened">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5 0 0 5">
+                                    <Image Source="{Binding Soundfile, Converter={StaticResource mp3ImageConverter}}"  Stretch="Uniform" Width="65" >
+                                        <Image.Effect>
+                                            <DropShadowEffect Color="#000000" ShadowDepth="2" Opacity="0.3" />
+                                        </Image.Effect>
+                                    </Image>
+                                    <controls:RatingUserControl Rating="{Binding Rating}" Margin="0,5,0,0" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" Margin="15,0,15,0">
+                                    <TextBlock Text="{Binding Converter={StaticResource trackTextConverter}}" Grid.Column="1" FontWeight="Bold" />
+                                    <TextBlock Text="{Binding Length, Converter={StaticResource lengthConverter}}" />
+                                    <StackPanel Orientation="Horizontal" Visibility="{Binding Bpm, Converter={StaticResource integerToVisibilityConverter}}">
+                                        <TextBlock Text="BPM: " />
+                                        <TextBlock Text="{Binding Bpm}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Visibility="{Binding Category, Converter={StaticResource stringToVisibilityConverter}}">
+                                        <TextBlock Text="Genre: " />
+                                        <TextBlock Text="{Binding Category}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Visibility="{Binding YearRecorded, Converter={StaticResource integerToVisibilityConverter}}">
+                                        <TextBlock Text="Jahr: " />
+                                        <TextBlock Text="{Binding YearRecorded}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </ToolTip>
+                    </Grid.ToolTip>
+
+                    <TextBlock SnapsToDevicePixels="True" VerticalAlignment="Top" Name="TextControl" Text="{Binding}"
+                               Background="Transparent" Padding="0,0,0,2" TextTrimming="CharacterEllipsis" />
+
+                    <controls:AddToPlaylistUserControl AddToWishlist="AddToPlaylistUserControl_AddToWishlist" PlayNow="AddToPlaylistUserControl_PlayNow" 
+                                                   PlayNext="AddToPlaylistUserControl_PlayNext" PlayLast="AddToPlaylistUserControl_PlayLast" 
+                                                   PreListen="AddToPlaylistUserControl_PreListen" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Width="80" Grid.Row="1" ShowAddToWishlist="true" SnapsToDevicePixels="True" UseLayoutRounding="True" />
+
+                </Grid>
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger SourceName="ItemBorder" Property="IsMouseOver" Value="True">
+                    <Setter TargetName="ItemBorder" Property="Background" Value="#30FFFFFF" />
+                    <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#50FFFFFF" />
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="ListBoxAddItemTemplate">
+            <Border x:Name="ItemBorder" BorderThickness="1" BorderBrush="Transparent" CornerRadius="2" Padding="0,1,0,1" TextElement.Foreground="White">
+                <Border.ToolTip>
+                    <ToolTip Opened="ToolTip_Opened">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5 0 0 5">
+                                <Image Source="{Binding Soundfile, Converter={StaticResource mp3ImageConverter}}"  Stretch="Uniform" Width="65" >
+                                    <Image.Effect>
+                                        <DropShadowEffect Color="#000000" ShadowDepth="2" Opacity="0.3" />
+                                    </Image.Effect>
+                                </Image>
+                                <controls:RatingUserControl Rating="{Binding Rating}" Margin="0,5,0,0" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="15,0,15,0">
+                                <TextBlock Text="{Binding Converter={StaticResource trackTextConverter}}" Grid.Column="1" FontWeight="Bold" />
+                                <TextBlock Text="{Binding Length, Converter={StaticResource lengthConverter}}" />
+                                <StackPanel Orientation="Horizontal" Visibility="{Binding Bpm, Converter={StaticResource integerToVisibilityConverter}}">
+                                    <TextBlock Text="BPM: " />
+                                    <TextBlock Text="{Binding Bpm}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Visibility="{Binding Category, Converter={StaticResource stringToVisibilityConverter}}">
+                                    <TextBlock Text="Genre: " />
+                                    <TextBlock Text="{Binding Category}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Visibility="{Binding YearRecorded, Converter={StaticResource integerToVisibilityConverter}}">
+                                    <TextBlock Text="Jahr: " />
+                                    <TextBlock Text="{Binding YearRecorded}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </ToolTip>
+                </Border.ToolTip>
+
+                <TextBlock SnapsToDevicePixels="True" VerticalAlignment="Top" Grid.Column="1" Name="TextControl" Text="{Binding}" 
+                            Background="Transparent" Padding="0,0,0,2" TextTrimming="CharacterEllipsis" ToolTipService.ShowDuration="30000">
+                </TextBlock>
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger SourceName="ItemBorder" Property="IsMouseOver" Value="True">
+                    <Setter TargetName="ItemBorder" Property="Background" Value="#30FFFFFF" />
+                    <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#50FFFFFF" />
+                </Trigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <Style TargetType="{x:Type ListBoxItem}" x:Key="PartyModusListBoxItemContainerStyle">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="ContentTemplate" Value="{StaticResource ListBoxAddItemTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="ContentTemplate" Value="{StaticResource ListBoxAddItemSelectedTemplate}" />
+                </Trigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <LinearGradientBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" StartPoint="0,0" EndPoint="0,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#80F8FBFE" Offset="0" />
+                        <GradientStop Color="#80E8F2FE" Offset="1" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+                <LinearGradientBrush x:Key="{x:Static SystemColors.ControlBrushKey}" StartPoint="0,0" EndPoint="0,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#60F8FBFE" Offset="0" />
+                        <GradientStop Color="#60E8F2FE" Offset="1" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"></SolidColorBrush>
+            </Style.Resources>
+        </Style>
+
+
+        <DataTemplate x:Key="ListBoxTrackListTemplate">
+            <Border x:Name="ItemBorder" BorderThickness="1" BorderBrush="Transparent" CornerRadius="2" Padding="0,1,0,1" TextElement.Foreground="White">
+                <Grid SnapsToDevicePixels="True" x:Name="GridControl" Background="Transparent" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="23"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="400" />
+                    </Grid.ColumnDefinitions>
+
+                    <controls:AddToPlaylistUserControl AddToWishlist="AddToPlaylistUserControl_AddToWishlist" PlayNow="AddToPlaylistUserControl_PlayNow" 
+                                                   PlayNext="AddToPlaylistUserControl_PlayNext" PlayLast="AddToPlaylistUserControl_PlayLast" 
+                                                   PreListen="AddToPlaylistUserControl_PreListen" VerticalAlignment="Center" Name="TrackListAddToPlaylist"
+                                                   Width="80" Grid.Column="0" ShowAddToWishlist="true" SnapsToDevicePixels="True" UseLayoutRounding="True" Opacity="1" />
+
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="170" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock SnapsToDevicePixels="True" VerticalAlignment="Center" Grid.Column="0" ToolTip="{Binding TrackNumber}" Name="TextControlTrackNumber" Text="{Binding TrackNumber}" Background="Transparent" Padding="5,0,0,2" TextTrimming="CharacterEllipsis" />
+                        <TextBlock SnapsToDevicePixels="True" VerticalAlignment="Center" Grid.Column="1" ToolTip="{Binding Artist}" Name="TextControlArtist" Text="{Binding Artist}" Background="Transparent" Padding="0,0,0,2" TextTrimming="CharacterEllipsis" />
+                        <TextBlock SnapsToDevicePixels="True" VerticalAlignment="Center" Grid.Column="2" ToolTip="{Binding Title}" Name="TextControlTitle" Text="{Binding Title}" Background="Transparent" Padding="0,0,0,2" TextTrimming="CharacterEllipsis" />
+                        <TextBlock SnapsToDevicePixels="True" VerticalAlignment="Center" Grid.Column="3" ToolTip="{Binding Length, Converter={StaticResource lengthConverter}}" Name="TextControlLength" Text="{Binding Length, Converter={StaticResource lengthConverter}}" Background="Transparent" Padding="0,0,0,2" TextTrimming="CharacterEllipsis" />
+                    </Grid>
+                </Grid>
+            </Border>
+            <DataTemplate.Triggers>
+                <Trigger SourceName="ItemBorder" Property="IsMouseOver" Value="True">
+                    <Setter TargetName="ItemBorder" Property="Background" Value="#30FFFFFF" />
+                    <Setter TargetName="ItemBorder" Property="BorderBrush" Value="#50FFFFFF" />
+                </Trigger>
+                <DataTrigger Binding="{Binding Path=SoundFileExists}" Value="true">
+                    <Setter TargetName="GridControl" Property="TextElement.Foreground" Value="#ADFFAD" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=SoundFileExists}" Value="false">
+                    <Setter TargetName="GridControl" Property="TextElement.Foreground" Value="LightGray" />
+                    <Setter TargetName="TrackListAddToPlaylist" Property="Opacity" Value="0.5" />
+
+                    <Setter TargetName="TrackListAddToPlaylist" Property="IsEnabled" Value="False" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <!--        <Style x:Key="GlowContainer" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="FocusVisualStyle">
+                <Setter.Value>
+                    <Style>
+                        <Setter Property="Control.Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Border Opacity="0" CornerRadius="0">
+                                        <Rectangle Margin="0" StrokeThickness="0" Stroke="Transparent" StrokeDashArray="1 2"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <ContentPresenter SnapsToDevicePixels="True" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+
+
+        <ControlTemplate x:Key="GlassEffect" TargetType="{x:Type Label}">
+            <ControlTemplate.Resources>
+                <Storyboard x:Key="Timeline1">
+                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                        <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+                <Storyboard x:Key="Timeline2">
+                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="glow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                        <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                </Storyboard>
+            </ControlTemplate.Resources>
+            <Border BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                <Border x:Name="border" Background="#7F000000" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.507*"/>
+                            <RowDefinition Height="0.493*"/>
+                        </Grid.RowDefinitions>
+                        <Border Opacity="1" HorizontalAlignment="Stretch" x:Name="glow" Width="Auto" Grid.RowSpan="2" CornerRadius="4,4,4,4">
+                            <Border.Background>
+                                <RadialGradientBrush>
+                                    <RadialGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1.702" ScaleY="2.243"/>
+                                            <SkewTransform AngleX="0" AngleY="0"/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform X="-0.368" Y="-0.152"/>
+                                        </TransformGroup>
+                                    </RadialGradientBrush.RelativeTransform>
+                                    <GradientStop Color="#B28DBDFF" Offset="0"/>
+                                    <GradientStop Color="#008DBDFF" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Grid.RowSpan="2"/>
+                        <Border HorizontalAlignment="Stretch" Margin="0,0,0,0" x:Name="shine" Width="Auto" CornerRadius="4,4,0,0">
+                            <!--<Border.Background>
+                                <LinearGradientBrush EndPoint="0.494,0.889" StartPoint="0.494,0.028">
+                                    <GradientStop Color="#33FFFFFF" Offset="0"/>
+                                    <GradientStop Color="#33FFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>-->
+                        </Border>
+                    </Grid>
+                </Border>
+            </Border>
+        </ControlTemplate>
+
+        <!-- Wait Indicator -->
+        <!--<Color x:Key="FilledColor" A="255" B="155" R="155" G="155"/>
+        <Color x:Key="UnfilledColor" A="0" B="155" R="155" G="155"/>
+        <Storyboard x:Key="Animation0" FillBehavior="Stop" BeginTime="00:00:00.0" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="_00" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="00:00:00.0" Value="{StaticResource FilledColor}"/>
+                <SplineColorKeyFrame KeyTime="00:00:00.8" Value="{StaticResource UnfilledColor}"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Animation1" BeginTime="00:00:00.1" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="_01" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="00:00:00.0" Value="{StaticResource FilledColor}"/>
+                <SplineColorKeyFrame KeyTime="00:00:00.8" Value="{StaticResource UnfilledColor}"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Animation2" BeginTime="00:00:00.2" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="_02" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="00:00:00.0" Value="{StaticResource FilledColor}"/>
+                <SplineColorKeyFrame KeyTime="00:00:00.8" Value="{StaticResource UnfilledColor}"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Animation3" BeginTime="00:00:00.3" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="_03" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="00:00:00.0" Value="{StaticResource FilledColor}"/>
+                <SplineColorKeyFrame KeyTime="00:00:00.8" Value="{StaticResource UnfilledColor}"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Animation4" BeginTime="00:00:00.4" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="_04" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="00:00:00.0" Value="{StaticResource FilledColor}"/>
+                <SplineColorKeyFrame KeyTime="00:00:00.8" Value="{StaticResource UnfilledColor}"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Animation5" BeginTime="00:00:00.5" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="_05" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="00:00:00.0" Value="{StaticResource FilledColor}"/>
+                <SplineColorKeyFrame KeyTime="00:00:00.8" Value="{StaticResource UnfilledColor}"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Animation6" BeginTime="00:00:00.6" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="_06" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="00:00:00.0" Value="{StaticResource FilledColor}"/>
+                <SplineColorKeyFrame KeyTime="00:00:00.8" Value="{StaticResource UnfilledColor}"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Animation7" BeginTime="00:00:00.7" RepeatBehavior="Forever">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="_07" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="00:00:00.0" Value="{StaticResource FilledColor}"/>
+                <SplineColorKeyFrame KeyTime="00:00:00.8" Value="{StaticResource UnfilledColor}"/>
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>-->
+    </UserControl.Resources>
+    <!--    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Animation0}"/>
+            <BeginStoryboard Storyboard="{StaticResource Animation1}"/>
+            <BeginStoryboard Storyboard="{StaticResource Animation2}"/>
+            <BeginStoryboard Storyboard="{StaticResource Animation3}"/>
+            <BeginStoryboard Storyboard="{StaticResource Animation4}"/>
+            <BeginStoryboard Storyboard="{StaticResource Animation5}"/>
+            <BeginStoryboard Storyboard="{StaticResource Animation6}"/>
+            <BeginStoryboard Storyboard="{StaticResource Animation7}"/>
+        </EventTrigger>
+    </UserControl.Triggers>-->
+    <Grid>
+        <Grid Name="grid" Focusable="True">
+            <Grid.Background>
+                <ImageBrush  ImageSource="/CatalogView3D;component/Images/background.png" Stretch="Fill"/>
+            </Grid.Background>
+            <Viewport3D Name="Viewport3D">
+            </Viewport3D>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Orientation="Horizontal">
+                <Image Stretch="None" Name="buttonPartyMode" Source="/CatalogView3D;component/Images/PartyModusOff.png" ToolTip="Partymodus aktivieren"  MouseDown="buttonPartyMode_MouseDown" MouseUp="buttonPartyMode_MouseUp" />
+            </StackPanel>
+
+            <Grid Margin="10,10,0,0" HorizontalAlignment="Left" Name="gridCurrentPlayingCD" VerticalAlignment="Top" Opacity="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Grid.Effect>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Height="120" Width="120" Grid.Column="0" Margin="0,0,0,0" HorizontalAlignment="Left" x:Name="currentPlayingTrackCover">
+                    </Image>
+                    <Image Grid.Row="1" Height="120" Width="120" Grid.Column="0" Margin="0,0,0,0" HorizontalAlignment="Left" Source="{Binding ElementName=currentPlayingTrackCover, Path=Source}" x:Name="currentPlayingTrackCoverReflection">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-0.5" />
+                                <TranslateTransform Y="65">
+
+                                </TranslateTransform>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                        <Image.OpacityMask>
+                            <LinearGradientBrush StartPoint="0.5,0.0" EndPoint="0.5,1">
+                                <GradientStop Offset="0.0" Color="#00000000" />
+                                <GradientStop Offset="1.0" Color="#7F000000" />
+                            </LinearGradientBrush>
+                        </Image.OpacityMask>
+                    </Image>
+                </Grid>
+                <Grid Grid.Column="1" Margin="0,0,0,100">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Margin="15,0,0,0" VerticalAlignment="Center" Foreground="White" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Name="currentCDLine1"></TextBlock>
+                    <TextBlock Grid.Row="1" Margin="15,0,0,0"  VerticalAlignment="Center" Foreground="White" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Name="currentCDLine2"></TextBlock>
+                    <ProgressBar Grid.Row="2" Margin="15,0,0,0"  VerticalAlignment="Center" HorizontalAlignment="Left" Height="20" Name="progressBar" Width="150" MouseLeftButtonDown="progressBar_MouseLeftButtonDown" />
+                    <Grid Margin="15,0,0,0" Grid.Row="3" Width="120" ClipToBounds="True" HorizontalAlignment="Left">
+                        <TextBlock x:Name="TextBlockNowPlaying" Foreground="White" Text="Now playing" Width="120" FontSize="18" Margin="120,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!-- Playlist -->
+            <Grid x:Name="PlaylistGrid" Margin="-310,22,22,10" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="350" MouseEnter="PlaylistGrid_MouseEnter" MouseLeave="PlaylistGrid_MouseLeave" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Grid.Effect>
+                <Grid Grid.Row="1">
+                    <Grid.Background>
+                        <ImageBrush Opacity="0.5" ImageSource="/CatalogView3D;component/Images/SearchAreaBackground.png" Stretch="Fill"/>
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Width="32" Height="32" Margin="2,2,2,2" Grid.Column="0" Style="{StaticResource MetroPlayButtonStyle}"
+                                Name="ButtonPlay" Click="ButtonPlay_Click" ToolTip="Wiedergabe">
+                        </Button>
+                        <Button Width="32" Height="32" Margin="2,2,2,2" Grid.Column="1" Style="{StaticResource MetroStopButtonStyle}" Name="ButtonStop" Click="ButtonStop_Click" ToolTip="Stopp">
+                        </Button>
+                        <Button Width="32" Height="32" Margin="2,2,2,2" Grid.Column="2" Style="{StaticResource MetroPrevTrackButtonStyle}" Name="ButtonPrevTrack" Click="ButtonPrevTrack_Click" ToolTip="Vorheriger Track">
+                        </Button>
+                        <Button Width="32" Height="32" Margin="2,2,2,2" Grid.Column="3" Style="{StaticResource MetroNextTrackButtonStyle}" Name="ButtonNextTrack" Click="ButtonNextTrack_Click" ToolTip="Nächster Track">
+                        </Button>
+                        <!--<Button Width="24" Height="24" Margin="1,2,3,2" Grid.Column="4" Template="{StaticResource MetroMoveUpButtonTemplate}" Name="ButtonMoveUp" Click="ButtonMoveUp_Click" ToolTip="Eins nach oben">
+                        </Button>
+                        <Button Width="24" Height="24" Margin="2,2,2,2" Grid.Column="5" Template="{StaticResource MetroMoveDownButtonTemplate}" Name="ButtonMoveDown" Click="ButtonMoveDown_Click" ToolTip="Eins nach unten">
+                        </Button>-->
+                        <Button Width="32" Height="32" Margin="2,2,2,2" Grid.Column="6" Style="{StaticResource MetroDeleteButtonStyle}" Name="ButtonDeleteTrack" Click="ButtonDeleteTrack_Click" ToolTip="Aus Wiedergabeliste entfernen">
+                        </Button>
+                        <StackPanel Grid.Column="7" Margin="2,2,2,2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <!--<Button Width="24" Height="24" Style="{StaticResource NoChromeButton}" Name="ButtonVolume" >
+                                <Image Source="/Big3.Hitbase.SharedResources;component/Images/Volume.png" Stretch="Fill" />
+                            </Button>-->
+                            <Slider Width="100" Name="VolumeSlider" Minimum="0" Maximum="1" ToolTip="{sr:Loc Volume}" 
+                                    ValueChanged="VolumeSlider_ValueChanged" />
+                        </StackPanel>
+                        <Button Width="32" Height="32" HorizontalAlignment="Right" Margin="2,2,2,2" Grid.Column="8" Style="{StaticResource MetroStickyUnpinButtonStyle}" Name="ButtonStickPlaylist" Click="ButtonStickPlaylist_Click" ToolTip="Wiedergabeliste anheften">
+                        </Button>
+                    </Grid>
+                    <ListBox AllowDrop="True" Grid.Row="1" ItemTemplate="{StaticResource PlaylistItemSingleTemplate}" HorizontalContentAlignment="Stretch" 
+                             ItemContainerStyle="{StaticResource PartyModusListBoxItemContainerStyle}" 
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" 
+                         Margin="15,10,0,10" Name="listViewPlaylist" Width="290" Background="Transparent" SelectionMode="Extended" 
+                         BorderThickness="0" Foreground="White" MouseDoubleClick="listViewPlaylist_MouseDoubleClick" PreviewKeyDown="listViewPlaylist_PreviewKeyDown"
+                         VerticalAlignment="Stretch" FontSize="16"
+                         dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="true" dd:DragDrop.DragAdornerTemplate="{StaticResource PlaylistItemSingleTemplate}" dd:DragDrop.DropHandler="{Binding}" />
+                </Grid>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="0,15,-110,120" HorizontalAlignment="Right" Foreground="White" Text="Wiedergabeliste" FontSize="17">
+                <TextBlock.RenderTransform>
+                    <RotateTransform  Angle="90"/>
+                </TextBlock.RenderTransform>
+                <TextBlock.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </TextBlock.Effect>
+                </TextBlock>
+            </Grid>
+
+            <!-- Wishlist -->
+            <Grid x:Name="WishlistGrid" Margin="0,22,-310,10" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="350" MouseEnter="WishlistGrid_MouseEnter" MouseLeave="WishlistGrid_MouseLeave" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Grid.Effect>
+                <Grid Grid.Row="1">
+                    <Grid.Background>
+                        <ImageBrush Opacity="0.5" ImageSource="/CatalogView3D;component/Images/SearchAreaBackground.png" Stretch="Fill"/>
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Width="32" Height="32" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2,2,2,2" Grid.Column="0" Style="{StaticResource MetroStickyUnpinButtonStyle}" Name="ButtonStickWishlist" Click="ButtonStickWishlist_Click" ToolTip="Wunschliste anheften">
+                            
+                        </Button>
+                    </Grid>
+                    <ListBox AllowDrop="True" Grid.Row="1" ItemTemplate="{StaticResource WishlistItem}" ItemContainerStyle="{StaticResource PartyModusListBoxItemContainerStyle}" 
+                             ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left" 
+                             Margin="45,10,0,10" Name="listViewWishlist" Width="290" Background="Transparent" 
+                             BorderThickness="0" Foreground="White" MouseDoubleClick="listViewWishlist_MouseDoubleClick" 
+                             VerticalAlignment="Stretch" FontSize="16" 
+                             dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="true" 
+                             dd:DragDrop.DragAdornerTemplate="{StaticResource WishlistItem}"
+                             dd:DragDrop.DropHandler="{Binding}" KeyDown="listViewWishlist_KeyDown"/>
+                </Grid>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Margin="30,5,0,70" HorizontalAlignment="Left" Foreground="White" Text="Wunschliste" FontSize="17">
+                <TextBlock.RenderTransform>
+                    <RotateTransform  Angle="90"/>
+                </TextBlock.RenderTransform>
+                <TextBlock.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </TextBlock.Effect>
+                </TextBlock>
+            </Grid>
+
+
+            <RepeatButton Background="Transparent" Click="repeatButtonScrollLeft_Click" HorizontalAlignment="Left" Margin="10,0,0,0" Name="repeatButtonScrollLeft" Width="100" Height="100" VerticalAlignment="Center" Opacity="0.3">
+                <Image Source="/CatalogView3D;component/Images/ScrollLeft.png"></Image>
+            </RepeatButton>
+            <RepeatButton Background="Transparent" Click="repeatButtonScrollRight_Click" HorizontalAlignment="Right" Margin="0,0,10,0" Name="repeatButtonScrollRight" Width="100" Height="100" VerticalAlignment="Center" Opacity="0.3">
+                <Image Source="/CatalogView3D;component/Images/ScrollRight.png"></Image>
+            </RepeatButton>
+
+            <sgui:MiniPlayerUserControl Margin="0,10,400,0" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                                        x:Name="PreListenUserControl" Closed="PreListenUserControl_Closed" Background="#50FFFFFF" ShowPlaylistButtons="false" Width="200" />
+            
+            <Grid HorizontalAlignment="Right" Width="350" VerticalAlignment="Top" Margin="0, 0, 45, 0">
+                <Grid.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Grid.Effect>
+                <Image HorizontalAlignment="Right" Margin="0,10,0,0" Name="imageSearchArea" Stretch="Fill" Height="45" VerticalAlignment="Top" Source="/CatalogView3D;component/Images/SearchAreaBackground.png" Opacity="0.5" />
+
+                <controls:SearchTextBox FontSize="16" Search="SearchTextBox_Search" Name="textBoxSearch" LabelText="Musikstück suchen" 
+                                      VerticalAlignment="Top" Margin="10,20,10,0" SearchMode="Instant" Clear="textBoxSearch_Clear" />
+
+                <Grid Name="SearchResultGrid" Opacity="0" SnapsToDevicePixels="True" Margin="10,51,10,0" VerticalAlignment="Top" Height="200" >
+                    <ListBox SnapsToDevicePixels="True" ItemContainerStyle="{StaticResource PartyModusListBoxItemContainerStyle}" 
+                             Margin="0,0,0,30" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Foreground="White"  
+                             Name="listViewSearchResults" Background="Transparent" BorderThickness="0" MouseDoubleClick="listViewSearchResults_MouseDoubleClick" 
+                             HorizontalAlignment="Stretch" FontSize="16" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"
+                             dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="false" dd:DragDrop.DragAdornerTemplate="{StaticResource ListBoxAddItemTemplate}" dd:DragDrop.DropHandler="{Binding}">
+
+
+                    </ListBox>
+                    
+                    <TextBlock x:Name="TextBlockFoundElements" VerticalAlignment="Bottom" Background="#40FFFFFF" Foreground="White" Padding="5" />
+                </Grid>
+            </Grid>
+
+            <!-- Track-Liste einer umgedrehten CD !-->
+            <Grid SnapsToDevicePixels="True" Name="gridTrackList" Width="500" Height="450" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0" Visibility="Hidden">
+                <Grid.Background>
+                    <ImageBrush Opacity="0.5" ImageSource="/CatalogView3D;component/Images/SearchAreaBackground.png" Stretch="Fill"/>
+                </Grid.Background>
+                <Grid.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Grid.Effect>
+                <ListBox SnapsToDevicePixels="True"  ItemTemplate="{StaticResource ListBoxTrackListTemplate}" 
+                         ScrollViewer.HorizontalScrollBarVisibility="Hidden" Foreground="White" Margin="10,41,10,10" 
+                         Name="listBoxTrackList" Background="Transparent" BorderThickness="0" MouseDoubleClick="listViewSearchResults_MouseDoubleClick"
+                         ItemContainerStyle="{StaticResource PartyModusListBoxItemContainerStyle}" 
+                         dd:DragDrop.IsDragSource="true" dd:DragDrop.IsDropTarget="false" dd:DragDrop.DragAdornerTemplate="{StaticResource ListBoxTrackListTemplate}" dd:DragDrop.DropHandler="{Binding}"
+                         >
+                </ListBox>
+            </Grid>
+
+            <ScrollBar ViewportSize="5" Scroll="ScrollBarCD_Scroll" SmallChange="1" LargeChange="5" Opacity="0.7" Template="{StaticResource HorizontalScrollBar}" Width="400" Height="30" Name="ScrollBarCD" HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="0,0,0,30" Visibility="Hidden">
+
+            </ScrollBar>
+            <Grid Height="60" Margin="0,0,0,80" Name="gridCurrentCD" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <Grid.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Grid.Effect>
+                <TextBlock Name="textBlockArtist" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="Bold" />
+                <TextBlock Name="textBlockTitle" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="24" Foreground="White" FontWeight="Bold" />
+            </Grid>
+
+            <controls:WaitProgress Name="GridLoadingCircle" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            </controls:WaitProgress>
+        </Grid>
+        <Grid Name="GridAddWishUserControl" Visibility="Hidden" MouseDown="GridPasswordBox_MouseDown">
+            <local:AddWishUserControl Width="450" VerticalAlignment="Center" x:Name="AddWishUserControl">
+                <local:AddWishUserControl.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </local:AddWishUserControl.Effect>
+            </local:AddWishUserControl>
+        </Grid>
+
+        <!-- Passwort eingabe-->
+        <Grid Name="GridPasswordBox" Visibility="Hidden" Background="#66000000" MouseDown="GridPasswordBox_MouseDown">
+            <Border Background="#AA999999" BorderBrush="White" BorderThickness="2" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <StackPanel Margin="10 10 10 10" Orientation="Horizontal">
+                        <Image Source="/CatalogView3D;component/Images/Unlock.png" Width="50"></Image>
+                        <TextBlock Grid.Row="0" Margin="10 0 0 0" Width="250" TextWrapping="Wrap" FontSize="16" Foreground="White" Text="Diese Funktion ist gesperrt. Bitte geben Sie zum Aktivieren das Passwort ein:" />
+                    </StackPanel>
+                    <PasswordBox Margin="10 10 10 10" Grid.Row="1" Width="280" FontSize="20" Name="PasswordBoxExitPartyModus" />
+                    <StackPanel Grid.Row="2" Margin="0 0 20 10" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Name="ButtonPasswordOK" Margin="5" Width="60" Content="OK" Click="ButtonPasswordOK_Click" IsDefault="True"></Button>
+                        <Button Name="ButtonPasswordCancel" Margin="5" Width="80" Content="Abbrechen" Click="ButtonPasswordCancel_Click" IsCancel="True"></Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Canvas x:Name="StickMen" Width="200" Height="150" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+
+    </Grid>
+
+</UserControl>

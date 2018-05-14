@@ -1,0 +1,66 @@
+﻿<Window x:Class="Big3.Hitbase.RecordMedium.WindowOGGHowTo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Style="{DynamicResource MyWindowStyle}"
+        Title="Wie erzeuge ich das Ogg Vorbis Format mit Hitbase?" Width="600" FontFamily="Arial" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="556" Height="560" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140.75" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="7*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="62.2466666666667" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="10*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column ="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Name="textBlock1" Text="1" FontSize="40" />
+        <TextBlock Grid.Column ="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Name="textBlock2" Text="2" FontSize="40" />
+        <TextBlock Grid.Column ="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Name="textBlock3" Text="3" FontSize="40" />
+        <TextBlock Grid.Column ="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Name="textBlock4" Text="4" FontSize="40" />
+        <TextBlock Grid.Column ="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,20,0" Name="textBlock5" Text="5" FontSize="40" />
+        <TextBlock Grid.ColumnSpan="2" FontSize="15" VerticalAlignment="Center" Margin="11,10,9,10">
+            Damit Sie Sound-Dateien ins Ogg Vorbis Format konvertieren können, benötigen<LineBreak />
+            Sie eine Datei mit dem Namen 'oggenc2.exe'. Aus rechtlichen Gründen dürfen wir<LineBreak />
+            diese nicht mit Hitbase direkt ausliefern.<LineBreak /><LineBreak />
+            Führen Sie die folgenden Schritte aus und lassen Sie dieses Fenster geöffnet.<LineBreak />Hitbase teilt ihnen dann mit, wenn Sie alles korrekt ausgeführt haben.
+        </TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Margin="10">
+            <Hyperlink Click="hyperSearchForOgg_Click">Klicken Sie hier, um die Datei 'oggenc2.exe' im Internet zu suchen</Hyperlink><LineBreak></LineBreak>
+            Die Versionsnummer sollte <Bold>2.87</Bold> oder größer sein.<LineBreak/>
+            Bezeichnung: <Bold>Generic(NNNN kB)</Bold>
+        </TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Margin="10">
+            Laden Sie die Datei herunter. Wenn es sich um eine ZIP Datei handelt,<LineBreak></LineBreak>
+            entpacken bzw. öffnen Sie diese und kopieren nur die Datei <Bold>'oggenc2.exe'</Bold>.<LineBreak></LineBreak>
+            Dazu im Explorer <Bold>rechte Maustaste->Kopieren</Bold>
+        </TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Margin="10">
+            <Hyperlink Click="hyperOpenHitbaseDir_Click">Zum öffnen des Hitbase Verzeichnisses hier klicken</Hyperlink>
+        </TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Margin="10">
+            Im Hitbase Verzeichnis <Bold>rechte Maustaste->Einfügen</Bold>
+        </TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="1" FontSize="15" VerticalAlignment="Center" Margin="10">
+            Gegebenenfalls mit <Bold>Fortsetzen</Bold> bestätigen, dass Administratorrechte<LineBreak></LineBreak>
+            für das Kopieren gebraucht werden.
+        </TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" Margin="5">
+                            aktueller<LineBreak/>Status:
+        </TextBlock>
+
+        <StackPanel Grid.Column="1" Grid.Row="6"  Orientation="Horizontal" >
+            <Image Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Margin="0,5,0,5" Name="oggdllFound" VerticalAlignment="Center"
+                   Source="/Big3.Hitbase.SharedResources;component/Images/Warning32.png"/>
+            <TextBlock Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" Name="textOggFound" Margin="5">
+                            oggenc2.exe nicht im Hitbase Verzeichnis! Ogg Dateien können nicht erzeugt werden!
+            </TextBlock>
+        </StackPanel>
+        <Button Content="Abbrechen" Grid.Column="0" Margin="0,5,0,10" Grid.ColumnSpan="2" Grid.Row="7" Height="37" Name="button1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="99" IsDefault="True" IsCancel="True" />
+    </Grid>
+</Window>

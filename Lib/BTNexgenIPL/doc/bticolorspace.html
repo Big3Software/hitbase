@@ -1,0 +1,269 @@
+<html>
+<head>
+<title>BTIColorSpace</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="basic.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<p class="Title1" align="left">BTIColorSpace Class</p>
+<p class="Title2"><Load>GetColorSpace<a name="GetColorSpace"></a></load></p>
+<p class="Method">static BTIColorSpace *GetColorSpace(BTColorSpace cs)</p>
+<p class="Text"> Returns the requested color space object representing one of 
+  the specific predefined color spaces.</p>
+<p><span class="Title3">Parameters</span></p>
+<p class="Parameter"> cs</p>
+<blockquote> 
+  <p class="Text">Id of the requested color space. The following color spaces 
+    are available:</p>
+  <ul>
+    <li class="Text"><span class="Text">BTColorSpace_LinearRGB</span></li>
+    <li class="Text"><span class="Text">BTColorSpace_sRGB</span></li>
+    <li class="Text"><span class="Text">BTColorSpace_CIEXYZ</span></li>
+    <li class="Text"><span class="Text">BTColorSpace_CIELab</span></li>
+    <li class="Text"><span class="Text">BTColorSpace_CIEYxy</span></li>
+    <li class="Text"><span class="Text">BTColorSpace_CMYK</span></li>
+    <li class="Text"><span class="Text">BTColorSpace_HSB</span></li>
+    <li class="Text"><span class="Text">BTColorSpace_HSL</span></li>
+    <li class="Text">BTColorSpace_Gray</li>
+  </ul>
+  <table width="80%" border="1" cellspacing="0" bordercolor="#333333">
+    <tr bgcolor="#CCCCCC"> 
+      <th class="Text"><font color="#333333">ColorSpace</font></th>
+      <th class="Text"><font color="#333333">Number of components</font></th>
+      <th class="Text"><font color="#333333">Range of components</font></th>
+      <th class="Text"><font color="#333333">Gamma</font></th>
+    </tr>
+    <tr> 
+      <td align="left" class="Text"><span class="Text">BTColorSpace_LinearRGB</span></td>
+      <td align="center" class="Text">3</td>
+      <td align="left" class="Text">R/G/B: 0 ... 1</td>
+      <td align="center" class="Text">1.0</td>
+    </tr>
+    <tr> 
+      <td align="left" class="Text"><span class="Text">BTColorSpace_sRGB</span></td>
+      <td align="center" class="Text">3</td>
+      <td align="left" class="Text">R/G/B: 0 ... 1</td>
+      <td align="center" class="Text">2.2</td>
+    </tr>
+    <tr> 
+      <td align="left" class="Text"><span class="Text">BTColorSpace_CIEXYZ</span></td>
+      <td align="center" class="Text">3</td>
+      <td align="left" class="Text"> 
+        <table width="100%" border="0" cellspacing="0">
+          <tr> 
+            <td class="Text" width="20">X</td>
+            <td class="Text">0 ... 0.9642</td>
+          </tr>
+          <tr> 
+            <td class="Text" width="20">Y</td>
+            <td class="Text">0 ... 1.0</td>
+          </tr>
+          <tr> 
+            <td class="Text" width="20">Z</td>
+            <td class="Text">0 ... 0.8251</td>
+          </tr>
+        </table>
+      </td>
+      <td align="center" class="Text">2.2</td>
+    </tr>
+    <tr> 
+      <td align="left" class="Text"><span class="Text">BTColorSpace_CIELab</span></td>
+      <td align="center" class="Text">3</td>
+      <td align="left" class="Text"> 
+        <table width="100%" border="0" cellspacing="0">
+          <tr> 
+            <td class="Text" width="20">L*</td>
+            <td class="Text"> 0 ... 100</td>
+          </tr>
+          <tr> 
+            <td class="Text" width="20">a*</td>
+            <td class="Text"> -128 ... 127</td>
+          </tr>
+          <tr> 
+            <td class="Text" width="20">b*</td>
+            <td class="Text"> -128 ... 127</td>
+          </tr>
+        </table>
+      </td>
+      <td align="center" class="Text">2.2</td>
+    </tr>
+    <tr> 
+      <td align="left" class="Text"><span class="Text">BTColorSpace_CIEYxy</span></td>
+      <td align="center" class="Text">3</td>
+      <td align="left" class="Text"> 
+        <table width="100%" border="0" cellspacing="0">
+          <tr> 
+            <td class="Text" width="20">Y</td>
+            <td class="Text"> 0 ... 100</td>
+          </tr>
+          <tr> 
+            <td class="Text" width="20">x</td>
+            <td class="Text"> 0 ... 1</td>
+          </tr>
+          <tr> 
+            <td class="Text" width="20">y</td>
+            <td class="Text">0 ... 1</td>
+          </tr>
+        </table>
+      </td>
+      <td align="center" class="Text">2.2</td>
+    </tr>
+    <tr> 
+      <td align="left" class="Text"><span class="Text">BTColorSpace_CMYK</span></td>
+      <td align="center" class="Text">4</td>
+      <td align="left" class="Text">C/M/Y/K: 0 ... 1</td>
+      <td align="center" class="Text">2.2</td>
+    </tr>
+    <tr> 
+      <td align="left" class="Text"><span class="Text">BTColorSpace_HSB</span></td>
+      <td align="center" class="Text">3</td>
+      <td align="left" class="Text"> 
+        <table width="100%" border="0" cellspacing="0">
+          <tr> 
+            <td class="Text" width="20">H</td>
+            <td class="Text"> 0 ... 360</td>
+          </tr>
+          <tr> 
+            <td class="Text" width="20">S</td>
+            <td class="Text"> 0 ... 1</td>
+          </tr>
+          <tr> 
+            <td class="Text" width="20">B</td>
+            <td class="Text"> 0 ... 1</td>
+          </tr>
+        </table>
+      </td>
+      <td align="center" class="Text">2.2</td>
+    </tr>
+    <tr> 
+      <td align="left" class="Text"><span class="Text">BTColorSpace_HSL</span></td>
+      <td align="center" class="Text">3</td>
+      <td align="left" class="Text"> 
+        <table width="100%" border="0" cellspacing="0">
+          <tr> 
+            <td class="Text" width="20">H</td>
+            <td class="Text"> 0 ... 360</td>
+          </tr>
+          <tr> 
+            <td class="Text" width="20">S</td>
+            <td class="Text"> 0 ... 1</td>
+          </tr>
+          <tr> 
+            <td class="Text" width="20">L</td>
+            <td class="Text"> 0 ... 1</td>
+          </tr>
+        </table>
+      </td>
+      <td align="center" class="Text">2.2</td>
+    </tr>
+    <tr> 
+      <td align="left" class="Text">BTColorSpace_Gray</td>
+      <td align="center" class="Text">1</td>
+      <td align="left" class="Text">K: 0 ... 1</td>
+      <td align="center" class="Text">2.2</td>
+    </tr>
+  </table>
+  
+</blockquote>
+<p class="Title3">Return Value</p>
+<p><span class="Text">The pointer to the requested color space object; otherwise, 
+  NULL.</span></p>
+<hr size="1" align="center" noshade>
+<p class="Title2">GetNumComponents<a name="GetNumComponents"></a></p>
+<p class="Method">int GetNumComponents()</p>
+<p class="Text">Returns the number of components of this color space.</p>
+<p class="Title3"><span class="Title3">Return Value</span></p>
+<p><span class="Text">The number of components of this color space.</span></p>
+<hr size="1" noshade align="center">
+<p class="Title2">GetType<a name="GetType"></a></p>
+<p class="Method">BTColorSpace GetType()</p>
+<p class="Text"> Returns the color space type of this color space.</p>
+<p class="Title3">Return Value</p>
+<p class="Text">The color space type of this color space.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">FromCIEXYZ<a name="FromCIEXYZ"></a></p>
+<p class="Method">bool FromCIEXYZ(double xyz[3], double *col)</p>
+<p class="Text"> Transforms a color value assumed to be in the CIEXYZ (D50) conversion 
+  color space into this BTIColorSpace.</p>
+<p class="Text">This method transforms color values using relative colorimetry, 
+  as defined by the International Color Consortium standard. This means that the 
+  XYZ argument values taken by this method are represented relative to the D50 
+  white point of the CIEXYZ color space. For example, white will have the XYZ 
+  values of D50, which is defined to be X=0.9642, Y=1.000, and Z=0.8249.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">xyz</p>
+<blockquote> 
+  <p class="Text">A double array containing the CIEXYZ (D50) color values (X = 
+    xyz[0], Y = xyz[1], Z = xyz[2]).</p>
+</blockquote>
+<p class="Parameter">col</p>
+<blockquote> 
+  <p class="Text">A double array with length equal to the number of components 
+    in this BTIColorSpace.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">FromRGB<a name="FromRGB"></a></p>
+<p class="Method">bool FromRGB(double rgb[3], double *col)</p>
+<p class="Text"> Transforms a color value assumed to be in the default sRGB color 
+  space into this BTIColorSpace.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">rgb</p>
+<blockquote> 
+  <p class="Text">A double array containing the sRGB color values (R = rgb[0], 
+    G = rgb[1], B = rgb[2]).</p>
+</blockquote>
+<p class="Parameter">col</p>
+<blockquote> 
+  <p class="Text">A double array with length equal to the number of components 
+    in this BTIColorSpace.</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">ToCIEXYZ<a name="ToCIEXYZ"></a></p>
+<p class="Method">bool ToCIEXYZ(double col[], double *xyz)</p>
+<p class="Text"> <span class="Text">Transforms a color value assumed to be in 
+  this BTIColorSpace into the CIEXYZ (D50) conversion color space.</span></p>
+<p class="Text"><span class="Text">This method transforms color values using relative 
+  colorimetry, as defined by the International Color Consortium standard. This 
+  means that the XYZ values returned by this method are represented relative to 
+  the D50 white point of the CIEXYZ color space. This representation is useful 
+  in a two-step color conversion process in which colors are transformed from 
+  an input color space to CIEXYZ and then to an output color space.</span></p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">col</p>
+<blockquote> 
+  <p class="Text">A double array with length of at least the number of components 
+    in this BTIColorSpace.</p>
+</blockquote>
+<p class="Parameter">xyz</p>
+<blockquote> 
+  <p class="Text">Pointer to a double array with length 3 (X = xyz[0], Y = xyz[1], 
+    Z = xyz[2]).</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<hr size="1" noshade align="center">
+<p class="Title2">ToRGB<a name="ToRGB"></a></p>
+<p class="Method">bool ToRGB(double col[], double *rgb)</p>
+<p class="Text"> Transforms a color value assumed to be in this BTIColorSpace 
+  into a value in the default sRGB color space.</p>
+<p class="Title3">Parameters</p>
+<p class="Parameter">col</p>
+<blockquote> 
+  <p class="Text">A double array with length of at least the number of components 
+    in this BTIColorSpace.</p>
+</blockquote>
+<p class="Parameter">rgb</p>
+<blockquote> 
+  <p class="Text">Pointer to a double array with length 3 (R = rgb[0], G = rgb[1], 
+    B = rgb[2]).</p>
+</blockquote>
+<p class="Title3">Return Value</p>
+<p class="Text">true if successful; otherwise, false.</p>
+<p>&nbsp;</p>
+</body>
+</html>

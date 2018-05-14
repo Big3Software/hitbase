@@ -1,0 +1,8 @@
+﻿<Popup x:Class="Big3.Hitbase.Controls.ShowPicturePopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        AllowsTransparency="True">
+    <Grid>
+        <Image Name="MyImage" MouseLeftButtonUp="MyImage_MouseLeftButtonUp"/>
+    </Grid>
+</Popup>

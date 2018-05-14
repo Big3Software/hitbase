@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{04EDA503-D764-4C40-ACE6-ED95F1382F9E}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Big3.Hitbase.MainControls</RootNamespace>
+    <AssemblyName>MainControls</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="cdsearch">
+      <HintPath>..\..\App\Application\bin\Debug\cdsearch.dll</HintPath>
+    </Reference>
+    <Reference Include="PixelLab.Common">
+      <HintPath>D:\test\bag-of-tricks\PixelLab.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PixelLab.Wpf">
+      <HintPath>D:\test\bag-of-tricks\PixelLab.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\WPFToolkit\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Transitionals">
+      <HintPath>..\..\ThirdParty\Transitionals\Transitionals.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CatalogView.xaml.cs">
+      <DependentUpon>CatalogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlbumViewSymbols.xaml.cs">
+      <DependentUpon>AlbumViewSymbols.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlbumListTable.xaml.cs">
+      <DependentUpon>AlbumListTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExtendedSearchUserControl.xaml.cs">
+      <DependentUpon>ExtendedSearchUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LyricsUserControl.xaml.cs">
+      <DependentUpon>LyricsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MosaicAlbum.xaml.cs">
+      <DependentUpon>MosaicAlbum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatisticsChartUserControl.xaml.cs">
+      <DependentUpon>StatisticsChartUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatisticsItemUserControl.xaml.cs">
+      <DependentUpon>StatisticsItemUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatisticsOverviewUserControl.xaml.cs">
+      <DependentUpon>StatisticsOverviewUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TrackListDetails.xaml.cs">
+      <DependentUpon>TrackListDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainTabInterface.cs" />
+    <Compile Include="MyMusicTable.xaml.cs">
+      <DependentUpon>MyMusicTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyMusicDetails.xaml.cs">
+      <DependentUpon>MyMusicDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlbumViewTable.xaml.cs">
+      <DependentUpon>AlbumViewTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TrackListTable.xaml.cs">
+      <DependentUpon>TrackListTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commands.cs" />
+    <Compile Include="FirstStepsUserControl.xaml.cs">
+      <DependentUpon>FirstStepsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainCDUserControl.xaml.cs">
+      <DependentUpon>MainCDUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonGroupViewTable.xaml.cs">
+      <DependentUpon>PersonGroupViewTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonGroupViewDetails.xaml.cs">
+      <DependentUpon>PersonGroupViewDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerTrackDetailViewUserControl.xaml.cs">
+      <DependentUpon>PlayerTrackDetailViewUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPlaylistUserControl.xaml.cs">
+      <DependentUpon>MainPlaylistUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainTreeUserControl.xaml.cs">
+      <DependentUpon>MainTreeUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerUserControl.xaml.cs">
+      <DependentUpon>PlayerUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatisticsUserControl.xaml.cs">
+      <DependentUpon>StatisticsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TrackDetailViewUserControl.xaml.cs">
+      <DependentUpon>TrackDetailViewUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VirtualizingAlbumPanel.cs" />
+    <Compile Include="VisualEffectsUserControl.xaml.cs">
+      <DependentUpon>VisualEffectsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaveDataUserControl.xaml.cs">
+      <DependentUpon>WaveDataUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WishListUserControl.xaml.cs">
+      <DependentUpon>WishListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CatalogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AlbumViewSymbols.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AlbumListTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ExtendedSearchUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LyricsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MosaicAlbum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatisticsChartUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatisticsItemUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatisticsOverviewUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrackListDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyMusicTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyMusicDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlbumViewTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrackListTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FirstStepsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainCDUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonGroupViewTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PersonGroupViewDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PlayerTrackDetailViewUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPlaylistUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainTreeUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PlayerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatisticsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrackDetailViewUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VisualEffectsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WaveDataUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WishListUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Big3.Hitbase.SharedResources\Big3.Hitbase.SharedResources.csproj">
+      <Project>{F6825A2F-F2B6-465E-8A7F-9B380BD65CB2}</Project>
+      <Name>Big3.Hitbase.SharedResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CDUtilities\Big3.Hitbase.CDUtilities.csproj">
+      <Project>{3B274BAC-60C6-4DEF-9B1A-A658F863921C}</Project>
+      <Name>Big3.Hitbase.CDUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Configuration\Big3.Hitbase.Configuration.csproj">
+      <Project>{0D1AE543-68CA-4DC8-826B-38987B119B4A}</Project>
+      <Name>Big3.Hitbase.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\Big3.Hitbase.Controls.csproj">
+      <Project>{2A54BD22-56F5-4926-A3D8-D06354A1A360}</Project>
+      <Name>Big3.Hitbase.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataBaseEngine\DataBaseEngine.csproj">
+      <Project>{A1F74ECE-CEF8-4A0F-9DFD-75820D8F5F77}</Project>
+      <Name>DataBaseEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Misc\Big3.Hitbase.Miscellaneous.csproj">
+      <Project>{1B40397C-387B-4145-9EDD-77414FB90F6E}</Project>
+      <Name>Big3.Hitbase.Miscellaneous</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RecordMedium\RecordMedium.csproj">
+      <Project>{6975E548-33A2-4E39-9FD0-81E2E593570B}</Project>
+      <Name>RecordMedium</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundEngineGUI\SoundEngineGUI.csproj">
+      <Project>{D560FFC8-6FC9-4E87-8C44-9DD366E46F67}</Project>
+      <Name>SoundEngineGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundEngineNET\Big3.Hitbase.SoundEngine.csproj">
+      <Project>{9F1B6B6E-1EB8-40A7-A135-F341574C552B}</Project>
+      <Name>SoundEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundFilesManagement\SoundFilesManagement.csproj">
+      <Project>{C970D87E-BA45-4435-B81F-C3FFAF82A90A}</Project>
+      <Name>SoundFilesManagement</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

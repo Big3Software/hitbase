@@ -1,0 +1,164 @@
+﻿<Window x:Class="BreadcrumbBarDemo.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:bc="clr-namespace:Microsoft.SDK.Samples.VistaBridge.Library;assembly=VistaBridgeLibrary"
+    xmlns:local="clr-namespace:BreadcrumbBarDemo" 
+    Title="Window1" Height="400" Width="800">
+    <Grid>
+        <Grid.Resources>
+            <XmlDataProvider x:Key="folders">
+                <x:XData>
+                    <Folder xmlns="" Name="Root" i="1">
+                        <Folder Name="Folder1">
+                            <Folder Name="Folder1.1"/>
+                            <Folder Name="Folder1.2">
+                                <Folder Name="Folder1.2.1" />
+                                <Folder Name="Folder1.2.2" />
+                            </Folder>
+                            <Folder Name="Folder1.3"/>
+                        </Folder>
+                        <Folder Name="Folder2">
+                            <Folder Name="Folder2.1">
+                                <Folder Name="Folder2.1.1" />
+                                <Folder Name="Folder2.1.2" />
+                            </Folder>
+                            <Folder Name="Folder2.2"/>
+                            <Folder Name="Folder2.3"/>
+                        </Folder>
+                        <Folder Name="Folder3"/>
+                    </Folder>
+                </x:XData>
+            </XmlDataProvider>
+            <XmlDataProvider x:Key="walkingFoldersRoot">
+                <x:XData>
+                    <Folder xmlns="" Name="C:\">
+                    </Folder>
+                </x:XData>
+            </XmlDataProvider>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <bc:BreadcrumbBar Margin="5" ItemsSource="{Binding Source={StaticResource folders}, XPath=*}">
+            <bc:BreadcrumbBar.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding}">
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding XPath=@Name}" />
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                    <TextBlock Text="{Binding XPath=@Name}" />
+                </HierarchicalDataTemplate>
+            </bc:BreadcrumbBar.ItemTemplate>            
+        </bc:BreadcrumbBar>
+
+        <bc:BreadcrumbBar Name="TheBreadcrumb"
+                          Margin="5"
+                          ItemsSource="{Binding Source={StaticResource walkingFoldersRoot}, XPath=*}"
+                          PopulateItem="TheBreadcrumb_PopulateItem"
+                          ItemSelected="TheBreadcrumb_ItemSelected"
+                          Grid.Row="1">
+            <bc:BreadcrumbBar.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding}">
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding XPath=@Name}" />
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                    <TextBlock Text="{Binding XPath=@Name}" />
+                </HierarchicalDataTemplate>
+            </bc:BreadcrumbBar.ItemTemplate>
+        </bc:BreadcrumbBar>
+
+        <bc:BreadcrumbBar Margin="5" ItemsSource="{Binding Source={StaticResource folders}, XPath=*}" Grid.Row="2" IsEnabled="false">
+            <bc:BreadcrumbBar.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding}">
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding XPath=@Name}" />
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                    <TextBlock Text="{Binding XPath=@Name}" />
+                </HierarchicalDataTemplate>
+            </bc:BreadcrumbBar.ItemTemplate>
+        </bc:BreadcrumbBar>
+
+        <bc:BreadcrumbBar Margin="5" Grid.Row="3">
+            <bc:BreadcrumbBar.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Path=Children}">
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Title}" />
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                    <TextBlock Text="{Binding Path=Title}" />
+                </HierarchicalDataTemplate>
+            </bc:BreadcrumbBar.ItemTemplate>
+            <bc:BreadcrumbBar.IconTemplate>
+                <DataTemplate>
+                    <Border Width="10" Height="10" Background="{Binding Path=Icon}" BorderBrush="Black" BorderThickness="1" CornerRadius="2"/>
+                </DataTemplate>
+            </bc:BreadcrumbBar.IconTemplate>
+            <local:SampleData Title="Colors">
+                <local:SampleData.Children>
+                    <local:SampleData Title="Red" Icon="Red">
+                        <local:SampleData.Children>
+                            <local:SampleData Title="Pink" Icon="Pink"/>
+                        </local:SampleData.Children>
+                    </local:SampleData>
+                    <local:SampleData Title="Orange" Icon="Orange">
+                        <local:SampleData.Children>
+                            <local:SampleData Title="Bisque" Icon="Bisque"/>
+                        </local:SampleData.Children>
+                    </local:SampleData>
+                    <local:SampleData Title="Yellow" Icon="Yellow">
+                        <local:SampleData.Children>
+                            <local:SampleData Title="Beige" Icon="Beige"/>
+                            <local:SampleData Title="Blanched Almond" Icon="BlanchedAlmond"/>
+                        </local:SampleData.Children>
+                    </local:SampleData>
+                    <local:SampleData Title="Green" Icon="Green">
+                        <local:SampleData.Children>
+                            <local:SampleData Title="Chartreuse" Icon="Chartreuse"/>
+                        </local:SampleData.Children>
+                    </local:SampleData>
+                    <local:SampleData Title="Blue" Icon="Blue">
+                        <local:SampleData.Children>
+                            <local:SampleData Title="Aqua" Icon="Aqua"/>
+                            <local:SampleData Title="Aquamarine" Icon="Aquamarine"/>
+                            <local:SampleData Title="Cyan" Icon="Cyan"/>
+                            <local:SampleData Title="CadetBlue" Icon="CadetBlue"/>
+                        </local:SampleData.Children>
+                    </local:SampleData>
+                    <local:SampleData Title="Purple" Icon="Purple">
+                        <local:SampleData.Children>
+                            <local:SampleData Title="Blue Violet" Icon="BlueViolet"/>
+                        </local:SampleData.Children>
+                    </local:SampleData>
+                    <local:SampleData Title="Brown" Icon="Brown">
+                        <local:SampleData.Children>
+                            <local:SampleData Title="Burly Wood" Icon="BurlyWood"/>
+                            <local:SampleData Title="Chocolate" Icon="Chocolate"/>
+                        </local:SampleData.Children>
+                    </local:SampleData>
+                    <local:SampleData Title="Black" Icon="Black">
+                        <local:SampleData.Children>
+                        </local:SampleData.Children>
+                    </local:SampleData>
+                    <local:SampleData Title="White" Icon="White">
+                        <local:SampleData.Children>
+                            <local:SampleData Title="Alice Blue" Icon="AliceBlue"/>
+                            <local:SampleData Title="Antique White" Icon="AntiqueWhite"/>
+                            <local:SampleData Title="Azure" Icon="Azure"/>
+                        </local:SampleData.Children>
+                    </local:SampleData>
+                </local:SampleData.Children>
+            </local:SampleData>
+        </bc:BreadcrumbBar>
+    </Grid>
+</Window>

@@ -1,0 +1,511 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\HitDB.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.deu\\afxres.rc""          // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_HITDB_POSSIBLE_ERROR_IN_DATABASE DIALOG  0, 0, 282, 174
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Fehler in der Datenbank entdeckt!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,71,153,50,14
+    LTEXT           "Es wurde ein möglicherweise schwerwiegender Fehler in der Datenbank entdeckt. Es wird nun die Fehlerdatei DB_ERROR.TXT erzeugt, in die alle Informationen des fehlerhaften Datensatzes geschrieben werden.",IDC_STATIC,56,7,219,32
+    LTEXT           "Prüfen Sie diese Daten und teilen Sie einen möglicherweise vorhandenen Fehler umgehend der Firma Big 3 Software mit.",IDC_STATIC,56,56,219,25
+    ICON            IDI_BLITZ,IDC_STATIC,13,19,20,20
+    PUSHBUTTON      "&Fehler ignorieren",IDC_HITDB_BUTTON1,137,153,73,14
+    CONTROL         "Keine weiteren Fehlermeldungen anzeigen",IDC_HITDB_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,64,133,154,10
+    LTEXT           "Fehlermeldung:",IDC_STATIC,56,82,55,8
+    EDITTEXT        IDC_HITDB_TEXT1,56,91,219,33,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_HITDB_DATABASE_PROGRESS DIALOG  0, 0, 219, 105
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Datenbank wird durchsucht..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Animate1",IDC_HITDB_ANIMATE1,"SysAnimate32",ACS_TRANSPARENT | WS_TABSTOP,178,5,20,20
+    PUSHBUTTON      "Abbrechen",IDCANCEL,84,84,50,14
+    CONTROL         "Progress1",IDC_HITDB_PROGRESS,"msctls_progress32",WS_BORDER,25,40,169,14
+    CTEXT           "Einen Moment, bitte...",IDC_STATIC,61,20,96,8
+    CTEXT           "",IDC_HITDB_PROCESSTEXT,0,63,219,8
+END
+
+IDD_HITDB_DUP_RECORD DIALOG  0, 0, 334, 106
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Doppelte CD gefunden"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Ja",IDC_HITDB_DUP_YES,14,85,50,14
+    PUSHBUTTON      "Ja für &alle",IDC_HITDB_DUP_YESALL,78,85,50,14
+    PUSHBUTTON      "&Nein",IDC_HITDB_DUP_NO,142,85,50,14
+    PUSHBUTTON      "Nein &für alle",IDC_HITDB_DUP_NOALL,206,85,50,14
+    PUSHBUTTON      "&Abbrechen",IDCANCEL,270,85,50,14
+    LTEXT           "Die folgende CD ist in der Datenbank schon vorhanden.",IDC_STATIC,17,14,235,8
+    LTEXT           "",IDC_HITDB_ARTIST,100,31,227,8
+    LTEXT           "Soll die CD überschrieben werden?",IDC_STATIC,17,62,180,8
+    LTEXT           "",IDC_HITDB_TITLE,100,43,227,8
+    RTEXT           "Interpret:",IDC_STATIC,57,31,33,8
+    RTEXT           "Titel:",IDC_STATIC,55,43,35,8
+END
+
+IDD_HITDB_HITIMPOPT DIALOGEX 0, 0, 280, 183
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "Konvertierung Hitline Daten"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,82,162,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,148,162,50,14
+    LTEXT           "Hitbase bietet Ihnen ein Standardfeld (welches in Hitline nicht vorhanden war):",IDC_STATIC,16,20,247,9,0,WS_EX_TRANSPARENT
+    CONTROL         "Keine Übernahme",IDC_HITDB_KONV1,"Button",BS_AUTORADIOBUTTON,53,104,83,10
+    CONTROL         "Übernahme vom benutzerdefinierten Titel-Feld 1",IDC_HITDB_KONV2,
+                    "Button",BS_AUTORADIOBUTTON,53,118,187,10,WS_EX_RTLREADING
+    CONTROL         "Übernahme vom benutzerdefinierten Titel-Feld 2",IDC_HITDB_KONV3,
+                    "Button",BS_AUTORADIOBUTTON,53,132,185,10
+    LTEXT           "Falls Sie ein benutzerdefinierbares Titel-Feld früher dazu benutzt haben, den Interpreten eines Tracks (z.B. für CD-Sampler) zu erfassen, so können Sie dieses Feld nun in das neue, fest vorgesehene Feld übernehmen (empfohlen).",IDC_STATIC,16,52,247,26
+    LTEXT           "Interpret des Tracks (für CD-Sampler)",IDC_STATIC,16,36,247,8
+    GROUPBOX        "Konvertierung",IDC_STATIC,7,7,266,145
+    LTEXT           "Der Inhalt des benutzerdefinierten Feldes wird danach gelöscht.",IDC_STATIC,16,82,247,9
+END
+
+IDD_HITDB_CHOOSE_FIELDS DIALOGEX 0, 0, 350, 238
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Spalten auswählen"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Verfügbare Felder:",IDC_STATIC,19,46,66,8
+    LISTBOX         IDC_LIST1,19,56,133,127,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "->",IDC_ADD,158,73,21,12,WS_DISABLED
+    PUSHBUTTON      "<-",IDC_REMOVE,158,91,21,12,WS_DISABLED
+    LTEXT           "Anzeige:",IDC_STATIC,187,46,36,8
+    PUSHBUTTON      "ñ",IDUP,322,92,17,16,WS_DISABLED
+    PUSHBUTTON      "ò",IDDOWN,322,113,17,16,WS_DISABLED
+    LTEXT           "Wählen Sie die Felder aus, die angezeigt werden sollen.",IDC_STATIC_INFO,19,25,247,18
+    PUSHBUTTON      "&Standard",IDC_STANDARD,227,186,50,14
+    GROUPBOX        "Spalten",IDC_STATIC,7,7,336,201
+    PUSHBUTTON      "OK",IDOK,234,217,50,14
+    PUSHBUTTON      "Abbrechen",IDCANCEL,293,217,50,14
+    LISTBOX         IDC_LIST2,186,56,133,127,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_SORT DIALOGEX 0, 0, 223, 159
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "Sortieren nach..."
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,7,13,209,1
+    LTEXT           "1. Sortierschlüssel",IDC_STATIC,7,9,62,8
+    COMBOBOX        IDC_SORTKEY1,19,23,100,60,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Aufsteigend",IDC_SELECTION1_SORTASC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,127,21,53,10
+    CONTROL         "Absteigend",IDC_SELECTION1_SORTDESC,"Button",BS_AUTORADIOBUTTON,127,31,51,10
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,7,53,209,1
+    LTEXT           "2. Sortierschlüssel",IDC_STATIC,7,51,62,8
+    COMBOBOX        IDC_SORTKEY2,19,63,100,60,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Aufsteigend",IDC_SELECTION2_SORTASC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,127,61,53,10
+    CONTROL         "Absteigend",IDC_SELECTION2_SORTDESC,"Button",BS_AUTORADIOBUTTON,127,71,51,9
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,7,93,209,1
+    LTEXT           "3. Sortierschlüssel",IDC_STATIC,7,90,62,8
+    COMBOBOX        IDC_SORTKEY3,19,103,100,60,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Aufsteigend",IDC_SELECTION3_SORTASC,"Button",BS_AUTORADIOBUTTON | WS_GROUP,128,101,53,10
+    CONTROL         "Absteigend",IDC_SELECTION3_SORTDESC,"Button",BS_AUTORADIOBUTTON,128,111,51,10
+    DEFPUSHBUTTON   "OK",IDOK,34,138,35,14,WS_GROUP
+    PUSHBUTTON      "Abbrechen",IDCANCEL,85,138,50,14
+    PUSHBUTTON      "&Hilfe",ID_HELP,151,138,38,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_HITDB_CHOOSE_FIELDS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 343
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 231
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_BLITZ               ICON                    "res\\ico00002.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 11,0,1,120
+ PRODUCTVERSION 11,0,1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x9L
+#else
+ FILEFLAGS 0x8L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704b0"
+        BEGIN
+            VALUE "Comments", "Database Dynamic Link Library for Hitbase"
+            VALUE "CompanyName", "Big 3 Software"
+            VALUE "FileDescription", "HitDB DLL"
+            VALUE "FileVersion", "11.01.120"
+            VALUE "InternalName", "HitDB"
+            VALUE "LegalCopyright", "Copyright © 1998"
+            VALUE "OriginalFilename", "HitDB.DLL"
+            VALUE "PrivateBuild", "120"
+            VALUE "ProductName", "HitDB Dynamic Link Library"
+            VALUE "ProductVersion", "11, 0, 1, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDA_HITDB_SEARCHANI     AVI                     "res\\ida_hitd.bin"
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(ENGLISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_HITDB_POSSIBLE_ERROR_IN_DATABASE$(ENGLISH) DIALOG  0, 0, 282, 161
+#else
+IDD_HITDB_POSSIBLE_ERROR_IN_DATABASE DIALOG  0, 0, 282, 161
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "A critical error was detected in the database!"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,71,140,50,14
+    LTEXT           "A critical error was detected in the database. The file DB_ERROR.TXT will be created, which will contain information about the corrupted record.",IDC_STATIC,56,7,219,32
+    LTEXT           "Check this file and contact Big 3 Software, if you find a critical error.",IDC_STATIC,56,48,219,19
+    ICON            IDI_BLITZ,IDC_STATIC,13,19,20,20
+    PUSHBUTTON      "&Ignore error",IDC_HITDB_BUTTON1,137,140,73,14
+    CONTROL         "Don't show this message again",IDC_HITDB_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,83,120,140,10
+    LTEXT           "Error message:",IDC_STATIC,56,69,55,8
+    EDITTEXT        IDC_HITDB_TEXT1,56,78,219,33,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(ENGLISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_HITDB_DATABASE_PROGRESS$(ENGLISH) DIALOG  0, 0, 219, 106
+#else
+IDD_HITDB_DATABASE_PROGRESS DIALOG  0, 0, 219, 106
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Searching database..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,84,85,50,14
+    CONTROL         "Progress1",IDC_HITDB_PROGRESS,"msctls_progress32",WS_BORDER,25,46,169,14
+    CTEXT           "One moment, please...",IDC_STATIC,61,20,96,8
+    CTEXT           "",IDC_HITDB_PROCESSTEXT,0,67,219,8
+    CONTROL         "Animate1",IDC_HITDB_ANIMATE1,"SysAnimate32",ACS_TRANSPARENT | WS_TABSTOP,175,7,20,20
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(ENGLISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_HITDB_DUP_RECORD$(ENGLISH) DIALOG  0, 0, 334, 106
+#else
+IDD_HITDB_DUP_RECORD DIALOG  0, 0, 334, 106
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Duplicate CD found"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Yes",IDC_HITDB_DUP_YES,14,85,50,14
+    PUSHBUTTON      "Yes to &all",IDC_HITDB_DUP_YESALL,78,85,50,14
+    PUSHBUTTON      "&No",IDC_HITDB_DUP_NO,142,85,50,14
+    PUSHBUTTON      "No &to all",IDC_HITDB_DUP_NOALL,206,85,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,270,85,50,14
+    LTEXT           "The following CD is found in the database.",IDC_STATIC,17,14,235,8
+    LTEXT           "",IDC_HITDB_ARTIST,100,31,227,8
+    LTEXT           "Do you want to overwrite the CD?",IDC_STATIC,17,62,180,8
+    LTEXT           "",IDC_HITDB_TITLE,100,43,227,8
+    RTEXT           "Artist:",IDC_STATIC,53,31,37,8
+    RTEXT           "Title:",IDC_STATIC,55,43,35,8
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(ENGLISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_HITDB_HITIMPOPT$(ENGLISH) DIALOGEX 0, 0, 280, 183
+#else
+IDD_HITDB_HITIMPOPT DIALOGEX 0, 0, 280, 183
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "Converting Hitline catalog"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,82,162,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,148,162,50,14
+    LTEXT           "Hitline bietet Ihnen ein neues Standardfeld:",IDC_STATIC,16,20,247,9,0,WS_EX_TRANSPARENT
+    CONTROL         "Keine Übernahme",IDC_HITDB_KONV1,"Button",BS_AUTORADIOBUTTON,53,104,83,10
+    CONTROL         "Übernahme vom benutzerdefinierten Titel-Feld 1",IDC_HITDB_KONV2,
+                    "Button",BS_AUTORADIOBUTTON,53,118,187,10,WS_EX_RTLREADING
+    CONTROL         "Übernahme vom benutzerdefinierten Titel-Feld 2",IDC_HITDB_KONV3,
+                    "Button",BS_AUTORADIOBUTTON,53,132,185,10
+    LTEXT           "Falls Sie ein benutzerdefinierbares Titel-Feld früher dazu benutzt haben, den Interpreten eines Tracks (z.B. für CD-Sampler) zu erfassen, so können Sie dieses Feld nun in das neue, fest vorgesehene Feld übernehmen (empfohlen).",IDC_STATIC,16,52,247,26
+    LTEXT           "Interpret des Tracks (für CD-Sampler)",IDC_STATIC,16,36,247,8
+    GROUPBOX        "Converting",IDC_STATIC,7,7,266,145
+    LTEXT           "Der Inhalt des benutzerdefinierten Feldes wird danach gelöscht.",IDC_STATIC,16,82,247,9
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(ENGLISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_HITDB_CHOOSE_FIELDS$(ENGLISH) DIALOG  0, 0, 317, 165
+#else
+IDD_HITDB_CHOOSE_FIELDS DIALOG  0, 0, 317, 165
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose columns"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Available fields:",IDC_STATIC,19,20,66,8
+    LISTBOX         IDC_LIST1,19,30,83,78,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "->",IDC_ADD,107,47,21,12,WS_DISABLED
+    PUSHBUTTON      "<-",IDC_REMOVE,107,65,21,12,WS_DISABLED
+    LTEXT           "Selected fields:",IDC_STATIC,137,20,57,8
+    LISTBOX         IDC_LIST2,136,30,83,78,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "ñ",IDUP,225,49,17,16,WS_DISABLED
+    PUSHBUTTON      "ò",IDDOWN,225,70,17,16,WS_DISABLED
+    LTEXT           "Choose the fields for which information is to be displayed.",IDC_STATIC_INFO,30,130,190,22
+    PUSHBUTTON      "&Standard",IDC_STANDARD,153,111,50,14
+    GROUPBOX        "Columns",IDC_STATIC,7,6,243,152
+    PUSHBUTTON      "OK",IDOK,260,10,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,260,27,50,14
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(ENGLISH)
+#if defined(APSTUDIO_INVOKED)
+IDD_SORT$(ENGLISH) DIALOGEX 0, 0, 223, 149
+#else
+IDD_SORT DIALOGEX 0, 0, 223, 149
+#endif
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP
+CAPTION "Sort"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Order by...",IDC_STATIC,22,8,182,103
+    DEFPUSHBUTTON   "OK",IDOK,34,129,35,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,85,129,50,14
+    PUSHBUTTON      "&Help",ID_HELP,151,129,38,14
+    LTEXT           "1. Key:",IDC_STATIC,33,37,51,8
+    LTEXT           "2. Key:",IDC_STATIC,33,58,51,8
+    LTEXT           "3. Key:",IDC_STATIC,33,79,51,8
+    COMBOBOX        IDC_SORTKEY1,88,34,100,60,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_SORTKEY2,88,55,100,60,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_SORTKEY3,88,76,100,60,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+#endif
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    "IDD_HITDB_POSSIBLE_ERROR_IN_DATABASE$(ENGLISH)", DIALOG
+    BEGIN
+        , 72, 69
+    END
+
+    "IDD_HITDB_DATABASE_PROGRESS$(ENGLISH)", DIALOG
+    BEGIN
+    END
+
+    "IDD_HITDB_DUP_RECORD$(ENGLISH)", DIALOG
+    BEGIN
+    END
+
+    "IDD_HITDB_HITIMPOPT$(ENGLISH)", DIALOG
+    BEGIN
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(ENGLISH)
+#if defined(APSTUDIO_INVOKED)
+VS_VERSION_INFO$(ENGLISH) VERSIONINFO
+#else
+VS_VERSION_INFO VERSIONINFO
+#endif
+ FILEVERSION 10,0,1,120
+ PRODUCTVERSION 10,0,1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x9L
+#else
+ FILEFLAGS 0x8L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704b0"
+        BEGIN
+            VALUE "Comments", "Database Dynamic Link Library for Hitbase"
+            VALUE "CompanyName", "Big 3 Software"
+            VALUE "FileDescription", "HitDB DLL"
+            VALUE "FileVersion", "10.01.120"
+            VALUE "InternalName", "HitDB"
+            VALUE "LegalCopyright", "Copyright © 1998"
+            VALUE "OriginalFilename", "HitDB.DLL"
+            VALUE "PrivateBuild", "120"
+            VALUE "ProductName", "HitDB Dynamic Link Library"
+            VALUE "ProductVersion", "10, 0, 1, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1200
+    END
+END
+#endif
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\HitDB.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.deu\afxres.rc"          // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

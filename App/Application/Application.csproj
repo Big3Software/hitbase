@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2B0C678-5969-45C2-A964-42B4B6B1845C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Big3.Hitbase.Application</RootNamespace>
+    <AssemblyName>Hitbase</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>ftp://www.hitbase.de/hitbase2012/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.hitbase.de/hitbase2012/</InstallUrl>
+    <SupportUrl>http://www.hitbase.de</SupportUrl>
+    <TargetCulture>de</TargetCulture>
+    <ProductName>Hitbase 2012</ProductName>
+    <PublisherName>Big 3 Software</PublisherName>
+    <SuiteName>Hitbase 2012</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>install.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1A177CC320227C24D21058E893DC83B90D9EBB7B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Application_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Hitbase.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="cdsearch, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="Fluent, Version=1.2.0.0, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ThirdParty\Fluent Ribbon\Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\ThirdParty\Microsoft Ribbon\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="NativeGUI, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="RibbonWindowExtensions.cs" />
+    <Compile Include="SplashScreenWindow.xaml.cs">
+      <DependentUpon>SplashScreenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowAbout.xaml.cs">
+      <DependentUpon>WindowAbout.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="SplashScreenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowAbout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="Application_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\Big3.Hitbase.CDCover\Big3.Hitbase.CDCover.csproj">
+      <Project>{CB2D626C-9983-471D-81DF-6FDB205A4686}</Project>
+      <Name>Big3.Hitbase.CDCover</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\Big3.Hitbase.SharedResources\Big3.Hitbase.SharedResources.csproj">
+      <Project>{F6825A2F-F2B6-465E-8A7F-9B380BD65CB2}</Project>
+      <Name>Big3.Hitbase.SharedResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\CatalogView3D\CatalogView3D.csproj">
+      <Project>{B4D05EF9-C408-4B5B-A7E6-C3AAEF374162}</Project>
+      <Name>CatalogView3D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\CDUtilities\Big3.Hitbase.CDUtilities.csproj">
+      <Project>{3B274BAC-60C6-4DEF-9B1A-A658F863921C}</Project>
+      <Name>Big3.Hitbase.CDUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\Community\Community.csproj">
+      <Project>{EA245865-870D-47C1-BC72-6B8A80E8196E}</Project>
+      <Name>Community</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\Configuration\Big3.Hitbase.Configuration.csproj">
+      <Project>{0D1AE543-68CA-4DC8-826B-38987B119B4A}</Project>
+      <Name>Big3.Hitbase.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\Controls\Big3.Hitbase.Controls.csproj">
+      <Project>{2A54BD22-56F5-4926-A3D8-D06354A1A360}</Project>
+      <Name>Big3.Hitbase.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\DataBaseEngine\DataBaseEngine.csproj">
+      <Project>{A1F74ECE-CEF8-4A0F-9DFD-75820D8F5F77}</Project>
+      <Name>DataBaseEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\MainControls\Big3.Hitbase.MainControls.csproj">
+      <Project>{04EDA503-D764-4C40-ACE6-ED95F1382F9E}</Project>
+      <Name>Big3.Hitbase.MainControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\Misc\Big3.Hitbase.Miscellaneous.csproj">
+      <Project>{1B40397C-387B-4145-9EDD-77414FB90F6E}</Project>
+      <Name>Big3.Hitbase.Miscellaneous</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\RecordMedium\RecordMedium.csproj">
+      <Project>{6975E548-33A2-4E39-9FD0-81E2E593570B}</Project>
+      <Name>RecordMedium</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\SoundEngineGUI\SoundEngineGUI.csproj">
+      <Project>{D560FFC8-6FC9-4E87-8C44-9DD366E46F67}</Project>
+      <Name>SoundEngineGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\SoundEngineNET\Big3.Hitbase.SoundEngine.csproj">
+      <Project>{9F1B6B6E-1EB8-40A7-A135-F341574C552B}</Project>
+      <Name>Big3.Hitbase.SoundEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\SoundFilesManagement\SoundFilesManagement.csproj">
+      <Project>{C970D87E-BA45-4435-B81F-C3FFAF82A90A}</Project>
+      <Name>SoundFilesManagement</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\ThirdParty\FMOD Programmers API\api\fmodex.dll">
+      <Link>fmodex.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Hitbase.ico" />
+    <Resource Include="Images\ApplicationMenu.png" />
+    <Content Include="template.sdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\3DMode.png" />
+    <Resource Include="Images\ActivateHitbase.png" />
+    <Resource Include="Images\AddCD.png" />
+    <Resource Include="Images\AddMusic.png" />
+    <Resource Include="Images\AdjustSpelling.png" />
+    <Resource Include="Images\BrowseCDArchive.png" />
+    <Resource Include="Images\BurnCD.png" />
+    <Resource Include="Images\BuyHitbase.png" />
+    <Resource Include="Images\CancelRecord.png" />
+    <Resource Include="Images\Catalog.png" />
+    <Resource Include="Images\CatalogSaveAs.png" />
+    <Resource Include="Images\Category.png" />
+    <Resource Include="Images\CDArchivSearch.png" />
+    <Resource Include="Images\CDArchivSend.png" />
+    <Resource Include="Images\CDSets.png" />
+    <Resource Include="Images\ChangeCode.png" />
+    <Resource Include="Images\Close.png" />
+    <Resource Include="Images\Codes.png" />
+    <Resource Include="Images\CopyCD.png" />
+    <Resource Include="Images\CopyCDArtistToTracks.png" />
+    <Resource Include="Images\CopyCDSettings.png" />
+    <Resource Include="Images\CopyFields.png" />
+    <Resource Include="Images\DataBaseFields.png" />
+    <Resource Include="Images\Help.png" />
+    <Resource Include="Images\HitbaseLarge.png" />
+    <Resource Include="Images\InsertChar.png" />
+    <Resource Include="Images\LinkCD.png" />
+    <Resource Include="Images\LoanManager.png" />
+    <Resource Include="Images\Medium.png" />
+    <Resource Include="Images\NewCatalog.png" />
+    <Resource Include="Images\OpenCatalog.png" />
+    <Resource Include="Images\Options.png" />
+    <Resource Include="Images\PersonGroup.png" />
+    <Resource Include="Images\Print.png" />
+    <Resource Include="Images\PrintCDCover.png" />
+    <Resource Include="Images\Roles.png" />
+    <Resource Include="Images\SaveCD.png" />
+    <Resource Include="Images\SearchAmazon.png" />
+    <Resource Include="Images\SearchAndReplace.png" />
+    <Resource Include="Images\SearchCD.png" />
+    <Resource Include="Images\SearchCDInInternet.png" />
+    <Resource Include="Images\SearchTrack.png" />
+    <Resource Include="Images\SendCatalogInEMail.png" />
+    <Resource Include="Images\SendCatalogToInternet.png" />
+    <Resource Include="Images\SendCDToInternet.png" />
+    <Resource Include="Images\SplashScreen.jpg" />
+    <Resource Include="Images\SplashScreen.png" />
+    <Resource Include="Images\SQL.png" />
+    <Resource Include="Images\Warning.png" />
+    <Resource Include="Images\WishList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.Web.Services3">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="template.sdf">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(SolutionDir)ThirdParty\SQL Server Compact 4.0\x86\*.*" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

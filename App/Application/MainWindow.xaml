@@ -1,0 +1,463 @@
+﻿<RibbonWindow x:Class="Big3.Hitbase.Application.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Hitbase 2012" Height="768" Width="1024"
+    xmlns:mainControls="clr-namespace:Big3.Hitbase.MainControls;assembly=MainControls"
+    xmlns:local="clr-namespace:Big3.Hitbase.Application" Closing="MainWnd_Closing" AllowDrop="True" PreviewDrop="MainWnd_Drop" PreviewDragOver="MainWnd_DragOver"
+    xmlns:sr="clr-namespace:Big3.Hitbase.SharedResources;assembly=Big3.Hitbase.SharedResources"
+    xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
+    xmlns:controls="clr-namespace:Big3.Hitbase.Controls;assembly=Controls"
+                     xmlns:sgui="clr-namespace:Big3.Hitbase.SoundEngineGUI;assembly=SoundEngineGUI"
+                     xmlns:cdutils="clr-namespace:Big3.Hitbase.CDUtilities;assembly=CDUtilities" Icon="Hitbase.ico"
+                     Name="MainWnd" Loaded="MainWnd_Loaded" TextOptions.TextFormattingMode="Display" Background="{DynamicResource MainBackground}" Closed="MainWnd_Closed">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="{x:Static shell:WindowChrome.GlassFrameCompleteThickness}"/>
+    </WindowChrome.WindowChrome>
+    <Window.Template>
+        <ControlTemplate>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Opacity of < 1.0 helps show the minimize, maximize and close buttons -->
+                <Border Grid.Row="0" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrush}}" Opacity="0.8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <!-- Window Title - Center Aligned -->
+                        <TextBlock 
+                            Grid.Column="1"
+                            TextAlignment="Center" 
+                            VerticalAlignment="Center"
+                            Text="{Binding Title, RelativeSource={RelativeSource TemplatedParent}}" />
+
+                    </Grid>
+                </Border>
+
+                <!-- This is the Window's main content area -->
+                <!-- Top margin 44 = WindowChrome ResizeBorderThickness (4) + CaptionHeight(40) -->
+                <!-- Bottom margin 1 is somewhat arbitrary -->
+                <Border Grid.Row="1" Background="Transparent" Opacity="1">
+                    <ContentPresenter Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"/>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </Window.Template>
+    <RibbonWindow.Resources>
+        <ResourceDictionary >
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Controls;component/TabControl/TabControlStyleClose.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <LinearGradientBrush x:Key="ApplicationMenuSeparatorFill" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#CFDBEB" Offset="0" />
+                <GradientStop Color="#FFFFFF" Offset="1" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+        
+     </RibbonWindow.Resources>
+
+    <RibbonWindow.CommandBindings>
+        <CommandBinding Command="sr:HitbaseCommands.AddTracksToPlaylist" Executed="CommandBindingAddTrackToPlaylist_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddTracksToPlaylistNow" Executed="CommandBindingAddTrackToPlaylistNow_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddTracksToPlaylistNext" Executed="CommandBindingAddTrackToPlaylistNext_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddTracksToPlaylistLast" Executed="CommandBindingAddTrackToPlaylistLast_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.PreListenTrack" Executed="CommandBindingPreListenTrack_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.OpenInNewTab" Executed="CommandBindingOpenInNewTab_Executed" CanExecute="CommandBindingOpenInNewTab_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.CloseTab" Executed="CommandBindingCloseTab_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.PinTab" Executed="CommandBindingPinTab_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ConfigureMusicLibrary" Executed="CommandBindingConfigureMusicLibrary_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.OpenCDDrive" Executed="CommandBindingOpenCDDrive_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.EditCategories" Executed="CommandBindingEditCategories_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.EditMediums" Executed="CommandBindingEditMediums_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.EditCodes" Executed="CommandBindingEditCodes_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ChangeCode" Executed="CommandBindingChangeCode_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddNewAlbum" Executed="CommandBindingAddNewAlbum_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.SearchAmazon" Executed="CommandBindingSearchAmazon_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.LoanManager" Executed="CommandBindingLoanManager_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.Wishlist" Executed="CommandBindingWishlist_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.PrintAlbum" Executed="CommandBindingPrintAlbum_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.CDLoaned" Executed="CommandBindingCDLoaned_Executed"  />
+        <CommandBinding Command="sr:HitbaseCommands.OpenAlbum" Executed="CommandBindingOpenAlbum_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.OpenTrack" Executed="CommandBindingOpenTrack_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.SelectCodes" Executed="CommandBindingSelectCodes_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.EditRoles" Executed="CommandBindingEditRoles_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.EditCDSets" Executed="CommandBindingEditCDSets_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ShowMainStatusText" Executed="CommandBindingShowMainStatusText_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.SetMainStatusText" Executed="CommandBindingSetMainStatusText_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.SaveCurrentCD" Executed="CommandBindingSaveCurrentCD_Executed" CanExecute="CommandBindingSaveCurrentCD_CanExecute"/>
+        <CommandBinding Command="sr:HitbaseCommands.ShowRecordOptions" Executed="CommandBindingShowRecordOptions_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.StartRecord" Executed="CommandBindingStartRecord_Executed" CanExecute="CommandBindingStartRecord_CanExecute"/>
+        <CommandBinding Command="sr:HitbaseCommands.CancelRecord" Executed="CommandBindingCancelRecord_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.EditDatabaseFields" Executed="CommandBindingEditDatabaseFields_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.BurnCD" Executed="CommandBindingBurnCD_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.CopyFields" Executed="CommandBindingCopyFields_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.SearchAndReplace" Executed="CommandBindingSearchAndReplace_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ShowPlayer" Executed="CommandBindingShowPlayer_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddToWishlist" Executed="CommandBindingAddToWishlist_Executed" />
+        <CommandBinding Command="mainControls:ConditionCommands.SaveCondition" Executed="CommandBindingSaveCondition_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.NewPlaylist" Executed="CommandBindingNewPlaylist_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.PlayInFullScreen2D" Executed="CommandBindingPlayInFullScreen2D_Executed" CanExecute="CommandBindingPlayInFullScreen2D_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.PlayInFullScreen3D" Executed="CommandBindingPlayInFullScreen3D_Executed" CanExecute="CommandBindingPlayInFullScreen3D_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.SearchCDInCDArchive" Executed="CommandBindingSearchCDInCDArchive_Executed" CanExecute="CommandBindingSearchCDInCDArchive_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.SendCDToCDArchive" Executed="CommandBindingSearchCDToCDArchive_Executed"  CanExecute="CommandBindingSendCDToCDArchive_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.SendCatalogToInternet" Executed="CommandBindingSendCatalogToInternet_Executed" />
+        <CommandBinding Command="mainControls:CatalogViewCommands.AddView" Executed="CommandBindingAddView_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ChooseSkin" Executed="CommandBindingChooseSkin_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.OpenTrackLocation" Executed="CommandBindingOpenTrackLocation_Executed" CanExecute="CommandBindingOpenTrackLocation_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.PrevTrack" Executed="CommandBindingPrevTrack_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.Play" Executed="CommandBindingPlay_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.Pause" Executed="CommandBindingPause_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.NextTrack" Executed="CommandBindingNextTrack_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.CopyToExternalMedium" Executed="CommandBindingCopyToExternalMedium_Executed" CanExecute="CommandBindingCopyToExternalMedium_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.EditPersonGroup" Executed="CommandBindingEditPersonGroup_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.UploadToMyHitbase" Executed="CommandBindingUploadToMyHitbase_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ShowExtendedQualityDialog" Executed="CommandBindingShowExtendedQualityDialog_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.BrowseCDArchive" Executed="CommandBindingBrowseCDArchive_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.LinkCD" Executed="CommandBindingLinkCD_Executed" CanExecute="CommandBindingLinkCD_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.AdjustSpelling" Executed="CommandBindingAdjustSpelling_Executed" CanExecute="CommandBindingAdjustSpelling_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.CopyCDArtistToTracks" Executed="CommandBindingCopyCDArtistToTracks_Executed" CanExecute="CommandBindingCopyCDArtistToTracks_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.AboutHitbase" Executed="CommandBindingAboutHitbase_Executed"  />
+        <CommandBinding Command="sr:HitbaseCommands.ShowNormalizeOptions" Executed="CommandBindingShowNormalizeOptions_Executed"  />
+        <CommandBinding Command="sr:HitbaseCommands.FirstSteps" Executed="CommandBindingFirstSteps_Executed"  />
+        <CommandBinding Command="sr:HitbaseCommands.PlayAlbumNow" Executed="CommandBindingPlayAlbumNow_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.PlayAlbumNext" Executed="CommandBindingPlayAlbumNext_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.PlayAlbumLast" Executed="CommandBindingPlayAlbumLast_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.CopyToClipboard" Executed="CommandBindingCopyToClipboard_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.OpenCatalog" Executed="CommandBindingOpenCatalog_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.SaveAs" Executed="CommandBindingSaveAs_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.EjectCD" Executed="CommandBindingEjectCD_Executed" CanExecute="CommandBindingEjectCD_CanExecute" />
+        <CommandBinding Command="sr:HitbaseCommands.CompactDataBase" Executed="CommandBindingCompactDataBase_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddAlbumToPlaylistNow" Executed="CommandBindingAddAlbumToPlaylistNow_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddAlbumToPlaylistNext" Executed="CommandBindingAddAlbumToPlaylistNext_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddAlbumToPlaylistLast" Executed="CommandBindingAddAlbumToPlaylistLast_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ShowVisualization" Executed="CommandBindingShowVisualization_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.AddNewAlbumFromDirectory" Executed="CommandBindingAddNewAlbumFromDirectory_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.OpenHitbaseHomepage" Executed="CommandBindingOpenHitbaseHomepage_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.OpenHitbaseForum" Executed="CommandBindingOpenHitbaseForum_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.OpenCDArchiveHomepage" Executed="CommandBindingOpenCDArchiveHomepage_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ShowHelp" Executed="CommandBindingShowHelp_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ExportHTML" Executed="CommandBindingExportHTML_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ExportTXT" Executed="CommandBindingExportTXT_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.OrderHitbase" Executed="CommandBindingOrderHitbase_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ActivateHitbase" Executed="CommandBindingActivateHitbase_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.StartRecordSelectedTracks" Executed="CommandBindingStartRecordSelectedTracks_Executed" CanExecute="CommandBindingStartRecordSelectedTracks_CanExecute"/>
+        <CommandBinding Command="sr:HitbaseCommands.ShowFrequencyBand" Executed="CommandBindingShowFrequencyBand_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.ShowLyrics" Executed="CommandBindingShowLyrics_Executed" />
+
+        <CommandBinding Command="sr:HitbaseCommands.ShowPartyMode" Executed="CommandBindingShowPartyMode_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.PrintCatalog" Executed="CommandBindingPrintCatalog_Executed" />
+
+        <CommandBinding Command="sr:HitbaseCommands.SendEMail" Executed="CommandBindingSendEMail_Executed" />
+
+        <CommandBinding Command="sr:HitbaseCommands.ShowOptions" Executed="CommandBindingShowOptions_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.NewCatalog" Executed="CommandBindingNewCatalog_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.Exit" Executed="CommandBindingExit_Executed" />
+
+        <CommandBinding Command="sr:HitbaseCommands.PrintCDCover" Executed="CommandBindingPrintCDCover_Executed" />
+        <CommandBinding Command="sr:HitbaseCommands.DeleteCDTracksFromPlaylist" Executed="CommandBindingDeleteCDTracksFromPlaylist_Executed" />
+
+        <CommandBinding Command="sr:HitbaseCommands.SetRecordSpeed" Executed="CommandBindingSetRecordSpeed_Executed" />
+
+        <CommandBinding Command="sr:HitbaseCommands.PrintCD" Executed="CommandBindingPrintCD_Executed" CanExecute="CommandBindingPrintCD_CanExecute" />
+
+    </RibbonWindow.CommandBindings>
+    <RibbonWindow.InputBindings>
+        <KeyBinding Command="sr:HitbaseCommands.StartRecord" Key="F9" />
+        <KeyBinding Command="sr:HitbaseCommands.AdjustSpelling" Key="F11" />
+        <KeyBinding Command="sr:HitbaseCommands.SaveCurrentCD" Key="S" Modifiers="Control" />
+        <KeyBinding Command="sr:HitbaseCommands.EjectCD" Key="E" Modifiers="Control" />
+    </RibbonWindow.InputBindings>    
+
+    <Grid>
+        <Grid x:Name="modalParentGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="100" x:Name="PlayerGridRow"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Ribbon x:Name="MyRibbon" Grid.Row="0" 
+ 
+>
+                <Ribbon.HelpPaneContent>
+                    <RibbonMenuButton SmallImageSource="Images\Help.png" >
+                        <RibbonMenuItem Header="Hilfe" Command="sr:HitbaseCommands.ShowHelp" />
+                        <RibbonSeparator />
+                        <RibbonMenuItem ImageSource="/Big3.Hitbase.SharedResources;component/Images/GreenFlag.png" Header="Erste Schritte" Command="sr:HitbaseCommands.FirstSteps" />
+                        <RibbonSeparator />
+                        <RibbonMenuItem Header="Hitbase Homepage" Command="sr:HitbaseCommands.OpenHitbaseHomepage" />
+                        <RibbonMenuItem Header="Hitbase Forum" Command="sr:HitbaseCommands.OpenHitbaseForum" />
+                        <RibbonMenuItem Header="CD-Archive Homepage" Command="sr:HitbaseCommands.OpenCDArchiveHomepage" />
+                        <RibbonSeparator />
+                        <RibbonMenuItem Header="Über Hitbase..." Command="sr:HitbaseCommands.AboutHitbase" />
+                    </RibbonMenuButton>
+                </Ribbon.HelpPaneContent>
+                <Ribbon.ApplicationMenu>
+                    <RibbonApplicationMenu SmallImageSource="Images/ApplicationMenu.png" x:Name="applicationMenu">
+                        <!--<ApplicationMenu.Header>
+                                <Image Source="/Big3.Hitbase.SharedResources;component/Images/GreenFlag.png" Stretch="Fill" />
+                        </ApplicationMenu.Header>-->
+                        <RibbonApplicationMenu.AuxiliaryPaneContent>
+                            <StackPanel VerticalAlignment="Top">
+                                <TextBlock Text="Zuletzt verwendete Kataloge" Foreground="Black" FontWeight="Bold" Margin="2" />
+                                <Rectangle Height="2" Fill="{StaticResource ApplicationMenuSeparatorFill}" Margin="2" />
+                                <StackPanel x:Name="RecentFileListPanel">
+                                </StackPanel>
+                            </StackPanel>
+                        </RibbonApplicationMenu.AuxiliaryPaneContent>
+                        <RibbonApplicationMenuItem Name="buttonNewCatalog" Header="Neuen Katalog anlegen" Command="sr:HitbaseCommands.NewCatalog" ImageSource="Images\NewCatalog.png" QuickAccessToolBarId="buttonNewCatalog" QuickAccessToolBarImageSource="Images\NewCatalog.png" />
+                        <RibbonApplicationMenuItem Name="buttonOpenCatalog" Header="Katalog öffnen" Command="sr:HitbaseCommands.OpenCatalog" ImageSource="Images\OpenCatalog.png" QuickAccessToolBarId="buttonOpenCatalog" QuickAccessToolBarImageSource="Images\OpenCatalog.png"/>
+                        <RibbonApplicationMenuItem Name="buttonCatalogSaveAs" Header="Katalog speichern unter" Command="sr:HitbaseCommands.SaveAs" ImageSource="Images\CatalogSaveAs.png" QuickAccessToolBarId="buttonCatalogSaveAs" QuickAccessToolBarImageSource="Images\CatalogSaveAs.png"/>
+
+                        <RibbonSeparator />
+
+                        <RibbonApplicationMenuItem Name="buttonPrint" Header="Drucken" Command="sr:HitbaseCommands.PrintCatalog" QuickAccessToolBarImageSource="Images\Print.png" QuickAccessToolBarId="buttonPrint" ImageSource="Images\Print.png" />
+                        <RibbonApplicationMenuItem Header="Export" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Export.png">
+                            <RibbonApplicationMenuItem Name="buttonExportHTML" Header="HTML"  Command="sr:HitbaseCommands.ExportHTML" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Export.png" QuickAccessToolBarId="buttonExportHTML" QuickAccessToolBarImageSource="/Big3.Hitbase.SharedResources;component/Images/Export.png" />
+                            <RibbonApplicationMenuItem Name="buttonExportTXT" Header="TXT/CSV" Command="sr:HitbaseCommands.ExportTXT" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Export.png" QuickAccessToolBarId="buttonExportTXT" QuickAccessToolBarImageSource="/Big3.Hitbase.SharedResources;component/Images/Export.png" />
+                        </RibbonApplicationMenuItem>
+                        <RibbonApplicationMenuItem Name="buttonSendInEMail" Header="In E-Mail senden" Command="sr:HitbaseCommands.SendEMail" ImageSource="Images\SendCatalogInEMail.png" QuickAccessToolBarId="buttonSendInEMail" QuickAccessToolBarImageSource="Images\SendCatalogInEMail.png" />
+
+                        <RibbonSeparator />
+
+                        <RibbonApplicationMenuItem Name="buttonCompact" Header="Reparieren und komprimieren" Command="sr:HitbaseCommands.CompactDataBase" ImageSource="/Big3.Hitbase.SharedResources;component/Images/CompactDataBase.png" QuickAccessToolBarImageSource="/Big3.Hitbase.SharedResources;component/Images/CompactDataBase.png" />
+
+                        <RibbonSeparator />
+
+                        <RibbonApplicationMenuItem Name="buttonOptions" Header="Optionen" Command="sr:HitbaseCommands.ShowOptions" ImageSource="Images\Options.png" QuickAccessToolBarId="buttonOptions"  QuickAccessToolBarImageSource="Images\Options.png" />
+
+                        <RibbonSeparator />
+
+                        <RibbonApplicationMenuItem Name="buttonExit" Header="Beenden" Command="sr:HitbaseCommands.Exit" ImageSource="Images\Close.png" QuickAccessToolBarId="buttonExit" QuickAccessToolBarImageSource="Images\Close.png"/>
+                        
+                    </RibbonApplicationMenu>
+                </Ribbon.ApplicationMenu>
+                <!--Tabs-->
+                <RibbonTab Header="Start" KeyTip="S">
+                    <RibbonGroup Name="Catalog" Header="Katalog" >
+                        <RibbonButton Name="buttonConfigureMusicLibrary" Label="Speicherorte verwalten" LargeImageSource="Images\AddMusic.png" SmallImageSource="Images\AddMusic.png" Command="sr:HitbaseCommands.ConfigureMusicLibrary" KeyTip="S"/>
+                        <RibbonMenuButton Label="Neues Album" LargeImageSource="Images\AddCD.png" SmallImageSource="Images\AddCD.png" KeyTip="N" >
+                            <RibbonMenuItem Name="buttonNewCD" Header="Manuell erfassen" ImageSource="Images\AddCD.png" Command="sr:HitbaseCommands.AddNewAlbum" />
+                            <RibbonMenuItem Name="buttonNewCDFromDirectory" Header="Aus Verzeichnis erstellen" ImageSource="/Big3.Hitbase.SharedResources;component/Images/AddAlbumFromDirectory.png" Command="sr:HitbaseCommands.AddNewAlbumFromDirectory" />
+                        </RibbonMenuButton>
+                        <RibbonButton Name="buttonLoanManager" Label="Verleihmanager" LargeImageSource="Images\LoanManager.png" SmallImageSource="Images\LoanManager.png" Command="sr:HitbaseCommands.LoanManager" KeyTip="V" />
+                        <RibbonButton Name="buttonSearchAmazon" Label="Amazon nach Alben durchsuchen" LargeImageSource="Images\SearchAmazon.png" SmallImageSource="Images\SearchAmazon.png" Command="sr:HitbaseCommands.SearchAmazon" KeyTip="A" />
+                        <RibbonButton Name="buttonMyHitbase" Label="my.Hitbase!" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/MyHitbase.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/MyHitbase.png" Command="sr:HitbaseCommands.UploadToMyHitbase" KeyTip="M" />
+                    </RibbonGroup>
+                    <RibbonGroup Header="Wiedergabe" Name="Player" >
+                        <RibbonButton Name="button3DMode" Label="Party-Modus" LargeImageSource="Images\3DMode.png" SmallImageSource="Images\3DMode.png" KeyTip="P" Command="sr:HitbaseCommands.ShowPartyMode" />
+                        <RibbonButton Name="buttonFullScreen2D" Label="2D-Modus" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/FullScreen2D.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/FullScreen2D.png" Command="sr:HitbaseCommands.PlayInFullScreen2D" KeyTip="2" />
+                        <RibbonButton Name="buttonFullScreen3D" Label="3D-Modus" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/FullScreen3D.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/FullScreen3D.png" Command="sr:HitbaseCommands.PlayInFullScreen3D" KeyTip="3" />
+                        <RibbonButton Name="buttonCopyToExternalMedium" Label="Auf externes Medium kopieren" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/MP3Player.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/MP3Player.png" Command="sr:HitbaseCommands.CopyToExternalMedium" KeyTip="E" />
+                        <RibbonSplitButton Name="SplitButtonCrossFade" Label="Überblenden" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/Fade.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/Fade.png"  IsCheckable="True" Click="SplitButtonCrossFade_Click" DropDownOpened="SplitButtonCrossFade_DropDownOpened" KeyTip="Ü">
+                            <RibbonSplitMenuItem Name="MenuItemCrossFadeOff" Header="Aus" Click="MenuItemCrossFade_Click" />
+                            <RibbonSplitMenuItem Name="MenuItemCrossFade2Seconds" Header="2 Sekunden" Click="MenuItemCrossFade_Click" />
+                            <RibbonSplitMenuItem Name="MenuItemCrossFade5Seconds" Header="5 Sekunden" Click="MenuItemCrossFade_Click" />
+                            <RibbonSplitMenuItem Name="MenuItemCrossFade10Seconds" Header="10 Sekunden" Click="MenuItemCrossFade_Click" />
+                            <RibbonSeparator />
+                            <RibbonSplitMenuItem Name="MenuItemCrossFadeUserDefined" Header="Benutzerdefiniert..." Click="MenuItemCrossFade_Click" />
+                        </RibbonSplitButton>
+                    </RibbonGroup>
+                    <RibbonGroup Header="Ansicht" Name="View" >
+                        <RibbonMenuButton LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/ShowHideViews.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/ShowHideViews.png"  Label="Anzeige" KeyTip="Z">
+                            <RibbonMenuItem Name="toggleButtonViewNavigationBar" Header="Navigationsleiste" Click="buttonViewNavigationBar_Click" />
+                            <RibbonMenuItem Name="toggleButtonViewPlaylist" Header="Wiedergabeliste" Click="buttonViewPlaylist_Click" />
+                            <RibbonMenuItem Name="toggleButtonViewPlayer" Header="Player" Command="sr:HitbaseCommands.ShowPlayer" />
+                            <RibbonSeparator />
+                            <RibbonMenuItem Name="toggleButtonShowFrequencyBand" Header="Frequenzband" Command="sr:HitbaseCommands.ShowFrequencyBand" />
+                            <RibbonMenuItem Name="toggleButtonShowLyrics" Header="Liedtext (Lyrics)" Command="sr:HitbaseCommands.ShowLyrics" />
+                        </RibbonMenuButton>
+                        <RibbonToggleButton Name="buttonWishlist" Label="Wunschliste" LargeImageSource="Images\WishList.png" SmallImageSource="Images\WishList.png" Command="sr:HitbaseCommands.Wishlist" KeyTip="W"/>
+                        <!--<RibbonButton Name="buttonVisualEffects" Header="Visualisierung" Click="buttonVisualEffects_Click" />-->
+                        <RibbonMenuButton Label="Design" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/Design.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/Design.png" KeyTip="D">
+                            <RibbonMenuItem Name="buttonSkinDefault" ImageSource="/Big3.Hitbase.SharedResources;component/Images/DesignBlueSmall.png" Header="Standard" Command="sr:HitbaseCommands.ChooseSkin" CommandParameter="Default" />
+                            <RibbonMenuItem Name="buttonSkinBlack" ImageSource="/Big3.Hitbase.SharedResources;component/Images/DesignBlackSmall.png" Header="Schwarz" Command="sr:HitbaseCommands.ChooseSkin" CommandParameter="Black" />
+                            <RibbonMenuItem Name="buttonSkinSilver" ImageSource="/Big3.Hitbase.SharedResources;component/Images/DesignSilverSmall.png" Header="Silber" Command="sr:HitbaseCommands.ChooseSkin" CommandParameter="Silver" />
+                        </RibbonMenuButton>
+                        <RibbonMenuButton Label="Visualisierungen" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/Fire.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/Fire.png" KeyTip="I">
+                            <RibbonMenuItem Name="buttonFire" Header="Feuer" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Fire.png" Command="sr:HitbaseCommands.ShowVisualization" CommandParameter="Fire" />
+                            <RibbonMenuItem Name="buttonPlasma" Header="Plasma" ImageSource="/Big3.Hitbase.SharedResources;component/Images/Plasma.png" Command="sr:HitbaseCommands.ShowVisualization" CommandParameter="Plasma" />
+                        </RibbonMenuButton>
+
+                    </RibbonGroup>
+                    <RibbonGroup Name="Tools" Header="Tools" >
+                        <RibbonButton Name="buttonBurnCD" Label="CD brennen" LargeImageSource="Images\BurnCD.png" SmallImageSource="Images\BurnCD.png" Command="sr:HitbaseCommands.BurnCD" KeyTip="B" />
+                        <!--<RibbonButton Name="buttonSQL" Header="SQL-Abfrage" Click="buttonSQL_Click" LargeImageSource="/Hitbase;component/Images/SQL.png" SmallImageSource="/Hitbase;component/Images/SQL.png" />-->
+                        <!--<RibbonButton Name="buttonCharmap" Header="Sonderzeichen einfügen" LargeImageSource="Images\InsertChar.png" SmallImageSource="Images\InsertChar.png" />-->
+                        <RibbonButton Name="buttonBuyHitbase" Command="sr:HitbaseCommands.OrderHitbase" Label="Hitbase bestellen!" LargeImageSource="Images\BuyHitbase.png" SmallImageSource="Images\BuyHitbase.png" />
+                        <RibbonButton Name="buttonActivateHitbase" Command="sr:HitbaseCommands.ActivateHitbase" Label="Hitbase aktivieren" LargeImageSource="Images\ActivateHitbase.png" SmallImageSource="Images\ActivateHitbase.png" />
+                    </RibbonGroup>
+                </RibbonTab>
+                <!--<Ribbon.QuickAccessToolBar>
+                    <RibbonQuickAccessToolBar>
+                        <RibbonButton />
+                    </RibbonQuickAccessToolBar>
+                </Ribbon.QuickAccessToolBar>-->
+                <RibbonTab x:Name="ribbonTabItemCatalog" Header="Katalog"  KeyTip="K">
+                    <RibbonGroup Header="Katalog" >
+                        <RibbonButton Name="buttonCategories" Label="Genres" LargeImageSource="Images\Category.png" SmallImageSource="Images\Category.png" Command="sr:HitbaseCommands.EditCategories"  KeyTip="G" />
+                        <RibbonButton Name="buttonMedium" Label="Medien" LargeImageSource="Images\Medium.png" SmallImageSource="Images\Medium.png" Command="sr:HitbaseCommands.EditMediums"  KeyTip="M" />
+                        <RibbonButton Name="buttonCDSets" Label="CD-Sets" LargeImageSource="Images\CDSets.png" SmallImageSource="Images\CDSets.png" Command="sr:HitbaseCommands.EditCDSets"  KeyTip="S" />
+                        <RibbonButton Name="buttonCodes" Label="Kennzeichen" LargeImageSource="Images\Codes.png" SmallImageSource="Images\Codes.png" Command="sr:HitbaseCommands.EditCodes"  KeyTip="C" />
+                        <RibbonButton Name="buttonChangeCode" Label="Kennzeichen ändern" LargeImageSource="Images\ChangeCode.png" SmallImageSource="Images\ChangeCode.png" Command="sr:HitbaseCommands.ChangeCode"  KeyTip="H" />
+                        <RibbonButton Name="buttonDatabaseFields" Label="Benutzerdefinierte Felder" LargeImageSource="Images\DatabaseFields.png" SmallImageSource="Images\DatabaseFields.png" Command="sr:HitbaseCommands.EditDatabaseFields"  KeyTip="F" />
+                    </RibbonGroup>
+
+                    <RibbonGroup Header="Personen">
+                        <RibbonButton Name="buttonPersonGroups" Label="Personen und Gruppen" LargeImageSource="Images\PersonGroup.png" SmallImageSource="Images\PersonGroup.png" Command="sr:HitbaseCommands.EditPersonGroup"  KeyTip="P" />
+                        <RibbonButton Name="buttonRoles" Label="Rollen" LargeImageSource="Images\Roles.png" SmallImageSource="Images\Roles.png" Command="sr:HitbaseCommands.EditRoles"  KeyTip="R" />
+                    </RibbonGroup>
+
+                    <RibbonGroup Header="CD-Archiv">
+                        <RibbonButton Name="buttonCopyToCDArchive" Label="Ins CD-Archiv übertragen" LargeImageSource="Images\SendCatalogToInternet.png" SmallImageSource="Images\SendCatalogToInternet.png" Command="sr:HitbaseCommands.SendCatalogToInternet"  KeyTip="I"/>
+                        <RibbonButton Name="buttonBrowseCDArchive" Label="CD-Archiv durchsuchen" LargeImageSource="Images\BrowseCDArchive.png" SmallImageSource="Images\SendCatalogToInternet.png" Command="sr:HitbaseCommands.BrowseCDArchive"  KeyTip="D"/>
+                    </RibbonGroup>
+
+                    <RibbonGroup Header="Datenänderungen">
+                        <RibbonButton Name="buttonSearchAndReplace" Label="Suchen und Ersetzen" LargeImageSource="Images\SearchAndReplace.png" SmallImageSource="Images\SearchAndReplace.png" Command="sr:HitbaseCommands.SearchAndReplace"  KeyTip="E" />
+                        <RibbonButton Name="buttonCopyFields" Label="Feldübertragung" LargeImageSource="Images\CopyFields.png" SmallImageSource="Images\CopyFields.png" Command="sr:HitbaseCommands.CopyFields"  KeyTip="L" />
+                    </RibbonGroup>
+                </RibbonTab>
+                
+                <RibbonTab x:Name="ribbonTabItemCD" Header="CD" ContextualTabGroupHeader="CD" KeyTip="C" >
+                    <RibbonGroup Header="CD">
+                        <RibbonButton Name="buttonSaveCurrentCD" Label="CD speichern" Command="sr:HitbaseCommands.SaveCurrentCD" LargeImageSource="Images\SaveCD.png" SmallImageSource="Images\SaveCD.png" KeyTip="S">
+                            <RibbonButton.ToolTip>
+                                <RibbonToolTip Title="CD speichern (Strg+S)" Width="250" 
+                                    ImageSource="Images\SaveCD.png"
+                                    Description="Speichert die aktuell eingelegte CD."/>
+                            </RibbonButton.ToolTip>
+                        </RibbonButton>
+                        <RibbonButton Name="buttonPrintCurrentCD" Label="CD drucken" Command="sr:HitbaseCommands.PrintCD" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/PrintCD.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/PrintCD.png"   KeyTip="P" />
+                        <RibbonButton Name="buttonLinkCD" Label="Zuordnen" Command="sr:HitbaseCommands.LinkCD" LargeImageSource="Images\LinkCD.png" SmallImageSource="Images\LinkCD.png" KeyTip="Z" />
+                        <RibbonButton Name="buttonAdjustSpelling" Label="Schreibweise anpassen" Command="sr:HitbaseCommands.AdjustSpelling" LargeImageSource="Images\AdjustSpelling.png"  SmallImageSource="Images\AdjustSpelling.png" KeyTip="A">
+                            <RibbonButton.ToolTip>
+                                <RibbonToolTip Title="Schreibweise anpassen (F11)" Width="250" 
+                                    ImageSource="Images\AdjustSpelling.png"
+                                    Description="Die CD und Tracks der bevorzugten Schreibweise anpassen."/>
+                            </RibbonButton.ToolTip>
+                        </RibbonButton>
+                        <RibbonButton Name="buttonCopyCDArtistsToTracks"  Label="Alle Interpreten gleichsetzen" Command="sr:HitbaseCommands.CopyCDArtistToTracks" LargeImageSource="Images\CopyCDArtistToTracks.png" SmallImageSource="Images\CopyCDArtistToTracks.png"  KeyTip="I" />
+                        <RibbonButton Name="buttonCDEject" Label="CD auswerfen" Command="sr:HitbaseCommands.EjectCD" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/CDEject32.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/CDEject32.png"  KeyTip="E" />
+                        <RibbonButton Name="buttonPrintCDCover" Label="CD-Cover drucken" Command="sr:HitbaseCommands.PrintCDCover" LargeImageSource="/Big3.Hitbase.SharedResources;component/Images/PrintCDCover.png" SmallImageSource="/Big3.Hitbase.SharedResources;component/Images/PrintCDCover.png" KeyTip="V" />
+                    </RibbonGroup>
+                    <RibbonGroup Header="CD kopieren"  >
+                        <RibbonButton Name="buttonCopyCD" Label="CD kopieren" LargeImageSource="Images\CopyCD.png" SmallImageSource="Images\CopyCD.png" Command="sr:HitbaseCommands.StartRecord"  KeyTip="K" >
+                            <RibbonButton.ToolTip>
+                                <RibbonToolTip Title="CD kopieren (F9)" Width="250" 
+                                    ImageSource="Images\CopyCD.png"
+                                    Description="Kopiert den Inhalt der eingelegten CD auf die Festplatte. Format- und Qualitätseinstellungen können Sie unter &quot;Kopiereinstellungen&quot; vornehmen."/>
+                            </RibbonButton.ToolTip>
+                        </RibbonButton>
+                        <RibbonButton Name="buttonCopySelectedTracks" Label="Selektierte Tracks kopieren" LargeImageSource="Images\CopyCD.png" SmallImageSource="Images\CopyCD.png" Command="sr:HitbaseCommands.StartRecordSelectedTracks"  KeyTip="S" />
+                        <RibbonMenuButton Name="buttonCopyCDSettings" Label="Kopiereinstellungen" LargeImageSource="Images\CopyCDSettings.png" SmallImageSource="Images\CopyCDSettings.png" KeyTip="P">
+                            <RibbonMenuItem Header="Format">
+                                <RibbonMenuItem Header="MP3" Name="recordtypeMP3" IsCheckable="False" Click="recordMP3" />
+                                <RibbonMenuItem Header="WMA" Name="recordtypeWMA" IsCheckable="False" Click="recordWMA" />
+                                <RibbonMenuItem Header="OGG" Name="recordtypeOGG" IsCheckable="False" Click="recordOGG" />
+                                <RibbonMenuItem Header="FLAC" Name="recordtypeFLAC" IsCheckable="False" Click="recordFLAC" />
+                                <RibbonMenuItem Header="WAVE" Name="recordtypeWAVE" IsCheckable="False" Click="recordWAVE"  />
+                                <RibbonMenuItem Header="Benutzerdefiniert..." Name="recordtypeUSER" IsCheckable="False" Click="recordUSER" />
+                            </RibbonMenuItem>
+                            <RibbonMenuItem Name="recordQuality" Header="Qualität">
+                            </RibbonMenuItem>
+                            <RibbonMenuItem Header="Geschwindigkeit">
+                                <RibbonMenuItem Header="1x" Name="recordSpeed1x" IsCheckable="False" Command="sr:HitbaseCommands.SetRecordSpeed" CommandParameter="1" />
+                                <RibbonMenuItem Header="2x" Name="recordSpeed2x" IsCheckable="False" Command="sr:HitbaseCommands.SetRecordSpeed" CommandParameter="2" />
+                                <RibbonMenuItem Header="4x" Name="recordSpeed4x" IsCheckable="False" Command="sr:HitbaseCommands.SetRecordSpeed" CommandParameter="4" />
+                                <RibbonMenuItem Header="8x" Name="recordSpeed8x" IsCheckable="False" Command="sr:HitbaseCommands.SetRecordSpeed" CommandParameter="8" />
+                                <RibbonMenuItem Header="12x" Name="recordSpeed12x" IsCheckable="False" Command="sr:HitbaseCommands.SetRecordSpeed" CommandParameter="12" />
+                                <RibbonMenuItem Header="16x" Name="recordSpeed16x" IsCheckable="False" Command="sr:HitbaseCommands.SetRecordSpeed" CommandParameter="16" />
+                                <RibbonMenuItem Header="24x" Name="recordSpeed24x" IsCheckable="False" Command="sr:HitbaseCommands.SetRecordSpeed" CommandParameter="24" />
+                                <RibbonMenuItem Header="32x" Name="recordSpeed32x" IsCheckable="False" Command="sr:HitbaseCommands.SetRecordSpeed" CommandParameter="32" />
+                                <RibbonMenuItem Header="48x" Name="recordSpeed48x" IsCheckable="False" Command="sr:HitbaseCommands.SetRecordSpeed" CommandParameter="48" />
+                                <RibbonMenuItem Header="Max" Name="recordSpeedMax" IsCheckable="False" Command="sr:HitbaseCommands.SetRecordSpeed" CommandParameter="Max" />
+                            </RibbonMenuItem>
+                            <RibbonSeparator />
+                            <RibbonMenuItem Header="Normalisieren..." Name="recordNormalize" Command="sr:HitbaseCommands.ShowNormalizeOptions" />
+                            <RibbonMenuItem Header="CD automatisch kopieren" Name="recordAutoCDCopy" IsCheckable="True" Checked="recordAutoCDCopy_Checked" Unchecked="recordAutoCDCopy_Unchecked" />
+                            <RibbonMenuItem Header="CD nach kopieren auswerfen" Name="recordEjectAfterCopy" IsCheckable="True" Checked="recordEjectAfterCopy_Checked" Unchecked="recordEjectAfterCopy_Unchecked" />
+                            <RibbonMenuItem Header="Wiedergabeliste (M3U) erzeugen" Name="recordAutoCreateM3U" IsCheckable="True" Checked="recordAutoCreateM3U_Checked" Unchecked="recordAutoCreateM3U_Unchecked" />
+                            <RibbonMenuItem Header="CD-Cover im Zielordner speichern" Name="recordSaveCDCover" IsCheckable="True" Checked="recordSaveCDCover_Checked" Unchecked="recordSaveCDCover_Unchecked" />
+                            <RibbonSeparator />
+                            <RibbonMenuItem Header="Weitere Optionen..." Command="sr:HitbaseCommands.ShowRecordOptions" >
+                            </RibbonMenuItem>
+                        </RibbonMenuButton>
+                        
+                    </RibbonGroup>
+                    <RibbonGroup Header="CD-Archiv" >
+                        <RibbonButton Name="buttonSearchCDInCDArchive" Label="CD suchen" LargeImageSource="Images\SearchCDInInternet.png" SmallImageSource="Images\SearchCDInInternet.png" Command="sr:HitbaseCommands.SearchCDInCDArchive"  KeyTip="U" />
+                        <RibbonButton Name="buttonSendCDToCDArchive" Label="CD senden" LargeImageSource="Images\SendCDToInternet.png" SmallImageSource="Images\SendCDToInternet.png" Command="sr:HitbaseCommands.SendCDToCDArchive"  KeyTip="D" />
+
+                    </RibbonGroup>
+                    <RibbonGroup Name="GroupBoxRecordRunning" Header="CD kopieren" Visibility="Collapsed"  >
+                        <RibbonButton Name="buttonCancelRecord" Label="CD kopieren abbrechen" LargeImageSource="Images\CancelRecord.png" SmallImageSource="Images\CancelRecord.png" Command="sr:HitbaseCommands.CancelRecord"  KeyTip="B" />
+                    </RibbonGroup>
+                </RibbonTab>
+
+                <Ribbon.ContextualTabGroups>
+                    <RibbonContextualTabGroup Background="Green" x:Name="ribbonContextGroupCD" Header="CD" Visibility="Collapsed">
+                    </RibbonContextualTabGroup>
+                </Ribbon.ContextualTabGroups>
+
+            </Ribbon>
+            <DockPanel Grid.Row="1" TextElement.FontSize="12" TextElement.Foreground="{DynamicResource DefaultForeground}">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" >
+                    <mainControls:MainTreeUserControl Width="200" x:Name="mainTreeUserControl" />
+                    <Rectangle Name="ResizeGripperTree" Width="5" Cursor="SizeWE" MouseLeftButtonDown="ResizeGripperTree_MouseLeftButtonDown" MouseMove="ResizeGripperTree_MouseMove" MouseLeftButtonUp="ResizeGripperTree_MouseLeftButtonUp">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStopCollection>
+                                    <GradientStop Color="#00FFFFFF" Offset="0" />
+                                    <GradientStop Color="#80FFFFFF" Offset="0.5" />
+                                    <GradientStop Color="#00FFFFFF" Offset="1" />
+                                </GradientStopCollection>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </StackPanel>
+                
+                <!--Rechter bereich -->
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" >
+                    <Rectangle Name="ResizeGripperPlaylist" Fill="#30FFFFFF" Width="5" Cursor="SizeWE" MouseLeftButtonDown="ResizeGripperPlaylist_MouseLeftButtonDown" MouseMove="ResizeGripperPlaylist_MouseMove" MouseLeftButtonUp="ResizeGripperPlaylist_MouseLeftButtonUp">
+                    </Rectangle>
+                    <DockPanel x:Name="DockPanelRight" Width="200">
+                        <!-- Prelisten -->
+                        <mainControls:WishListUserControl Visibility="Collapsed" DockPanel.Dock="Bottom" Closed="Wishlist_Closed" Name="WishlistUserControl" />
+
+                        <!-- Prelisten -->
+                        <sgui:MiniPlayerUserControl Visibility="Collapsed" DockPanel.Dock="Bottom" Closed="PreListenPlayer_Closed" Name="PreListenPlayer" ></sgui:MiniPlayerUserControl>
+                        
+                        <!--Wiedergabeliste-->
+                        <mainControls:MainPlaylistUserControl x:Name="playlistControl" />
+                    </DockPanel>
+                </StackPanel>
+                
+                <Grid>
+                    <TabControl Name="tabControl" Style="{StaticResource MyTabControlStyle}" PreviewMouseLeftButtonDown="tabControl_PreviewMouseLeftButtonDown" MouseMove="tabControl_MouseMove" MouseLeftButtonUp="tabControl_MouseLeftButtonUp" SelectionChanged="tabControl_SelectionChanged" PreviewMouseDown="tabControl_PreviewMouseDown" >
+                    </TabControl>
+                </Grid>
+            </DockPanel>
+            <mainControls:PlayerUserControl Name="PlayerControl" Grid.Row="2"></mainControls:PlayerUserControl>
+            <StackPanel Visibility="Collapsed" Name="StatusPanel" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                <controls:WaitProgress WaitProgressColor="Black">
+                    <controls:WaitProgress.LayoutTransform>
+                        <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                    </controls:WaitProgress.LayoutTransform>
+                </controls:WaitProgress>
+                <StackPanel VerticalAlignment="Center" Margin="5,0,45,0" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"  >
+                    <TextBlock FontSize="10" Name="TextBlockStatus1" />
+                    <TextBlock FontSize="10" Name="TextBlockStatus2" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Canvas x:Name="OverlayPopupCanvas">
+        </Canvas>
+        <Grid x:Name="modalGrid" />
+    </Grid>
+</RibbonWindow>
