@@ -1,5 +1,7 @@
 # Hitbase 2012 - Die professionelle Software zur Verwaltung Ihrer Musiksammlung
 
+![Hitbase 2012](http://www.hitbase.de/hitbase/2012/images/Hitbase2012_large400.jpg)
+
 - Verwaltung für Ihre CD- und MP3-Sammlung! 
 - Spielen Sie Audio-Dateien ab! 
 - Erstellen Sie Wiedergabelisten! 
