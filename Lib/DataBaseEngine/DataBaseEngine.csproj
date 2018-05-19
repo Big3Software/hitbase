@@ -320,7 +320,6 @@
     </None>
     <None Include="GroupParticipantDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="GroupParticipantDataSet.xss">
       <DependentUpon>GroupParticipantDataSet.xsd</DependentUpon>
@@ -330,7 +329,6 @@
     </None>
     <None Include="PersonGroupCatalogViewDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="PersonGroupCatalogViewDataSet.xss">
       <DependentUpon>PersonGroupCatalogViewDataSet.xsd</DependentUpon>
@@ -341,7 +339,6 @@
     </None>
     <None Include="SearchDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="SearchDataSet.xss">
       <DependentUpon>SearchDataSet.xsd</DependentUpon>
@@ -351,7 +348,6 @@
     </None>
     <None Include="UrlDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="UrlDataSet.xss">
       <DependentUpon>UrlDataSet.xsd</DependentUpon>
@@ -364,7 +360,6 @@
     </None>
     <None Include="CategoryDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="CategoryDataSet.xss">
       <DependentUpon>CategoryDataSet.xsd</DependentUpon>
@@ -374,7 +369,6 @@
     </None>
     <None Include="CDDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="CDDataSet.xss">
       <DependentUpon>CDDataSet.xsd</DependentUpon>
@@ -384,7 +378,6 @@
     </None>
     <None Include="CDQueryDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="CDQueryDataSet.xss">
       <DependentUpon>CDQueryDataSet.xsd</DependentUpon>
@@ -394,7 +387,6 @@
     </None>
     <None Include="CDTreeDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="CDTreeDataSet.xss">
       <DependentUpon>CDTreeDataSet.xsd</DependentUpon>
@@ -404,7 +396,6 @@
     </None>
     <None Include="CodeDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="CodeDataSet.xss">
       <DependentUpon>CodeDataSet.xsd</DependentUpon>
@@ -414,7 +405,6 @@
     </None>
     <None Include="ConvertDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="ConvertDataSet.xss">
       <DependentUpon>ConvertDataSet.xsd</DependentUpon>
@@ -424,7 +414,6 @@
     </None>
     <None Include="DialogDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="DialogDataSet.xss">
       <DependentUpon>DialogDataSet.xsd</DependentUpon>
@@ -434,7 +423,6 @@
     </None>
     <None Include="IndexDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="IndexDataSet.xss">
       <DependentUpon>IndexDataSet.xsd</DependentUpon>
@@ -444,7 +432,6 @@
     </None>
     <None Include="LoanedCDDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="LoanedCDDataSet.xss">
       <DependentUpon>LoanedCDDataSet.xsd</DependentUpon>
@@ -454,7 +441,6 @@
     </None>
     <None Include="MasterDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="MasterDataSet.xss">
       <DependentUpon>MasterDataSet.xsd</DependentUpon>
@@ -464,7 +450,6 @@
     </None>
     <None Include="MediumDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="MediumDataSet.xss">
       <DependentUpon>MediumDataSet.xsd</DependentUpon>
@@ -474,7 +459,6 @@
     </None>
     <None Include="ParticipantDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="ParticipantDataSet.xss">
       <DependentUpon>ParticipantDataSet.xsd</DependentUpon>
@@ -484,7 +468,6 @@
     </None>
     <None Include="PersonGroupDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="PersonGroupDataSet.xss">
       <DependentUpon>PersonGroupDataSet.xsd</DependentUpon>
@@ -494,7 +477,6 @@
     </None>
     <None Include="ProgramDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="ProgramDataSet.xss">
       <DependentUpon>ProgramDataSet.xsd</DependentUpon>
@@ -508,7 +490,6 @@
     </None>
     <None Include="QueueDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="QueueDataSet.xss">
       <DependentUpon>QueueDataSet.xsd</DependentUpon>
@@ -518,7 +499,6 @@
     </None>
     <None Include="RoleDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="RoleDataSet.xss">
       <DependentUpon>RoleDataSet.xsd</DependentUpon>
@@ -528,7 +508,6 @@
     </None>
     <None Include="SetDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="SetDataSet.xss">
       <DependentUpon>SetDataSet.xsd</DependentUpon>
@@ -538,7 +517,6 @@
     </None>
     <None Include="TrackDataSet.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="TrackDataSet.xss">
       <DependentUpon>TrackDataSet.xsd</DependentUpon>
