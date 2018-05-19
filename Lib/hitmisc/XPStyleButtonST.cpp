@@ -4,7 +4,7 @@
 
 //#if(WINVER >= 0x0501)
 #ifdef	THEMEAPI
-#include <tmschema.h>
+//#include <tmschema.h>
 #include ".\xpstylebuttonst.h"
 #else
 #define	NO_THEMEAPI_FOUND
