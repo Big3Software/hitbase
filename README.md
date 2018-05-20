@@ -11,3 +11,18 @@
 - Brennen Sie Ihre Lieblingsstücke auf CD! 
 - Erzeugen Sie HTML-Seiten aus Ihrem Katalog! 
 - Durchstöbern Sie ihren Katalog auch online (my.Hitbase! Webdienst)! 
+
+<br />
+<br />
+
+# How to compile?
+
+Prereq:
+Install latest Visual Studio 2017
+(C++ / MFC / .Net 4.7.1)
+
+1. Open NativeLibs.sln and compile solution
+2. Open Hitbase.sln and compile solution
+
+Have fun! :smile:
+
